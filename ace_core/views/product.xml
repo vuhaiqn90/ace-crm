@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="ace_product_product_form_normal_view" model="ir.ui.view">
+        <field name="name">ace.product.product.form</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='default_code']" position="attributes">
+                <attribute name="required">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='default_code'][last()]" position="replace"/>
+        </field>
+    </record>
+
+    <record id="ace_product_template_only_form_view" model="ir.ui.view">
+        <field name="name">ace.product.template.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='default_code']" position="attributes">
+                <attribute name="required">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='default_code'][last()]" position="replace"/>
+        </field>
+    </record>
+
+    <record id="ace_product_info_form_view" model="ir.ui.view">
+        <field name="name">ace.product.template.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='type']" position="before">
+                <field name="default_code" required="1"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!--<record id="view_stock_landed_cost_type_form_inherit" model="ir.ui.view">-->
+        <!--<field name="name">stock.landed.cost.type.form.inherit</field>-->
+        <!--<field name="model">product.product</field>-->
+        <!--<field name="inherit_id" ref="stock_landed_costs.view_stock_landed_cost_type_form"/>-->
+        <!--<field name="arch" type="xml">-->
+            <!--<xpath expr="//field[@name='type']" position="after">-->
+                <!--<field name="default_code" required="1"/>-->
+            <!--</xpath>-->
+        <!--</field>-->
+    <!--</record>-->
+</odoo>

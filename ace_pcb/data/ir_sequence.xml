@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+        <!--<delete id="sale.seq_sale_order" model="ir.sequence"/>-->
+        <record id="sale.seq_sale_order" model="ir.sequence">
+            <field name="name">Sales Order</field>
+            <field name="code">sale.order</field>
+            <field name="prefix">%(range_year)s%(range_month)s%(range_day)s-MANV</field>
+            <field name="padding">2</field>
+            <field name="company_id" eval="False"/>
+            <field eval="True" name="use_date_range"/>
+        </record>
+    </data>
+</odoo>
