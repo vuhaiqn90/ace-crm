@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'ACECONOMY PCB-GRAPHTECH',
+    'name': 'ACECONOMY CRM RESELLER',
     'category': 'ACEconomy',
-    'author': 'vuhai@aceconomy.net',
+    'author': 'pcb-graphtech.com.vn',
     'description': '',
     'depends': [
-        'sale',
-        'ace_core',
+        'crm',
+        'ace_crm_core',
     ],
     'data': [
         'data/ir_sequence.xml',

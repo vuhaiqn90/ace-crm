@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'ACECONOMY BASE',
+    'name': 'ACECONOMY CRM PCB-GRAPHTECH',
     'category': 'ACEconomy',
-    'author': 'vuhai@aceconomy.net',
+    'author': 'pcb-graphtech.com.vn',
     'description': '',
     'depends': [
-        'product',
-        'stock',
+        'sale',
+        'ace_crm_core',
     ],
     'data': [
-        'views/product.xml',
-        'views/res_partner.xml',
+        'data/ir_sequence.xml',
+        'views/res_users.xml',
     ],
     'installable': True,
     'application': False,
