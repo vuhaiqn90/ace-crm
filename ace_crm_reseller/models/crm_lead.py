@@ -38,3 +38,18 @@ class CrmLead(models.Model):
             'search_default_opportunity_id': self.id,
         })
         return res
+
+    # To Do: Update Reseller From Opportunity
+    # @api.multi
+    # def action_set_won_rainbowman(self):
+    #     res = super(CrmLead, self).action_set_won_rainbowman()
+    #     for reseller in self.reseller_lines:
+    #         reseller.with_context({'run_from_parent': True}).action_set_won_rainbowman()
+    #     return res
+    #
+    # @api.multi
+    # def toggle_active(self):
+    #     res = super(CrmLead, self).toggle_active()
+    #     for reseller in self.search(['|', ('active', '=', False), ('active', '=', True)]):
+    #         reseller.with_context({'run_from_parent': True}).toggle_active()
+    #     return res

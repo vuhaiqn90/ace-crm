@@ -18,15 +18,17 @@
                                   'default_source_id': source_id}"/>
                     <button name="action_set_won_rainbowman" string="Mark Won"
                             type="object" class="oe_highlight"
-                            attrs="{'invisible': ['|', ('active','=',False), ('probability', '=', 100)]}"/>
+                            attrs="{'invisible': ['|', ('active','=',False), ('probability', '=', 100)]}"
+                    context="{'run_from_child': True}"/>
                     <button name="%(crm.crm_lead_lost_action)d" string="Mark Lost"
                             type="action" class="oe_highlight"
-                            context="{'default_lead_id': active_id}"
+                            context="{'default_lead_id': active_id, 'run_from_child': True}"
                             attrs="{'invisible': [('active', '=', False),('probability', '&lt;', 100)]}"/>
                     <button name="toggle_active"
                             string="Restore"
                             type="object"
-                            attrs="{'invisible': ['|', ('probability', '&gt;', 0), ('active', '=', True)]}"/>
+                            attrs="{'invisible': ['|', ('probability', '&gt;', 0), ('active', '=', True)]}"
+                    context="{'run_from_child': True}"/>
                     <field name="stage_id" widget="statusbar"
                            options="{'clickable': '1', 'fold_field': 'fold'}"
                            domain="['|', ('team_id', '=', team_id), ('team_id', '=', False)]"

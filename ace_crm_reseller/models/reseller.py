@@ -104,18 +104,15 @@ class AceOpportunityReseller(models.Model):
     @api.multi
     def action_set_won_rainbowman(self):
         res = super(AceOpportunityReseller, self).action_set_won_rainbowman()
-        self.parent_id.action_set_won_rainbowman()
-        return res
-
-    @api.multi
-    def action_set_won_rainbowman(self):
-        res = super(AceOpportunityReseller, self).action_set_won_rainbowman()
-        self.parent_id.action_set_won_rainbowman()
+        if not self.env.context.get('run_from_parent', False):
+            self.parent_id.action_set_won_rainbowman()
         return res
 
     @api.multi
     def toggle_active(self):
         res = super(AceOpportunityReseller, self).toggle_active()
-        self.parent_id.toggle_active()
+        if not self.env.context.get('run_from_parent', False):
+            self.parent_id.toggle_active()
         return res
+
 
