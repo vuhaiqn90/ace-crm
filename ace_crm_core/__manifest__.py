@@ -7,6 +7,11 @@
     'depends': [
         'product',
         'stock',
+        'calendar',
+        'crm',
+        'sale',
+        'sale_crm',
+        'crm_phonecall',
     ],
     'data': [
         'views/product.xml',

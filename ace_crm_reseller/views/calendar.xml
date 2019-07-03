@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_calendar_event_search_inherit" model="ir.ui.view">
+        <field name="name">view_calendar_event_search_inherit</field>
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="calendar.view_calendar_event_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='user_id']" position="after">
+                <field name="reseller_op_id"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

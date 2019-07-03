@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem
+        id="ace_reseller_opportunity"
+        name="Reseller List"
+        parent="crm.crm_menu_sales"
+        action="action_view_ace_opportunity_reseller"
+        sequence="20"/>
+</odoo>
