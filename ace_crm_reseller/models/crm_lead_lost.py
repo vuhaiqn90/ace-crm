@@ -37,7 +37,10 @@ class CrmLeadLost(models.TransientModel):
             resellers.parent_id.action_set_lost()
             resellers.action_set_lost()
             resellers.write({'lost_reason': self.lost_reason_id.id, 'active': True})
-            return True
+            return {
+                'type': 'ir.actions.act_view_reload',
+            }
+
         res = super(CrmLeadLost, self).action_lost_reason_apply()
         leads = self.env['crm.lead'].browse(self.env.context.get('active_ids'))
         for lead in leads:

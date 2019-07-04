@@ -5,6 +5,9 @@
         <field name="model">crm.lead</field>
         <field name="inherit_id" ref="crm.crm_case_form_view_oppor"/>
         <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="refresh_lead" type="object" string="Refresh"/>
+            </xpath>
             <xpath expr="//notebook" position="inside">
                 <page name="page_reseller" string="Reseller List">
                     <field name="reseller_lines" nolabel="1"

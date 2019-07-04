@@ -106,13 +106,21 @@ class AceOpportunityReseller(models.Model):
         res = super(AceOpportunityReseller, self).action_set_won_rainbowman()
         if not self.env.context.get('run_from_parent', False):
             self.parent_id.action_set_won_rainbowman()
-        return res
+        return {
+            'type': 'ir.actions.act_view_reload',
+        }
 
     @api.multi
     def toggle_active(self):
         res = super(AceOpportunityReseller, self).toggle_active()
         if not self.env.context.get('run_from_parent', False):
             self.parent_id.toggle_active()
-        return res
+        return {
+            'type': 'ir.actions.act_view_reload',
+        }
+
+    @api.multi
+    def do_refresh(self):
+        return True
 
 

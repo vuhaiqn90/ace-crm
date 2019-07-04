@@ -39,6 +39,10 @@ class CrmLead(models.Model):
         })
         return res
 
+    @api.multi
+    def refresh_lead(self):
+        return True
+
     # To Do: Update Reseller From Opportunity
     # @api.multi
     # def action_set_won_rainbowman(self):
