@@ -12,6 +12,10 @@
         'sale',
         'sale_crm',
         'crm_phonecall',
+        'web_group_by_percentage',
+        'web_tree_resize_column',
+        'web_widget_color',
+        'web_tree_dynamic_colored_field',
     ],
     'data': [
         'views/product.xml',

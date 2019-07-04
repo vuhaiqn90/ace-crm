@@ -62,8 +62,8 @@ class AceOpportunityReseller(models.Model):
     _name = 'ace.opportunity.reseller'
     _inherit = 'crm.lead'
 
-    partner_name = fields.Char(string='Reseller Name')
-    parent_id = fields.Many2one('crm.lead', string='Parent Opportunity', ondelete='cascade')
+    partner_id = fields.Many2one('res.partner', string='Reseller Name')
+    parent_id = fields.Many2one('crm.lead', string='Opportunity', ondelete='cascade')
     sale_amount_total = fields.Monetary(compute='_compute_sale_amount_total', string="Sum of Orders",
                                         help="Untaxed Total of Confirmed Orders", currency_field='company_currency')
     sale_number = fields.Integer(compute='_compute_sale_amount_total', string="Number of Quotations")
