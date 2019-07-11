@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ace_crm_lead_lc_user,ace.crm.lead.lc user,crm.model_crm_lead,group_pcb_lc,1,0,0,0
+access_ace_sale_order_lc_user,ace.sale.order.lc user,sale.model_sale_order,group_pcb_lc,1,0,0,0
+access_ace_sale_order_line_lc_user,ace.sale.order.line.lc user,sale.model_sale_order_line,group_pcb_lc,1,0,0,0
+access_crm_phonecall_line_lc_user,ace.crm.phonecall.lc user,crm_phonecall.model_crm_phonecall,group_pcb_lc,1,0,0,0
