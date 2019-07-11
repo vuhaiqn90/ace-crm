@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="sale_discount_validation_view_inherit" model="ir.ui.view">
+        <field name="name">sale_view_inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_shipping_id']" position="after">
+                <field name="can_approve" invisible="1"/>
+            </xpath>
+            <xpath expr="//button[@name='payment_action_void']" position="after">
+                <button name="send_to_approval" string="Send to Approval" type="object" states="draft"/>
+                <button name="action_approved" string="Approve" type="object"
+                        attrs="{'invisible': ['|', ('state', '!=', 'waiting'), ('can_approve', '=', False)]}"/>
+            </xpath>
+            <xpath expr="//button[@name='action_quotation_send']" position="attributes">
+                <attribute name="states">approved</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_quotation_send'][last()]" position="attributes">
+                <attribute name="states">approved</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_confirm']" position="attributes">
+                <attribute name="attrs">{'invisible': [('state', 'not in', ['sent', 'approved'])]}</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_confirm'][last()]" position="attributes">
+                <attribute name="attrs">{}</attribute>
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

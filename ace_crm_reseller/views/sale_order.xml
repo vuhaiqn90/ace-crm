@@ -31,6 +31,9 @@
             <xpath expr="//group[@name='technical']" position="inside">
                 <field name="reseller_op_id" groups="base.group_no_one"/>
             </xpath>
+            <xpath expr="//field[@name='partner_id']/.." position="inside">
+                <field name="primary"/>
+            </xpath>
         </field>
     </record>
 </odoo>
