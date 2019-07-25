@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="esms_status_103" model="sms.message.status">
+            <field name="name">Số dư tài khoản không đủ dể gửi tin.</field>
+            <field name="code">103</field>
+            <field name="gateway_id" ref="ace_sms.esms_gateway"/>
+        </record>
+
+        <record id="esms_status_102" model="sms.message.status">
+            <field name="name">Tài khoản đã bị khóa.</field>
+            <field name="code">102</field>
+            <field name="gateway_id" ref="ace_sms.esms_gateway"/>
+        </record>
+
+        <record id="esms_status_101" model="sms.message.status">
+            <field name="name">Đăng nhập thất bại (api key hoặc secrect key không đúng)</field>
+            <field name="code">101</field>
+            <field name="gateway_id" ref="ace_sms.esms_gateway"/>
+        </record>
+
+
+        <record id="esms_status_100" model="sms.message.status">
+            <field name="name">Request đã được nhận và xử lý thành công.</field>
+            <field name="code">100</field>
+            <field name="gateway_id" ref="ace_sms.esms_gateway"/>
+        </record>
+
+        <record id="esms_status_104" model="sms.message.status">
+            <field name="name">Brandname không tồn tại hoặc đã bị hủy</field>
+            <field name="code">104</field>
+            <field name="gateway_id" ref="ace_sms.esms_gateway"/>
+        </record>
+
+        <record id="esms_status_118" model="sms.message.status">
+            <field name="name">Loại tin nhắn không hợp lệ</field>
+            <field name="code">118</field>
+            <field name="gateway_id" ref="ace_sms.esms_gateway"/>
+        </record>
+
+        <record id="esms_status_119" model="sms.message.status">
+            <field name="name">Brandname quảng cáo phải gửi ít nhất 20 số điện thoại</field>
+            <field name="code">119</field>
+            <field name="gateway_id" ref="ace_sms.esms_gateway"/>
+        </record>
+
+        <record id="esms_status_131" model="sms.message.status">
+            <field name="name">Tin nhắn brandname quảng cáo độ dài tối đa 422 kí tự</field>
+            <field name="code">131</field>
+            <field name="gateway_id" ref="ace_sms.esms_gateway"/>
+        </record>
+
+        <record id="esms_status_132" model="sms.message.status">
+            <field name="name">Không có quyền gửi tin nhắn đầu số cố định 8755</field>
+            <field name="code">132</field>
+            <field name="gateway_id" ref="ace_sms.esms_gateway"/>
+        </record>
+
+        <record id="esms_status_99" model="sms.message.status">
+            <field name="name">Lỗi không xác định</field>
+            <field name="code">99</field>
+            <field name="gateway_id" ref="ace_sms.esms_gateway"/>
+        </record>
+
+        <record id="esms_status_9999" model="sms.message.status">
+            <field name="name">SI Chưa gửi được</field>
+            <field name="code">-9999</field>
+            <field name="gateway_id" ref="ace_sms.esms_gateway"/>
+        </record>
+
+        <record id="esms_message_status_1" model="sms.message.status">
+            <field name="name">Đang chờ duyệt</field>
+            <field name="code">1</field>
+            <field name="gateway_id" ref="ace_sms.esms_gateway"/>
+        </record>
+
+        <record id="esms_message_status_2" model="sms.message.status">
+            <field name="name">Đang chờ gửi</field>
+            <field name="code">2</field>
+            <field name="gateway_id" ref="ace_sms.esms_gateway"/>
+        </record>
+
+        <record id="esms_message_status_3" model="sms.message.status">
+            <field name="name">Đang gửi</field>
+            <field name="code">3</field>
+            <field name="gateway_id" ref="ace_sms.esms_gateway"/>
+        </record>
+
+        <record id="esms_message_status_4" model="sms.message.status">
+            <field name="name">Bị từ chối</field>
+            <field name="code">4</field>
+            <field name="gateway_id" ref="ace_sms.esms_gateway"/>
+        </record>
+
+        <record id="esms_message_status_4" model="sms.message.status">
+            <field name="name">Bị từ chối</field>
+            <field name="code">4</field>
+            <field name="gateway_id" ref="ace_sms.esms_gateway"/>
+        </record>
+
+        <record id="esms_message_status_5" model="sms.message.status">
+            <field name="name">Đã gửi xong</field>
+            <field name="code">5</field>
+            <field name="gateway_id" ref="ace_sms.esms_gateway"/>
+        </record>
+
+        <record id="esms_message_status_6" model="sms.message.status">
+            <field name="name">Đã bị xóa</field>
+            <field name="code">6</field>
+            <field name="gateway_id" ref="ace_sms.esms_gateway"/>
+        </record>
+
+
+    </data>
+</odoo>
