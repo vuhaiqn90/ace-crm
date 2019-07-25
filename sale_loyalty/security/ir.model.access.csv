@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sale_loyalty_program,access_sale_loyalty_program,model_sale_loyalty_program,base.group_user,1,1,1,0
+access_sale_loyalty_rule,access_sale_loyalty_rule,model_sale_loyalty_rule,base.group_user,1,1,1,0
+access_sale_loyalty_reward,access_sale_loyalty_reward,model_sale_loyalty_reward,base.group_user,1,1,1,0
