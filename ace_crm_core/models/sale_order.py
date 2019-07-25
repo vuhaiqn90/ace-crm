@@ -30,9 +30,9 @@ class SaleOrder(models.Model):
     @api.depends('state', 'order_line.invoice_status', 'order_line.invoice_lines')
     def _get_invoiced_amount(self):
         for so in self:
-            sum = sum([so.amount_total for line in so.invoice_ids])
+            total = sum([so.amount_total for line in so.invoice_ids])
             so.update({
-                'invoiced_amount': sum
+                'invoiced_amount': total
             })
 
     _inherit = 'sale.order'
