@@ -103,8 +103,9 @@ class AceOpportunityReseller(models.Model):
 
     @api.multi
     def action_set_won_rainbowman(self):
+        self.ensure_one()
         res = super(AceOpportunityReseller, self).action_set_won_rainbowman()
-        if not self.env.context.get('run_from_parent', False):
+        if not self.env.context.get('run_from_parent', False) and self.parent_id:
             self.parent_id.action_set_won_rainbowman()
         return {
             'type': 'ir.actions.act_view_reload',
@@ -112,8 +113,9 @@ class AceOpportunityReseller(models.Model):
 
     @api.multi
     def toggle_active(self):
+        self.ensure_one()
         res = super(AceOpportunityReseller, self).toggle_active()
-        if not self.env.context.get('run_from_parent', False):
+        if not self.env.context.get('run_from_parent', False) and self.parent_id:
             self.parent_id.toggle_active()
         return {
             'type': 'ir.actions.act_view_reload',

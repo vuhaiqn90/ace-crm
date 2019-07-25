@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+      <record id="sms_message_view_form" model="ir.ui.view">
+          <field name="name">sms.message.view.form</field>
+          <field name="model">sms.message</field>
+          <field name="arch" type="xml">
+      	      <form create="false" edit="false" string="SMS Messages">
+                  <header>
+                      <button class="oe_highlight" name="get_status" type="object" string="Cập nhật trạng thái"/>
+                  </header>
+                  <sheet>
+                      <group>
+                          <group>
+                              <field name="message_date"/>
+                              <field name="sms_gateway_message_id"/>
+                              <field name="model_id"/>
+                              <field name="record_id"/>
+                              <field name="by_partner_id"/>
+                          </group>
+                          <group>
+                              <field name="record_name"/>
+                              <field name="brand_id"/>
+                              <field name="to_mobile"/>
+                              <field name="status_id"/>
+                              <field name="sms_content"/>
+                          </group>
+                      </group>
+
+                  </sheet>
+
+
+      	      </form>
+      	  </field>
+      </record>
+
+      <record id="sms_message_view_tree" model="ir.ui.view">
+          <field name="name">sms.message.view.tree</field>
+          <field name="model">sms.message</field>
+          <field name="arch" type="xml">
+      	      <tree edit="false" create="false">
+      	          <field name="record_name"/>
+                  <field name="by_partner_id"/>
+      	          <field name="sms_gateway_message_id"/>
+      	          <field name="brand_id"/>
+      	          <field name="message_date"/>
+      	          <field name="to_mobile"/>
+      	          <field name="status_id"/>
+      	          <field name="sms_content"/>
+      	      </tree>
+      	  </field>
+      </record>
+
+      <record id="sms_message_action" model="ir.actions.act_window">
+          <field name="name">sms.message.action</field>
+          <field name="res_model">sms.message</field>
+          <field name="view_type">form</field>
+          <field name="view_mode">tree,form</field>
+          <field name="help" type="html">
+      	      <p class="oe_view_nocontent_create">SMS Messages</p>
+      	  </field>
+      </record>
+
+
+
+   </data>
+</odoo>

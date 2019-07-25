@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="ace_crm_caresoft.embed_frame">
+        <div class="caresoft_embed_frame col-xs-12 col-md-12 col-lg-12 col-sm-8">
+            <iframe src="https://web2.caresoft.vn/DEMO.HCM" style="width: 100%;height: 100%;">
+
+            </iframe>
+        </div>
+    </t>
+</templates>
