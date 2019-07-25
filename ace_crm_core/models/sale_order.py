@@ -30,7 +30,7 @@ class SaleOrder(models.Model):
     @api.depends('state', 'order_line.invoice_status', 'order_line.invoice_lines')
     def _get_invoiced_amount(self):
         for so in self:
-            total = sum([so.amount_total for line in so.invoice_ids])
+            total = sum([so.amount_total for line in so.invoice_ids if line.state == 'paid'])
             so.update({
                 'invoiced_amount': total
             })
