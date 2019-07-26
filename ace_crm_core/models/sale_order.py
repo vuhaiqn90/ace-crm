@@ -52,6 +52,7 @@ class SaleOrder(models.Model):
                     'product_id': line.product_id.id,
                     'name': line.name,
                     'product_uom_qty': line.product_qty,
+                    'product_uom': line.product_id.uom_id.id,
                     'price_unit': line.price_unit,
                 }) for line in lead_id.lead_line_ids]
             })

@@ -27,9 +27,9 @@ class SmsMarketing(models.Model):
     @api.multi
     def send_sms(self):
         for partner in self.partner_ids:
-            if not partner.mobile:
+            if not partner.phone:
                 continue
-            my_sms = self.brand_id.send_message(partner.mobile, self.sms_content.encode('utf-8'))
+            my_sms = self.brand_id.send_message(partner.phone, self.sms_content.encode('utf-8'))
 
             status = self.env['sms.message.status'].get_status(self.brand_id.gateway_id.id)
             # for single smses we only record succesful sms, failed ones reopen the form with the error message
@@ -37,7 +37,7 @@ class SmsMarketing(models.Model):
                 'record_id': False,
                 'model_id': False,
                 'brand_id': self.brand_id.id,
-                'to_mobile': partner.mobile,
+                'to_mobile': partner.phone,
                 'sms_content': self.sms_content,
                 'message_date': datetime.utcnow(),
                 'status_id': status.get(my_sms.get('CodeResponse', False) or my_sms.get('CodeResult', False), False),
