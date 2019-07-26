@@ -18,6 +18,7 @@
         'web_tree_dynamic_colored_field',
         'web_ir_actions_act_view_reload',
         'im_livechat',
+        'crm_lead_product',
     ],
     'data': [
         'views/product.xml',
