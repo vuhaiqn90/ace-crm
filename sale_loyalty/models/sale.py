@@ -64,12 +64,11 @@ class SaleOrder(models.Model):
                         points += (pp_currency_point + pp_product_point)
                     order.points_won = points
             if order.partner_id:
-                try:
-                    self.env.cr.execute("""update sale_order set temp_points_won = %s where id = %s""" % (points, order.id))
-                    self.env.cr.execute("""update sale_order set temp_points_total = %s where id = %s""" % (points, order.id))
-                except:
-                    pass
+                # self.env.cr.execute("""update sale_order set temp_points_won = %s where id = %s""" % (points, order.id))
+                # self.env.cr.execute("""update sale_order set temp_points_total = %s where id = %s""" % (points, order.id))
                 # order.temp_points_won = order.points_won
+                order.write({'temp_points_won': points,
+                             'temp_points_total': points})
 
     @api.onchange('partner_id')
     def onchange_partner_id(self):
