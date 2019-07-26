@@ -64,7 +64,8 @@ class SaleOrder(models.Model):
                         points += (pp_currency_point + pp_product_point)
                     order.points_won = points
             if order.partner_id:
-                order.temp_points_won = order.points_won
+                self.env.cr.execute("""update sale_order set temp_points_won = %s where id = %s""" % (points, order.id))
+                # order.temp_points_won = order.points_won
 
     @api.onchange('partner_id')
     def onchange_partner_id(self):
