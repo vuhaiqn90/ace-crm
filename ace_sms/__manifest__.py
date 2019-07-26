@@ -26,6 +26,8 @@
         'views/sms_message_status_view.xml',
         'views/sms_message_view.xml',
         'views/sms_template_view.xml',
+        'views/sms_marketing_group_view.xml',
+        'views/sms_marketing_view.xml',
 
         # security
         'security/ir.model.access.csv',

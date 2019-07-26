@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="sms_marketing_group_view_form" model="ir.ui.view">
+        <field name="name">sms.marketing.group.view.form</field>
+        <field name="model">sms.marketing.group</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="name" required="1"/>
+                </group>
+                <notebook>
+                    <page name="partner" string="Partners">
+                        <field name="partner_ids">
+                            <tree>
+                                <field name="ref"/>
+                                <field name="name"/>
+                                <field name="mobile"/>
+                                <field name="phone"/>
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+            </form>
+        </field>
+    </record>
+
+    <record id="sms_marketing_group_view_tree" model="ir.ui.view">
+        <field name="name">sms.marketing.group.view.tree</field>
+        <field name="model">sms.marketing.group</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="partner_ids" widget="many2many_tags"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="sms_marketing_group_action" model="ir.actions.act_window">
+        <field name="name">SMS Marketing Group</field>
+        <field name="res_model">sms.marketing.group</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">Add SMS Marketing Group</p>
+        </field>
+    </record>
+</odoo>

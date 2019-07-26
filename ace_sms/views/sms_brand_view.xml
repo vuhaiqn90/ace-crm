@@ -33,7 +33,7 @@
         </record>
 
         <record id="sms_brand_action" model="ir.actions.act_window">
-            <field name="name">sms.brand.action</field>
+            <field name="name">SMS Brand</field>
             <field name="res_model">sms.brand</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>

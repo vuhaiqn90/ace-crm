@@ -10,3 +10,5 @@ from. import sms_compose
 from. import sms_template
 from. import esms_request
 from. import sale_order
+from . import sms_marketing_group
+from . import sms_marketing

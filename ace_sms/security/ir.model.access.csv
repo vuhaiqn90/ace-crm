@@ -8,3 +8,8 @@
 "access_sms_gateway_system","access_sms_gateway_system","model_sms_gateway","base.group_system",1,1,1,1
 "access_sms_template","access_sms_template","model_sms_template",,1,1,1,1
 "access_sms_compose","access_sms_compose","model_sms_compose",,1,1,1,1
+
+"access_sms_marketing_group_user","access_sms_marketing_group user","model_sms_marketing_group","base.group_user",1,0,0,0
+"access_sms_marketing_group_manager","access_sms_marketing_group manager","model_sms_marketing_group","base.group_system",1,1,1,1
+"access_sms_marketing_user","access_sms_marketing user","model_sms_marketing","base.group_user",1,0,0,0
+"access_sms_marketing_manager","access_sms_marketing manager","model_sms_marketing","base.group_system",1,1,1,1

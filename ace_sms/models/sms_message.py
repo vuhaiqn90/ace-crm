@@ -21,6 +21,8 @@ class SmsMessage(models.Model):
     status_id = fields.Many2one('sms.message.status', 'Status')
     sms_gateway_message_id = fields.Char(string="SMS Gateway Message ID", readonly=True)
     message_date = fields.Datetime(string="Send/Receive Date", readonly=True, help="The date and time the sms is received or sent")
+    marketing_id = fields.Many2one('sms.marketing', "SMS Marketing")
+    partner_id = fields.Many2one('res.partner', "Partner")
 
     @api.one
     @api.depends('to_mobile', 'model_id', 'record_id')

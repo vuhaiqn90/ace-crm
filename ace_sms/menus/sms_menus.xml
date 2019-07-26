@@ -42,5 +42,17 @@
                   action="sms_template_action"
                   sequence="40"/>
 
+        <menuitem id="sms_marketing_group_menu"
+                  name="SMS Marketing Group"
+                  parent="sms_parent_menu"
+                  action="sms_marketing_group_action"
+                  sequence="45"/>
+
+        <menuitem id="sms_marketing_menu"
+                  name="SMS Marketing"
+                  parent="sms_parent_menu"
+                  action="sms_marketing_action"
+                  sequence="50"/>
+
     </data>
 </odoo>

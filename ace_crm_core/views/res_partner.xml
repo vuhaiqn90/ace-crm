@@ -15,6 +15,12 @@
             <xpath expr="//field[@name='child_ids']//kanban//div[hasclass('oe_kanban_details')]//field[@name='name']" position="after">
                 <div><field name="ref"/></div>
             </xpath>
+            <button name="toggle_active" position="before">
+                <button class="oe_stat_button" type="object" name="open_live_chat" icon="fa-comments"
+                        attrs="{'invisible': [('live_chat_count', '=', 0)]}">
+                    <field string="Live Chat" name="live_chat_count" widget="statinfo"/>
+                </button>
+            </button>
         </field>
     </record>
 
