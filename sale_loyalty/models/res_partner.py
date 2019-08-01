@@ -13,7 +13,7 @@ class ResPartner(models.Model):
             membership_id = self.env['membership.level'].search([('point', '<=', partner.loyalty_points)],
                                                                 order='point desc', limit=1)
             if membership_id and (not partner.membership_id or partner.membership_id.point < partner.loyalty_points):
-                partner.membership_id = membership_id.id
+                # partner.membership_id = membership_id.id
                 self._cr.execute("""UPDATE res_partner SET membership_id = %s WHERE id = %s""",
                                  (membership_id.id, partner.id))
         return res
