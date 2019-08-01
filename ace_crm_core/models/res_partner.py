@@ -6,6 +6,27 @@ from odoo.exceptions import UserError, ValidationError, Warning
 class ResPartner(models.Model):
     _inherit = 'res.partner'
 
+    live_chat_count = fields.Integer(compute='_compute_live_chat_count')
+    live_chat_ids = fields.Many2many('mail.channel', compute='_compute_live_chat_count')
+
+    @api.multi
+    def _compute_live_chat_count(self):
+        for partner in self:
+            message_ids = self.env['mail.message'].sudo().search([
+                ('model', '=', 'mail.channel'),
+                ('author_id', '=', partner.id),
+                ('subtype_id', '=', self.env.ref('mail.mt_comment').id)
+            ])
+            live_chat_ids = message_ids.mapped('res_id')
+            partner.live_chat_count = len(live_chat_ids)
+            partner.live_chat_ids = live_chat_ids and [(6, 0, live_chat_ids.ids)] or False
+
+    @api.multi
+    def open_live_chat(self):
+        action = self.env.ref('im_livechat.mail_channel_action_from_livechat_channel').read()[0]
+        action['domain'] = [('id', 'in', self.live_chat_ids and self.live_chat_ids.ids or [])]
+        return action
+
     # @api.constrains('ref', 'parent_id')
     # def _check_valid_customer(self):
     #     if not self.ref and not self.parent_id:

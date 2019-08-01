@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+      <record id="sms_message_status_view_form" model="ir.ui.view">
+          <field name="name">sms.message.status.view.form</field>
+          <field name="model">sms.message.status</field>
+          <field name="arch" type="xml">
+      	      <form>
+      	          <group>
+      	              <field name="name" required="1"/>
+                      <field name="code" required="1"/>
+                      <field name="gateway_id" required="1"/>
+      	          </group>
+      	      </form>
+      	  </field>
+      </record>
+
+      <record id="sms_message_status_view_tree" model="ir.ui.view">
+          <field name="name">sms.message.status.view.tree</field>
+          <field name="model">sms.message.status</field>
+          <field name="arch" type="xml">
+      	      <tree>
+      	          <field name="name"/>
+                  <field name="code"/>
+                  <field name="gateway_id"/>
+      	      </tree>
+      	  </field>
+      </record>
+      
+      <record id="sms_message_status_action" model="ir.actions.act_window">
+          <field name="name">SMS Status</field>
+          <field name="res_model">sms.message.status</field>
+          <field name="view_type">form</field>
+          <field name="view_mode">tree,form</field>
+	  <field name="help" type="html">
+		<p>
+                    List of stored mobile numbers.
+                </p>
+      	  </field>
+      </record>
+
+
+   
+   </data>
+</odoo>

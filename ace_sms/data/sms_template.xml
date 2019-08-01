@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="sms_template_res_partner_send" model="sms.template">
+            <field name="name">Res Partner - send SMS</field>
+            <field name="model_id" search="[('model','=','res.partner')]" model="ir.model"/>
+            <field name="sms_brand"/>
+            <field name="sms_to">${object.phone}</field>
+            <field name="model_object_field_id"></field>
+            <field name="sub_object_id"></field>
+            <field name="sub_model_object_field_id"></field>
+            <field name="null_value"></field>
+            <field name="lang"></field>
+            <field name="from_mobile"></field>
+            <field name="template_body"><![CDATA[
+Dear ${object.name},
+Bạn đã nhận được tin nhắn test
+Thank you
+                ]]>
+            </field>
+        </record>
+
+        <record id="sms_template_so_send" model="sms.template">
+            <field name="name">Sale order - send SMS</field>
+            <field name="model_id" search="[('model','=','sale.order')]" model="ir.model"/>
+            <field name="sms_brand"/>
+            <field name="sms_to">${object.partner_id.phone}</field>
+            <field name="model_object_field_id"></field>
+            <field name="sub_object_id"></field>
+            <field name="sub_model_object_field_id"></field>
+            <field name="null_value"></field>
+            <field name="lang"></field>
+            <field name="from_mobile"></field>
+            <field name="template_body"><![CDATA[
+Bạn đã nhận được được mã dự thưởng ${object.name}
+                ]]>
+            </field>
+        </record>
+    </data>
+</odoo>

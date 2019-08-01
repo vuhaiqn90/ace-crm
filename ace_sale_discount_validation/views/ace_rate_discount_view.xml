@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_ace_rate_discount_tree" model="ir.ui.view">
+        <field name="name">view.ace.rate.discount.tree</field>
+        <field name="model">ace.rate.discount</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree editable="top">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="rate" required="1"/>
+                <field name="user_ids" widget="many2many_tags" required="1"
+                       options="{'no_quick_create': True, 'no_create': True, 'no_open': True}"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_view_ace_rate_discount" model="ir.actions.act_window">
+        <field name="name">Rate Discount</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ace.rate.discount</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <menuitem id="ace_rate_discount_menu" parent="sale.menu_sale_config"
+              action="action_view_ace_rate_discount"/>
+</odoo>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="esms_gateway" model="sms.gateway">
+            <field name="name">ESMS</field>
+            <field name="base_url">http://rest.esms.vn/MainService.svc/json/</field>
+            <field name="api_key">A0D9ABAEF0EAFA4012F55205A5BEDC</field>
+            <field name="secret_key">D87B2A3E38DC5DE1633D9B16D57019</field>
+        </record>
+
+
+    </data>
+</odoo>

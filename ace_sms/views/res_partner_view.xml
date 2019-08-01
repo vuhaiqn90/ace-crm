@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+                
+        <act_window
+            id="act_send_sms_partner_menu"
+            name="Gửi SMS"
+            res_model="sms.compose"
+            src_model="res.partner"
+            view_mode="form"
+            target="new"
+            limit="1"
+            view_type="form"
+            groups="base.group_no_one"
+            context="{'default_field_id': 'mobile','default_to_number': mobile, 'default_record_id': active_id, 'default_model': active_model}"
+         />
+        
+        <record id="view_partner_form_inherit_sms_frame" model="ir.ui.view">
+            <field name="name">view.partner.form.inherit.sms.frame</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+      	        <field name="mobile" position="attributes">
+                    <attribute name="placeholder">e.g. 090 609 4896</attribute>
+      	        </field>
+                <button name="toggle_active" position="before">
+                    <button class="oe_stat_button" type="object" name="open_sms_messages" icon="fa-sms"
+                            attrs="{'invisible': [('sms_message_count', '=', 0)]}">
+                        <field string="SMS Message" name="sms_message_count" widget="statinfo"/>
+                    </button>
+                </button>
+      	    </field>
+        </record>
+        
+    </data>
+</odoo>

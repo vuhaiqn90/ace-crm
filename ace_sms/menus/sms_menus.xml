@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem id="sms_parent_menu"
+                  name="SMS"
+                  sequence="1" groups="base.group_no_one"
+                  web_icon="ace_sms,static/description/modules.png"/>
+
+        <menuitem id="sms_gateway_menu"
+                  name="SMS Gateway"
+                  parent="sms_parent_menu"
+                  action="sms_gateway_action"
+                  sequence="1"/>
+
+        <menuitem id="sms_brand_menu"
+                  name="SMS Brands"
+                  parent="sms_parent_menu"
+                  action="sms_brand_action"
+                  sequence="10"/>
+
+        <menuitem id="sms_message_status_menu"
+                  name="SMS Message Status"
+                  parent="sms_parent_menu"
+                  action="sms_message_status_action"
+                  sequence="20"/>
+        <menuitem id="sms_message_menu"
+                  name="SMS Messages"
+                  parent="sms_parent_menu"
+                  action="sms_message_action"
+                  sequence="30"/>
+
+        <menuitem id="sms_compose_menu"
+                  name="SMS Compose"
+                  parent="sms_parent_menu"
+                  action="sms_compose_action"
+                  sequence="31"/>
+
+        <menuitem id="sms_template_menu"
+                  name="SMS Templates"
+                  parent="sms_parent_menu"
+                  action="sms_template_action"
+                  sequence="40"/>
+
+        <menuitem id="sms_marketing_group_menu"
+                  name="SMS Marketing Group"
+                  parent="sms_parent_menu"
+                  action="sms_marketing_group_action"
+                  sequence="45"/>
+
+        <menuitem id="sms_marketing_menu"
+                  name="SMS Marketing"
+                  parent="sms_parent_menu"
+                  action="sms_marketing_action"
+                  sequence="50"/>
+
+    </data>
+</odoo>
