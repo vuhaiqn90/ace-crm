@@ -17,6 +17,7 @@
         'security/record_rules.xml',
         'views/res_users.xml',
         'views/menu.xml',
+        'views/crm_lead_view.xml',
     ],
     'installable': True,
     'application': False,

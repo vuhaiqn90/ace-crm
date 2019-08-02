@@ -30,6 +30,8 @@ _logger = logging.getLogger(__name__)
 class CrmLead(models.Model):
     _inherit = 'crm.lead'
 
+    log_last_updated = fields.Datetime(string="Log Last Updated On", compute='get_log_last_updated', store=True)
+
     @api.model
     def fields_view_get(self, view_id=None, view_type='form', toolbar=False, submenu=False):
         res = super(CrmLead, self).fields_view_get(view_id=view_id, view_type=view_type, toolbar=toolbar, submenu=submenu)
@@ -53,3 +55,7 @@ class CrmLead(models.Model):
             res['arch'] = etree.tostring(doc, encoding='unicode')
         return res
 
+    @api.depends('message_ids')
+    def get_log_last_updated(self):
+        for lead in self:
+            lead.log_last_updated = lead.message_ids and lead.message_ids[0].date or False
