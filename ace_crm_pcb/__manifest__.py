@@ -11,6 +11,7 @@
     'data': [
         'data/ir_sequence.xml',
         'views/res_users.xml',
+        'views/crm_lead_view.xml',
     ],
     'installable': True,
     'application': False,
