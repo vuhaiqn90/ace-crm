@@ -11,6 +11,7 @@
 
                 <tree string="Product Variants">
                     <!-- <field name="default_code"/> -->
+                    <field name="type" invisible="1"/>
                     <field name="name"/>
                     <field name="attribute_value_ids" widget="many2many_tags" groups="product.group_product_variant"/>
                     <field name="lst_price"/>
