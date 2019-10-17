@@ -1,0 +1,29 @@
+id	name	model_id:id	group_id:id	perm_read	perm_write	perm_create	perm_unlink
+access_tour_preference_manager	tour.preference	model_tour_preference	tour_travel.group_tour_manager	1	1	1	1
+access_custom_tour_itinarary_manager	custom.tour.itinarary	model_custom_tour_itinarary	tour_travel.group_tour_manager	1	1	1	1
+access_custom_tour_transport_manager	custom.tour.transport	model_custom_tour_transport	tour_travel.group_tour_manager	1	1	1	1
+access_custom_tour_destination_manager	custom.tour.destination	model_custom_tour_destination	tour_travel.group_tour_manager	1	1	1	1
+access_custom_tour_site_manager	custom.tour.site	model_custom_tour_site	tour_travel.group_tour_manager	1	1	1	1
+access_custom_tour_programme_manager	custom.tour.programme	model_custom_tour_programme	tour_travel.group_tour_manager	1	1	1	1
+access_travel_planer_details_manager	travel.planer.details	model_travel_planer_details	tour_travel.group_tour_manager	1	1	1	1
+access_hotel_planer_details_manager	hotel.planer.details	model_hotel_planer_details	tour_travel.group_tour_manager	1	1	1	1
+access_sites_costing_line_manager	sites.costing.line	model_sites_costing_line	tour_travel.group_tour_manager	1	1	1	1
+access_visa_costing_line_manager	visa.costing.line	model_visa_costing_line	tour_travel.group_tour_manager	1	1	1	1
+access_tour_service_line_details_manager	tour.service.line.details	model_tour_service_line_details	tour_travel.group_tour_manager	1	1	1	1
+access_itinerary_lead_history_manager	itinerary.lead.history	model_itinerary_lead_history	tour_travel.group_tour_manager	1	1	1	1
+access_tour_days_manager	tour.days	model_tour_days	tour_travel.group_tour_manager	1	1	1	1
+							
+							
+access_tour_preference_user	tour.preference	model_tour_preference	tour_travel.group_tour_user	1	1	1	1
+access_custom_tour_itinarary_user	custom.tour.itinarary	model_custom_tour_itinarary	tour_travel.group_tour_user	1	1	1	1
+access_custom_tour_transport_user	custom.tour.transport	model_custom_tour_transport	tour_travel.group_tour_user	1	1	1	1
+access_custom_tour_destination_user	custom.tour.destination	model_custom_tour_destination	tour_travel.group_tour_user	1	1	1	1
+access_custom_tour_site_user	custom.tour.site	model_custom_tour_site	tour_travel.group_tour_user	1	1	1	1
+access_custom_tour_programme_user	custom.tour.programme	model_custom_tour_programme	tour_travel.group_tour_user	1	1	1	1
+access_travel_planer_details_user	travel.planer.details	model_travel_planer_details	tour_travel.group_tour_user	1	1	1	1
+access_hotel_planer_details_user	hotel.planer.details	model_hotel_planer_details	tour_travel.group_tour_user	1	1	1	1
+access_sites_costing_line_user	sites.costing.line	model_sites_costing_line	tour_travel.group_tour_user	1	1	1	1
+access_visa_costing_line_user	visa.costing.line	model_visa_costing_line	tour_travel.group_tour_user	1	1	1	1
+access_tour_service_line_details_user	tour.service.line.details	model_tour_service_line_details	tour_travel.group_tour_user	1	1	1	1
+access_itinerary_lead_history_user	itinerary.lead.history	model_itinerary_lead_history	tour_travel.group_tour_user	1	1	1	1
+access_tour_days_user	tour.days	model_tour_days	tour_travel.group_tour_user	1	0	0	0

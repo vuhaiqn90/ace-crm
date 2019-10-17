@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<template id="tour_transport_report_doc">
+			<t t-call="web.external_layout">
+						<div class="page">
+						<div class="oe_structure"/>
+						<div margin-left="50px">
+							<div >
+								<h3 class="text-center" margin=" 140px 0px 70px">
+									<strong>Transportation Details</strong>
+								</h3>
+							</div>
+						</div>
+						<br/>
+						<br/>
+						<br/>
+						<div  id="informations">
+                          <div>
+                            	<table >
+                                <tbody class="sale_tbody">
+                                	<tr>
+                                            <td width="20%" height = "30">
+											<strong>Registration ID:</strong>
+											</td>
+											<td width="20%">
+												<span t-field="doc.name"/>
+											</td>
+                                            <td width="10%">
+                                            </td>
+
+                                            <td class="text-right" width="20%" height = "30">
+											<strong>Customer Name:</strong>
+											</td>
+											<td class="text-right" width="20%">
+												<span t-field="doc.customer_id"/>
+											</td>
+                                      </tr>
+
+									<tr>
+                                           <td width="20%" height = "30">
+												<strong>Email ID:</strong>
+											</td>
+											<td width="20%">
+												<span t-field="doc.email_id"/>
+											</td>
+
+                                            <td width="10%">
+                                            </td>
+
+                                            <td class="text-right" width="20%" height = "30">
+											<strong>Mobile:</strong>
+											</td>
+											<td class="text-right" width="20%">
+												<span t-field="doc.mobile"/>
+											</td>
+									</tr>
+                                	<tr>
+                                            <td width="20%" height = "30">
+											<strong>Booking Date:</strong>
+										</td>
+										<td width="20%">
+											<span t-esc="doc.get_partner_lang_date(doc.current_date,doc.customer_id.lang)"/>
+										</td>
+                                      </tr>
+                                </tbody>
+                               	</table>
+                               	</div>
+                         		</div>
+                         	<br/>
+                         	<br/>
+
+						<div>
+						<h4>
+							<strong>Tour Information</strong>
+						</h4>
+						<br/>
+
+						<table class="table table-condensed">
+							<thead>
+								<tr>
+									<th>Tour</th>
+									<th class="text-right">Tour Booking Ref</th>
+									<th class="text-right">PNR No /  Reservation No.</th>
+									<th class="text-right">Carrier No</th>
+									<th class="text-right">Date of Arrival</th>
+									<th class="text-right">Date of Departure</th>
+
+								</tr>
+							</thead>
+							<tbody class="sale_tbody">
+								<tr>
+									<td>
+										<span t-field="doc.tour_id"/>
+									</td>
+									<td class="text-right">
+										<span t-field="doc.tour_book_id"/>
+									</td>
+									<td class="text-right">
+										<span t-field="doc.pnr_no"/>
+									</td>
+									<td class="text-right">
+										<span t-field="doc.carrier_id"/>
+									</td>
+									<td class="text-right">
+										<span t-if="doc.arrival_date" t-esc="doc.get_partner_lang_date(doc.arrival_date,doc.customer_id.lang)"/>
+									</td>
+									<td class="text-right">
+										<span t-if="doc.depart_date" t-esc="doc.get_partner_lang_date(doc.depart_date,doc.customer_id.lang)"/>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+							</div>
+						<br/>
+						<div>
+						<h4>
+							<strong>Transport Information</strong>
+						</h4>
+						<br/>
+						<table class="table table-condensed">
+							<thead>
+								<tr>
+									<th>Transport Type</th>
+									<th class="text-right">Travel Class</th>
+									<th class="text-right">Carrier</th>
+									<th class="text-right">From</th>
+									<th class="text-right">To</th>
+
+								</tr>
+							</thead>
+							<tbody class="sale_tbody">
+								<tr>
+									<td>
+										<span t-field="doc.transport_type_id"/>
+									</td>
+									<td class="text-right">
+										<span t-field="doc.travel_class_id"/>
+									</td>
+									<td class="text-right">
+										<span t-field="doc.transport_carrier_id"/>
+									</td>
+									<td class="text-right">
+										<span t-field="doc.from_destination_id"/>
+									</td>
+									<td class="text-right">
+										<span t-field="doc.to_destination_id"/>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<br/>
+						<h4>
+							<strong>Customer details</strong>
+						</h4>
+						<br/>
+							</div>
+						<table class="table table-condensed">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th class="text-right">Age</th>
+									<th class="text-right">Gender</th>
+									<th class="text-right">Adult/Child</th>
+									<th class="text-right">Seat No</th>
+								</tr>
+							</thead>
+							<tbody class="sale_tbody">
+								<tr t-foreach="doc.customer_line_ids" t-as="line">
+									<td>
+										<span t-field="line.partner_id"/>
+									</td>
+									<td class="text-right">
+										<span t-field="line.name"/>
+									</td>
+									<td class="text-right">
+										<span t-field="line.gender"/>
+									</td>
+									<td class="text-right">
+										<span t-field="line.type"/>
+									</td>
+									<td class="text-right">
+										<span t-field="line.room_no"/>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+			</t>
+		</template>
+		<template id="tour_transport_report">
+			<t t-call="web.html_container">
+				<t t-foreach="docs" t-as="doc">
+					<!-- <t t-raw="translate_doc(doc, doc_model, 'partner_id.lang', 'tour_travel.tour_invoice_report_doc')"/> -->
+					<t t-call="tour_travel.tour_transport_report_doc" t-lang="doc.customer_id.lang"/>
+				</t>
+			</t>
+		</template>
+	</data>
+</odoo>

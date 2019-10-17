@@ -1,0 +1,74 @@
+<?xml version="1.0" ?>
+
+<odoo>
+    <data>
+		
+		<record model="ir.ui.view" id="passport_booking_form__view_inherit_tour">
+			<field name="name">passport.booking.inherit.tour</field>
+			<field name="type">form</field>
+			<field name="model">passport.booking</field>
+			<field name="inherit_id" ref="passport_visa.passport_booking_form_view" />
+			<field name="arch" type="xml">
+			<button name="button_confirm" type="object" states="draft" position='replace'>
+				<button string="Confirm" name="button_confirm" type="object" states="draft" groups="tour_travel.group_tour_manager"/>
+				</button>
+			<field name="service_charge" position='after'>
+				<separator colspan="6" string="Tour Information"/>
+				<field name="tour_book_id"/>
+				<field name="tour_id"/>
+				<field name="tour_date"/>
+				</field>
+			</field>
+	</record>		
+	
+	<record model="ir.ui.view" id="visa_booking_form__view_inherit_tour">
+			<field name="name">visa.booking.inherit.tour</field>
+			<field name="type">form</field>
+			<field name="model">visa.booking</field>
+			<field name="inherit_id" ref="passport_visa.visa_booking_form_view" />
+			<field name="arch" type="xml">
+			<button  name="button_confirm" type="object" states="draft" position='replace'>
+				<button string="Confirm" name="button_confirm" type="object" states="draft" groups="tour_travel.group_tour_manager"/>
+				</button>
+			<field name="service_charge" position='after'>
+				<separator colspan="6" string="Tour Information"/>
+				<field name="tour_book_id"/>
+				<field name="tour_id"/>
+				<field name="tour_date"/>
+			</field>
+			</field>
+	</record>		
+		
+		
+	<record model="ir.ui.view" id="passport_booking_tree_view_inherit_tour">
+			<field name="name">passport.booking.inherit.tour</field>
+			<field name="type">tree</field>
+			<field name="model">passport.booking</field>
+			<field name="inherit_id" ref="passport_visa.passport_booking_tree_view" />
+			<field name="arch" type="xml">
+			<field name="name" position='after'>
+				<field name="tour_id"/>
+				<field name="tour_book_id"/>
+				<field name="tour_date"/>
+			</field>
+			</field>
+	</record>		
+	
+	<record model="ir.ui.view" id="visa_booking_tree_view_inherit_tour">
+			<field name="name">visa.booking.inherit.tour</field>
+			<field name="type">tree</field>
+			<field name="model">visa.booking</field>
+			<field name="inherit_id" ref="passport_visa.visa_booking_tree_view" />
+			<field name="arch" type="xml">
+			<field name="name" position='after'>
+				<field name="tour_id"/>
+				<field name="tour_book_id"/>
+				<field name="tour_date"/>
+			</field>
+			</field>
+	</record>		
+	
+			
+
+    </data>
+</odoo>

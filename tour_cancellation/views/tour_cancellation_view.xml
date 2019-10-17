@@ -1,0 +1,125 @@
+<?xml version="1.0" ?>
+
+<odoo>
+    <data>
+
+
+		<record id="tour_cancellation_form_view21" model="ir.ui.view">
+            <field name="name">tour.cancellation.form1</field>
+            <field name="model">tour.cancellation</field>
+            <field name="type">form</field> 
+            <field name="arch" type="xml">
+           		<form string="Tour Cancellation" version="7.0">
+					<header>
+						<button string="Request To Process" name="button_request" type="object" states="draft" />
+						<button string="Refund Payment" name="%(act_refund_payment_journal_entry)d" states="in_process" type="action" target="new" />
+						<field name="state" widget="statusbar" statusbar_visible="draft,in_process,done"/>
+            		</header>
+           			<group colspan="4" col="6">
+						<field name="tour" index="True"/>
+						<field name="cancel_date" />
+	            		<field name="name" index="True"/>
+						<field name="current_date" />
+						<field name="customer_id" />
+						<field name="email_id" />
+						<field name="mobile1" />
+						<field name="adult" />
+						<field name="child" />
+						<field name="via"/>
+						<field name="agent_id"  domain="[]" attrs="{'invisible': [('via','=','direct')]}"/>
+						<field name="pricelist_id" />
+					</group>
+					<separator colspan="6" string="Tour Information"/>
+					<group colspan="4" col="6">
+						<field name="tour_type" />
+						<field name="season_id" />
+						<field name="tour_id" domain="[('tour_type','=',tour_type)]"/>
+						<field name="tour_dates_id" domain="[('tour_id','=',tour_id),('season_id','=',season_id)]"/>
+						<field name="payment_policy_id" />
+					</group>
+					<notebook colspan="6">
+						<page string="Tour Customers">
+            				<group col="7" colspan="3">
+            					<field name="tour_customer_ids" nolabel="1">	
+				    	       		<tree string="Tour Customer Details" editable="top">
+					           			<!-- <field name="partner_id" context="{'default_customer': 1,  'default_supplier': 0, 'default_is_hotel': 0}" domain="[('customer','=',True),('supplier','=',False),('is_hotel','=',False)]"/> -->
+					           			<field name="partner_id" context="{'default_customer': True,  'default_supplier': False, 'default_is_hotel': False}" domain="[('customer','=',True),('supplier','=',False),('is_hotel','=',False)]"/>
+					            		<field name="name"/>
+					            		<field name="gender"/>
+					            		<field name="type"/>
+					            		<field name="h_flag" readonly="1"/>
+					            		<field name="t_flag" readonly="1"/>
+					            		<field name="i_flag"/>
+					            		<field name="v_flag" readonly="1"/>
+					            		<field name="p_flag"/>
+										<field name="state" readonly="1"/>
+									</tree>
+								</field>
+            				</group>
+            			</page>
+            			<page string="Services">
+            				<group col="7" colspan="3">
+            					<field name="insurance_line_ids" nolabel="1"/>	
+            				</group>
+            			</page>
+            			<page string="History">
+            				<group col="7" colspan="3">
+								<field name="tour_sale_order_ids" nolabel="1"/>
+            				</group>
+            				<group col="7" colspan="3">
+								<field name="tour_booking_invoice_ids" nolabel="1"/>
+            				</group>
+            			</page>
+					</notebook>
+					<group class="oe_subtotal_footer oe_right" colspan="2" name="sale_total">
+                            <field name="tour_cost" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+						    <field name="total_insurance_amt" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+							   <div class="oe_subtotal_footer_separator oe_inline">
+									<label for="total_amt" />
+								</div>
+						    <field name="total_amt" nolabel="1" class="oe_subtotal_footer_separator" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+					</group>
+            	</form>
+			</field>
+		</record>
+
+		<!--
+		========================================================= 
+					Tour cancellation tree view        
+		=========================================================	
+        -->
+        <record id="tour_cancellation_tree_view" model="ir.ui.view">
+			<field name="name">tour.cancellation.tree</field>
+			<field name="model">tour.cancellation</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Tour Cancellation">
+						<field name="name"/>
+						<field name="tour"/>
+						<field name="customer_id"/>				
+						<field name="current_date"/>
+						<field name="adult" />
+						<field name="child" />
+						<field name="email_id" />
+						<field name="mobile1"/>
+						<field name="tour_type"/>
+						<field name="tour_id"/>
+						<field name="tour_dates_id"/>
+						<field name="total_amt"/>
+						<field name="state"/>
+				</tree>
+			</field>
+		</record>
+		
+        <record model="ir.actions.act_window" id="action_tour_cancellation_form_view">
+			<field name="name">Tour Cancellation</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">tour.cancellation</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+   
+   <menuitem name="Tour Cancellation"  action="action_tour_cancellation_form_view" sequence="3"
+			id="menu_tour_cancellation_form"  parent="tour_travel.menu_tour_booking" />
+		
+    </data>
+</odoo>

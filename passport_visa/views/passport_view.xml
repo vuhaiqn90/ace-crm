@@ -1,0 +1,204 @@
+<?xml version="1.0" ?>
+
+<odoo>
+    <data>
+        
+        <!-- remove the web_icon and web_icon_hover its give the error -->
+		<!-- <menuitem name="Passport and Visa" id="menu_passport_visa" sequence="4" web_icon="images/passport.png" web_icon_hover="images/passport_hang.png"/> -->
+		<menuitem name="Passport and Visa" id="menu_passport_visa" sequence="4"/>
+		
+	<!--		
+		========================================================================
+					Document Type View
+		========================================================================
+-->
+			<record id="document_management_form_view" model="ir.ui.view">
+            <field name="name">document.management.form</field>
+            <field name="model">document.management</field>
+            <field name="type">form</field> 
+            <field name="arch" type="xml">
+           		<form string="Document Type">
+           			<group colspan="2" col="4">
+	            		<field name="name" />
+						<field name="description" />
+					</group>
+					</form>
+				</field>
+			</record>
+			
+			<record id="document_management_tree_view" model="ir.ui.view">
+            <field name="name">document.management.tree</field>
+            <field name="model">document.management</field>
+            <field name="type">tree</field> 
+            <field name="arch" type="xml">
+           		<tree string="Document Type" editable="top">
+	            		<field name="name" />
+						<field name="description" />
+				</tree>
+				</field>
+			</record>
+
+		 <record model="ir.actions.act_window" id="action_document_type_tree_view">
+			<field name="name">Document Type</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">document.management</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		
+	<menuitem name="Service Document"  sequence="1"	id="menu_service_document"  parent="menu_passport_visa" />	
+	<menuitem name="Service Document" action="action_document_type_tree_view" sequence="1"
+			id="menu_service_document_form"  parent="menu_service_document" />
+	
+	<!--
+		=========================================================
+       		 Passport Document Line Tree View 	
+       	=========================================================
+        -->
+        
+	<record id="passport_document_line_tree_view" model="ir.ui.view">
+            <field name="name">passport.document.line.tree</field>
+            <field name="model">passport.document.line</field>
+            <field name="type">tree</field> 
+            <field name="arch" type="xml">
+           		<tree string="Document Line" editable="top">
+	            	<field name="document_type_id" />
+	            	<field name="name" />
+					<field name="original_copy" />
+				</tree>
+				</field>
+			</record>
+	
+	<!--
+		=========================================================
+       		 Service Scheme Tree View 	
+       	=========================================================
+        -->
+        
+	<record id="service_scheme_tree_view" model="ir.ui.view">
+            <field name="name">service.scheme.tree</field>
+            <field name="model">service.scheme</field>
+            <field name="type">tree</field> 
+            <field name="arch" type="xml">
+           		<tree string="Service Scheme" editable="top">
+	            	<field name="name" />
+	            	<field name="duration" />
+					<field name="service_cost" />
+				</tree>
+				</field>
+			</record>
+	
+	 <record model="ir.actions.act_window" id="action_service_scheme_tree_view">
+			<field name="name">Service Schemes</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">service.scheme</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		
+		
+	<menuitem name="Passport Schemes"  sequence="2"	id="menu_service_scheme"  parent="menu_passport_visa" />
+	<menuitem name="Service Scheme" action="action_service_scheme_tree_view" sequence="1"
+			id="menu_service_scheme_form"  parent="menu_service_scheme" />
+	
+	
+	<!--
+		=========================================================
+       		 Passport Booking Form View 	
+       	=========================================================
+        -->
+       	<record id="passport_booking_form_view" model="ir.ui.view">
+            <field name="name">passport.booking.form</field>
+            <field name="model">passport.booking</field>
+            <field name="type">form</field> 
+            <field name="arch" type="xml">
+           		<form string="Passport Booking" version="7.0">
+					<header>
+						<button string="Confirm" name="button_confirm" type="object" states="draft"/>
+						<button string="Cancel" name="button_cancel" type="object" states="draft"/>
+						<button string="Verify Document" name="verify_document" type="object" states="confirm"/>
+						<button string="Approve By Officer" name="approve_document" type="object" states="verify"/>
+						<button string="Create Invoice" name="create_invoice" type="object" states="approve"/>
+						<button string="Send To Passport Office" name="%(act_passport_journal_entry)d" states="invoice" type="action"  target="new"/>
+						<button string="Issue Passport" name="issue_passport" type="object" states="in_process"/>
+						<field name="state" widget="statusbar" statusbar_visible="draft,confirm,verify,approve,invoice,in_process,done"/>
+					</header>
+					<div class="oe_button_box" name="button_box">
+					<button class="oe_stat_button" name="%(account.action_move_journal_line)d"
+                        type="action" icon="fa-flask" string="journal Entries" >
+<!--                         <field string="Sales" name="sale_order_count" widget="statinfo"/>-->
+                    </button>
+					 </div>
+           			<group colspan="4" col="6">
+						<field name="name" index="True"/>
+						<field name="customer_id" />
+						<field name="current_date" />
+						<!--<field name="address_id" />-->
+						<field name="email_id" />
+						<field name="mobile" />
+						<separator colspan="6" string="Passport Information"/>
+						<field name="pricelist_id" />
+						<field name="product_id" domain="[('type', '=', 'service'),('categ_id', '=', 7)]"/>
+						<field name="scheme_id" />
+						<field name="service_charge" />
+					</group>
+					<separator colspan="6"/>
+					<notebook colspan="4">
+						<page string="Document Information">
+            				<group col="7" colspan="3">
+            					<field name="document_line_ids" index="True" nolabel="1"/>
+            				</group>
+            			</page>
+            			<page string="Attachment">
+            				<group col="7" colspan="3">
+            					<field name="attachment_line_ids" index="True" nolabel="1"/>
+            				</group>
+            			</page>
+            			<page string="History">
+            				<group col="7" colspan="3">
+            					<field name="passport_invoice_ids" index="True" nolabel="1"/>
+            				</group>
+            			</page>
+					</notebook>
+				</form>
+			</field>
+		</record>
+
+		<!--
+		========================================================= 
+					Passport Booking tree view        
+		=========================================================	
+        -->
+        <record id="passport_booking_tree_view" model="ir.ui.view">
+			<field name="name">passport.booking.tree</field>
+			<field name="model">passport.booking</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Passport Booking">
+						<field name="name"/>
+						<field name="current_date" />
+						<field name="customer_id" />
+						<!--<field name="address_id" />-->
+						<field name="email_id" />
+						<field name="mobile" />
+						<field name="service_charge" />
+						<field name="state" />
+				</tree>
+			</field>
+		</record>
+		
+        <record model="ir.actions.act_window" id="action_passport_booking_form_view">
+			<field name="name">Passport Booking</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">passport.booking</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+   
+   
+   
+   <menuitem name="Passport"  sequence="4"	id="menu_passport"  parent="menu_passport_visa" />
+   <menuitem name="Passport Booking"  action="action_passport_booking_form_view" sequence="1"
+			id="menu_passport_booking_form"  parent="menu_passport" />
+			
+	
+
+    </data>
+</odoo>

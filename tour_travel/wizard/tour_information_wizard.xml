@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+		<record id="tour_information_wizard_id" model="ir.ui.view">
+		<field name="name">tour.infomrmation</field>
+		<field name="model">tour.information</field>
+		<field name="type">form</field>
+		<field name="arch" type="xml">
+			<form string="Send Tour Information" version="7.0">
+				<group>
+				<field name="category_type"/>
+				</group>
+				<group>
+				<field name="flag" invisible="1" />
+				<separator string="Leads / Opportunuty" attrs="{'invisible': [('flag', 'not in', ('lead','opportunity'))]}" />
+				<newline />
+				<field name="crm_records" attrs="{'invisible': [('flag', 'not in', ('lead','opportunity'))]}" nolabel="1"/>
+				<separator string="Customer" attrs="{'invisible': [('flag', 'not in', ('customer',))]}" />
+				<newline />
+				<field name="partner" attrs="{'invisible': [('flag', 'not in', ('customer',))]}" nolabel="1"/>
+				<newline />
+				
+				</group>
+				<button type="object" string="Send" name="send_info" />
+				<button string="Cancel" class="oe_link" special="cancel" />
+			</form>
+		</field>
+		</record>	
+		
+		<act_window id="action_send_tour_informastion"
+           multi="True"
+           key2="client_action_multi" name="Send Tour Information"
+           res_model="tour.information" src_model="tour.package"
+           view_mode="form" target="new" view_type="form" />
+           
+        <record id="tour_partner_invoices_wizard" model="ir.ui.view">
+		<field name="name">tour.partner.invoices.wizard</field>
+		<field name="model">tour.partner.invoices</field>
+		<field name="type">form</field>
+		<field name="arch" type="xml">
+			<form string="Send Tour Information" version="7.0">
+				<separator string="Customer"/>
+					<group>
+						<newline />
+							<field name="partner" nolabel="1"/>
+						<newline />
+					</group>
+				<button type="object" string="Create Invoice" name="send_info" />
+				<button string="Cancel" class="oe_link" special="cancel" />
+			</form>
+		</field>
+		</record>   
+           
+          
+        <act_window id="action_create_invoices"
+           multi="True"
+           key2="client_action_multi" name="Create Invoices"
+           res_model="tour.partner.invoices" src_model="tour.package"
+           view_mode="form" target="new" view_type="form" />  
+          
+         
+
+        <!--Email template -->
+        <record id="email_template_package_information" model="mail.template">
+            <field name="name">Tour - Package Information Send by Email</field>
+            <field name="email_from">${(object.user_id.email or object.company_id.email or 'noreply@localhost')|safe}</field>
+            <field name="subject">Tour Package Information</field>
+            <field name="email_recipients">${object.partner_id.id}</field>
+            <field name="model_id" ref="model_tour_package"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="report_name">Tour_Information</field>
+            <field name="lang">${object.partner_id.lang}</field>
+            <field name="body_html"><![CDATA[
+					<div style="font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; ">
+					
+					    <p>Hello Sir/madam,</p>
+					    
+					    <p>Here is Tour Information available for you.</p>
+					
+					    <p style="border-left: 1px solid #8e0000; margin-left: 30px;">
+					       &nbsp;&nbsp;<strong>REFERENCES</strong><br />
+					       &nbsp;&nbsp;Tour Name: <strong>${object.product_id.name}</strong><br />
+					       &nbsp;&nbsp;Tour Type: <strong>${object.tour_type}</strong><br />
+					       &nbsp;&nbsp;No. of days : ${object.days}<br />
+					       &nbsp;&nbsp;Your Contact : ${object.user_name}<br />
+					    </p>
+					
+					    <br/>
+					    <p>If you have any question, do not hesitate to contact us.</p>
+					    <p>Thank you for choosing ${object.company or 'us'}!</p>
+					    <br/>
+					    <br/>
+					    
+					    <div style="width: 375px; margin: 0px; padding: 0px; background-color: #8E0000; border-top-left-radius: 5px 5px; border-top-right-radius: 5px 5px; background-repeat: repeat no-repeat;">
+					        <h3 style="margin: 0px; padding: 2px 14px; font-size: 12px; color: #DDD;">
+					            <strong style="text-transform:uppercase;">${object.company}</strong></h3>
+					    </div>
+					
+					    <div style="width: 347px; margin: 0px; padding: 5px 14px; line-height: 16px; background-color: #F2F2F2;">
+					        <span style="color: #222; margin-bottom: 5px; display: block; ">
+					                      
+					        % if object.website:
+					            <div>
+					                Web :&nbsp;<a href="${object.website}">${object.website}</a>
+					            </div>
+					        %endif
+					        </span>
+					        <p></p>
+					    </div>
+					</div>
+            ]]></field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+		<!--checkout wizard form view  -->
+		<record model="ir.ui.view" id="checkout_detail">
+			<field name="name">checkout_detail.wizard.form</field>
+			<field name="model">checkout_detail.wizard</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Checkout Details">
+					<field name="name"/>
+					<field name="book_id"/>
+					<field name="order_amt" />
+<!-- 					<field name="deposit_amt" /> -->
+					<field name="residual_amt" />
+					<newline/>
+					<separator colspan="4"/>
+					<group colspan="4">
+						<button icon="gtk-cancel" special="cancel" string="Cancel" />
+						<button icon="gtk-ok" name="allow_to_send" string="Allow" type="object" />
+					</group>
+				</form>
+			</field>
+		</record>
+
+		<record id="act_checkout_detail" model="ir.actions.act_window">
+			<field name="name">Checkout Detail</field>
+			<field name="res_model">checkout_detail.wizard</field>
+			<field name="src_model">hotel.reservation</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field>
+			<field name="auto_refresh" eval="1" />
+			<field name="target">new</field>
+			<field name="context">{'ids':active_id}</field>
+<!--			<field eval="stock_move_tree2" name="view_id"/>-->
+		</record>
+	</data>
+</odoo>

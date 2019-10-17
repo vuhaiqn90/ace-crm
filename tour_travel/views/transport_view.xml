@@ -1,0 +1,399 @@
+<?xml version="1.0" ?>
+<odoo>
+    <data>
+		
+	<menuitem name="Configuration" id="menu_transport_config" parent="menu_transport"/>
+	
+	<record id="transport_carrier_form_view" model="ir.ui.view">
+            <field name="name">transport.carrier.form</field>
+            <field name="model">transport.carrier</field>
+            <field name="type">form</field> 
+            <field name="arch" type="xml">
+           		<form string="Transport Carrier">
+           			<group colspan="2" col="4">
+	            		<field name="name" />
+						<field name="code" />
+					</group>
+					</form>
+				</field>
+			</record>
+			
+			<record id="transport_carrier_tree_view" model="ir.ui.view">
+            <field name="name">transport.carrier.tree</field>
+            <field name="model">transport.carrier</field>
+            <field name="type">tree</field> 
+            <field name="arch" type="xml">
+           		<tree string="Transport Carrier">
+	            		<field name="name" />
+						<field name="code" />
+				</tree>
+				</field>
+			</record>
+
+		 <record model="ir.actions.act_window" id="action_tour_transport_carrier_form_view">
+			<field name="name">Transport Carrier</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">transport.carrier</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		
+		
+	<menuitem name="Transport Carrier" action="action_tour_transport_carrier_form_view" sequence="1"
+			id="menu_transport_carrier"  parent="menu_transport_config" />
+			
+	<!--
+		=========================================================
+       		 Transport Type Line View 	
+       	=========================================================
+        -->
+       	<record id="transport_type_form_view" model="ir.ui.view">
+            <field name="name">transport.type.info.form</field>
+            <field name="model">transport.type.info</field>
+            <field name="type">form</field> 
+            <field name="arch" type="xml">
+           		<form string="Transport Type Information">
+           			<group colspan="4" col="6">
+						<field name="transport_carrier_id" />
+						<!-- <field name="transport_type_id" context="{'default_type': 'service', 'default_categ_id': 5}" domain="[('type','=','service'),('categ_id','=',5)]" /> -->
+						<field name="transport_type_id" context="{'default_type': 'service'}" domain="[('type','=','service')]" />
+						<field name="travel_class_id" domain="[('transport_type_id', '=', transport_type_id)]"/>
+						<field name="name" />
+						<field name="from_destination_id" />
+						<field name="to_destination_id" />
+						<field name="from_date" />
+						<field name="to_date" />
+						<field name="cost_price" index="True"/>
+						<field name="cost_price_child" />
+						<field name="sale_price" index="True"/>
+						<field name="sale_price_child" />
+						
+					</group>
+				</form>
+			</field>
+		</record>
+
+		<!--
+		========================================================= 
+					Transport Type Inforamtion tree view        
+		=========================================================	
+        -->
+        <record id="transport_type_info_tree_view22" model="ir.ui.view">
+			<field name="name">transport.type.info.treess</field>
+			<field name="model">transport.type.info</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Transport Type Information" editable="top">
+						<field name="transport_carrier_id" />	
+						<!-- <field name="transport_type_id" context="{'default_type': 'service', 'default_categ_id': 5}" domain="[('type','=','service'),('categ_id','=',5)]" /> -->
+						<field name="transport_type_id" context="{'default_type': 'service'}" domain="[('type','=','service')]" />
+						<field name="travel_class_id" domain="[('transport_type_id', '=', transport_type_id)]"/>
+						<field name="name" invisible="True"/>
+						<field name="from_destination_id" />
+						<field name="to_destination_id" />
+						<field name="from_date" />
+						<field name="to_date" />
+						<field name="cost_price"/>
+						<field name="cost_price_child" />
+						<field name="sale_price"/>
+						<field name="sale_price_child" />
+				</tree>
+			</field>
+		</record>
+		
+		<!--
+		========================================================= 
+					Transport Line Form view        
+		=========================================================	
+        -->
+        <record id="transport_line_form_view1" model="ir.ui.view">
+			<field name="name">transport.line.form</field>
+			<field name="model">transport.line</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Transport Line">
+						<field name="transport_type_info_id" index="True" domain="[('transport_id', '=', parent.transport_id)]"/>
+						<field name="name" index="True" string="Description"/>
+						<field name="available_vehicle" />
+						<field name="days_required" />
+						<field name="required_vehicle" index="True" />
+						<field name="vehicle_cost" index="True" />
+						<field name="total_price" index="True" sum="total_price"/>
+						<field name="state" />
+				</form>
+			</field>
+		</record>
+		
+		<!--
+		========================================================= 
+					Transport Line tree view        
+		=========================================================	
+        -->
+        <record id="transport_line_tree_view_new" model="ir.ui.view">
+			<field name="name">transport.line.book.tree_new</field>
+			<field name="model">transport.line</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Transport Line" editable="top">
+					<field name="transport_type_info_id" domain="[('transport_id', '=', parent.transport_id)]" />
+					<field name="name" string="Description"/>
+					<field name="available_vehicle" />
+					<field name="days_required" />
+					<field name="required_vehicle" />
+					<field name="vehicle_cost" />
+					<field name="total_price" sum="total_price"/>
+					<field name="state" />
+ 					<button string="Book" name="check_availability" states="draft" type="object" /> 
+				</tree>
+			</field>
+		</record>
+		
+		<!--
+		=========================================================
+       		 Transport Information Form View 	
+       	=========================================================
+        -->
+       	<record id="transport_info_form_view" model="ir.ui.view">
+            <field name="name">transport.information.form</field>
+            <field name="model">transport.information</field>
+            <field name="type">form</field> 
+            <field name="arch" type="xml">
+           		<form string="Transport Information" version="7.0">
+					<header>
+						<button string="Confirm" name="button_confirm" states="draft" type="object" />
+						<field name="state" widget="statusbar" statusbar_visible="draft,confirm"/>
+					</header>
+           			<group colspan="2" col="2">
+	            		<field name="name" index="True" invisible="1"/>
+						<!-- <field name="partner_id" index="True" context="{'default_customer': 0, 'search_default_supplier': 1, 'default_supplier': 1,'default_is_hotel': 0,}" domain="[('is_hotel','=',False)]"/> -->
+						<field name="partner_id" index="True" context="{'default_customer': False, 'search_default_supplier': True, 'default_supplier': True,'default_is_hotel': False}" domain="[('is_hotel','=',False)]"/>
+					</group>
+					<separator colspan="6" string="Other Information"/>
+					<notebook colspan="4">
+						<page string="Transport Type Information">
+            				<group col="7" colspan="3">
+            					<field name="transport_type_info_ids" index="True" nolabel="1"/>
+            				</group>
+            			</page>
+            			<page string="Transport Account Information">
+            				<group col="7" colspan="3">
+            					<field name="transport_recv_acc"/>
+            					<field name="transport_payble_acc"/>
+            				</group>
+            			</page>
+            			
+					</notebook>
+				</form>
+			</field>
+		</record>
+		
+		<!--
+		========================================================= 
+					Transport Information tree view        
+		=========================================================	
+        -->
+        <record id="transport_information_tree_view" model="ir.ui.view">
+			<field name="name">transport.information.tree</field>
+			<field name="model">transport.information</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Transport Information">
+					<!-- <field name="partner_id" context="{'default_customer': 0, 'search_default_supplier': 1, 'default_supplier': 1,'default_is_hotel': 0,}" domain="[('is_hotel','=',False)]"/> -->
+					<field name="partner_id" context="{'default_customer': False, 'search_default_supplier': True, 'default_supplier': True,'default_is_hotel': False}" domain="[('is_hotel','=',False)]"/>
+            		<field name="state"/>
+				</tree>
+			</field>
+		</record>
+		
+        <record model="ir.actions.act_window" id="action_transport_info_form_view">
+			<field name="name">Transport Information</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">transport.information</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+   <menuitem name="Transport Information" action="action_transport_info_form_view" sequence="2"
+			id="menu_transport_info"  parent="menu_transport" /> 
+		
+
+			<!--
+		========================================================= 
+					Transport Booking Form view        
+		=========================================================	
+        -->
+        <record id="transport_book_form_view" model="ir.ui.view">
+			<field name="name">transport.book.form</field>
+			<field name="model">transport.book</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Transport Booking">
+					<header>
+						<button string="Confirm" name="button_confirm" type="object" states="draft"/>
+						<button string="Cancel" name="button_cancel" type="object" states="draft"/>
+						<button string="Send To Transporter" name="send_to_hotel" states="confirm" type="object"  />
+						<button string="Approval From Transporter" name="make_approval" states="request" type="object"  />
+						<button string="Confirm Booking" name="create_invoice" states="approve" type="object"/>
+						<button string="Issue Ticket" name="issue_ticket" states="invoiced" type="object"  />
+						<button string="Done" name="make_done" states="issue" type="object"  />
+						<field name="state" widget="statusbar" statusbar_visible="draft,confirm,request,approve,invoiced,issue,done"/>
+					</header>
+					<div class="oe_title">
+						<h1><field name="name" index="True"/></h1>
+					</div>
+				<group colspan="4" col="6">
+
+						<field name="current_date" index="True"/>
+						<field name="customer_id" index="True"/>
+						<field name="email_id" />
+						<field name="mobile" index="True" />
+						<field name="adult" />
+						<field name="child" />
+						<field name="pricelist_id" required="1"/>
+					</group>
+					<separator colspan="6" string="Transport Information"/>
+						<group colspan="4" col="6">
+							<field name="transport_id" index="True"/>
+							<field name="checkin_date" required="1"/>
+							<!-- <field name="transport_carrier_id" /> -->
+							<!-- <field name="transport_type_id" context="{'default_type': 'service', 'default_categ_id': 5}" domain="[('type','=','service'),('categ_id','=',5)]"/> -->
+							<field name="transport_type_id" context="{'default_type': 'service'}" domain="[('type','=','service')]"/>
+							<field name="travel_class_id" domain="[('transport_type_id', '=', transport_type_id)]" />
+							<field name="from_destination_id"/>
+							<field name="to_destination_id"/>
+							<!-- <label string="" />
+							<label string="" />
+							<label string="" /> -->
+							<!-- <button string="Compute" name="compute_amt" type="object"  /> -->
+						</group>
+					<separator colspan="6" string="Tour Information"/>
+						<group colspan="4" col="6">
+							<field name="tour_id" readonly="0" />
+							<field name="tour_book_id" readonly="0" index="True"/>
+							<field name="start_date" readonly="0" index="True"/>
+							<field name="pnr_no"  string="PNR No. /  Reservation No"/>
+							<field name="carrier_id" />
+							<field name="depart_date" />
+							<field name="arrival_date" />
+							
+						</group>
+					<separator colspan="4" string="Transport Pricing"/>
+						<group colspan="4" col="4">
+							<field name="cost_price" />
+							<field name="cost_price_child" />
+							<field name="sale_price" />
+							<field name="sale_price_child" />
+						</group>
+						<notebook colspan="6">
+						<page string="Customer Information">
+            				<group col="7" colspan="3">
+								<field name="customer_line_ids" nolabel="1" >
+								<tree string="Tour Customer Details" editable="top">
+					           			<field name="partner_id" />
+					            		<field name="name"/>
+					            		<field name="gender"/>
+					            		<field name="type"/>
+										<field name="room_no" string="Seat / Berth No."/>
+									</tree>
+								</field>
+            				</group>
+            			</page>
+						<page string="Tax Information">
+            				<group col="7" colspan="3">
+								<field name="tax_id" nolabel="1"/>
+            				</group>
+            			</page>
+						<page string="History">
+            				<group col="7" colspan="3">
+								<field name="transport_room_reserve_supplier_invoice_ids" nolabel="1" context="{'parent_id':active_id}" readonly="0"/>
+            				</group>
+            			</page>
+
+            			</notebook>
+					<group class="oe_subtotal_footer oe_right" colspan="2" name="sale_total">
+                        <field name="untax_amt"  readonly="1" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                        <field name="tax_amt"  readonly="1" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+						<div class="oe_subtotal_footer_separator oe_inline">
+                              <label for="total_amt" />
+                        </div>
+                        <field name="total_amt" widget='monetary' options="{'currency_field': 'currency_id'}" readonly="1" nolabel="1" class="oe_subtotal_footer_separator"/>
+						<field name="total_amt_transport"  readonly="1"  widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                    </group>
+				</form>
+			</field>
+		</record>
+
+			<!--
+		========================================================= 
+					Transport Booking tree view        
+		=========================================================	done
+        -->
+        <record id="transport_book_tree_view" model="ir.ui.view">
+			<field name="name">transport.book.tree</field>
+			<field name="model">transport.book</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Transport Booking">
+						<field name="name"/>
+						<field name="tour_book_id" />
+						<field name="start_date" />
+						<field name="current_date" />
+						<field name="customer_id"/>
+						<field name="mobile"/>
+						<field name="transport_id" />
+						<field name="state"/>
+				</tree>
+			</field>
+		</record>
+		
+        <record model="ir.actions.act_window" id="action_transport_book_form_view">
+			<field name="name">Transport Booking</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">transport.book</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+   <menuitem name="Transport Booking" action="action_transport_book_form_view" sequence="3"
+			id="menu_transport_book"  parent="menu_transport" /> 
+		
+<!--	========================================================================
+									Travel class View
+					========================================================================
+-->
+			<record id="travel_class_form_view" model="ir.ui.view">
+            <field name="name">travel.class.form</field>
+            <field name="model">travel.class</field>
+            <field name="type">form</field> 
+            <field name="arch" type="xml">
+           		<form string="Travel Class">
+           			<group colspan="2" col="4">
+	            		<field name="name" />
+						<field name="code" />
+						<!-- <field name="transport_type_id" context="{'default_type': 'service', 'default_categ_id': 5}"/> -->
+						<field name="transport_type_id" context="{'default_type': 'service'}"/>
+					</group>
+					</form>
+				</field>
+			</record>
+			
+			<record id="travel_class_tree_view" model="ir.ui.view">
+            <field name="name">travel.class.tree</field>
+            <field name="model">travel.class</field>
+            <field name="type">tree</field> 
+            <field name="arch" type="xml">
+           		<tree string="Travel Class">
+	            	<field name="name" />
+					<field name="code" />
+					<field name="transport_type_id" />
+				</tree>
+				</field>
+			</record>
+
+		 <record model="ir.actions.act_window" id="action_tour_travel_class_form_view">
+			<field name="name">Travel Class</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">travel.class</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		
+	<menuitem name="Travel Class" action="action_tour_travel_class_form_view" sequence="2"
+			id="menu_travel_class"  parent="menu_transport_config" />
+	
+    </data>
+</odoo>

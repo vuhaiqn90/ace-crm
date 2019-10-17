@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+
+<odoo>
+    <data noupdate="1">
+
+ 	<!--
+         ========================================================= 
+        	Sequence number of Passport BOOK
+         =========================================================
+         -->	
+         <!-- <record id="sequence_tour_booking112" model="ir.sequence.type">
+            <field name="name">Passport Booking123</field>
+            <field name="code">passport.booking123</field>
+        </record> -->
+        
+        <record id="sequence_tour_booking113" model="ir.sequence">
+            <field name="name">Passport Booking123</field>
+            <field name="code">passport.booking123</field>
+            <field name="prefix">PSB</field>
+            <field name="padding">6</field>
+        </record>
+		
+		
+		 <!--
+         ========================================================= 
+        	Sequence number of Visa Booking
+         =========================================================
+         -->	
+         <!-- <record id="sequence_visa_booking14" model="ir.sequence.type">
+            <field name="name">Visa Booking</field>
+            <field name="code">visa.booking1</field>
+        </record> -->
+        
+        <record id="sequence_visa_booking123" model="ir.sequence">
+            <field name="name">Visa Booking</field>
+            <field name="code">visa.booking1</field>
+            <field name="prefix">VSB</field>
+            <field name="padding">6</field>
+        </record>
+</data>
+</odoo>

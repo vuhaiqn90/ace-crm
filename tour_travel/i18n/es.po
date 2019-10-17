@@ -1,0 +1,3275 @@
+# Spanish Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* tour_travel
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 7.0-20130412-232402\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-10-18 05:55+0000\n"
+"PO-Revision-Date: 2013-10-18 05:55+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: tour_travel
+#: field:tour.package,code:0
+msgid "Tour Code"
+msgstr "Código del Tour"
+
+#. module: tour_travel
+#: field:room.line,required_rooms:0
+msgid "Required Rooms"
+msgstr "Habitaciones solicitadas"
+
+#. module: tour_travel
+#: model:ir.actions.act_window,name:tour_travel.action_tour_package_form_view
+#: view:tour.package:0
+msgid "New Tour"
+msgstr "Tour Nuevo"
+
+#. module: tour_travel
+#: field:agent.commission.invoice.line,tour_id:0
+#: field:tour.cost.exclude.facility,tour_id:0
+#: field:tour.cost.include.facility,tour_id:0
+#: field:tour.dates,tour_id:0
+#: field:tour.destination.hotel.line,tour_id:0
+#: field:tour.destination.line,tour_id:0
+#: field:tour.hotel.info,tour_id:0
+#: field:tour.programme,tour_id1:0
+#: field:tour.road.travel,tour_id:0
+msgid "Tour ID"
+msgstr "Tour ID"
+
+#. module: tour_travel
+#: model:ir.model,name:tour_travel.model_tour_destination_line
+#: field:tour.package,tour_destination_lines:0
+msgid "Tour Destination Lines"
+msgstr "Líneas de Destino de Tour"
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+msgid "Hotel Name"
+msgstr "Nombre del Hotel"
+
+#. module: tour_travel
+#: model:ir.model,name:tour_travel.model_visa_journal_entry_wizard
+msgid "Visa_journal_entry Detail Wizard"
+msgstr "Visa_diario_detalle de entrada Wizard"
+
+#. module: tour_travel
+#: view:agent.commission.line:0
+msgid "Agent Commission Line"
+msgstr "Linea de Comisión de Agente"
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+msgid "Day"
+msgstr "Día"
+
+#. module: tour_travel
+#: model:product.uom,name:tour_travel.product_uom_unit_new
+msgid "Nos"
+msgstr "Nos"
+
+#. module: tour_travel
+#: view:hotel.information:0
+#: view:hotel.reservation:0
+#: model:ir.actions.act_window,name:tour_travel.action_hotel_info_form_view
+#: model:ir.ui.menu,name:tour_travel.menu_hotel_info
+#: view:tour.destination.line:0
+#: view:tour.hotel.info:0
+#: view:tour.hotel.reservation:0
+#: view:tour.package:0
+msgid "Hotel Information"
+msgstr "Información del Hotel"
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+msgid "Customer details with Seat No"
+msgstr "Datos del cliente con No. de Asiento"
+
+#. module: tour_travel
+#: field:tour.package,tour_category:0
+msgid "Tour Category"
+msgstr "Categoría Tour"
+
+#. module: tour_travel
+#: view:tour.booking:0
+msgid "Book Seat"
+msgstr "Reservar Asiento"
+
+#. module: tour_travel
+#: field:insurance.policy,insurance_cost_for_adults:0
+msgid "Insurance Cost For Adults"
+msgstr "Coste de Seguro para Adultos"
+
+#. module: tour_travel
+#: code:addons/tour_travel/tour_travel.py:923
+#, python-format
+msgid " Please Validate The Invoice Before Booking"
+msgstr "Por favor valide la factura antes de reservar"
+
+#. module: tour_travel
+#: model:ir.model,name:tour_travel.model_tour_cost_exclude_facility
+msgid "Tour Cost Exclude Facility"
+msgstr "Coste de Tour Excluye Facilidad"
+
+#. module: tour_travel
+#: view:hotel.reservation:0
+#: model:ir.actions.act_window,name:tour_travel.act_checkout_detail
+#: model:ir.actions.act_window,name:tour_travel.act_transport_checkout_detail
+msgid "Checkout Detail"
+msgstr "Detalle de Checkout"
+
+#. module: tour_travel
+#: field:transport.book,checkin_date:0
+msgid "Journey Date"
+msgstr "Fecha de Viaje"
+
+#. module: tour_travel
+#: field:agent.commission.line,name:0
+#: report:tour.booking.report:0
+#: field:tour.package,name1:0
+#: field:tour.package,product_id:0
+msgid "Tour Name"
+msgstr "Nombre del Tour"
+
+#. module: tour_travel
+#: code:addons/tour_travel/transport_book.py:670
+#, python-format
+msgid "Please provide Journey Date before confirmation."
+msgstr "Por favor Proporcione Fecha del Viaje antes de la confirmación ."
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+#: field:tour.cost.exclude.facility,facility_id:0
+#: field:tour.cost.include.facility,facility_id:0
+msgid "Facility"
+msgstr "Facilidad"
+
+#. module: tour_travel
+#: code:addons/tour_travel/agent_commission.py:181
+#, python-format
+msgid "Account is not define for partner"
+msgstr "La Cuenta no esta definida para el Socio"
+
+#. module: tour_travel
+#: view:agent.commission.invoice:0
+#: field:agent.commission.invoice.line,commission_amt:0
+msgid "Commission Amount"
+msgstr "Importe de Comisión"
+
+#. module: tour_travel
+#: field:transport.book,depart_date:0
+msgid "Departure Date"
+msgstr "Fecha de Salida"
+
+#. module: tour_travel
+#: view:tour.booking:0
+msgid "Check Payment"
+msgstr "Compruebe Pago"
+
+#. module: tour_travel
+#: field:checkout_detail.wizard,book_id:0
+#: field:room.line,book_id:0
+#: field:service.line,book_id:0
+msgid "Book ID"
+msgstr "ID Reserva"
+
+#. module: tour_travel
+#: code:addons/tour_travel/tour_hotel_reservation.py:277
+#, python-format
+msgid " Please Enter How Many Rooms Required"
+msgstr "Por favor, introduzca cuántas Habitaciones se Requieren"
+
+#. module: tour_travel
+#: field:tour.dates,available_seat:0
+msgid "Available Seats"
+msgstr "Asientos Disponibles"
+
+#. module: tour_travel
+#: model:ir.model,name:tour_travel.model_res_partner
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+#: field:tour.programme,breakfast:0
+msgid "Breakfast"
+msgstr "Desayuno"
+
+#. module: tour_travel
+#: code:addons/tour_travel/tour_travel.py:862
+#: code:addons/tour_travel/tour_travel.py:865
+#, python-format
+msgid "Sale is not configured for Pay Before Delivery"
+msgstr "Venta no está configurada para el pago antes de la entrega"
+
+#. module: tour_travel
+#: field:tour.package,tour_date_lines:0
+msgid "Tour date Lines"
+msgstr "Lineas de fechas del Tour"
+
+#. module: tour_travel
+#: code:addons/tour_travel/tour_travel.py:1281
+#, python-format
+msgid "Check Child For Policy Coverage "
+msgstr "Compruebe niño para cobertura de la póliza"
+
+#. module: tour_travel
+#: field:transport.book,transport_id:0
+msgid "Transport Company"
+msgstr "Compañía de Transporte"
+
+#. module: tour_travel
+#: code:addons/tour_travel/tour_travel.py:816
+#, python-format
+msgid "TOUR IS NOT AVAILABLE FOR THIS SEASON"
+msgstr "TOUR NO ESTÁ DISPONIBLE PARA ESTA TEMPORADA"
+
+#. module: tour_travel
+#: field:insurance.coverage.line,benifit_cost:0
+msgid "Benifit Cost"
+msgstr "Coste de Beneficio"
+
+#. module: tour_travel
+#: code:addons/tour_travel/agent_commission.py:70
+#, python-format
+msgid "No Commission Percentage Is Defined for Tour '%s'. Please Configure First !!!"
+msgstr "No hay Porcentaje deComisión definidida para el Tour ' % s '. Por favor, configure primero !"
+
+#. module: tour_travel
+#: view:hotel.information:0
+msgid "Accounting Information"
+msgstr "Información de Contabilidad"
+
+#. module: tour_travel
+#: model:ir.model,name:tour_travel.model_passport_booking
+msgid "Passport  booking class "
+msgstr "Clase de reserva de Pasaporte"
+
+#. module: tour_travel
+#: field:agent.commission.invoice,agent_invoice_ids:0
+msgid "Agent Invoices"
+msgstr "Facturas del agente"
+
+#. module: tour_travel
+#: code:addons/tour_travel/tour_travel.py:807
+#: code:addons/tour_travel/transport_book.py:668
+#, python-format
+msgid "Customer Details is not proper"
+msgstr "Datos del cliente no es correcta"
+
+#. module: tour_travel
+#: field:room.line,total_price:0
+#: field:service.line,total_price:0
+#: field:transport.line,total_price:0
+msgid "Total Price"
+msgstr "El precio total"
+
+#. module: tour_travel
+#: selection:hotel.service,state:0
+#: selection:service.line,state:0
+#: selection:tour.dates,state:0
+msgid "Available"
+msgstr "Disponible"
+
+#. module: tour_travel
+#: model:ir.actions.act_window,name:tour_travel.action_tour_transport_carrier_form_view
+#: model:ir.model,name:tour_travel.model_transport_carrier
+#: model:ir.ui.menu,name:tour_travel.menu_transport_carrier
+#: view:transport.carrier:0
+msgid "Transport Carrier"
+msgstr "Transporte Cargador"
+
+#. module: tour_travel
+#: selection:tour.package,tour_category:0
+msgid "Packaged Tour"
+msgstr "Paquete turístico"
+
+#. module: tour_travel
+#: view:tour.cost.include.facility:0
+msgid "Tour Cost Include Facility Lines"
+msgstr "Costo del viaje incluyen líneas de Facilidad"
+
+#. module: tour_travel
+#: view:hotel.information:0
+#: view:tour.package:0
+#: view:transport.information:0
+msgid "Other Information"
+msgstr "Otra información"
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+msgid "SN"
+msgstr "Numero de Serie"
+
+#. module: tour_travel
+#: model:ir.model,name:tour_travel.model_tour_hotel_customer_book
+msgid "Hotel Customer Booking Lines "
+msgstr "Lineas de reserva del Cliente del Hotel"
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+#: field:tour.customer.details,name:0
+msgid "Age"
+msgstr "Edad"
+
+#. module: tour_travel
+#: view:tour.package:0
+msgid "Cost Include"
+msgstr "Coste Incluido"
+
+#. module: tour_travel
+#: field:tour.package,tour_hotel_info_lines:0
+msgid "Tour Hotel Info Lines"
+msgstr "Lineas de Informacion de hotel de Tour"
+
+#. module: tour_travel
+#: model:ir.model,name:tour_travel.model_tour_package_type
+msgid "Tour Package Types"
+msgstr "Tipo de paquetes de viajes"
+
+#. module: tour_travel
+#: field:tour.hotel.info,hotel_customer_booking_lines:0
+msgid "Tour Hotel Customer Booking Lines"
+msgstr "Lineas de reserva de hotel de tour de cliente"
+
+#. module: tour_travel
+#: view:res.partner:0
+#: field:res.partner,tour_partner_history_ids:0
+msgid "Tour History"
+msgstr "Hostorial de Tour"
+
+#. module: tour_travel
+#: selection:tour.package,days:0
+msgid "30"
+msgstr "30"
+
+#. module: tour_travel
+#: model:ir.model,name:tour_travel.model_tour_season
+#: view:tour.season:0
+msgid "Tour Seasons"
+msgstr "Temporadas de Tour"
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+msgid "Seat No"
+msgstr "Asiento No."
+
+#. module: tour_travel
+#: code:addons/tour_travel/tour_hotel_reservation.py:356
+#, python-format
+msgid "Account is not define for Room Type"
+msgstr "La Cuenta no esta definida para el Tipo de Habitación"
+
+#. module: tour_travel
+#: field:transport.book,cost_price:0
+#: field:transport.type.info,cost_price:0
+msgid "Cost Price(Adult)"
+msgstr "Coste de Precio ( Adulto )"
+
+#. module: tour_travel
+#: model:ir.model,name:tour_travel.model_tour_payment_policy
+msgid "Tour Payment Policies for Customer"
+msgstr "Polízas de pago de Tour para el cliente"
+
+#. module: tour_travel
+#: field:lead.to.opportunity.wizard,categ_id:0
+#: field:leads.group.by.agent.wizard,categ_ids:0
+msgid "Category"
+msgstr "Categoría"
+
+#. module: tour_travel
+#: model:ir.actions.report.xml,name:tour_travel.tour_booking_report_id
+msgid "Booking Report"
+msgstr "Informe de Reserva"
+
+#. module: tour_travel
+#: model:ir.model,name:tour_travel.model_insurance_coverage_line
+msgid "insurance coverage for Tours and Travel Services"
+msgstr "cobertura de seguro para vacaciones y turismo"
+
+#. module: tour_travel
+#: model:ir.model,name:tour_travel.model_service_type
+msgid "Hotel Service Type Configuration"
+msgstr "Configuración Tipo de Servico de Hotel"
+
+#. module: tour_travel
+#: code:addons/tour_travel/hotel_reservation.py:444
+#: code:addons/tour_travel/passport_visa.py:23
+#: code:addons/tour_travel/passport_visa.py:50
+#: code:addons/tour_travel/passport_visa.py:73
+#: code:addons/tour_travel/wizard/checkout_detail.py:57
+#: code:addons/tour_travel/wizard/checkout_detail.py:60
+#: code:addons/tour_travel/wizard/checkout_details_transport.py:57
+#: code:addons/tour_travel/wizard/checkout_details_transport.py:60
+#, python-format
+msgid "Warnning"
+msgstr "Aviso"
+
+#. module: tour_travel
+#: view:tour.hotel.customer.book:0
+msgid "Tour Hotel Customer Booking"
+msgstr "Reservacion de hotel de tour del cliente"
+
+#. module: tour_travel
+#: code:addons/tour_travel/hotel_reservation.py:264
+#: code:addons/tour_travel/tour_hotel_reservation.py:281
+#, python-format
+msgid " Please Check The Check out Date Which Is Less Than Check In Date"
+msgstr "Por favor, Compruebe que la fecha de Salida es menos que la Fecha Llegada"
+
+#. module: tour_travel
+#: view:insurance.type:0
+#: model:ir.actions.act_window,name:tour_travel.action_insurance_type_tree_view
+#: model:ir.ui.menu,name:tour_travel.menu_insurance_type
+msgid "Insurance Type"
+msgstr "Tipo de seguro"
+
+#. module: tour_travel
+#: model:ir.model,name:tour_travel.model_agent_commission_invoice
+msgid "Agent Commision Invoice"
+msgstr "Factura de Commision de Agente"
+
+#. module: tour_travel
+#: field:agent.commission.invoice,state:0
+#: field:hotel.information,state:0
+#: field:hotel.reservation,state:0
+#: field:hotel.service,state:0
+#: field:insurance.policy,state:0
+#: field:room.line,state:0
+#: field:service.line,state:0
+#: field:tour.booking,state:0
+#: field:tour.customer.details,state:0
+#: field:tour.dates,state:0
+#: field:tour.hotel.customer.book,state:0
+#: field:tour.hotel.info,state:0
+#: field:tour.hotel.reservation,state:0
+#: field:tour.package,state:0
+#: field:transport.book,state:0
+#: field:transport.information,state:0
+#: field:transport.line,state:0
+msgid "Status"
+msgstr "Estado"
+
+#. module: tour_travel
+#: field:tour.booking,tour_type:0
+#: field:tour.package,tour_type:0
+#: field:tour.package.info,name:0
+msgid "Tour Type"
+msgstr "Tipo de Tour"
+
+#. module: tour_travel
+#: view:hotel.reservation:0
+#: model:ir.ui.menu,name:tour_travel.menu_room_reservation
+msgid "Room Reservation"
+msgstr "Reserva de habitación"
+
+#. module: tour_travel
+#: model:ir.model,name:tour_travel.model_transport_checkout_detail_wizard
+msgid "Transport Checkout Detail Wizard"
+msgstr "Detalle Wizard de Checkout de Transporte"
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+#: field:tour.programme,lunch:0
+msgid "Lunch"
+msgstr "Almuerzo"
+
+#. module: tour_travel
+#: model:product.template,name:tour_travel.product_product_12_product_template
+msgid "Visa"
+msgstr "Visa"
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+msgid "Tour Fees Inclusion Details"
+msgstr "Detalles de Inclusion de la tarifa de Tour"
+
+#. module: tour_travel
+#: help:tour.customer.details,h_flag:0
+msgid "For Hotel Reservation Line"
+msgstr "Para Linea de Reservacion de Hotel"
+
+#. module: tour_travel
+#: view:transport.book:0
+msgid "Approval From Transporter"
+msgstr "Aprobación Del Transportador"
+
+#. module: tour_travel
+#: field:tour.insurance.line,child_coverage1:0
+msgid "Child Policy Coverage"
+msgstr "Cobertura de Póliza de niños"
+
+#. module: tour_travel
+#: field:hotel.information,hotel_type_id:0
+#: field:hotel.reservation,hotel_type_id:0
+#: view:hotel.type:0
+#: field:hotel.type,name:0
+#: model:ir.actions.act_window,name:tour_travel.action_hotel_type_form_view
+#: model:ir.ui.menu,name:tour_travel.menu_hotel_type
+#: field:res.partner,hotel_type_id:0
+#: field:tour.destination.hotel.line,hotel_type_id:0
+#: field:tour.hotel.reservation,hotel_type_id:0
+msgid "Hotel Type"
+msgstr "Tipo de Hotel"
+
+#. module: tour_travel
+#: model:ir.model,name:tour_travel.model_insurance_policy
+msgid "Insurance Policy "
+msgstr "Póliza de Seguro"
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+msgid "We, Wish you a very Happy and Comfortable Journey."
+msgstr "Le deseamos un Feliz y Comodo viaje ."
+
+#. module: tour_travel
+#: code:addons/tour_travel/agent_commission.py:156
+#: code:addons/tour_travel/agent_commission.py:178
+#, python-format
+msgid "There is no commission line to process"
+msgstr "No hay línea comisión para procesar"
+
+#. module: tour_travel
+#: code:addons/tour_travel/agent_commission.py:170
+#, python-format
+msgid "Commission is not Paid."
+msgstr "Comisiones no estan pagadas."
+
+#. module: tour_travel
+#: field:service.line,qty:0
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: tour_travel
+#: code:addons/tour_travel/tour_hotel_reservation.py:446
+#: code:addons/tour_travel/transport_book.py:644
+#, python-format
+msgid "Please Pay The Invoice Amount "
+msgstr "Por favor, pague el Importe de la factura"
+
+#. module: tour_travel
+#: field:tour.package,tour_road_travel_lines:0
+msgid "Tour Road Travel Lines"
+msgstr "Lineas de Tour Viaje por carretera"
+
+#. module: tour_travel
+#: code:addons/tour_travel/agent_commission.py:212
+#, python-format
+msgid "Account is not define for  tour '%s'"
+msgstr "La Cuenta no esta definida para el Tour de '% s '"
+
+#. module: tour_travel
+#: field:tour.road.travel,provider_ids:0
+msgid "Provider Details"
+msgstr "Detalles del Proveedor"
+
+#. module: tour_travel
+#: view:agent.commission.invoice:0
+msgid "Commission Line"
+msgstr "Linea de Comisión"
+
+#. module: tour_travel
+#: model:ir.model,name:tour_travel.model_pricelist_partnerinfo
+msgid "pricelist.partnerinfo"
+msgstr "pricelist.partnerinfo"
+
+#. module: tour_travel
+#: model:ir.model,name:tour_travel.model_tour_facility
+#: view:tour.facility:0
+msgid "Tour Facility"
+msgstr "Facilidad turística"
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+msgid "2. Tour Destinations"
+msgstr "2 . Destinos turísticos"
+
+#. module: tour_travel
+#: view:tour.road.travel:0
+msgid "Tour Travel Road"
+msgstr "Tour Viaje por Carretera"
+
+#. module: tour_travel
+#: view:lead.to.opportunity.wizard:0
+#: view:leads.group.by.agent.wizard:0
+msgid "Details"
+msgstr "Detalles"
+
+#. module: tour_travel
+#: code:addons/tour_travel/tour_travel.py:1214
+#, python-format
+msgid "Due Date of Payment is Crossed"
+msgstr "Se ha Sobrepasado la Fecha de vencimiento del pago"
+
+#. module: tour_travel
+#: view:room.line:0
+msgid "Room Line Form"
+msgstr "Formulario Linea de habitación"
+
+#. module: tour_travel
+#: view:tour.road.travel:0
+msgid "Tour Road Travel"
+msgstr "Tour Viajes por carretera"
+
+#. module: tour_travel
+#: model:ir.actions.act_window,name:tour_travel.action_room_type_form_view
+#: model:ir.ui.menu,name:tour_travel.menu_room_type
+#: field:room.info,room_type_id:0
+#: field:room.line,room_type_id:0
+#: view:room.type:0
+#: field:room.type,room_type:0
+#: field:tour.destination.hotel.line,room_type_id:0
+#: field:tour.hotel.reservation,room_type_id:0
+msgid "Room Type"
+msgstr "Tipo de Habitación"
+
+#. module: tour_travel
+#: field:tour.payment.policy,before_book_date_perc:0
+msgid "Payment Percentage Before Booking Date"
+msgstr "Porcentaje de pago Antes de la Fecha de la Reserva"
+
+#. module: tour_travel
+#: code:addons/tour_travel/tour_hotel_reservation.py:227
+#, python-format
+msgid "Pricelist is not selected."
+msgstr "Lista de precios no está seleccionada."
+
+#. module: tour_travel
+#: code:addons/tour_travel/transport_book.py:678
+#, python-format
+msgid "You are giving wrong Journey Date."
+msgstr "Usted está dando Fecha equivocada de Viaje."
+
+#. module: tour_travel
+#: view:crm.lead:0
+msgid "Opportunity"
+msgstr "Oportunidad"
+
+#. module: tour_travel
+#: model:ir.actions.act_window,name:tour_travel.action_tour_destination_tree_view
+#: model:ir.model,name:tour_travel.model_tour_destinations
+#: model:ir.ui.menu,name:tour_travel.menu_tour_destination
+#: report:tour.booking.report:0
+#: view:tour.destinations:0
+msgid "Tour Destinations"
+msgstr "Destinos turísticos"
+
+#. module: tour_travel
+#: model:ir.model,name:tour_travel.model_tour_hotel_info
+#: view:tour.hotel.info:0
+msgid "Tour Hotel Information"
+msgstr "Información de Hotel de Tour"
+
+#. module: tour_travel
+#: model:ir.model,name:tour_travel.model_product_product
+msgid "Product"
+msgstr "Producto"
+
+#. module: tour_travel
+#: field:tour.customer.details,tour_book_id:0
+#: field:tour.insurance.line,tour_book_id:0
+msgid "Tour Book ID"
+msgstr "ID Reserva de Tour"
+
+#. module: tour_travel
+#: code:addons/tour_travel/tour_travel.py:812
+#, python-format
+msgid "NO SEATS ARE AVAILABLE,  TOUR IS ALREADY BOOKED"
+msgstr "NO HAY ASIENTOS DISPONIBLES.EL TOUR YA ESTA COMPLETO"
+
+#. module: tour_travel
+#: field:hotel.reservation,tax_id:0
+#: field:tour.hotel.reservation,tax_ids:0
+#: field:transport.book,tax_id:0
+msgid "Taxes"
+msgstr "Impuestos"
+
+#. module: tour_travel
+#: view:checkout_detail.wizard:0
+#: view:transport_checkout_detail.wizard:0
+msgid "Allow"
+msgstr "Permitir"
+
+#. module: tour_travel
+#: view:tour.package:0
+msgid "Travel Details"
+msgstr "Detalles del viaje"
+
+#. module: tour_travel
+#: model:ir.model,name:tour_travel.model_tour_travel
+msgid "Tour And Travel Management "
+msgstr "Gestión de Tours y Viajes"
+
+#. module: tour_travel
+#: code:addons/tour_travel/transport_book.py:658
+#, python-format
+msgid " Please Enter Customer Details"
+msgstr "Por favor Introduzca los datos del Cliente"
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+msgid "Email:"
+msgstr "Email:"
+
+#. module: tour_travel
+#: selection:tour.hotel.reservation,state:0
+msgid "Waiting For Hotel Approval"
+msgstr "Esperando Aprobación del hotel"
+
+#. module: tour_travel
+#: field:transport.book,total_amt:0
+msgid "Customer Invoice Amount"
+msgstr "Importe de Factura de Cliente"
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+msgid "Tour Program Details"
+msgstr "Detalles del Programa de Tour"
+
+#. module: tour_travel
+#: model:product.template,name:tour_travel.product_product_transport_type4_product_template
+msgid "Ship"
+msgstr "Barco"
+
+#. module: tour_travel
+#: selection:agent.commission.invoice,state:0
+#: selection:tour.booking,state:0
+#: selection:transport.book,state:0
+msgid "Invoiced"
+msgstr "Facturado"
+
+#. module: tour_travel
+#: field:hotel.information,hotel_recv_acc:0
+#: field:transport.information,transport_recv_acc:0
+msgid "Receivable Account"
+msgstr "Cuenta por Cobrar"
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+msgid "Travel Type"
+msgstr "Tipo de viaje"
+
+#. module: tour_travel
+#: field:insurance.type,child_cost:0
+msgid "For Child Insurance Cost"
+msgstr "Coste de Seguro para Niño"
+
+#. module: tour_travel
+#: field:agent.commission.invoice.line,tour_book_id:0
+#: field:tour.booking,name:0
+#: report:tour.booking.report:0
+msgid "Tour Booking ID"
+msgstr "ID Reserva de Tour"
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+msgid "Transportation Details"
+msgstr "Detalles del Transporte"
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+#: field:transport.type.info,from_date:0
+msgid "From Date"
+msgstr "Desde la fecha"
+
+#. module: tour_travel
+#: model:ir.actions.act_window,name:tour_travel.action_tour_payment_policy_tree_view
+#: model:ir.ui.menu,name:tour_travel.menu_tour_payment_policy
+#: field:tour.booking,payment_policy_id:0
+msgid "Payment Policy"
+msgstr "Poliza de Pago"
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+msgid "3. Hotel Accommodation Details"
+msgstr "3 . Detalles de Alojamiento de Hotel"
+
+#. module: tour_travel
+#: selection:tour.package,days:0
+msgid "24"
+msgstr "24"
+
+#. module: tour_travel
+#: selection:tour.package,days:0
+msgid "25"
+msgstr "25"
+
+#. module: tour_travel
+#: selection:tour.package,days:0
+msgid "26"
+msgstr "26"
+
+#. module: tour_travel
+#: selection:tour.package,days:0
+msgid "27"
+msgstr "27"
+
+#. module: tour_travel
+#: selection:tour.package,days:0
+msgid "20"
+msgstr "20"
+
+#. module: tour_travel
+#: code:addons/tour_travel/tour_travel.py:917
+#, python-format
+msgid " Please Confirm The Sale Order Before Booking"
+msgstr "Por favor Confirme el Pedido de venta antes de reservar"
+
+#. module: tour_travel
+#: view:agent.commission.invoice.line:0
+msgid "Agent Commission Invoice Line"
+msgstr "Línea de Factura de Agente deComisión"
+
+#. module: tour_travel
+#: selection:tour.package,days:0
+msgid "23"
+msgstr "23"
+
+#. module: tour_travel
+#: code:addons/tour_travel/tour_hotel_reservation.py:50
+#: code:addons/tour_travel/tour_hotel_reservation.py:227
+#: code:addons/tour_travel/tour_hotel_reservation.py:229
+#: code:addons/tour_travel/tour_hotel_reservation.py:252
+#: code:addons/tour_travel/tour_hotel_reservation.py:261
+#: code:addons/tour_travel/tour_hotel_reservation.py:271
+#: code:addons/tour_travel/tour_travel.py:55
+#: code:addons/tour_travel/transport_book.py:50
+#: code:addons/tour_travel/transport_book.py:461
+#: code:addons/tour_travel/transport_book.py:467
+#, python-format
+msgid "Warning !"
+msgstr "¡Aviso!"
+
+#. module: tour_travel
+#: selection:tour.package,days:0
+msgid "28"
+msgstr "28"
+
+#. module: tour_travel
+#: selection:tour.package,days:0
+msgid "29"
+msgstr "29"
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+msgid "Night Stay"
+msgstr "Estancia de una noche"
+
+#. module: tour_travel
+#: view:service.line:0
+msgid "Service Line Form"
+msgstr "Formulario de Lineas de servicio"
+
+#. module: tour_travel
+#: code:addons/tour_travel/hotel_reservation.py:444
+#, python-format
+msgid "Please Check Rooms Not Available !!!"
+msgstr "Compruebe por favor Habitaciones no disponible !"
+
+#. module: tour_travel
+#: code:addons/tour_travel/tour_travel.py:1231
+#, python-format
+msgid "Associated Hotel Booking No  \"%s\" is not in done State."
+msgstr "Asociado No.de reserva de hotel \" % s \" no se encuentra en Estado Hecho."
+
+#. module: tour_travel
+#: field:agent.commission.invoice.line,tour_cost:0
+#: field:tour.insurance.line,insurance_cost:0
+msgid "Total Cost"
+msgstr "Coste total"
+
+#. module: tour_travel
+#: field:tour.booking,tour_booking_invoice_ids:0
+msgid "Tour Invoices"
+msgstr "Facturas del Tour"
+
+#. module: tour_travel
+#: field:transport.book,mobile:0
+msgid "Mobile"
+msgstr "Móvil"
+
+#. module: tour_travel
+#: model:product.template,name:tour_travel.product_product_transport_type5_product_template
+msgid "Car"
+msgstr "Coche"
+
+#. module: tour_travel
+#: view:transport.book:0
+msgid "Send To Transporter"
+msgstr "Enviar al Transportador"
+
+#. module: tour_travel
+#: field:tour.package,tour_booking_customer_ids:0
+msgid "Tour Customer Booking"
+msgstr "Reservacion de Tour de Cliente"
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+msgid "1. Tour Program"
+msgstr "1 . Programa de Tour"
+
+#. module: tour_travel
+#: code:addons/tour_travel/hotel_reservation.py:262
+#: code:addons/tour_travel/tour_hotel_reservation.py:279
+#, python-format
+msgid " Please Enter Details of Person like Adults And Child "
+msgstr "Por favor Introduzca los datos de las persona como adultos y niños"
+
+#. module: tour_travel
+#: model:ir.model,name:tour_travel.model_tour_package
+#: model:ir.ui.menu,name:tour_travel.menu_tour_packages_info
+#: field:tour.package.type,name:0
+msgid "Tour Package"
+msgstr "Paquete Turístico"
+
+#. module: tour_travel
+#: help:tour.hotel.reservation,total_amt:0
+#: help:transport.book,total_amt:0
+msgid "This fields shows Amount as per the currency of selected pricelist at header."
+msgstr "Estos campos muestran el Importe según la moneda de la lista de precios seleccionada en el encabezado."
+
+#. module: tour_travel
+#: field:tour.hotel.info,attachment_ids:0
+msgid "Attachment Lines"
+msgstr "Líneas de "
+
+#. module: tour_travel
+#: field:tour.customer.details,room_no:0
+msgid "Room Number"
+msgstr "Número de habitación"
+
+#. module: tour_travel
+#: field:tour.booking,child_coverage1:0
+msgid "Number of Child Policy Coverage"
+msgstr "Numero de Cobertura de Poliza de Niño"
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+#: field:transport.type.info,to_date:0
+msgid "To Date"
+msgstr "Hasta Fecha"
+
+#. module: tour_travel
+#: field:insurance.coverage.line,insurance_policy_id:0
+msgid "Insurance Policy ID"
+msgstr "ID Póliza de seguro"
+
+#. module: tour_travel
+#: selection:tour.dates,state:0
+msgid "Reopen"
+msgstr "Reabrir"
+
+#. module: tour_travel
+#: view:tour.dates:0
+msgid "Re-Open"
+msgstr "Reabrir"
+
+#. module: tour_travel
+#: model:res.groups,name:tour_travel.group_tour_manager
+msgid "Tour Management / Manager"
+msgstr "Gestión de Tour/ Gerente"
+
+#. module: tour_travel
+#: code:addons/tour_travel/hotel_reservation.py:377
+#, python-format
+msgid "Do not change room type."
+msgstr "No cambie el tipo de habitación ."
+
+#. module: tour_travel
+#: model:ir.model,name:tour_travel.model_hotel_service
+msgid "Hotel Service Configuration"
+msgstr "Configuración del Servicio de Hotel"
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+#: view:tour.package:0
+msgid "Destinations"
+msgstr "Destinos"
+
+#. module: tour_travel
+#: sql_constraint:transport.type.info:0
+msgid "The combination of From date, To date, Source to destination, Travel class and Service Provider must be unique !"
+msgstr "La combinación de fecha Desde,fecha Hasta, el origen del destino , la clase de viaje y proveedor de servicios debe ser único !"
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+#: field:tour.road.travel,from_destination_id:0
+#: field:transport.book,from_destination_id:0
+#: field:transport.type.info,from_destination_id:0
+msgid "From"
+msgstr "Desde"
+
+#. module: tour_travel
+#: field:agent.commission.invoice.line,commission_line_id:0
+msgid "Commission ID"
+msgstr "Comisión ID"
+
+#. module: tour_travel
+#: code:addons/tour_travel/tour_travel.py:796
+#, python-format
+msgid "Customer details is not define"
+msgstr "Datos del cliente no esta definida"
+
+#. module: tour_travel
+#: field:transport.book,tax:0
+msgid "Tax"
+msgstr "Impuesto"
+
+#. module: tour_travel
+#: model:product.template,name:tour_travel.product_product_13_product_template
+msgid "Passport"
+msgstr "Pasaporte"
+
+#. module: tour_travel
+#: view:lead.to.opportunity.wizard:0
+#: view:leads.group.by.agent.wizard:0
+msgid "Print"
+msgstr "Imprimir"
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+msgid "Type"
+msgstr "Tipo"
+
+#. module: tour_travel
+#: field:tour.package,tour_cost_exclude_facility_lines:0
+msgid "Tour Cost Excluded Facility Lines"
+msgstr "Costo del viaje Excluidos Líneas de Facilidad"
+
+#. module: tour_travel
+#: code:addons/tour_travel/tour_hotel_reservation.py:291
+#, python-format
+msgid "You are giving wrong check in date"
+msgstr "Usted está dando fecha Checkin equivocada"
+
+#. module: tour_travel
+#: field:tour.booking,season_id:0
+#: field:tour.dates,season_id:0
+#: field:tour.season,name:0
+msgid "Season"
+msgstr "Temporada"
+
+#. module: tour_travel
+#: view:tour.booking:0
+msgid "Tour Customers"
+msgstr "Clientes del Tour"
+
+#. module: tour_travel
+#: code:addons/tour_travel/lead.py:38
+#: code:addons/tour_travel/tour_travel.py:97
+#, python-format
+msgid "Invalid action !"
+msgstr "Acción no válida!"
+
+#. module: tour_travel
+#: field:agent.commission.invoice,pricelist_id:0
+#: field:tour.booking,pricelist_id:0
+#: field:tour.hotel.reservation,pricelist_id:0
+#: field:transport.book,pricelist_id:0
+msgid "Pricelist"
+msgstr "Lista de precios"
+
+#. module: tour_travel
+#: view:tour.hotel.reservation:0
+msgid "Send To Hotel"
+msgstr "Enviar al hotel"
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+msgid "Tour Program"
+msgstr "Programa de Tour"
+
+#. module: tour_travel
+#: selection:tour.destination.line,visa_type:0
+msgid "Tourist Visa(Single Entry)"
+msgstr "Visa turista ( Entrada única)"
+
+#. module: tour_travel
+#: field:tour.destination.line,hotel_lines:0
+msgid "Destination Hotels"
+msgstr "Destino de Hoteles"
+
+#. module: tour_travel
+#: model:ir.ui.menu,name:tour_travel.menu_agent_commission
+msgid "Agent Commission"
+msgstr "Comisión del agente"
+
+#. module: tour_travel
+#: selection:tour.customer.details,gender:0
+msgid "Male"
+msgstr "Masculino"
+
+#. module: tour_travel
+#: help:tour.customer.details,i_flag:0
+msgid "For Insurance Reservation Line"
+msgstr "Para Linea de Reservacion de Seguro"
+
+#. module: tour_travel
+#: field:crm.lead,via:0
+#: field:tour.booking,via:0
+msgid "Via"
+msgstr "Vía"
+
+#. module: tour_travel
+#: code:addons/tour_travel/tour_travel.py:792
+#, python-format
+msgid "Pricelist is not define"
+msgstr "Lista de precios no esta definida"
+
+#. module: tour_travel
+#: view:tour.hotel.reservation:0
+#: view:transport.book:0
+msgid "Confirm Booking"
+msgstr "Confirmar reserva"
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+msgid "Tour Booking Information"
+msgstr "Información de Reserva de Tour"
+
+#. module: tour_travel
+#: field:passport.booking,tour_book_id:0
+#: field:tour.hotel.reservation,tour_book_id:0
+#: field:transport.book,tour_book_id:0
+#: field:visa.booking,tour_book_id:0
+msgid "Tour Booking Ref"
+msgstr "Ref Reserva Tour"
+
+#. module: tour_travel
+#: field:room.line,days_required:0
+#: field:transport.line,days_required:0
+msgid "Number Of Days"
+msgstr "Número de días"
+
+#. module: tour_travel
+#: field:tour.deduction.policy,name:0
+msgid "Minimum Limit (days)"
+msgstr "Límite mínimo ( días )"
+
+#. module: tour_travel
+#: model:ir.model,name:tour_travel.model_provider_information_line
+msgid "Provider Information Line"
+msgstr "Linea Información del proveedor"
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+#: field:tour.destination.line,country_id:0
+#: field:tour.destinations,country_id:0
+msgid "Country"
+msgstr "País"
+
+#. module: tour_travel
+#: field:agent.commission.invoice.line,commission_percentage:0
+#: field:agent.commission.line,percentage:0
+msgid "Commission Percentage"
+msgstr "Porcentaje de Comisión"
+
+#. module: tour_travel
+#: field:transport.line,vehicle_cost:0
+msgid "Fare"
+msgstr "Tarifa"
+
+#. module: tour_travel
+#: code:addons/tour_travel/passport_visa.py:134
+#, python-format
+msgid "Account is not set for selected service."
+msgstr "La Cuenta no está fijada para el servicio seleccionado."
+
+#. module: tour_travel
+#: field:tour.booking,total_amt:0
+msgid "Total Amount"
+msgstr "Importe total"
+
+#. module: tour_travel
+#: selection:tour.customer.details,type:0
+msgid "Adult"
+msgstr "Adulto"
+
+#. module: tour_travel
+#: code:addons/tour_travel/transport_book.py:635
+#, python-format
+msgid "Seat / Berth No. is not assign to customer."
+msgstr "Asiento  / No. Embarcadero No esta asignado al cliente."
+
+#. module: tour_travel
+#: field:agent.commission.invoice,current_date:0
+#: field:hotel.reservation,current_date:0
+#: field:tour.hotel.reservation,current_date:0
+msgid "Date"
+msgstr "Fecha"
+
+#. module: tour_travel
+#: view:tour.package.type:0
+msgid "Packages"
+msgstr "Paquetes"
+
+#. module: tour_travel
+#: code:addons/tour_travel/tour_hotel_reservation.py:293
+#, python-format
+msgid "You are giving wrong checkout date"
+msgstr "Usted está dando fecha Checkout equivocada"
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+msgid "It is our previllage to be at your service. Please find enlcosed Tour Itinary for your kind reference."
+msgstr "Es de nuestro privilegio estar a su servicio. Por favor Encuentre Incluido el Itinerario para su referencia."
+
+#. module: tour_travel
+#: view:agent.commission.invoice:0
+#: view:hotel.reservation:0
+#: view:tour.booking:0
+#: view:tour.hotel.reservation:0
+#: view:transport.book:0
+msgid "History"
+msgstr "Historial"
+
+#. module: tour_travel
+#: selection:tour.package,days:0
+msgid "11"
+msgstr "11"
+
+#. module: tour_travel
+#: selection:tour.package,days:0
+msgid "10"
+msgstr "10"
+
+#. module: tour_travel
+#: selection:tour.package,days:0
+msgid "13"
+msgstr "13"
+
+#. module: tour_travel
+#: field:carrier.type,description:0
+#: field:insurance.type,code:0
+#: field:tour.destinations,code:0
+#: field:tour.facility,code:0
+#: field:tour.hotel.info,name:0
+#: field:tour.season,code:0
+#: field:transport.carrier,code:0
+msgid "Code"
+msgstr "Código"
+
+#. module: tour_travel
+#: selection:tour.package,days:0
+msgid "15"
+msgstr "15"
+
+#. module: tour_travel
+#: selection:tour.package,days:0
+msgid "14"
+msgstr "14"
+
+#. module: tour_travel
+#: selection:tour.package,days:0
+msgid "17"
+msgstr "17"
+
+#. module: tour_travel
+#: selection:tour.package,days:0
+msgid "16"
+msgstr "16"
+
+#. module: tour_travel
+#: selection:tour.package,days:0
+msgid "19"
+msgstr "19"
+
+#. module: tour_travel
+#: selection:tour.package,days:0
+msgid "18"
+msgstr "18"
+
+#. module: tour_travel
+#: view:checkout_detail.wizard:0
+#: view:lead.to.opportunity.wizard:0
+#: view:leads.group.by.agent.wizard:0
+#: view:tour.booking:0
+#: selection:tour.booking,state:0
+#: view:tour.hotel.reservation:0
+#: view:transport.book:0
+#: view:transport_checkout_detail.wizard:0
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: tour_travel
+#: model:ir.actions.act_window,name:tour_travel.action_tour_season_form_view
+#: model:ir.ui.menu,name:tour_travel.menu_tour_season
+#: view:tour.season:0
+msgid "Tour Season"
+msgstr "Temporada de Tour"
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+#: field:transport.book,pnr_no:0
+msgid "PNR No"
+msgstr "No. PNR"
+
+#. module: tour_travel
+#: field:tour.hotel.reservation,room_required:0
+msgid "Rooms Required"
+msgstr "Habitaciones solicitadas"
+
+#. module: tour_travel
+#: code:addons/tour_travel/agent_commission.py:160
+#, python-format
+msgid "Commission is already computed or in process for tour booking number '%s'"
+msgstr "Comisión ya esta computada o en curso para el Número de reserva de Tour '% s '"
+
+#. module: tour_travel
+#: field:transport.book,transport_room_reserve_supplier_invoice_ids:0
+msgid "Transport Room Reservation Invoices"
+msgstr "Facturas de Reservacion de habitacion de Transporte"
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+msgid "5. Cost Inclusion/ Exclusion Details"
+msgstr "5 . Inclusión de Coste / Detalles de Exclusión"
+
+#. module: tour_travel
+#: model:product.category,name:tour_travel.product_cat_in6
+msgid "Sites"
+msgstr "Sitios"
+
+#. module: tour_travel
+#: code:addons/tour_travel/transport_book.py:622
+#, python-format
+msgid "Please fill all required Tour Information."
+msgstr "Por favor, rellene toda la  Información del Tour necesaria."
+
+#. module: tour_travel
+#: view:agent.commission.invoice:0
+#: view:hotel.reservation:0
+msgid "Create Invoice"
+msgstr "Crear factura"
+
+#. module: tour_travel
+#: model:ir.model,name:tour_travel.model_crm_lead
+msgid "Lead/Opportunity"
+msgstr "Inicaitiva / Oportunbidad"
+
+#. module: tour_travel
+#: view:tour.package:0
+msgid "Booking History"
+msgstr "Historial de Reserva"
+
+#. module: tour_travel
+#: view:tour.hotel.reservation:0
+#: view:transport.book:0
+msgid "Customer Information"
+msgstr "Información del cliente"
+
+#. module: tour_travel
+#: view:tour.destination.hotel.line:0
+msgid "Tour Destinations Hotel Lines"
+msgstr "Lineas de Hotel de Destinos Turisticos"
+
+#. module: tour_travel
+#: selection:hotel.reservation,state:0
+#: selection:tour.package,state:0
+msgid "Checkout"
+msgstr "Checkout"
+
+#. module: tour_travel
+#: view:transport.information:0
+msgid "Transport Account Information"
+msgstr "Información de la cuenta de Transporte"
+
+#. module: tour_travel
+#: model:product.template,name:tour_travel.product_product_transport_type1_product_template
+msgid "Flight"
+msgstr "Vuelo"
+
+#. module: tour_travel
+#: code:addons/tour_travel/tour_travel.py:1245
+#, python-format
+msgid "Associated Visa Booking No  \"%s\" is not in done State."
+msgstr "Associated Visa Reserva No \" % s \" no está en el estado de hecho."
+
+#. module: tour_travel
+#: model:ir.model,name:tour_travel.model_transport_information
+msgid "Transport Information "
+msgstr "Información de transporte"
+
+#. module: tour_travel
+#: view:insurance.policy:0
+#: model:ir.actions.act_window,name:tour_travel.action_insurance_policy_form_view
+#: model:ir.ui.menu,name:tour_travel.menu_insurance_policy
+#: field:tour.insurance.line,insurance_policy_id:0
+msgid "Insurance Policy"
+msgstr "Póliza de Seguro"
+
+#. module: tour_travel
+#: model:ir.ui.menu,name:tour_travel.menu_tour_hotel_reservation
+#: view:tour.hotel.reservation:0
+msgid "Tour Hotel Room Reservation"
+msgstr "Reservación de habitación de Hotel de Tour"
+
+#. module: tour_travel
+#: model:ir.model,name:tour_travel.model_room_type
+msgid "Room Type Configuration"
+msgstr "Configuración de tipo de habitación"
+
+#. module: tour_travel
+#: code:addons/tour_travel/tour_travel.py:97
+#, python-format
+msgid "Cannot delete these Product Category. !"
+msgstr "No se puede eliminar estas Categorías de productos . !"
+
+#. module: tour_travel
+#: field:agent.commission.invoice,name:0
+#: field:agent.commission.invoice.line,name:0
+#: field:carrier.type,name:0
+#: field:hotel.information,name:0
+#: field:hotel.reservation,name:0
+#: field:insurance.type,name:0
+#: field:room.line,name:0
+#: field:service.line,name:0
+#: report:tour.booking.report:0
+#: field:tour.travel,name:0
+#: field:transport.information,name:0
+#: field:transport.line,name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: tour_travel
+#: field:tour.package.info,package_type_id:0
+msgid "Package"
+msgstr "Paquete"
+
+#. module: tour_travel
+#: model:ir.ui.menu,name:tour_travel.menu_tour_report
+msgid "Reports"
+msgstr "Informes"
+
+#. module: tour_travel
+#: view:passport.booking:0
+#: view:tour.booking:0
+#: view:tour.hotel.reservation:0
+#: view:tour.package.info:0
+#: field:tour.package.info,tour_line_ids:0
+#: view:transport.book:0
+#: view:visa.booking:0
+msgid "Tour Information"
+msgstr "Información del Tour"
+
+#. module: tour_travel
+#: code:addons/tour_travel/wizard/checkout_detail.py:60
+#: code:addons/tour_travel/wizard/checkout_details_transport.py:60
+#, python-format
+msgid "Payment Is Not Received Yet"
+msgstr "El Pago todavia no se ha recibido"
+
+#. module: tour_travel
+#: field:tour.dates,child_cost_price:0
+msgid "Child Cost Per Person"
+msgstr "Coste de Niño por persona"
+
+#. module: tour_travel
+#: field:res.partner,commission_line_ids:0
+msgid "Transport Id"
+msgstr "Transporte Id"
+
+#. module: tour_travel
+#: field:lead.to.opportunity.wizard,report_basis:0
+#: field:leads.group.by.agent.wizard,report_basis:0
+msgid "Report Basis"
+msgstr "Informe de Bases"
+
+#. module: tour_travel
+#: field:tour.deduction.policy,deduction_percentage:0
+msgid "Deduction Percentage"
+msgstr "Porcentaje de deducción"
+
+#. module: tour_travel
+#: field:agent.commission.line,agent_id:0
+msgid "Partner Id"
+msgstr "Id Socio"
+
+#. module: tour_travel
+#: model:ir.actions.act_window,name:tour_travel.act_leads_gruop_by_agent_detail
+msgid "Leads Group by Agent"
+msgstr "Grupo de Iniciativas por Agente"
+
+#. module: tour_travel
+#: field:hotel.reservation,checkin_date:0
+#: field:tour.hotel.reservation,checkin_date:0
+msgid "Check In Date"
+msgstr "Fecha de llegada"
+
+#. module: tour_travel
+#: selection:room.line,state:0
+#: selection:transport.line,state:0
+msgid "Checked"
+msgstr "Comprobado"
+
+#. module: tour_travel
+#: field:tour.road.travel,approx_time:0
+msgid "Time(Hrs)"
+msgstr "Hora ( Horas )"
+
+#. module: tour_travel
+#: help:transport.book,arrival_date:0
+msgid "This is an Arrival date and time of a carrier at Boarding station"
+msgstr "Esta es una fecha y hora de llegada de un vehículo en la estación de embarque"
+
+#. module: tour_travel
+#: code:addons/tour_travel/tour_hotel_reservation.py:250
+#: code:addons/tour_travel/tour_hotel_reservation.py:261
+#: code:addons/tour_travel/tour_hotel_reservation.py:271
+#, python-format
+msgid "Rate is not define for above Hotel information."
+msgstr "Tarifa no esta definida para la  información del Hotel mencionado arriba."
+
+#. module: tour_travel
+#: code:addons/tour_travel/transport_book.py:570
+#, python-format
+msgid "Expense Account is not define for Transport Type"
+msgstr "La Cuenta de Gastos no esta definida para el tipo de transporte"
+
+#. module: tour_travel
+#: field:tour.destinations,name:0
+msgid "Destination Name"
+msgstr "Nombre de destino"
+
+#. module: tour_travel
+#: view:insurance.coverage.line:0
+#: field:insurance.policy,coverage_line_ids:0
+msgid "Insurance Coverage Line"
+msgstr "Línea de Cobertura de Seguros"
+
+#. module: tour_travel
+#: view:hotel.service:0
+#: view:tour.booking:0
+msgid "Services"
+msgstr "Servicios"
+
+#. module: tour_travel
+#: view:tour.package:0
+msgid "Cost Exclude"
+msgstr "Coste Excluido"
+
+#. module: tour_travel
+#: field:tour.package,days:0
+#: field:tour.programme,name:0
+msgid "Days"
+msgstr "Días"
+
+#. module: tour_travel
+#: field:tour.payment.policy,before_pay_date_perc:0
+msgid "Payment Percentage After Booking Date"
+msgstr "Porcentaje de pago después de la  Fecha de la reserva"
+
+#. module: tour_travel
+#: view:tour.payment.policy:0
+msgid "Tour Payment Policy"
+msgstr "Poliza de Pago para Tour"
+
+#. module: tour_travel
+#: selection:tour.package,days:0
+msgid "12"
+msgstr "12"
+
+#. module: tour_travel
+#: field:agent.commission.invoice.line,partner_id:0
+#: report:tour.booking.report:0
+msgid "Customer Name"
+msgstr "Nombre del cliente"
+
+#. module: tour_travel
+#: help:tour.customer.details,t_flag:0
+msgid "For Transport Reservation Line"
+msgstr "Para Linea de Reservacion de Transporte"
+
+#. module: tour_travel
+#: field:checkout_detail.wizard,residual_amt:0
+#: field:transport_checkout_detail.wizard,residual_amt:0
+msgid "Residual Amount"
+msgstr "Importe Residual"
+
+#. module: tour_travel
+#: model:ir.model,name:tour_travel.model_insurance_type
+msgid "Documents Management For Tours and Travel Services"
+msgstr "Gestión de Documentos para Servicios de Viajes y Turismo"
+
+#. module: tour_travel
+#: model:ir.model,name:tour_travel.model_tour_customer_details
+msgid "Tour Customer Details Inheritance"
+msgstr "Sucesión de detalles del cliente del Tour"
+
+#. module: tour_travel
+#: field:tour.facility,name:0
+msgid "Facility Name"
+msgstr "Nombre de la Facilidad"
+
+#. module: tour_travel
+#: view:room.line:0
+#: view:transport.line:0
+msgid "total_price"
+msgstr "Total_Precio"
+
+#. module: tour_travel
+#: sql_constraint:room.info:0
+msgid "You can not select same room type for selected hotel !"
+msgstr "No se puede seleccionar mismo tipo de habitación de hotel seleccionado !"
+
+#. module: tour_travel
+#: field:transport.book,sale_price_child:0
+#: field:transport.type.info,sale_price_child:0
+msgid "Sale Price(Child)"
+msgstr "Precio de Venta ( Niño )"
+
+#. module: tour_travel
+#: code:addons/tour_travel/tour_hotel_reservation.py:317
+#, python-format
+msgid "Room Number is not Allocated to Customer"
+msgstr "Número de habitación no está asignado al Cliente"
+
+#. module: tour_travel
+#: field:agent.commission.invoice,partner_id:0
+#: field:crm.lead,agent_id:0
+#: selection:crm.lead,via:0
+#: field:lead.to.opportunity.wizard,partner_id:0
+#: selection:lead.to.opportunity.wizard,report_basis:0
+#: field:leads.group.by.agent.wizard,partner_ids:0
+#: selection:leads.group.by.agent.wizard,report_basis:0
+#: field:res.partner,agent:0
+#: field:tour.booking,agent_id:0
+#: selection:tour.booking,via:0
+msgid "Agent"
+msgstr "Agente"
+
+#. module: tour_travel
+#: selection:tour.customer.details,gender:0
+msgid "Female"
+msgstr "Femenino"
+
+#. module: tour_travel
+#: code:addons/tour_travel/transport_book.py:632
+#, python-format
+msgid "You are giving wrong departure date."
+msgstr "Usted está dando fecha de salida equivocado."
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+msgid "Tour Itinerary"
+msgstr "Itinerario del Tour"
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+msgid "Date of Departure"
+msgstr "Fecha de Salida"
+
+#. module: tour_travel
+#: code:addons/tour_travel/transport_book.py:630
+#, python-format
+msgid "You are giving wrong arrival date."
+msgstr "Usted está dando la fecha de llegada equivocada ."
+
+#. module: tour_travel
+#: field:tour.package.type,code:0
+msgid "Package Code"
+msgstr "Código del paquete"
+
+#. module: tour_travel
+#: field:tour.booking,transport_cost:0
+msgid "Transport Cost"
+msgstr "Coste de Transporte"
+
+#. module: tour_travel
+#: model:ir.model,name:tour_travel.model_visa_booking
+msgid "Visa Booking "
+msgstr "Reservas por Visa"
+
+#. module: tour_travel
+#: view:tour.destination.line:0
+msgid "Tour Destinations Lines"
+msgstr "Lineas de destinos turisticos"
+
+#. module: tour_travel
+#: code:addons/tour_travel/hotel_reservation.py:142
+#: code:addons/tour_travel/hotel_reservation.py:256
+#: code:addons/tour_travel/hotel_reservation.py:260
+#: code:addons/tour_travel/hotel_reservation.py:262
+#: code:addons/tour_travel/hotel_reservation.py:264
+#: code:addons/tour_travel/hotel_reservation.py:377
+#: code:addons/tour_travel/tour_hotel_reservation.py:273
+#: code:addons/tour_travel/tour_hotel_reservation.py:275
+#: code:addons/tour_travel/tour_hotel_reservation.py:277
+#: code:addons/tour_travel/tour_hotel_reservation.py:279
+#: code:addons/tour_travel/tour_hotel_reservation.py:281
+#: code:addons/tour_travel/tour_hotel_reservation.py:283
+#: code:addons/tour_travel/tour_hotel_reservation.py:291
+#: code:addons/tour_travel/tour_hotel_reservation.py:293
+#: code:addons/tour_travel/tour_travel.py:350
+#: code:addons/tour_travel/tour_travel.py:352
+#: code:addons/tour_travel/tour_travel.py:792
+#: code:addons/tour_travel/tour_travel.py:794
+#: code:addons/tour_travel/tour_travel.py:796
+#: code:addons/tour_travel/tour_travel.py:807
+#: code:addons/tour_travel/tour_travel.py:812
+#: code:addons/tour_travel/tour_travel.py:814
+#: code:addons/tour_travel/tour_travel.py:816
+#: code:addons/tour_travel/tour_travel.py:818
+#: code:addons/tour_travel/tour_travel.py:844
+#: code:addons/tour_travel/tour_travel.py:862
+#: code:addons/tour_travel/tour_travel.py:865
+#: code:addons/tour_travel/tour_travel.py:917
+#: code:addons/tour_travel/tour_travel.py:923
+#: code:addons/tour_travel/tour_travel.py:931
+#: code:addons/tour_travel/tour_travel.py:934
+#: code:addons/tour_travel/tour_travel.py:939
+#: code:addons/tour_travel/tour_travel.py:1214
+#: code:addons/tour_travel/tour_travel.py:1217
+#: code:addons/tour_travel/tour_travel.py:1230
+#: code:addons/tour_travel/tour_travel.py:1237
+#: code:addons/tour_travel/tour_travel.py:1244
+#: code:addons/tour_travel/tour_travel.py:1251
+#: code:addons/tour_travel/tour_travel.py:1279
+#: code:addons/tour_travel/tour_travel.py:1281
+#: code:addons/tour_travel/transport_book.py:656
+#: code:addons/tour_travel/transport_book.py:658
+#: code:addons/tour_travel/transport_book.py:668
+#: code:addons/tour_travel/transport_book.py:670
+#: code:addons/tour_travel/transport_book.py:678
+#, python-format
+msgid "Error !"
+msgstr "Error !"
+
+#. module: tour_travel
+#: view:checkout_detail.wizard:0
+msgid "Checkout Details"
+msgstr "Detalles de Checkout"
+
+#. module: tour_travel
+#: field:ir.attachment,hotel_customer_id:0
+msgid "Hotel ID"
+msgstr "Hotel ID"
+
+#. module: tour_travel
+#: field:tour.booking,tour_dates_id:0
+#: view:tour.dates:0
+#: view:tour.package:0
+msgid "Tour Dates"
+msgstr "Fechas del Tour"
+
+#. module: tour_travel
+#: model:product.category,name:tour_travel.product_cat_in4
+msgid "Visa Services"
+msgstr "Servicios de Visa"
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+#: field:tour.hotel.reservation,tour_start_date:0
+#: field:transport.book,start_date:0
+msgid "Tour Start Date"
+msgstr "Fecha de Inicio Tour"
+
+#. module: tour_travel
+#: field:tour.road.travel,transport_type_id:0
+#: field:transport.book,transport_type_id:0
+#: field:transport.line,transport_type_info_id:0
+#: field:transport.type.info,transport_type_id:0
+#: field:travel.class,transport_type_id:0
+msgid "Transport Type"
+msgstr "Tipo de transporte"
+
+#. module: tour_travel
+#: code:addons/tour_travel/tour_hotel_reservation.py:273
+#, python-format
+msgid " Please ADD Check-In Date Before Confirm"
+msgstr "Por favor, añada Fecha de llegada antes de Confirmar"
+
+#. module: tour_travel
+#: field:tour.hotel.reservation,destination_id:0
+msgid "Tour Destination"
+msgstr "Destinos Turisticos"
+
+#. module: tour_travel
+#: view:hotel.information:0
+msgid "Hotel Images"
+msgstr "Imágenes del Hotel"
+
+#. module: tour_travel
+#: code:addons/tour_travel/tour_hotel_reservation.py:321
+#, python-format
+msgid "Number of Rooms Required is not equal to Total Rooms Allocated To Customers"
+msgstr "El número de habitaciones requeridas no es igual al total de habitaciones asignadas a clientes"
+
+#. module: tour_travel
+#: model:ir.model,name:tour_travel.model_hotel_information
+msgid "Hotel Information "
+msgstr "Información del Hotel"
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+msgid "Customer details with Room Number"
+msgstr "Datos del cliente con el número de habitacion"
+
+#. module: tour_travel
+#: code:addons/tour_travel/agent_commission.py:49
+#: code:addons/tour_travel/agent_commission.py:148
+#, python-format
+msgid "Cannot Change Agent at this stage"
+msgstr "No se puede cambiar Agente en esta etapa"
+
+#. module: tour_travel
+#: field:hotel.reservation,adult:0
+#: field:tour.booking,adult:0
+#: field:tour.hotel.reservation,adult:0
+#: field:transport.book,adult:0
+msgid "Adult Persons"
+msgstr "Personas Adultas"
+
+#. module: tour_travel
+#: selection:tour.destination.line,visa_type:0
+msgid "Tourist Visa(Multiple Entry)"
+msgstr "Visa turista (Entrada Múltiple)"
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+msgid "Date of Arrival"
+msgstr "Fecha de llegada"
+
+#. module: tour_travel
+#: field:hotel.service,book_id:0
+#: field:room.info,book_id:0
+msgid "Hotel Book ID"
+msgstr "ID Reserva de Hotel"
+
+#. module: tour_travel
+#: view:tour.booking:0
+#: field:tour.booking,tour_customer_ids:0
+#: view:tour.hotel.reservation:0
+#: field:tour.hotel.reservation,tour_customer_ids:0
+#: view:transport.book:0
+msgid "Tour Customer Details"
+msgstr "Detalles del Tour del Cliente"
+
+#. module: tour_travel
+#: selection:tour.package,days:0
+msgid "21"
+msgstr "21"
+
+#. module: tour_travel
+#: field:tour.payment.policy,name:0
+msgid "Policy Name"
+msgstr "Nombre de la Políza"
+
+#. module: tour_travel
+#: selection:tour.package,days:0
+msgid "22"
+msgstr "22"
+
+#. module: tour_travel
+#: field:provider.information.line,name:0
+#: field:tour.destination.hotel.line,name:0
+msgid "Primary"
+msgstr "Primario"
+
+#. module: tour_travel
+#: field:tour.booking,tour_cost:0
+msgid "Tour Cost"
+msgstr "Coste del Tour"
+
+#. module: tour_travel
+#: field:tour.destination.line,visa_type:0
+msgid "Visa Type"
+msgstr "Tipo de Visa"
+
+#. module: tour_travel
+#: field:product.product,is_tour:0
+msgid "Is Tour"
+msgstr "Es Tour"
+
+#. module: tour_travel
+#: field:lead.to.opportunity.wizard,start_date:0
+#: field:leads.group.by.agent.wizard,start_date:0
+#: field:tour.dates,start_date:0
+msgid "Start Date"
+msgstr "Fecha de inicio"
+
+#. module: tour_travel
+#: field:hotel.information,hotel_img3:0
+msgid "Hotel Image3"
+msgstr "Imagen de Hotel 3"
+
+#. module: tour_travel
+#: field:hotel.information,hotel_img2:0
+msgid "Hotel Image2"
+msgstr "Imagen de Hotel 2"
+
+#. module: tour_travel
+#: field:hotel.information,hotel_img1:0
+msgid "Hotel Image1"
+msgstr "Imagen de Hotel 1"
+
+#. module: tour_travel
+#: code:addons/tour_travel/tour_hotel_reservation.py:229
+#, python-format
+msgid "Hotel is not selected."
+msgstr "El hotel no está seleccionado."
+
+#. module: tour_travel
+#: view:hotel.reservation:0
+#: view:tour.hotel.reservation:0
+#: view:transport.book:0
+msgid "Tax Information"
+msgstr "Información sobre impuestos"
+
+#. module: tour_travel
+#: code:addons/tour_travel/tour_travel.py:818
+#: code:addons/tour_travel/tour_travel.py:939
+#, python-format
+msgid "Tour Booking Is Closed"
+msgstr "Reserva de Tour esta Cerrada"
+
+#. module: tour_travel
+#: field:hotel.reservation,checkout_date:0
+#: field:tour.hotel.reservation,checkout_date:0
+msgid "Check Out Date"
+msgstr "Fecha de Salida"
+
+#. module: tour_travel
+#: help:transport.book,total_amt_transport:0
+msgid "This fields shows Amount as per the currency of selected pricelist at header..However, supplier invoice shall be raise based on the currency of pricelist linked with supplier."
+msgstr "Estos campos muestran Importe según la moneda de la lista de precios seleccionada en el encabezado .. Sin embargo, la factura del proveedor será elevado basado en la moneda de la lista de precios vinculado con el surtidor ."
+
+#. module: tour_travel
+#: field:tour.dates,due_date:0
+msgid "Payment Due Date"
+msgstr "Fecha de vencimiento"
+
+#. module: tour_travel
+#: selection:tour.dates,state:0
+msgid "Closed"
+msgstr "Cerrado"
+
+#. module: tour_travel
+#: model:ir.model,name:tour_travel.model_checkout_detail_wizard
+msgid "Customer Checkout Detail Wizard"
+msgstr "Detalle Wizard de Checkout de Cliente"
+
+#. module: tour_travel
+#: field:hotel.reservation,room_line_ids:0
+#: model:ir.model,name:tour_travel.model_room_line
+#: view:room.line:0
+msgid "Room Line"
+msgstr "Linea de habitación"
+
+#. module: tour_travel
+#: help:tour.customer.details,v_flag:0
+msgid "For Visa Reservation Line"
+msgstr "Para Linea de Reservacion de Visa"
+
+#. module: tour_travel
+#: model:res.groups,name:tour_travel.group_tour_user
+msgid "Tour Management / User"
+msgstr "Gestión de Tour / Usuario"
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+msgid "Room No"
+msgstr "No de habitación"
+
+#. module: tour_travel
+#: field:provider.information.line,provider_id:0
+#: field:provider.information.line,ref_id1:0
+#: field:transport.information,partner_id:0
+msgid "Service Provider"
+msgstr "Proveedor de servicios"
+
+#. module: tour_travel
+#: model:product.template,name:tour_travel.product_product_transport_type3_product_template
+msgid "Bus"
+msgstr "Autobús"
+
+#. module: tour_travel
+#: model:ir.model,name:tour_travel.model_transport_type_info
+#: view:transport.information:0
+#: view:transport.type.info:0
+msgid "Transport Type Information"
+msgstr "Información Tipo de Transporte"
+
+#. module: tour_travel
+#: selection:hotel.information,state:0
+#: selection:hotel.service,state:0
+#: selection:room.line,state:0
+#: selection:service.line,state:0
+#: selection:transport.information,state:0
+#: selection:transport.line,state:0
+msgid "Not Available"
+msgstr "No esta Disponible"
+
+#. module: tour_travel
+#: model:product.template,name:tour_travel.product_product_transport_type2_product_template
+msgid "Train"
+msgstr "Tren"
+
+#. module: tour_travel
+#: model:ir.actions.act_window,name:tour_travel.action_tour_hotel_room_reservation_form_view
+#: model:ir.model,name:tour_travel.model_tour_hotel_reservation
+#: model:ir.ui.menu,name:tour_travel.menu_tour_room_reservation_form
+msgid "Tour Hotel Reservation"
+msgstr "Reservación de Hotel de Tour"
+
+#. module: tour_travel
+#: field:tour.insurance.line,name:0
+msgid "Adult Policy Coverage"
+msgstr "Cobertura de la póliza de adultos"
+
+#. module: tour_travel
+#: model:ir.model,name:tour_travel.model_tour_insurance_line
+msgid "Tour Insurance Lines"
+msgstr "Lineas de seguro de Tour"
+
+#. module: tour_travel
+#: field:insurance.coverage.line,name:0
+msgid "Coverage Name"
+msgstr "Nombre de cobertura"
+
+#. module: tour_travel
+#: model:ir.model,name:tour_travel.model_tour_dates
+msgid "Tour dates"
+msgstr "Fechas del Tour"
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+msgid "Tour Fees Exclusion Details"
+msgstr "Detalles de Exclusion de la tarifa de Tour"
+
+#. module: tour_travel
+#: field:hotel.information,hotel_payble_acc:0
+#: field:transport.information,transport_payble_acc:0
+msgid "Payable Account"
+msgstr "Cuenta pagable"
+
+#. module: tour_travel
+#: model:ir.model,name:tour_travel.model_tour_destination_hotel_line
+#: view:tour.destination.line:0
+msgid "Tour Destination Hotel Lines"
+msgstr "Lineas de Hotel de Destinos Turisticos"
+
+#. module: tour_travel
+#: field:transport_checkout_detail.wizard,transport_book_id:0
+msgid "Transport Book ID"
+msgstr "Transporte ID Reserva de Transporte"
+
+#. module: tour_travel
+#: help:tour.hotel.reservation,room_rent:0
+msgid "Generates Supplier invoice of this amount"
+msgstr "Genera Facturas del Proveedor de este Importe"
+
+#. module: tour_travel
+#: field:room.line,available_rooms:0
+msgid "Available Rooms"
+msgstr "Habitaciones Disponibles"
+
+#. module: tour_travel
+#: view:tour.hotel.info:0
+msgid "Attachments"
+msgstr "Adjuntos:"
+
+#. module: tour_travel
+#: model:product.template,name:tour_travel.product_product_transport_type6_product_template
+#: selection:tour.package,tour_category:0
+msgid "Custom Tour"
+msgstr "Tour Personalizado"
+
+#. module: tour_travel
+#: field:tour.booking,insurance_line_ids:0
+msgid "Insurance Line"
+msgstr "Linea de Seguro"
+
+#. module: tour_travel
+#: field:transport.book,arrival_date:0
+msgid "Arrival Date"
+msgstr "Fecha de llegada"
+
+#. module: tour_travel
+#: view:tour.booking:0
+msgid "Create Quotation"
+msgstr "Crear Cotización de Precio"
+
+#. module: tour_travel
+#: code:addons/tour_travel/tour_hotel_reservation.py:283
+#, python-format
+msgid "Please enter customer details"
+msgstr "Por favor Introduzca los datos del cliente"
+
+#. module: tour_travel
+#: view:agent.commission.invoice:0
+#: selection:agent.commission.invoice,state:0
+#: selection:hotel.reservation,state:0
+#: selection:room.line,state:0
+#: selection:service.line,state:0
+#: view:tour.booking:0
+#: selection:tour.booking,state:0
+#: view:tour.hotel.reservation:0
+#: selection:tour.hotel.reservation,state:0
+#: selection:tour.package,state:0
+#: view:transport.book:0
+#: selection:transport.book,state:0
+#: selection:transport.line,state:0
+msgid "Done"
+msgstr "Listo"
+
+#. module: tour_travel
+#: field:tour.customer.details,type:0
+msgid "Adult/Child"
+msgstr "Adulto / Niño"
+
+#. module: tour_travel
+#: code:addons/tour_travel/tour_travel.py:1238
+#, python-format
+msgid "Associated Transport Booking No  \"%s\" is not in done State."
+msgstr "Asociado No.de Reserva deTransporte \" % s \" no se encuentra en Estado Hecho."
+
+#. module: tour_travel
+#: field:tour.deduction.policy,max_limit:0
+msgid "Maximum Limit (days)"
+msgstr "Límite máximo ( días )"
+
+#. module: tour_travel
+#: field:tour.hotel.reservation,no_of_days:0
+msgid "No. Of Days"
+msgstr "Núm. de días"
+
+#. module: tour_travel
+#: field:hotel.reservation,tax_amt:0
+#: field:tour.hotel.reservation,tax_amt:0
+#: field:transport.book,tax_amt:0
+msgid "Taxes "
+msgstr "Impuestos"
+
+#. module: tour_travel
+#: help:transport.book,depart_date:0
+msgid "This is an Departure date and time of a carrier at Boarding station"
+msgstr "Esta es una fecha y hora de salida de un vehículo en la estación de embarque"
+
+#. module: tour_travel
+#: help:tour.customer.details,p_flag:0
+msgid "For Passport Reservation Line"
+msgstr "Para Linea de Reservacion de Pasaporte"
+
+#. module: tour_travel
+#: field:tour.customer.details,customer_id:0
+msgid "Transport Booking Ref"
+msgstr "Ref Reservas de Transporte"
+
+#. module: tour_travel
+#: selection:tour.booking,state:0
+#: selection:tour.hotel.customer.book,state:0
+#: selection:tour.hotel.reservation,state:0
+msgid "Booked"
+msgstr "Reservado"
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+msgid "Adult/ Child"
+msgstr "Adulto / Niño"
+
+#. module: tour_travel
+#: code:addons/tour_travel/tour_travel.py:1252
+#, python-format
+msgid "Associated Passport Booking No  \"%s\" is not in done State."
+msgstr "Asociado No.de Reserva de Pasaporte \" % s \" no se encuentra en Estado Hecho."
+
+#. module: tour_travel
+#: field:transport.book,total_amt_transport:0
+msgid "Transport Invoice Amount"
+msgstr "Importe factura de Transporte"
+
+#. module: tour_travel
+#: view:agent.commission.invoice:0
+#: model:ir.actions.act_window,name:tour_travel.action_agent_commission_invoice_form_view
+#: model:ir.ui.menu,name:tour_travel.menu_agent_commission_invoice
+msgid "Agent Commission Invoice"
+msgstr "Factura de Commision de Agente"
+
+#. module: tour_travel
+#: field:transport.line,available_vehicle:0
+msgid "Available Vehicles"
+msgstr "Vehículos disponibles"
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+msgid "Tour End Date"
+msgstr "Fecha de finalización de Tour"
+
+#. module: tour_travel
+#: code:addons/tour_travel/lead.py:38
+#, python-format
+msgid "Cannot delete these Lead.!"
+msgstr "No se puede eliminar estas Iniciativas . !"
+
+#. module: tour_travel
+#: field:tour.road.travel,name:0
+msgid "Distance in KM"
+msgstr "Distancia en KM"
+
+#. module: tour_travel
+#: code:addons/tour_travel/tour_travel.py:1217
+#, python-format
+msgid " Please Pay The Remaining Amount"
+msgstr "Por favor Pagur el Importe restante"
+
+#. module: tour_travel
+#: model:product.category,name:tour_travel.product_cat_in2
+msgid "Room Types"
+msgstr "Tipos de habitaciones"
+
+#. module: tour_travel
+#: view:room.line:0
+msgid "Check Available"
+msgstr "Compruebe Disponibilidad"
+
+#. module: tour_travel
+#: field:lead.to.opportunity.wizard,end_date:0
+#: field:leads.group.by.agent.wizard,end_date:0
+msgid "End Date"
+msgstr "Fecha de finalización"
+
+#. module: tour_travel
+#: field:hotel.reservation,mobile:0
+#: field:tour.booking,mobile1:0
+#: field:tour.hotel.reservation,mobile:0
+msgid "Mobile Number"
+msgstr "Número de móvil"
+
+#. module: tour_travel
+#: code:addons/tour_travel/tour_hotel_reservation.py:275
+#, python-format
+msgid " Please ADD Check-Out Date Before Confirm"
+msgstr "Por favor, añada Fecha de salida Antes de Confirmar"
+
+#. module: tour_travel
+#: field:provider.information.line,transport_carrier_id:0
+#: field:transport.book,transport_carrier_id:0
+#: field:transport.carrier,name:0
+#: field:transport.type.info,transport_carrier_id:0
+msgid "Carrier Name"
+msgstr "Nombre de Cargador"
+
+#. module: tour_travel
+#: code:addons/tour_travel/tour_travel.py:931
+#, python-format
+msgid " Please Pay The Booking Amount"
+msgstr "Por favor Pague el importe de la reserva"
+
+#. module: tour_travel
+#: field:tour.hotel.reservation,hotel_invoice_amt:0
+msgid "Hotel Invoice Amt"
+msgstr "Importe Factura del Hotel"
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+msgid "Distance"
+msgstr "Distancia"
+
+#. module: tour_travel
+#: field:hotel.service,product_uom:0
+msgid "Product UoM"
+msgstr "Producto UM"
+
+#. module: tour_travel
+#: model:ir.actions.act_window,name:tour_travel.action_transport_info_form_view
+#: model:ir.ui.menu,name:tour_travel.menu_transport_info
+#: view:transport.book:0
+#: view:transport.information:0
+#: field:transport.information,transport_type_info_ids:0
+msgid "Transport Information"
+msgstr "Información de transporte"
+
+#. module: tour_travel
+#: model:ir.ui.menu,name:tour_travel.menu_tour_packages
+msgid "Package Types"
+msgstr "Tipos de paquetes"
+
+#. module: tour_travel
+#: code:addons/tour_travel/tour_travel.py:845
+#, python-format
+msgid "There is no income account defined for this product: \"%s\" (id:%d)"
+msgstr "No hay ninguna cuenta de ingresos definida para este producto: \"% s \" (id :% d )"
+
+#. module: tour_travel
+#: field:checkout_detail.wizard,name:0
+#: field:hotel.service,name:0
+#: field:hotel.type,description:0
+#: field:lead.to.opportunity.wizard,name:0
+#: field:leads.group.by.agent.wizard,name:0
+#: field:room.info,name:0
+#: view:room.line:0
+#: field:room.type,name:0
+#: view:service.line:0
+#: field:service.type,name:0
+#: report:tour.booking.report:0
+#: field:tour.cost.exclude.facility,name:0
+#: field:tour.cost.include.facility,name:0
+#: field:tour.facility,desc:0
+#: field:tour.programme,description:0
+#: field:tour.travel,description:0
+#: view:transport.line:0
+#: field:transport.type.info,name:0
+#: field:transport_checkout_detail.wizard,name:0
+msgid "Description"
+msgstr "Descripción"
+
+#. module: tour_travel
+#: field:transport.type.info,transport_id:0
+msgid "Transport Info Ref"
+msgstr "Transporte Info Ref"
+
+#. module: tour_travel
+#: model:ir.model,name:tour_travel.model_hotel_book
+msgid "hotel.book"
+msgstr "Reserva.Libro"
+
+#. module: tour_travel
+#: field:tour.hotel.customer.book,name:0
+msgid "Adults"
+msgstr "Adultos"
+
+#. module: tour_travel
+#: code:addons/tour_travel/transport_book.py:459
+#: code:addons/tour_travel/transport_book.py:465
+#: code:addons/tour_travel/transport_book.py:477
+#: code:addons/tour_travel/transport_book.py:680
+#, python-format
+msgid "Rate is not define for above transport information."
+msgstr "Tarifa no esta definida para la  información del Transporte mencionado arriba."
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+msgid "Passenger Details"
+msgstr "Detalles del pasajero"
+
+#. module: tour_travel
+#: field:agent.commission.line,tour_id:0
+#: model:ir.ui.menu,name:tour_travel.menu_tour_booking
+#: field:passport.booking,tour_id:0
+#: field:tour.booking,tour_id:0
+#: field:tour.hotel.reservation,tour_id:0
+#: view:tour.package:0
+#: field:transport.book,tour_id:0
+#: field:visa.booking,tour_id:0
+msgid "Tour"
+msgstr "Tour"
+
+#. module: tour_travel
+#: field:crm.lead,lead_sequence:0
+msgid "Lead Number"
+msgstr "Número de Iniciativa"
+
+#. module: tour_travel
+#: field:room.line,room_cost:0
+#: field:service.line,room_cost:0
+msgid "Rent"
+msgstr "Alquilar"
+
+#. module: tour_travel
+#: code:addons/tour_travel/transport_book.py:574
+#, python-format
+msgid "Price list is not define for Transport Partner."
+msgstr "Lista de precios no esta definida por el socio de transporte ."
+
+#. module: tour_travel
+#: field:agent.commission.invoice,total_amt:0
+#: field:hotel.reservation,total_amt:0
+msgid "Total"
+msgstr "Total"
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+msgid "4. Transportation Details"
+msgstr "4 . Detalles del Transporte"
+
+#. module: tour_travel
+#: field:checkout_detail.wizard,order_amt:0
+#: field:transport_checkout_detail.wizard,order_amt:0
+msgid "Order Amount"
+msgstr "Importe del pedido"
+
+#. module: tour_travel
+#: view:tour.hotel.reservation:0
+msgid "Approval From Hotel"
+msgstr "Aprobación del hotel"
+
+#. module: tour_travel
+#: field:hotel.service,service_id:0
+#: field:service.line,service_id:0
+#: field:service.type,service_id:0
+msgid "Service"
+msgstr "Servicio"
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+#: field:tour.destination.line,destination_id:0
+msgid "Destination"
+msgstr "Destino"
+
+#. module: tour_travel
+#: field:tour.booking,adult_coverage:0
+msgid "Number of Adult Persons Policy Coverage"
+msgstr "Numero de Cobertura de Poliza de personas adultas"
+
+#. module: tour_travel
+#: field:tour.destination.line,is_visa:0
+msgid "Is Visa Required"
+msgstr "Se Requiere Visa"
+
+#. module: tour_travel
+#: field:insurance.policy,insurance_cost_for_childs:0
+msgid "Insurance Cost For Child"
+msgstr "Coste de Seguro para Niños"
+
+#. module: tour_travel
+#: code:addons/tour_travel/passport_visa.py:73
+#: code:addons/tour_travel/passport_visa.py:132
+#, python-format
+msgid "Invoice Is Not Paid Yet. Please Pay The Invoice Amount"
+msgstr "Factura todavia no esta pagada. Por favor, pague el Importe de la factura"
+
+#. module: tour_travel
+#: field:tour.dates,book_date:0
+msgid "Last Date of Booking"
+msgstr "Última fecha de reserva"
+
+#. module: tour_travel
+#: field:insurance.policy,name:0
+msgid "Insurance Name"
+msgstr "Nombre del seguro"
+
+#. module: tour_travel
+#: selection:tour.booking,state:0
+#: selection:tour.hotel.customer.book,state:0
+msgid "In Process"
+msgstr "En Proceso"
+
+#. module: tour_travel
+#: model:ir.model,name:tour_travel.model_leads_group_by_agent_wizard
+msgid "leads by Agent "
+msgstr "Iniciativas por Agentes"
+
+#. module: tour_travel
+#: model:ir.model,name:tour_travel.model_ir_attachment
+msgid "ir.attachment"
+msgstr "ir.adjunto"
+
+#. module: tour_travel
+#: code:addons/tour_travel/agent_commission.py:41
+#, python-format
+msgid "Cannot delete other than draft records"
+msgstr "No se puede eliminar nada aparte de registros de Borradores"
+
+#. module: tour_travel
+#: selection:tour.hotel.reservation,state:0
+#: selection:transport.book,state:0
+msgid "Approved"
+msgstr "Aprobado"
+
+#. module: tour_travel
+#: model:ir.actions.act_window,name:tour_travel.action_tour_travel_class_form_view
+#: model:ir.model,name:tour_travel.model_travel_class
+#: model:ir.ui.menu,name:tour_travel.menu_travel_class
+#: report:tour.booking.report:0
+#: field:tour.road.travel,travel_class_id:0
+#: field:transport.book,travel_class_id:0
+#: field:transport.type.info,travel_class_id:0
+#: view:travel.class:0
+#: field:travel.class,name:0
+msgid "Travel Class"
+msgstr "Clase de Viaje"
+
+#. module: tour_travel
+#: model:ir.model,name:tour_travel.model_transport_line
+#: field:transport.book,customer_line_ids:0
+#: field:transport.book,transport_line_ids:0
+#: view:transport.line:0
+msgid "Transport Line"
+msgstr "Línea de Transporte"
+
+#. module: tour_travel
+#: code:addons/tour_travel/tour_travel.py:794
+#: code:addons/tour_travel/transport_book.py:656
+#, python-format
+msgid " Please Enter number of  Adults and Child "
+msgstr "Por favor Introduzca el número de adultos y niños"
+
+#. module: tour_travel
+#: view:hotel.reservation:0
+msgid "Hotel Room Reservation"
+msgstr "Reservaciónde Habitacion de Hotel"
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+#: field:tour.programme,dinner:0
+msgid "Dinner"
+msgstr "Cena"
+
+#. module: tour_travel
+#: field:transport.book,sale_price:0
+#: field:transport.type.info,sale_price:0
+msgid "Sale Price(Adult)"
+msgstr "Precio de Venta ( Adulto )"
+
+#. module: tour_travel
+#: selection:tour.customer.details,state:0
+msgid "Cancelled"
+msgstr "Cancelado"
+
+#. module: tour_travel
+#: model:ir.actions.act_window,name:tour_travel.action_hotel_room_reservation_form_view
+#: model:ir.model,name:tour_travel.model_hotel_reservation
+#: view:tour.hotel.reservation:0
+msgid "Hotel Reservation"
+msgstr "Reservación de Hotel"
+
+#. module: tour_travel
+#: field:transport.line,required_vehicle:0
+msgid "Required Vehicles"
+msgstr "Vehículos requeridos"
+
+#. module: tour_travel
+#: model:ir.actions.act_window,name:tour_travel.action_service_type_form_view
+#: model:ir.ui.menu,name:tour_travel.menu_service_type
+#: view:service.type:0
+msgid "Service Type"
+msgstr "Tipo de Servicio"
+
+#. module: tour_travel
+#: model:ir.model,name:tour_travel.model_tour_deduction_policy
+msgid "tour_deduction_policy"
+msgstr "Tour_deducion_poliza"
+
+#. module: tour_travel
+#: sql_constraint:transport.information:0
+msgid "You can not create more then one transport information for the same Partner !"
+msgstr "No es posible crear más de una información sobre el transporte para el mismo socio !"
+
+#. module: tour_travel
+#: view:room.line:0
+#: selection:room.line,state:0
+#: view:transport.line:0
+#: selection:transport.line,state:0
+msgid "Book"
+msgstr "Reservar"
+
+#. module: tour_travel
+#: model:ir.ui.menu,name:tour_travel.menu_tour_travel
+msgid "Tours And Travel"
+msgstr "Tours y viaje"
+
+#. module: tour_travel
+#: model:ir.ui.menu,name:tour_travel.menu_tour_package
+msgid "New Tour Creation"
+msgstr "Creación Tour Nuevo"
+
+#. module: tour_travel
+#: model:ir.actions.act_window,name:tour_travel.action_tour_packages_tree_view
+msgid "Tour Package Type"
+msgstr "Tipo de paquete de viaje"
+
+#. module: tour_travel
+#: model:product.category,name:tour_travel.product_cat_in3
+msgid "Transport Service Type"
+msgstr "Tipo de Servicio de Transporte"
+
+#. module: tour_travel
+#: view:hotel.service:0
+msgid "Hotel Service"
+msgstr "Servicio de Hotel"
+
+#. module: tour_travel
+#: model:ir.model,name:tour_travel.model_sale_order
+msgid "Sales Order"
+msgstr "Pedido de venta"
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+msgid "Enclosures:"
+msgstr "Adjuntos:"
+
+#. module: tour_travel
+#: field:hotel.reservation,email_id:0
+#: field:tour.booking,email_id:0
+#: field:tour.hotel.reservation,email_id:0
+#: field:transport.book,email_id:0
+msgid "Email Id"
+msgstr "Email Id"
+
+#. module: tour_travel
+#: selection:agent.commission.invoice,state:0
+#: selection:hotel.information,state:0
+#: selection:tour.customer.details,state:0
+#: selection:tour.hotel.info,state:0
+#: selection:transport.information,state:0
+msgid "Confirmed"
+msgstr "Confirmado"
+
+#. module: tour_travel
+#: view:agent.commission.invoice:0
+#: view:hotel.information:0
+#: view:hotel.reservation:0
+#: selection:hotel.reservation,state:0
+#: view:insurance.policy:0
+#: selection:insurance.policy,state:0
+#: view:passport.booking:0
+#: view:tour.booking:0
+#: selection:tour.booking,state:0
+#: view:tour.dates:0
+#: view:tour.hotel.customer.book:0
+#: view:tour.hotel.info:0
+#: view:tour.hotel.reservation:0
+#: selection:tour.hotel.reservation,state:0
+#: view:tour.package:0
+#: selection:tour.package,state:0
+#: view:transport.book:0
+#: selection:transport.book,state:0
+#: view:transport.information:0
+#: view:visa.booking:0
+msgid "Confirm"
+msgstr "Confirmado"
+
+#. module: tour_travel
+#: help:tour.hotel.reservation,hotel_invoice_amt:0
+msgid "This fields shows Amount as per the currency of selected pricelist at header.However, supplier invoice shall be raise based on the currency of pricelist linked with supplier."
+msgstr "Estos campos muestran Importe según la moneda de la lista de precios seleccionada en header.However , factura del proveedor será elevar basado en la moneda de la lista de precios vinculado con el surtidor ."
+
+#. module: tour_travel
+#: view:transport.book:0
+msgid "Seat / Berth No."
+msgstr "Asiento /  N º Embarcadero"
+
+#. module: tour_travel
+#: model:ir.model,name:tour_travel.model_agent_commission_invoice_line
+msgid " Commision Invoice Line"
+msgstr "Linea de Factura de Comision"
+
+#. module: tour_travel
+#: model:ir.model,name:tour_travel.model_tour_cost_include_facility
+msgid "Tour Cost Include Facility"
+msgstr "Coste de Tour Incluye Facilidad"
+
+#. module: tour_travel
+#: view:transport.book:0
+msgid "Transport Pricing"
+msgstr "Precio de Transporte"
+
+#. module: tour_travel
+#: view:res.partner:0
+msgid "Commission"
+msgstr "Comisión"
+
+#. module: tour_travel
+#: model:ir.actions.act_window,name:tour_travel.action_tour_deduction_policy_tree_view
+#: model:ir.ui.menu,name:tour_travel.menu_tour_deduction_policy
+#: view:tour.deduction.policy:0
+msgid "Tour Deduction Policy"
+msgstr "Políza Deducción de Tour"
+
+#. module: tour_travel
+#: model:ir.model,name:tour_travel.model_agent_commission_line
+msgid "agent.commission.line"
+msgstr "agent.commission.line"
+
+#. module: tour_travel
+#: selection:tour.booking,tour_type:0
+#: selection:tour.package,tour_type:0
+#: selection:tour.package.info,name:0
+msgid "International"
+msgstr "Internacional"
+
+#. module: tour_travel
+#: code:addons/tour_travel/tour_travel.py:352
+#, python-format
+msgid "Payment Due Date should not be greater than Tour Start Date."
+msgstr "Fecha límite de pago no debe ser superior a la  Fecha de Comienzo de Tour."
+
+#. module: tour_travel
+#: field:agent.commission.invoice,commission_line:0
+msgid "Invoice Lines"
+msgstr "Líneas de factura"
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+msgid "With Regards"
+msgstr "Les Saluda"
+
+#. module: tour_travel
+#: model:ir.model,name:tour_travel.model_product_category
+msgid "Product Category"
+msgstr "Categoría de producto"
+
+#. module: tour_travel
+#: field:hotel.reservation,room_reserve_invoice_ids:0
+#: field:transport.book,transport_reserve_invoice_ids:0
+msgid "Room Reservation Invoices"
+msgstr "Facturas de reserva de Habitación"
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+msgid "Hotel Accomodation Details"
+msgstr "Detalles de Alojamiento de Hotel"
+
+#. module: tour_travel
+#: view:hotel.information:0
+#: field:hotel.information,room_info_ids:0
+#: view:hotel.reservation:0
+#: model:ir.model,name:tour_travel.model_room_info
+#: view:room.info:0
+msgid "Room Information"
+msgstr "Información de la habitación"
+
+#. module: tour_travel
+#: field:tour.customer.details,hotel_res_id:0
+msgid "Tour Hotel Booking Ref"
+msgstr "Ref de reserva de hotel de Tour"
+
+#. module: tour_travel
+#: model:product.category,name:tour_travel.product_cat_in5
+msgid "Passport Services"
+msgstr "Servicios de Pasaportes"
+
+#. module: tour_travel
+#: field:tour.booking,total_insurance_amt:0
+msgid "Insurance Amount"
+msgstr "Importe de Seguro"
+
+#. module: tour_travel
+#: code:addons/tour_travel/agent_commission.py:36
+#, python-format
+msgid "No Commission line for selected data."
+msgstr "No hay línea de la Comisión para los datos seleccionados ."
+
+#. module: tour_travel
+#: model:ir.model,name:tour_travel.model_tour_road_travel
+msgid "Tour Road Travel Details"
+msgstr "Detalles Tour viaje por Carretera"
+
+#. module: tour_travel
+#: model:ir.ui.menu,name:tour_travel.menu_transport_config
+#: model:ir.ui.menu,name:tour_travel.tour_conf
+msgid "Configuration"
+msgstr "Configuración"
+
+#. module: tour_travel
+#: selection:tour.hotel.reservation,state:0
+#: selection:transport.book,state:0
+msgid "Ticket Issue"
+msgstr "Emitir Billete"
+
+#. module: tour_travel
+#: field:tour.destination.hotel.line,destination_line_id:0
+msgid "Destination Id"
+msgstr "Destino Id"
+
+#. module: tour_travel
+#: field:travel.class,code:0
+msgid "Travel Class Code"
+msgstr "Código de clase de viaje"
+
+#. module: tour_travel
+#: field:tour.destination.line,name:0
+msgid "No. Of Nights"
+msgstr "Núm. de noches"
+
+#. module: tour_travel
+#: field:tour.booking,commission_compute:0
+msgid "Commission computed"
+msgstr "Comisión Computarizada"
+
+#. module: tour_travel
+#: field:tour.hotel.reservation,total_amt:0
+msgid "Customer Invoice Amt"
+msgstr "Importe de Factura de Cliente"
+
+#. module: tour_travel
+#: field:tour.hotel.reservation,hotel_room_reserve_invoice_ids:0
+#: field:tour.hotel.reservation,hotel_room_reserve_supplier_invoice_ids:0
+msgid "Hotel Room Reservation Invoices"
+msgstr "Facturas de Reservaciones de Habitaciones de Hotel"
+
+#. module: tour_travel
+#: view:tour.hotel.info:0
+msgid "Customer Booking Information"
+msgstr "Información de Reserva del Cliente"
+
+#. module: tour_travel
+#: selection:agent.commission.invoice,state:0
+#: selection:hotel.reservation,state:0
+#: selection:tour.hotel.customer.book,state:0
+#: selection:tour.hotel.info,state:0
+#: selection:tour.hotel.reservation,state:0
+#: selection:tour.package,state:0
+#: selection:transport.book,state:0
+msgid "Canceled"
+msgstr "Cancelado"
+
+#. module: tour_travel
+#: model:ir.ui.menu,name:tour_travel.menu_transport
+msgid "Transport"
+msgstr "Transporte"
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+msgid "Dear Sir,"
+msgstr "Muy señor mío:"
+
+#. module: tour_travel
+#: model:ir.actions.act_window,name:tour_travel.action_tour_packages_info_form_view
+#: view:tour.package.info:0
+#: view:tour.package.type:0
+msgid "Tour Packages"
+msgstr "Paquetes de viaje"
+
+#. module: tour_travel
+#: code:addons/tour_travel/hotel_reservation.py:142
+#: code:addons/tour_travel/hotel_reservation.py:256
+#, python-format
+msgid " Please ADD Room Line Before Confirm"
+msgstr "Por favor, añada Linea de Habitacion Antes  de Confirmar"
+
+#. module: tour_travel
+#: field:tour.hotel.customer.book,hotel_info_id:0
+msgid "Hotel Ref"
+msgstr "Ref de Hotel"
+
+#. module: tour_travel
+#: view:tour.hotel.reservation:0
+#: view:transport.book:0
+msgid "Issue Ticket"
+msgstr "Emitir Billete"
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+msgid "Mob:"
+msgstr "Móvil:"
+
+#. module: tour_travel
+#: help:tour.hotel.reservation,hotel_rent:0
+msgid "Generates Customer invoice of this amount"
+msgstr "Genera Facturas del Cliente de este Importe"
+
+#. module: tour_travel
+#: model:product.category,name:tour_travel.product_cat_in1
+msgid "Tour Services"
+msgstr "Servicios de Tour"
+
+#. module: tour_travel
+#: selection:agent.commission.invoice,state:0
+#: selection:hotel.information,state:0
+#: selection:hotel.reservation,state:0
+#: selection:hotel.service,state:0
+#: selection:insurance.policy,state:0
+#: selection:room.line,state:0
+#: selection:service.line,state:0
+#: selection:tour.booking,state:0
+#: selection:tour.dates,state:0
+#: selection:tour.hotel.customer.book,state:0
+#: selection:tour.hotel.info,state:0
+#: selection:tour.hotel.reservation,state:0
+#: selection:tour.package,state:0
+#: selection:transport.book,state:0
+#: selection:transport.information,state:0
+#: selection:transport.line,state:0
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: tour_travel
+#: field:hotel.reservation,untax_amt:0
+#: field:transport.book,untax_amt:0
+msgid "Untaxed Amount"
+msgstr "Importe sin tributar impuestos"
+
+#. module: tour_travel
+#: code:addons/tour_travel/agent_commission.py:36
+#: code:addons/tour_travel/agent_commission.py:41
+#: code:addons/tour_travel/agent_commission.py:49
+#: code:addons/tour_travel/agent_commission.py:70
+#: code:addons/tour_travel/agent_commission.py:148
+#: code:addons/tour_travel/agent_commission.py:156
+#: code:addons/tour_travel/agent_commission.py:160
+#: code:addons/tour_travel/agent_commission.py:170
+#: code:addons/tour_travel/agent_commission.py:178
+#: code:addons/tour_travel/agent_commission.py:181
+#: code:addons/tour_travel/agent_commission.py:212
+#: code:addons/tour_travel/passport_visa.py:132
+#: code:addons/tour_travel/passport_visa.py:134
+#: code:addons/tour_travel/tour_hotel_reservation.py:317
+#: code:addons/tour_travel/tour_hotel_reservation.py:321
+#: code:addons/tour_travel/tour_hotel_reservation.py:356
+#: code:addons/tour_travel/tour_hotel_reservation.py:446
+#: code:addons/tour_travel/transport_book.py:477
+#: code:addons/tour_travel/transport_book.py:570
+#: code:addons/tour_travel/transport_book.py:574
+#: code:addons/tour_travel/transport_book.py:622
+#: code:addons/tour_travel/transport_book.py:630
+#: code:addons/tour_travel/transport_book.py:632
+#: code:addons/tour_travel/transport_book.py:635
+#: code:addons/tour_travel/transport_book.py:644
+#: code:addons/tour_travel/transport_book.py:680
+#, python-format
+msgid "Warning"
+msgstr "Aviso"
+
+#. module: tour_travel
+#: field:hotel.information,hotel_id:0
+#: field:hotel.reservation,hotel_id:0
+#: field:hotel.service,hotel_id1:0
+#: model:ir.ui.menu,name:tour_travel.menu_hotel
+#: field:res.partner,is_hotel:0
+#: field:room.info,hotel_id:0
+#: field:tour.destination.hotel.line,hotel_id:0
+#: field:tour.hotel.info,hotel_id:0
+#: field:tour.hotel.reservation,hotel_id:0
+msgid "Hotel"
+msgstr "Hotel"
+
+#. module: tour_travel
+#: view:provider.information.line:0
+#: view:tour.road.travel:0
+msgid "Provider Information"
+msgstr "Información del Proveedor"
+
+#. module: tour_travel
+#: field:tour.booking,tour_sale_order_ids:0
+msgid "Sales Orders"
+msgstr "Pedidos de venta"
+
+#. module: tour_travel
+#: view:hotel.information:0
+#: field:hotel.information,service_info_ids:0
+#: view:hotel.reservation:0
+msgid "Service Information"
+msgstr "Información de servicio"
+
+#. module: tour_travel
+#: model:ir.model,name:tour_travel.model_passport_journal_entry_wizard
+msgid "passport_journal_entry Detail Wizard"
+msgstr "Facturas de Reservacion de habitacion de Transporte"
+
+#. module: tour_travel
+#: field:insurance.coverage.line,product_id:0
+msgid "Coverage"
+msgstr "Cobertura"
+
+#. module: tour_travel
+#: field:hotel.reservation,child:0
+#: field:tour.booking,child:0
+#: selection:tour.customer.details,type:0
+#: field:tour.hotel.customer.book,childs:0
+#: field:tour.hotel.reservation,child:0
+#: field:transport.book,child:0
+msgid "Child"
+msgstr "Niño"
+
+#. module: tour_travel
+#: field:hotel.service,cost_price:0
+#: field:room.info,cost_price:0
+#: field:tour.hotel.reservation,room_rent:0
+msgid "Cost Price"
+msgstr "Coste de Precio"
+
+#. module: tour_travel
+#: view:tour.hotel.reservation:0
+#: view:transport.book:0
+msgid "Compute"
+msgstr "Computar"
+
+#. module: tour_travel
+#: code:addons/tour_travel/tour_travel.py:934
+#, python-format
+msgid " No Seats Available"
+msgstr "No hay asientos disponibles"
+
+#. module: tour_travel
+#: view:transport_checkout_detail.wizard:0
+msgid "Transport Checkout Details"
+msgstr "Detalle de Checkout de Transporte"
+
+#. module: tour_travel
+#: field:tour.package,tour_cost_include_facility_lines:0
+msgid "Tour Cost Included Facility Lines"
+msgstr "Costo del Tour INCLUYE Líneas de Facilidad"
+
+#. module: tour_travel
+#: code:addons/tour_travel/hotel_reservation.py:260
+#, python-format
+msgid " Please Book The Room Before Confirm"
+msgstr "Por favor Reserve la habitación antes Confirmar"
+
+#. module: tour_travel
+#: field:tour.hotel.reservation,name:0
+#: field:transport.book,name:0
+msgid "Registration ID"
+msgstr "ID Registracion"
+
+#. module: tour_travel
+#: code:addons/tour_travel/passport_visa.py:23
+#: code:addons/tour_travel/passport_visa.py:50
+#, python-format
+msgid "Documents not verified. Please verify documents and make attachment"
+msgstr "Los documentos no estan verificados. Por favor, verifique los documentos y haga un acplamiento"
+
+#. module: tour_travel
+#: selection:tour.booking,tour_type:0
+#: selection:tour.package,tour_type:0
+#: selection:tour.package.info,name:0
+msgid "Domestic"
+msgstr "Nacional"
+
+#. module: tour_travel
+#: field:tour.dates,adult_cost_price:0
+msgid "Adults Cost Per Person"
+msgstr "Adultos Coste por persona"
+
+#. module: tour_travel
+#: view:tour.cost.exclude.facility:0
+msgid "Tour Cost exclude Facility Lines"
+msgstr "Costo del viaje excluye Líneas de Facilidad"
+
+#. module: tour_travel
+#: view:carrier.type:0
+#: model:ir.actions.act_window,name:tour_travel.action_tour_carrier_type_form_view
+#: model:ir.model,name:tour_travel.model_carrier_type
+msgid "Carrier Type"
+msgstr "Tipo Cargador"
+
+#. module: tour_travel
+#: view:tour.dates:0
+msgid "Close"
+msgstr "Cerrar"
+
+#. module: tour_travel
+#: field:insurance.policy,insurance_type_id:0
+#: model:ir.ui.menu,name:tour_travel.menu_insurance
+msgid "Insurance"
+msgstr "Seguro"
+
+#. module: tour_travel
+#: code:addons/tour_travel/tour_travel.py:814
+#, python-format
+msgid " TOUR IS ALREADY BOOKED"
+msgstr "EL TOUR YA ESTA RESERVADO"
+
+#. module: tour_travel
+#: selection:transport.book,state:0
+msgid "Waiting For Transporter Approval"
+msgstr "Esperando aprobación del Transportador"
+
+#. module: tour_travel
+#: code:addons/tour_travel/tour_travel.py:350
+#, python-format
+msgid "Payment Due Date should not be less than Last Date of Booking."
+msgstr "Fecha límite de pago no debe ser menor que la última fecha de la reserva ."
+
+#. module: tour_travel
+#: model:ir.model,name:tour_travel.model_hotel_type
+msgid "Hotel Type Configuration"
+msgstr "Configuración de tipo hotel"
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+#: field:tour.road.travel,to_destination_id:0
+#: field:transport.book,to_destination_id:0
+#: field:transport.type.info,to_destination_id:0
+msgid "To"
+msgstr "A"
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+msgid "Travel Summary"
+msgstr "Resumen de Viaje"
+
+#. module: tour_travel
+#: field:tour.booking,current_date:0
+#: field:transport.book,current_date:0
+msgid "Booking Date"
+msgstr "Fecha de Reserva"
+
+#. module: tour_travel
+#: model:ir.model,name:tour_travel.model_lead_to_opportunity_wizard
+msgid "leads to opportunity  "
+msgstr "Iniciativas a Oportunidad"
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+msgid "Time (HRS)"
+msgstr "Hora (horas )"
+
+#. module: tour_travel
+#: field:tour.package,current_date:0
+msgid "Date of Publish"
+msgstr "Fecha de Publicación"
+
+#. module: tour_travel
+#: code:addons/tour_travel/tour_travel.py:1279
+#, python-format
+msgid "Check Adult Persons For Policy Coverage "
+msgstr "Compruebe personas adultas para la cobertura de la Póliza"
+
+#. module: tour_travel
+#: view:res.partner:0
+msgid "Internal Notes"
+msgstr "Notas internas"
+
+#. module: tour_travel
+#: field:tour.hotel.reservation,untax_amt:0
+msgid "Untaxed Amt"
+msgstr "Importe sin tributar impuestos"
+
+#. module: tour_travel
+#: model:ir.actions.act_window,name:tour_travel.action_tour_booking_form_view
+#: model:ir.model,name:tour_travel.model_tour_booking
+#: model:ir.ui.menu,name:tour_travel.menu_tour_booking_form
+#: view:tour.booking:0
+msgid "Tour Booking"
+msgstr "Reservacion Tour"
+
+#. module: tour_travel
+#: view:insurance.policy:0
+msgid "Coverage Information"
+msgstr "Información sobre la cobertura"
+
+#. module: tour_travel
+#: model:ir.actions.act_window,name:tour_travel.action_tour_facility_tree_view
+#: model:ir.ui.menu,name:tour_travel.menu_tour_facility
+msgid "Tour Facilities"
+msgstr "Servicios turísticos"
+
+#. module: tour_travel
+#: field:transport.book,cost_price_child:0
+#: field:transport.type.info,cost_price_child:0
+msgid "Cost Price(Child)"
+msgstr "Coste de Precio ( niño)"
+
+#. module: tour_travel
+#: field:hotel.reservation,customer_id:0
+#: field:tour.booking,customer_id:0
+#: field:tour.customer.details,partner_id:0
+#: field:tour.hotel.customer.book,partner_id:0
+#: field:tour.hotel.reservation,customer_id:0
+#: field:transport.book,customer_id:0
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: tour_travel
+#: model:ir.actions.act_window,name:tour_travel.action_transport_book_form_view
+#: model:ir.model,name:tour_travel.model_transport_book
+#: model:ir.ui.menu,name:tour_travel.menu_transport_book
+#: view:transport.book:0
+msgid "Transport Booking"
+msgstr "Reservas Transporte"
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+#: field:tour.customer.details,gender:0
+msgid "Gender"
+msgstr "Sexo"
+
+#. module: tour_travel
+#: field:tour.dates,total_seat:0
+msgid "Total Seats"
+msgstr "Plazas Totales"
+
+#. module: tour_travel
+#: field:passport.booking,tour_date:0
+#: field:tour.dates,name:0
+#: field:visa.booking,tour_date:0
+msgid "Tour Date"
+msgstr "Fecha del Tour"
+
+#. module: tour_travel
+#: code:addons/tour_travel/wizard/checkout_detail.py:57
+#: code:addons/tour_travel/wizard/checkout_details_transport.py:57
+#, python-format
+msgid "Invoice Is Not Validated Yet"
+msgstr "Factura todavia no esta Validada"
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+msgid "Carrier"
+msgstr "Cargador"
+
+#. module: tour_travel
+#: model:ir.model,name:tour_travel.model_tour_programme
+#: view:tour.package:0
+#: view:tour.programme:0
+msgid "Tour Programme"
+msgstr "Programa de Tour"
+
+#. module: tour_travel
+#: field:hotel.reservation,service_line_ids:0
+#: model:ir.model,name:tour_travel.model_service_line
+#: view:service.line:0
+msgid "Service Line"
+msgstr "Línea de servicio"
+
+#. module: tour_travel
+#: field:transport.line,trasnport_line_id:0
+msgid "Transport book"
+msgstr "Reserva de Transporte"
+
+#. module: tour_travel
+#: field:tour.package,tour_programme_lines:0
+msgid "Tour Programme Lines"
+msgstr "Líneas Programa del Tour"
+
+#. module: tour_travel
+#: field:sale.order,tour_book_id:0
+msgid "Ref Tour Book Id "
+msgstr "Ref Reserva Tour Id"
+
+#. module: tour_travel
+#: field:insurance.type,adult_cost:0
+msgid "For Adults Insurance Cost"
+msgstr "Coste de Seguro para Adultos"
+
+#. module: tour_travel
+#: field:pricelist.partnerinfo,sale_price:0
+#: field:room.info,sale_price:0
+#: field:tour.hotel.reservation,hotel_rent:0
+msgid "Sale Price"
+msgstr "Precio de Venta"
+
+#. module: tour_travel
+#: view:tour.hotel.customer.book:0
+msgid "Request To Book"
+msgstr "Solicitud para Reservar"
+
+#. module: tour_travel
+#: report:tour.booking.report:0
+#: field:transport.book,carrier_id:0
+msgid "Carrier No"
+msgstr "No de Cargador"
+
+#. module: tour_travel
+#: view:tour.insurance.line:0
+msgid "Insurance Service"
+msgstr "Servicio de Seguro"
+
+#. module: tour_travel
+#: selection:crm.lead,via:0
+#: selection:lead.to.opportunity.wizard,report_basis:0
+#: selection:leads.group.by.agent.wizard,report_basis:0
+#: selection:tour.booking,via:0
+msgid "Direct"
+msgstr "Directo"
+
+#. module: tour_travel
+#: model:ir.model,name:tour_travel.model_tour_package_info
+msgid "Tour Package info"
+msgstr "Info paquete de viaje"
+
+#. module: tour_travel
+#: model:ir.actions.act_window,name:tour_travel.act_leads_to_opportunity_detail
+msgid "Leads to Opportunity"
+msgstr "De Iniciativa a Oportunidad"
+

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+		
+		<report 
+            id="report_booking_main"
+            string="Booking Report"
+            model="tour.booking" 
+            report_type="qweb-pdf"
+            file="tour_travel.report_tour_booking" 
+            name="tour_travel.report_tour_booking" 
+        />
+		
+		<report 
+            id="report_hotel"
+            string="Hotel Accomodation"
+            model="tour.hotel.reservation" 
+            report_type="qweb-pdf"
+            file="tour_travel.report_hotel_information" 
+            name="tour_travel.report_hotel_information" 
+        />
+		
+        
+        <report 
+            id="sale.report_sale_order"
+            string="Quotation / Orders"
+            model="sale.order" 
+            report_type="qweb-pdf"
+            file="tour_travel.tour_quotation_report" 
+            name="tour_travel.tour_quotation_report" 
+        />
+        
+        
+        <report 
+            id="report_transport"
+            string="Transport Information"
+            model="transport.book" 
+            report_type="qweb-pdf"
+            file="tour_travel.tour_transport_report" 
+            name="tour_travel.tour_transport_report" />
+            
+        <report
+            id="tour_information_report_id"
+            model="tour.package"
+            string="Tour Information Report"
+            report_type="qweb-pdf"
+            name="tour_travel.tour_information_printing"
+            file="tour_travel.tour_information_printing"
+            menu="True"
+        />
+        	
+    </data>
+</odoo>

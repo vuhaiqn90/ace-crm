@@ -1,0 +1,538 @@
+<?xml version="1.0" ?>
+
+<odoo>
+    <data>
+		
+		
+		<menuitem name="Hotel" id="menu_hotel" parent="menu_tour_travel" sequence="2" />	  
+			 
+		
+        <!--
+		=========================================================
+       		 Hotel Management Hotel Type Configuration Form View 	
+       	=========================================================
+        -->
+       	<record id="hotel_type_form_view" model="ir.ui.view">
+            <field name="name">hotel.type.form</field>
+            <field name="model">hotel.type</field>
+            <field name="type">form</field> 
+            <field name="arch" type="xml">
+           		<form string="Hotel Type">
+           			<group colspan="4" col="6">
+	            		<field name="name" index="True"/>
+						<field name="description" />
+					</group>
+				</form>
+			</field>
+		</record>
+
+		<!--
+		========================================================= 
+					Hotel Management Hotel Type tree view        
+		=========================================================	
+        -->
+        <record id="hotel_type_tree_view" model="ir.ui.view">
+			<field name="name">hotel.type.tree</field>
+			<field name="model">hotel.type</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Hotel Type" editable="bottom">
+					<field name="name"/>
+					<field name="description"/>
+				</tree>
+			</field>
+		</record>
+		
+        <record model="ir.actions.act_window" id="action_hotel_type_form_view">
+			<field name="name">Hotel Type</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">hotel.type</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+   <menuitem name="Hotel Type" action="action_hotel_type_form_view" sequence="1"
+			id="menu_hotel_type"  parent="menu_hotel" />
+	
+	
+		<!--
+		=========================================================
+       		 Hotel Management Room Type Configuration Form View 	
+       	=========================================================
+        -->
+       	<record id="room_type_form_view_iiii" model="ir.ui.view">
+            <field name="name">room.type.formttttt</field>
+            <field name="model">room.type</field>
+            <field name="type">form</field> 
+            <field name="arch" type="xml">
+           		<form string="Room Type">
+           			<group colspan="4" col="6">
+						<!-- <field name="room_type" context="{'default_type': 'service', 'default_categ_id': 4}" domain="[('type','=','service'),('categ_id','=',4)]" /> -->
+						<field name="room_type" context="{'default_type': 'service'}" domain="[('type','=','service')]" />
+						<field name="name" />
+					</group>
+				</form>
+			</field>
+		</record>
+
+		<!--
+		========================================================= 
+					Hotel Management Room Type tree view        
+		=========================================================	
+        -->
+        <record id="room_type_tree_view" model="ir.ui.view">
+			<field name="name">room.type.tree</field>
+			<field name="model">room.type</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Room Type" editable="top">
+					<!-- <field name="room_type" context="{'default_type': 'service', 'default_categ_id': 4}" domain="[('type','=','service'),('categ_id','=',4)]" /> -->
+					<field name="room_type" context="{'default_type': 'service'}" domain="[('type','=','service')]" />
+					<field name="name" />
+				</tree>
+			</field>
+		</record>
+
+        <record model="ir.actions.act_window" id="action_room_type_form_view">
+			<field name="name">Room Type</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">room.type</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+   <menuitem name="Room Type" action="action_room_type_form_view" sequence="2"
+			id="menu_room_type"  parent="menu_hotel" /> 
+ 
+ 
+ 
+ 
+ 	<!--
+		=========================================================
+       		 Hotel Management Room Information Line View 	
+       	=========================================================
+        -->
+       	<record id="room_info_form_view" model="ir.ui.view">
+            <field name="name">room.info.form</field>
+            <field name="model">room.info</field>
+            <field name="type">form</field> 
+            <field name="arch" type="xml">
+           		<form string="Room Information">
+           			<group colspan="4" col="6">
+						<field name="room_type_id"/>
+						<field name="name" />
+						<field name="cost_price" index="True"/>
+						<field name="sale_price" index="True"/>
+					</group>
+				</form>
+			</field>
+		</record>
+
+		<!--
+		========================================================= 
+					Hotel Management Room Inforamtion tree view        
+		=========================================================	
+        -->
+        <record id="room_info_tree_view" model="ir.ui.view">
+			<field name="name">room.info.tree</field>
+			<field name="model">room.info</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Room Information" editable="top">
+					<field name="room_type_id"/>
+					<field name="name" />
+					<field name="cost_price"/>
+					<field name="sale_price"/>
+				</tree>
+			</field>
+		</record>
+ 
+ 		
+ 		<!--
+		=========================================================
+       		 Hotel Management Service Type Configuration Form View 	
+       	=========================================================
+        -->
+       	<record id="service_type_form_view" model="ir.ui.view">
+            <field name="name">service.type.form</field>
+            <field name="model">service.type</field>
+            <field name="type">form</field> 
+            <field name="arch" type="xml">
+           		<form string="Service Type">
+           			<group colspan="4" col="6">
+	            		<field name="service_id"/>
+	            		<field name="name" index="True"/>
+					</group>
+				</form>
+			</field>
+		</record>
+ 	
+ 		
+ 		<!--
+		========================================================= 
+					Hotel Management Service Type tree view        
+		=========================================================	
+        -->
+        <record id="service_type_tree_view" model="ir.ui.view">
+			<field name="name">service.type.tree</field>
+			<field name="model">service.type</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Service Type" editable="top">
+					<field name="service_id"/>
+					<field name="name"/>
+				</tree>
+			</field>
+		</record>
+		
+        <record model="ir.actions.act_window" id="action_service_type_form_view">
+			<field name="name">Service Type</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">service.type</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+   <menuitem name="Service Type" action="action_service_type_form_view" sequence="4"
+			id="menu_service_type"  parent="menu_hotel" />
+ 
+ 
+ 
+			<!--
+		=========================================================
+       		 Hotel Management Service Configuration Form View 	
+       	=========================================================
+        -->
+       	<record id="hotel_service_form_view" model="ir.ui.view">
+            <field name="name">hotel.service.form</field>
+            <field name="model">hotel.service</field>
+            <field name="type">form</field> 
+            <field name="arch" type="xml">
+           		<form string="Hotel Service">
+           			<group colspan="4" col="6">
+	            		<field name="service_id" />
+	            		<field name="name" index="True"/>
+						<field name="cost_price" index="True"/>
+						<field name="product_uom" />
+					</group>
+				</form>
+			</field>
+		</record>
+
+		<!--
+		========================================================= 
+					Hotel Management Service tree view        
+		=========================================================	
+        -->
+        <record id="hotel_service_tree_view" model="ir.ui.view">
+			<field name="name">hotel.service.tree</field>
+			<field name="model">hotel.service</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Services" editable="top">
+					<field name="service_id" />
+	            		<field name="name"/>
+						<field name="cost_price"/>
+						<field name="product_uom"/>
+				</tree>
+			</field>
+		</record>
+		
+	
+		<!--
+		========================================================= 
+					Hotel Room Line Form view        
+		=========================================================	
+        -->
+		
+		
+		<record id="hotel_room_line_form_view1" model="ir.ui.view">
+            <field name="name">room.line.form</field>
+            <field name="model">room.line</field>
+            <field name="type">form</field> 
+            <field name="arch" type="xml">
+           		<form string="Room Line Form">
+           			<group colspan="4" col="6">
+	            		<field name="name" index="True"/>
+						<field name="room_type_id" index="True" domain="[('hotel_id', '=', parent.hotel_id)]"/>
+						<field name="room_cost" index="True"/>
+						<field name="available_rooms" />
+						<field name="days_required" />
+						<field name="required_rooms" index="True" />
+						<field name="total_price" index="True"/>
+						<field name="state" />
+						<button string="Check Available" name="check_availability" states="draft" type="object" />
+					</group>
+				
+				</form>
+			</field>
+		</record>
+
+		<!--
+		========================================================= 
+					Hotel Room Line tree view        
+		=========================================================	
+        -->
+        <record id="hotel_room_line_tree_view1" model="ir.ui.view">
+			<field name="name">room.line.book.tree</field>
+			<field name="model">room.line</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Room Line" editable="bottom">
+						<field name="room_type_id" domain="[('hotel_id', '=', parent.hotel_id)]"/>
+						<field name="name" string="Description"/>
+						<field name="available_rooms"/>
+						<field name="days_required"/>
+						<field name="required_rooms"/>
+						<field name="room_cost"/>
+						<field name="total_price" sum="total_price"/>
+						<field name="state"/>
+						<button string="Book" name="check_availability" states="draft" type="object" />
+				</tree>
+			</field>
+		</record>
+		
+		
+
+<!--
+		========================================================= 
+					Hotel Service Line Form view        
+		=========================================================	
+        -->
+		
+		
+		<record id="hotel_service_line_form_view" model="ir.ui.view">
+            <field name="name">hotel.service.line.form</field>
+            <field name="model">service.line</field>
+            <field name="type">form</field> 
+            <field name="arch" type="xml">
+           		<form string="Service Line Form">
+           			<group colspan="4" col="6">
+						<field name="service_id" index="True"  domain="[('hotel_id1', '=', parent.hotel_id)]"/>
+						<field name="name" index="True" string="Description"/>
+						<field name="qty" />
+						<field name="room_cost" index="True"/>
+						<field name="total_price" index="True"/>
+					</group>
+				
+				</form>
+			</field>
+		</record>
+
+		<!--
+		========================================================= 
+					Hotel service Line tree view        
+		=========================================================	
+        -->
+        <record id="hotel_service_line_tree_view" model="ir.ui.view">
+			<field name="name">hotel.service.line.book.tree</field>
+			<field name="model">service.line</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Service Line" editable="top">
+					<field name="service_id" domain="[('hotel_id1', '=', parent.hotel_id)]"/>
+					<field name="name" string="Description"/>
+					<field name="qty" />
+					<field name="room_cost"/>
+					<field name="total_price"/>
+				</tree>
+			</field>
+		</record>
+		
+		
+		
+	<menuitem name="Room Reservation"  sequence="5"	id="menu_room_reservation"  parent="menu_hotel" />	
+		
+		 
+	 <!--
+		=========================================================
+       		 Hotel Room Reservation Form View 	
+       	=========================================================
+        -->
+       	<record id="hotel_room_reservation_form_view" model="ir.ui.view">
+            <field name="name">hotel.reservation.form</field>
+            <field name="model">hotel.reservation</field>
+            <field name="type">form</field> 
+            <field name="arch" type="xml">
+           		<form string="Hotel Room Reservation">
+           			<group colspan="4" col="6">
+	            		<field name="name" index="True"/>
+						<field name="current_date" />
+						<field name="customer_id" />
+						<field name="email_id" />
+						<field name="mobile" />
+						<field name="adult" />
+						<field name="child" />
+					</group>
+					<separator colspan="6" string="Hotel Information"/>
+					<group colspan="4" col="6">
+						<field name="hotel_type_id" />
+						<field name="hotel_id" domain="[('hotel_type_id', '=', hotel_type_id),('state','=','confirm')]"/>
+						<field name="checkin_date" />
+						<field name="checkout_date" />		
+					</group>
+					<notebook colspan="6">
+						<page string="Room Information">
+            				<group col="7" colspan="3">
+								<field name="room_line_ids" nolabel="1" context="{'parent_id':active_id}" />
+            				</group>
+            			</page>
+            			<page string="Tax Information">
+            				<group col="7" colspan="3">
+								<field name="tax_id" nolabel="1"/>
+            				</group>
+            			</page>
+            			<page string="History">
+            				<group col="7" colspan="3">
+								<field name="room_reserve_invoice_ids" nolabel="1"/>
+            				</group>
+            			</page>
+					</notebook>
+					<separator colspan="6" />
+					<notebook colspan="6">
+						<page string="Service Information">
+            				<group col="7" colspan="3">
+								<field name="service_line_ids" nolabel="1" context="{'parent_id':active_id}" />
+            				</group>
+            			</page>
+					</notebook>
+					<separator colspan="6" />
+					<group col="7" colspan="3">
+						<field name="untax_amt"/>
+						<field name="tax_amt"/>
+						<field name="total_amt"/>
+					</group>
+					<group col="7" colspan="3">
+						<field name="state"/>
+						<button string="Confirm" name="check_availability" states="draft" type="object" />
+						<button string="Create Invoice" name="create_invoice" states="confirm" type="object"  />
+						<button string="Checkout Detail" name="%(act_checkout_detail)d" states="checkout" type="action"  target="new"/>
+						
+            		</group>
+				</form>
+			</field>
+		</record>
+
+		<!--
+		========================================================= 
+					Hotel Room Reservation tree view        
+		=========================================================	
+        -->
+        <record id="hotel_room_reservation_tree_view" model="ir.ui.view">
+			<field name="name">hotel.reservation.tree</field>
+			<field name="model">hotel.reservation</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Room Reservation">
+						<field name="name"/>
+						<field name="customer_id"/>				
+						<field name="checkin_date"/>
+						<field name="checkout_date"/>
+						<field name="email_id"/>
+						<field name="mobile"/>
+						<field name="hotel_type_id"/>
+						<field name="hotel_id"/>
+						<field name="adult"/>
+						<field name="child"/>
+						<field name="state"/>
+				</tree>
+			</field>
+		</record>
+		
+        <record model="ir.actions.act_window" id="action_hotel_room_reservation_form_view">
+			<field name="name">Hotel Reservation</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">hotel.reservation</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+   
+ 
+	<!--
+		=========================================================
+       		 Hotel Information Form View 	
+       	=========================================================
+        -->
+       	<record id="hotel_info_form_view1" model="ir.ui.view">
+            <field name="name">hotel.info1.form</field>
+            <field name="model">hotel.information</field>
+            <field name="type">form</field> 
+            <field name="arch" type="xml">
+           		<form string="Hotel Information" version="7.0">
+				   <header>
+					   <button string="Confirm" name="confirm_info" states="draft" type="object" />
+					   <field name="state" widget="statusbar" statusbar_visible="draft,confirm"/>
+					</header>
+           			<group >
+	            		<field name="name" index="True" invisible="1"/>
+						<!-- <field name="hotel_id" index="True" context="{'default_customer': 0, 'search_default_supplier': 1, 'default_supplier': 1,'default_is_hotel': 1}"
+							 domain="[('is_hotel','=',True),('supplier','=',True)]" /> -->
+						<field name="hotel_id" index="True" context="{'default_customer': False, 'search_default_supplier': True, 'default_supplier': True,'default_is_hotel': True}"
+							 domain="[('is_hotel','=',True),('supplier','=',True)]" style="width:40%" />
+						<field name="hotel_type_id" style="width:40%" invisible="1"/>
+						<field name="hotel_type_id_disp" />
+					</group>
+					<separator colspan="6" string="Other Information"/>
+					<notebook colspan="4">
+						<page string="Room Information">
+            				<group col="7" colspan="3">
+            					<field name="room_info_ids" index="True" nolabel="1"/>
+            				</group>
+            			</page>
+            			<page string="Service Information">
+            				<group col="7" colspan="3">
+            					<field name="service_info_ids" index="True" nolabel="1"/>
+            				</group>
+            			</page>
+            			<page string="Hotel Images">
+								<group col="7" colspan="3">
+									
+								</group>
+						</page>
+					</notebook>
+					
+						
+					
+					<separator colspan="6" string="Hotel Images"/>
+					<group colspan="4" col="6">
+						<field name="hotel_img1" nolabel="1" img_width="200" img_height="200" width="200" widget="image" />
+						<field name="hotel_img2" nolabel="1" img_width="200" img_height="200" width="200" widget="image"/>
+						<field name="hotel_img3" nolabel="1" img_width="200" img_height="200" width="200" widget="image"/>
+					</group>
+				</form>
+			</field>
+		</record>
+
+		<!--
+		========================================================= 
+					Hotel Information tree view        
+		=========================================================	
+        -->
+        <record id="hotel_info1_tree_view" model="ir.ui.view">
+			<field name="name">hotel.info1.tree</field>
+			<field name="model">hotel.information</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Hotel Information">
+						<field name="hotel_id"/>
+						<field name="hotel_type_id"/>
+            			<field name="state"/>
+				</tree>
+			</field>
+		</record>
+		
+        <record model="ir.actions.act_window" id="action_hotel_info_form_view">
+			<field name="name">Hotel Information</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">hotel.information</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+   <menuitem name="Hotel Information" action="action_hotel_info_form_view" sequence="4"
+			id="menu_hotel_info"  parent="menu_hotel" /> 
+			
+	<record id="product_supplierinfo_tree_view_inherits" model="ir.ui.view">
+            <field name="name">product.supplierinfo.tree.inherit</field>
+            <field name="model">product.supplierinfo</field>
+            <field name="inherit_id" ref="product.product_supplierinfo_tree_view" />
+            <field name="arch" type="xml">
+                    <field name="price" position="after">
+                    	<field name="sale_price"/>
+                    </field>
+            </field>
+        </record>
+	 
+    </data>
+</odoo>

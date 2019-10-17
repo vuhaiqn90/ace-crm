@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+	
+	    <template id="tour_information_printing">
+	        <t t-call="web.html_container">
+	            <t t-foreach="docs" t-as="o">
+	                <t t-call="web.external_layout">
+	                    <div class="page">
+	                    	
+	                    	<div class="oe_structure"/>
+							<div class="row">
+								<p>Dear Customer,</p>
+								<p>It is our previllage to be at your service.Please find enlcosed Tour Information for your kind reference.</p>
+							</div>
+							<div class="row">
+								<br/>
+								<p style="font-size: 15px; font-weight:bold;">With Regards</p>
+								
+							</div>
+							
+							<div>
+								<br/>
+								<center><p style="font-size: 15px; font-weight:bold;">Tour Information</p></center>
+								<br/>
+							</div>
+							
+							<div>
+								<table style="width:100%">
+									<tr>
+										<th width="20%" style="font-size: 10px;">: Tour Name</th>
+										<td width="30%" style="font-size: 10px;"><span t-field="o.product_id.name"/></td>
+										<th width="20%" style="font-size: 10px;">: Tour Type</th>
+										<td width="30%" style="font-size: 10px;"><span t-field="o.tour_type"/></td>
+									</tr>
+								</table>
+							</div>
+							
+							<div>
+								<br/>
+								<span style="font-size: 10px; font-weight:bold;">Introduction : </span>
+								<span t-field="o.tour_intro" style="font-size: 10px;"/>
+							</div>
+							
+							<div>
+								<br/>
+								<center><p style="font-size: 15px; font-weight:bold;">Tour Program</p></center><br/>
+								
+								<p style="font-size: 15px; font-weight:bold;">Tour Information</p>
+								<table class="table table-bordered">
+									<tr>
+										<th style="font-size: 10px;">SN</th>
+										<th style="font-size: 10px;">Destination</th>
+										<th style="font-size: 10px;">Country</th>
+										<th style="font-size: 10px;">Night Stay</th>
+									</tr>
+									<tr t-foreach="o.tour_destination_lines" t-as="l">
+										<td style="font-size: 10px;"></td>
+										<td style="font-size: 10px;"><span t-field="l.destination_id.name"/></td>
+										<td style="font-size: 10px;"><span t-field="l.country_id.name"/></td>
+										<td style="font-size: 10px;"><span t-field="l.name"/></td>
+									</tr>
+								</table>
+								
+								
+								<p style="font-size: 15px; font-weight:bold;">Travel Summary</p>
+								<table class="table table-bordered">
+									<tr>
+										<th style="font-size: 10px;">SN</th>
+										<th style="font-size: 10px;">From</th>
+										<th style="font-size: 10px;">To</th>
+										<th style="font-size: 10px;">Type</th>
+										<th style="font-size: 10px;">Distance</th>
+										<th style="font-size: 10px;">Time (HRS)</th>
+									</tr>
+									<tr t-foreach="o.tour_road_travel_lines" t-as="l">
+										<td style="font-size: 10px;"></td>
+										<td style="font-size: 10px;"><span t-field="l.from_destination_id.name"/></td>
+										<td style="font-size: 10px;"><span t-field="l.to_destination_id.name"/></td>
+										<td style="font-size: 10px;"><span t-field="l.transport_type_id.name"/></td>
+										<td style="font-size: 10px;"><span t-field="l.name"/></td>
+										<td style="font-size: 10px;"><span t-field="l.approx_time"/></td>
+									</tr>
+								</table>
+								
+								
+								<p style="font-size: 15px; font-weight:bold;">Travel Program Details</p>
+								<table class="table table-bordered">
+									<tr>
+										<th style="font-size: 10px;">Day</th>
+										<th style="font-size: 10px;">Description</th>
+										<th style="font-size: 10px;">Breakfast</th>
+										<th style="font-size: 10px;">Lunch</th>
+										<th style="font-size: 10px;">Dinner</th>
+									</tr>
+									<tr t-foreach="o.tour_programme_lines" t-as="l">
+										<td style="font-size: 10px;"><span t-field="l.name"/></td>
+										<td style="font-size: 10px;"><span t-field="l.description"/></td>
+										<td style="font-size: 10px;">
+											<span t-if="l.breakfast">
+												<i class="fa fa-check" aria-hidden="true"></i>
+											</span>
+										</td>
+										<td style="font-size: 10px;">
+											<span t-if="l.lunch">
+												<i class="fa fa-check" aria-hidden="true"></i>
+											</span>
+										</td>
+										<td style="font-size: 10px;">
+											<span t-if="l.dinner">
+												<i class="fa fa-check" aria-hidden="true"></i>
+											</span>
+										</td>
+									</tr>
+								</table>
+								
+								<p style="font-size: 15px; font-weight:bold;">Addon Services</p>
+								<table class="table table-bordered">
+									<tr>
+										<th style="font-size: 10px;">Description</th>
+										<th style="font-size: 10px;">Unit Price</th>
+										<th style="font-size: 10px;">Quantity</th>
+										<th style="font-size: 10px;">Taxes</th>
+										<th style="font-size: 10px;">Sub Total</th>
+									</tr>
+									<tr t-foreach="o.product_line_id" t-as="l">
+										<td style="font-size: 10px;"><span t-field="l.name"/></td>
+										<td style="font-size: 10px;"><span t-field="l.qty"/></td>
+										<td style="font-size: 10px;"><span t-field="l.price_unit"/></td>
+										<td t-foreach="l.tax_id" t-as="t" style="font-size: 10px;">
+											<span t-field="t.name"/><br/>
+										</td>
+										<td style="font-size: 10px;"><span t-field="l.price_subtotal"/></td>
+									</tr>
+									
+								</table>
+								<div align="right" style="font-size: 10px;">
+									Subtotal Amount - <span t-field="o.subtotal"/><br/>
+									Tax - <span t-field="o.tax_amt"/><br/>
+									Total Amount - <span t-field="o.total_amt"/><br/>
+								</div>
+								
+								
+								<center>
+									<br/>
+									<p style="font-size: 15px; font-weight:bold;">Tour Fees Inclusion Details : </p>
+									<table class="table table-bordered">
+										<tr>
+											<th style="font-size: 10px;">SN</th>
+											<th style="font-size: 10px;">Facility</th>
+											<th style="font-size: 10px;">Description</th>
+										</tr>
+										<tr t-foreach="o.tour_cost_include_facility_lines" t-as="l">
+											<td style="font-size: 10px;"></td>
+											<td style="font-size: 10px;"><span t-field="l.facility_id.name"/></td>
+											<td style="font-size: 10px;"><span t-field="l.name"/></td>
+										</tr>
+									</table>
+								</center>
+								
+								<center>
+									<p style="font-size: 15px; font-weight:bold;">Tour Fees Exclusion Details : </p>
+									<table class="table table-bordered">
+										<tr>
+											<th style="font-size: 10px;">SN</th>
+											<th style="font-size: 10px;">Facility</th>
+											<th style="font-size: 10px;">Description</th>
+										</tr>
+										<tr t-foreach="o.tour_cost_exclude_facility_lines" t-as="l">
+											<td style="font-size: 10px;"></td>
+											<td style="font-size: 10px;"><span t-field="l.facility_id.name"/></td>
+											<td style="font-size: 10px;"><span t-field="l.name"/></td>
+										</tr>
+									</table>
+								</center>
+								
+							</div>
+							
+	                    </div>
+	                </t>
+	            </t>
+	         </t>
+	     </template>
+
+	</data>
+</odoo>

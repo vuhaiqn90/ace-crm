@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+
+        <record id="seq_crm_lead_1" model="ir.sequence">
+            <field name="name">Crm Lead</field>
+            <field name="code">crm.lead</field>
+            <field name="prefix">LD</field>
+            <field name="padding">6</field>
+        </record>
+		
+		
+        <record id="sequence_tour_hotel_book1" model="ir.sequence">
+            <field name="name">Tour Hotel Book</field>
+            <field name="code">tour.hotel.reservation</field>
+            <field name="prefix">TH</field>
+            <field name="padding">6</field>
+        </record>
+		
+		
+		  <!--
+         ========================================================= 
+        	Sequence number of Transport Booking
+         =========================================================
+         -->	
+        
+        <record id="sequence_transport_booking" model="ir.sequence">
+            <field name="name">Transport Booking</field>
+            <field name="code">transport.book</field>
+            <field name="prefix">TR</field>
+            <field name="padding">6</field>
+        </record>
+		
+		
+		 <!--
+         ========================================================= 
+        	Sequence number of Tour BOOK
+         =========================================================
+         -->	
+        
+        <record id="sequence_tour_booking" model="ir.sequence">
+            <field name="name">Tour Booking</field>
+            <field name="code">tour.booking</field>
+            <field name="prefix">TB</field>
+            <field name="padding">6</field>
+        </record>
+		
+		
+		<!--
+         ========================================================= 
+        	Sequence number of Commission Invoice
+         =========================================================
+         -->	
+        
+        <record id="sequence_agent_commission_invoice" model="ir.sequence">
+            <field name="name">Agent Commission Invoice</field>
+            <field name="code">agent.commission.invoice</field>
+            <field name="prefix">ACI</field>
+            <field name="padding">6</field>
+        </record>
+		
+		<!--
+         ========================================================= 
+        	Sequence number for tour cancellation
+         =========================================================
+         -->	
+		
+        
+        <record id="sequence_tour_cancellation_id" model="ir.sequence">
+            <field name="name">Tour Cancellation</field>
+            <field name="code">tour.cancellation</field>
+            <field name="prefix">TBC</field>
+            <field name="padding">6</field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,595 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<template id="report_tour_booking_document">
+			<t t-call="web.external_layout">
+				<t t-set="doc"  t-value="doc.with_context({'lang':doc.customer_id.lang})"/>
+				<div class="page" style="font-size:normal font-family: arial">
+					<div class="oe_structure"/>
+					<div margin-left="50px">
+						<div >
+							<h4 class="text-center" margin=" 140px 0px 70px">
+								<strong>Tour Itinerary</strong>
+							</h4>
+						</div>
+					</div>
+					<br/>
+					<div  id="informations">
+						<table >
+							<tbody class="sale_tbody">
+								<tr>
+									<td width="12%" height="30">
+										<strong>Customer Name</strong>
+									</td >
+									<td width="10%" >
+										<strong>
+											<span t-field="doc.customer_id.name"/>
+										</strong>
+									</td >
+									<td width="20%"></td>
+									<td width="20%"></td>
+								</tr>
+								<tr>
+									<td width="12%" height="30"></td>
+									<td width="10%" >
+										Mob:
+										<span t-field="doc.mobile1" />
+									</td>
+									<td width="20%"></td>
+									<td width="20%"></td>
+								</tr>
+								<tr>
+									<td width="12%" height="30"></td>
+									<td width="10%" >
+										Email:
+										<span t-field="doc.email_id" />
+									</td>
+									<td width="20%"></td>
+									<td width="20%"></td>
+								</tr>
+							</tbody>
+						</table>
+						<div>
+							<div>Dear Sir,</div>
+							<div>It is our previllage to be at your service. Please find enlcosed Tour Itinary for your kind reference.</div>
+							<div>We, Wish you a very Happy and Comfortable Journey.</div>
+							<br/>
+							<div>
+								<strong>With Regards</strong>
+							</div>
+							<div>
+								<strong>
+									<span t-field="doc.customer_id.company_id.name"/>
+								</strong>
+							</div>
+						</div>
+						<br/>
+						<h4 class="text-center" margin=" 140px 0px 70px">
+							<strong>Tour Booking Information</strong>
+						</h4>
+						<br/>
+					</div>
+					<div id="informations">
+						<table >
+							<tbody class="sale_tbody">
+								<tr>
+									<td width="10%" height="30">
+										<strong>Tour Booking ID</strong>
+									</td >
+									<td width="5%" class="text-left">
+										:
+										<span t-field="doc.name"/>
+									</td>
+									<td ></td>
+									<td width="10%" height="30">
+										<strong>Tour Name</strong>
+									</td>
+									<td width="10%" class="text-left">
+										:
+										<span t-field="doc.tour_id" />
+									</td>
+								</tr>
+								<tr>
+									<td width="20%" height="30">
+										<strong>Tour Start Date</strong>
+									</td >
+									<td width="30%" class="text-left">
+										:
+										<span t-esc="doc.get_partner_lang_date(doc.tour_dates_id.start_date,doc.customer_id.lang)"/>
+									</td>
+									<td ></td>
+									<td width="20%" height="30">
+										<strong>Tour End Date</strong>
+									</td>
+									<td width="30%" class="text-left">
+										:
+										<span t-esc="doc.get_end_date(doc,doc.customer_id.lang)" />
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<br/>
+						<div>
+							<strong>Passenger Details</strong>
+						</div>
+						<table class="table table-condensed" style="border-left: 1px solid black !important;border-right: 1px solid black !important;border-top: 1px solid black !important;border-bottom: 1px solid black !important;">
+							<thead >
+								<tr >
+									<th >Name</th>
+									<th style="border-left: 1px solid black !important;" class="text-center">Age</th>
+									<th style="border-left: 1px solid black !important;" class="text-center">Gender</th>
+									<th style="border-left: 1px solid black !important;" class="text-center">Adult/ Child</th>
+								</tr>
+							</thead>
+							<tbody class="sale_tbody">
+								<t t-foreach="doc.tour_customer_ids" t-as="l">
+									<tr>
+										<td  style="border-bottom: 1px solid black !important;">
+											<span t-field="l.partner_id.name"/>
+										</td>
+										<td style="border-left: 1px solid black !important;border-bottom: 1px solid black !important;" class="text-center">
+											<span t-field="l.name"/>
+										</td>
+										<td style="border-left: 1px solid black !important;border-bottom: 1px solid black !important;" class="text-center">
+											<span t-field="l.gender"/>
+										</td>
+										<td style="border-left: 1px solid black !important;border-bottom: 1px solid black !important;" class="text-center">
+											<span t-field="l.type"/>
+										</td>
+									</tr>
+								</t>
+							</tbody>
+						</table>
+						<br/>
+						<div>
+							<div>
+								<strong>Enclosures:</strong>
+							</div>
+							<br/>
+							<div>
+								<strong>1. Tour Program</strong>
+							</div>
+							<div>
+								<strong>2. Tour Destinations</strong>
+							</div>
+							<div>
+								<strong>3. Hotel Accommodation Details</strong>
+							</div>
+							<div>
+								<strong>4. Transportation Details</strong>
+							</div>
+							<div>
+								<strong>5. Cost Inclusion/ Exclusion Details</strong>
+							</div>
+						</div>
+					</div>
+					<div style = "page-break-after:always"></div>
+					<div class="oe_structure"/>
+					<div margin-left="50px">
+						<div >
+							<h4 class="text-center" margin=" 140px 0px 70px">
+								<strong>Tour Program</strong>
+							</h4>
+						</div>
+					</div>
+					<br/>
+					<br/>
+					<div>
+						<strong>Tour Destinations</strong>
+					</div>
+					<table class="table table-condensed" style="border-left: 1px solid black !important;border-right: 1px solid black !important;border-top: 1px solid black !important;border-bottom: 1px solid black !important;">
+						<thead>
+							<tr>
+								<th >Destinations</th>
+								<th  class="text-center" style="border-left: 1px solid black !important;">Country</th>
+								<th class="text-center" style="border-left: 1px solid black !important;">Night Stay</th>
+							</tr>
+						</thead>
+						<tbody class="sale_tbody">
+							<t t-foreach="doc.tour_id.tour_destination_lines" t-as="l">
+								<tr>
+									<td  style="border-left: 1px solid black !important;border-bottom: 1px solid black !important;">
+										<span t-esc="l.destination_id.name"/>
+									</td>
+									<td style="border-left: 1px solid black !important;border-bottom: 1px solid black !important;" class="text-center">
+										<span t-esc="l.country_id.name"/>
+									</td>
+									<td style="border-left: 1px solid black !important;border-bottom: 1px solid black !important;" class="text-center">
+										<span t-esc="l.name"/>
+									</td>
+								</tr>
+							</t>
+						</tbody>
+					</table>
+					<br/>
+					<br/>
+					<div>
+						<strong>Travel Summary</strong>
+					</div>
+					<table class="table table-condensed" style="border-left: 1px solid black !important;border-right: 1px solid black !important;border-top: 1px solid black !important;border-bottom: 1px solid black !important;">
+						<thead>
+							<tr>
+								<th >From</th>
+								<th style="border-left: 1px solid black !important;" class="text-center">To</th>
+								<th style="border-left: 1px solid black !important;" class="text-center">Type</th>
+								<th style="border-left: 1px solid black !important;" class="text-center">Distance</th>
+								<th style="border-left: 1px solid black !important;" class="text-center">Time (HRS)</th>
+							</tr>
+						</thead>
+						<tbody class="sale_tbody">
+							<t t-foreach="doc.tour_id.tour_road_travel_lines" t-as="l">
+								<tr>
+									<td  style="border-left: 1px solid black !important;border-bottom: 1px solid black !important;">
+										<span t-esc="l.from_destination_id.name"/>
+									</td>
+									<td class="text-center" style="border-left: 1px solid black !important;border-bottom: 1px solid black !important;">
+										<span t-esc="l.to_destination_id.name"/>
+									</td>
+									<td style="border-left: 1px solid black !important;border-bottom: 1px solid black !important;" class="text-center">
+										<span t-esc="l.transport_type_id.name"/>
+									</td>
+									<td style="border-left: 1px solid black !important;border-bottom: 1px solid black !important;" class="text-center">
+										<span t-esc="l.name"/>
+									</td>
+									<td style="border-left: 1px solid black !important;border-bottom: 1px solid black !important;" class="text-center">
+										<span t-esc="l.approx_time"/>
+									</td>
+								</tr>
+							</t>
+						</tbody>
+					</table>
+					<br/>
+					<br/>
+					<div>
+						<strong></strong>
+					</div>
+					<table class="table table-condensed" style="border-left: 1px solid black !important;border-right: 1px solid black !important;border-top: 1px solid black !important;border-bottom: 1px solid black !important;">
+						<thead>
+							<tr>
+								<th  width="10%">Day</th>
+								<th style="border-left: 1px solid black !important;" class="text-center" width="20%">Description</th>
+								<th style="border-left: 1px solid black !important;" class="text-center" width="5%">Breakfast</th>
+								<th style="border-left: 1px solid black !important;" class="text-center" width="5%">Lunch</th>
+								<th style="border-left: 1px solid black !important;" class="text-center" width="5%">Dinner</th>
+
+							</tr>
+						</thead>
+						<tbody class="sale_tbody">
+							<t t-foreach="doc.tour_id.tour_programme_lines" t-as="l">
+								<tr>
+									<td  width="10%" style="border-left: 1px solid black !important;border-bottom: 1px solid black !important;">
+										<span t-esc="l.name "/>
+									</td>
+									<td class="text-center" width="20%" style="border-left: 1px solid black !important;border-bottom: 1px solid black !important;">
+										<span t-esc="l.description "/>
+									</td>
+									
+										<td class="text-center" width="5%" style="border-left: 1px solid black !important;border-bottom: 1px solid black !important;">
+											<t t-if="l.breakfast==True">
+											<svg height="50" width="50">
+												<circle cx="15" cy="15" r="4" stroke="black" stroke-width="3" fill="black" />
+											</svg>
+											</t>
+										</td>
+									
+									
+										<td class="text-center" width="5%" style="border-left: 1px solid black !important;border-bottom: 1px solid black !important;">
+											<t t-if="l.lunch==True">
+											<svg height="50" width="50">
+												<circle cx="15" cy="15" r="4" stroke="black" stroke-width="3" fill="black" />
+											</svg>
+											</t>
+										</td>
+									
+									
+										<td class="text-center" width="5%" style="border-left: 1px solid black !important;border-bottom: 1px solid black !important;">
+											<t t-if="l.dinner==True">
+											<svg height="50" width="50">
+												<circle cx="15" cy="15" r="4" stroke="black" stroke-width="3" fill="black" />
+											</svg>
+											</t>
+										</td>
+									
+								</tr>
+							</t>
+						</tbody>
+					</table>
+					<div style = "page-break-after:always"></div>
+					<div class="oe_structure"/>
+					<div margin-left="50px">
+						<div >
+							<h4 class="text-center" margin=" 140px 0px 70px">
+								<strong>Hotel Accomodation Details</strong>
+							</h4>
+						</div>
+					</div>
+					<br/>
+					<t t-foreach="doc.get_hotel_information(doc)" t-as="l">
+						<table >
+							<tbody class="sale_tbody">
+
+								<tr>
+									<td width="10%" height="30">
+										<strong>Destination</strong>
+									</td >
+									<td width="5%" class="text-left">
+										:
+										<span t-esc="l['destination_id']"/>
+									</td>
+									<td width="10%"></td>
+									<td width="10%" height="30">
+										<strong>From Date</strong>
+									</td>
+									<td width="20%" class="text-left">
+										:
+										<span t-if="l.get('checkin',False)" t-esc="doc.get_partner_lang_date(l['checkin'],doc.customer_id.lang)"/>
+									</td>
+								</tr>
+								<tr>
+									<td width="10%" height="30">
+										<strong>Hotel Name</strong>
+									</td >
+									<td width="5%" class="text-left">
+										:
+										<span t-esc="l['hotel']"/>
+									</td>
+									<td width="10%"></td>
+									<td width="10%" height="30">
+										<strong>To Date</strong>
+									</td>
+									<td width="20%" class="text-left">
+										:
+										<span t-if="l.get('checkout',False)" t-esc="doc.get_partner_lang_date(l['checkout'],doc.customer_id.lang)"/>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<br/>
+						<div>
+							<strong>Customer details</strong>
+						</div>
+						<table class="table table-condensed" style="border-left: 1px solid black !important;border-right: 1px solid black !important;border-top: 1px solid black !important;border-bottom: 1px solid black !important;">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th style="border-left: 1px solid black !important;" class="text-center">Age</th>
+									<th style="border-left: 1px solid black !important;" class="text-center">Gender</th>
+									<th style="border-left: 1px solid black !important;" class="text-center">Adult/ Child</th>
+									<th style="border-left: 1px solid black !important;" class="text-center">Room Type / Room No</th>
+								</tr>
+							</thead>
+							<tbody class="sale_tbody">
+								<t t-foreach="l['booking']" t-as="customer">
+									<tr>
+										<td  style="border-left: 1px solid black !important;border-bottom: 1px solid black !important;">
+											<span t-esc="customer['cus_name']"/>
+										</td>
+										<td class="text-center" style="border-left: 1px solid black !important;border-bottom: 1px solid black !important;">
+											<span t-esc="customer['age']"/>
+										</td>
+										<td class="text-center" style="border-left: 1px solid black !important;border-bottom: 1px solid black !important;">
+											<span t-esc="customer['gender']"/>
+										</td>
+										<td class="text-center" style="border-left: 1px solid black !important;border-bottom: 1px solid black !important;">
+											<span t-esc="customer['type']"/>
+										</td>
+										<td class="text-center" style="border-left: 1px solid black !important;border-bottom: 1px solid black !important;">
+											<span t-esc="customer['room']"/>
+										</td>
+									</tr>
+								</t>
+							</tbody>
+						</table>
+						<br/>
+						<br/>
+					</t>
+					<div style = "page-break-after:always"></div>
+					<div class="row">
+						<div>
+							<h3 class="text-center mb32">Transportation Details</h3>
+						</div>
+						<br/>
+						<br/>
+						<div>
+							<t t-foreach="doc.get_transport_information(doc)" t-as="line">
+								<table>
+									<tbody class="sale_tbody" >
+										<br/>
+										<br/>
+										<tr>
+											<td width="20%" height = "30">
+												<strong>From</strong>
+											</td>
+											<td width="20%">
+												:
+												<span t-esc="line['from_destination_id']"/>
+											</td>
+											<td width="20%" height = "30">
+												<strong>To</strong>
+											</td>
+											<td width="20%">
+												:
+												<span t-esc="line['to_destination_id']"/>
+											</td>
+										</tr>
+										<tr>
+											<td width="20%" height = "30">
+												<strong>Travel Type</strong>
+											</td>
+											<td width="20%">
+												:
+												<span t-esc="line['transport_type_id']"/>
+											</td>
+											<td width="20%" height = "30">
+												<strong>Travel Class</strong>
+											</td>
+											<td width="20%">
+												:
+												<span t-esc="line['travel_class_id']"/>
+											</td>
+
+										</tr>
+										<tr>
+											<td width="15%" height = "30">
+												<strong>Date of Arrival</strong>
+											</td>
+											<td width="35%">
+												:
+												<span t-if="line.get('checkin',False)" t-esc="doc.get_partner_lang_dates(line['checkin'],doc.customer_id.lang)"/>
+											</td>
+											<td width="20%" height = "30">
+												<strong>Date of Departure</strong>
+											</td>
+											<td width="35%">
+												:
+												<span t-if="line.get('checkout',False)" t-esc="doc.get_partner_lang_dates(line['checkout'],doc.customer_id.lang)"/>
+											</td>
+										</tr>
+										<tr>
+											<td width="20%" height = "30">
+												<strong>Carrier</strong>
+											</td>
+											<td width="20%">
+												:
+												<span t-esc="line['transport_carrier_id']"/>
+											</td>
+											<td width="20%" height = "30">
+												<strong>Carrier No</strong>
+											</td>
+											<td width="20%">
+												:
+												<span t-esc="line['carrier_id']"/>
+											</td>
+
+										</tr>
+										<tr>
+											<td width="20%" height = "30">
+												<strong>PNR No.</strong>
+											</td>
+											<td width="20%">
+												:
+												<span t-esc="line['pnr']"/>
+											</td>
+										</tr>
+
+									</tbody>
+								</table>
+								<br/>
+								<strong>Customer Details</strong>
+								<table class="table table-condensed" style="border-left: 1px solid black !important;border-top: 1px solid black !important;border-bottom: 1px solid black !important;border-right: 1px solid black !important;border-right: 1px solid black !important;">
+									<thead>
+										<tr>
+											<th >Name</th>
+											<th style="border-left: 1px solid black !important;" class="text-center">Age</th>
+											<th style="border-left: 1px solid black !important;" class="text-center">Gender</th>
+											<th style="border-left: 1px solid black !important;" class="text-center">Adult/ Child</th>
+											<th style="border-left: 1px solid black !important;" class="text-center">Seat No</th>
+										</tr>
+									</thead>
+									<tbody>
+										<t t-if = "line['booking']">
+											<t t-foreach="line['booking']" t-as="l">
+												<tr>
+
+													<td  style="border-left: 1px solid black !important;border-bottom: 1px solid black !important;">
+														<span t-esc="l['cus_name']"/>
+													</td>
+													<td class="text-center" style="border-left: 1px solid black !important;border-bottom: 1px solid black !important;">
+														<span t-esc="l['age']"/>
+													</td>
+													<td style="border-left: 1px solid black !important;border-bottom: 1px solid black !important;" class="text-center">
+														<span t-esc="l['gender']"/>
+													</td>
+													<td style="border-left: 1px solid black !important;border-bottom: 1px solid black !important;" class="text-center">
+														<span t-esc="l['type']"/>
+													</td>
+													<td style="border-left: 1px solid black !important;border-bottom: 1px solid black !important;" class="text-center">
+														<span t-esc="l['room']"/>
+													</td>
+												</tr>
+											</t>
+										</t>
+									</tbody>
+								</table>
+								<br/>
+							</t>
+						</div>
+						<br/>
+						<br/>
+						<br/>
+					</div>
+					<div style = "page-break-after:always"></div>
+					<div margin-left="50px">
+						<div >
+							<h4 class="text-center" margin=" 140px 0px 70px">
+								<strong>Tour Fees Inclusion Details</strong>
+							</h4>
+						</div>
+					</div>
+					<br/>
+					<br/>
+					<table class="table table-condensed" style="border-left: 1px solid black !important;border-right: 1px solid black !important;border-top: 1px solid black !important;border-bottom: 1px solid black !important;">
+
+						<thead>
+							<tr height="30" width="10%">
+								<th  style="border-left: 1px solid black !important;">Facility</th>
+								<th  style="border-left: 1px solid black !important;">Description</th>
+							</tr>
+						</thead>
+						<tbody class="sale_tbody">
+							<t t-foreach="doc.tour_id.tour_cost_include_facility_lines" t-as="l">
+								<tr>
+									<td  style="border-left: 1px solid black !important;border-bottom: 1px solid black !important;">
+										<span t-esc="l.facility_id.name"/>
+									</td>
+									<td  style="border-left: 1px solid black !important;border-bottom: 1px solid black !important;">
+										<span t-esc="l.name"/>
+									</td>
+								</tr>
+							</t>
+						</tbody>
+					</table>
+					<br/>
+					<br/>
+					<div margin-left="50px">
+						<div >
+							<h4 class="text-center" margin=" 140px 0px 70px">
+								<strong>Tour Fees Exclusion Details</strong>
+							</h4>
+						</div>
+					</div>
+					<br/>
+					<br/>
+					<table class="table table-condensed" style="border-left: 1px solid black !important;border-right: 1px solid black !important;border-top: 1px solid black !important;border-bottom: 1px solid black !important;" >
+
+						<thead>
+							<tr height="30" width="10%">
+								<th  style="border-left: 1px solid black !important;">Facility</th>
+								<th style="border-left: 1px solid black !important;">Description</th>
+							</tr>
+						</thead>
+						<tbody class="sale_tbody">
+							<t t-foreach="doc.tour_id.tour_cost_exclude_facility_lines" t-as="l">
+								<tr>
+									<td  style="border-left: 1px solid black !important;border-bottom: 1px solid black !important;">
+										<span t-esc="l.facility_id.name"/>
+									</td>
+									<td  style="border-left: 1px solid black !important;border-bottom: 1px solid black !important;">
+										<span t-esc="l.name"/>
+									</td>
+								</tr>
+							</t>
+						</tbody>
+					</table>
+				</div>
+			</t>
+		</template>
+		<template id="report_tour_booking">
+			<t t-call="web.html_container">
+				<t t-foreach="docs" t-as="doc">
+					<t t-call="tour_travel.report_tour_booking_document" t-lang="doc.customer_id.lang"/>
+				</t>
+			</t>
+		</template>
+	</data>
+</odoo>

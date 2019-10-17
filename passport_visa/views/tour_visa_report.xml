@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<template id="tour_visa_report_doc">
+			<t t-call="web.external_layout">
+				<div class="page">
+					<div class="row">
+						<div>
+							<h3 class="text-center mb32">
+								<strong>Visa Booking</strong>
+							</h3>
+						</div>
+						<br/>
+						<br/>
+						<div>
+							<table>
+								<tbody class="sale_tbody">
+									<tr>
+										<td width="10%">
+											<strong>Name:</strong>
+										</td>
+										<td width = "10%">
+											<span t-field="doc.name"/>
+										</td>
+										<td width = "10%">
+											<strong>Customer ID:</strong>
+										</td>
+										<td width = "10%">
+											<span t-field="doc.customer_id"/>
+										</td>
+									</tr>
+									<tr>
+										<td width = "10%">
+											<strong>Date:</strong>
+										</td>
+										<td width = "10%">
+											<span t-esc="doc.get_partner_lang_date(doc.current_date,doc.customer_id.lang)"/>
+										</td>
+										<td width = "10%">
+											<strong>Email ID:</strong>
+										</td>
+										<td width = "10%">
+											<span t-field="doc.email_id"/>
+										</td>
+									</tr>
+									<tr>
+										<td width = "10%">
+											<strong>Mobile Number:</strong>
+										</td>
+										<td width = "10%">
+											<span t-field="doc.mobile"/>
+										</td>
+
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<br/>
+						<br/>
+						<br/>
+						<div>
+							<h4 class="text-left mb32">
+								<strong>Visa Information</strong>
+							</h4>
+							<table class="table table-condensed">
+								<thead>
+									<tr>
+										<th>Country</th>
+										<th class="text-right">Service</th>
+										<th class="text-right">Visa Scheme</th>
+										<th class="text-right">Service Cost</th>
+									</tr>
+								</thead>
+								<tbody class="sale_tbody">
+									<tr>
+										<td>
+											<span t-field="doc.country_id"/>
+										</td>
+										<td class="text-right">
+											<span t-field="doc.product_id"/>
+										</td>
+										<td class="text-right">
+											<span t-field="doc.scheme_id"/>
+										</td>
+										<td class="text-right">
+											<span t-field="doc.service_charge"/>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<br/>
+						<br/>
+						<br/>
+						<div>
+							<h4 class="text-left mb32">
+								<strong>Tour Information</strong>
+							</h4>
+							<table class="table table-condensed">
+								<thead>
+									<tr>
+										<th>Tour Booking Ref</th>
+										<th class="text-right">Tour</th>
+										<th class="text-right">Tour Date</th>
+									</tr>
+								</thead>
+								<tbody class="sale_tbody">
+									<tr>
+										<td>
+											<span t-field="doc.tour_book_id"/>
+										</td>
+										<td class="text-right">
+											<span t-field="doc.tour_id"/>
+										</td>
+										<td class="text-right">
+											<span t-esc="doc.get_partner_lang_date(doc.current_date,doc.customer_id.lang)"/>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</t>
+		</template>
+		<template id="tour_visa_report">
+			<t t-call="web.html_container">
+				<t t-foreach="docs" t-as="doc">
+					<!-- <t t-raw="translate_doc(doc, doc_model, 'partner_id.lang', 'tour_travel.tour_invoice_report_doc')"/> -->
+					<t t-call="passport_visa.tour_visa_report_doc" t-lang="doc.customer_id.lang"/>
+				</t>
+			</t>
+		</template>
+	</data>
+</odoo>

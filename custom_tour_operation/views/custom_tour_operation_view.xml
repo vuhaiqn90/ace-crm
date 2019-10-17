@@ -1,0 +1,750 @@
+<?xml version="1.0" ?>
+<odoo>
+    <data>
+	<menuitem name="Custom Tour" id="menu_custom_tour" parent="tour_travel.menu_tour_travel" sequence="2"/>
+
+	<record id="tour_preference_form_view" model="ir.ui.view">
+            <field name="name">tour.preference.form</field>
+            <field name="model">tour.preference</field>
+            <field name="type">form</field> 
+            <field name="arch" type="xml">
+           		<form string="Tour Preference" version="7.0">
+					<header>
+						<button string="Confirm" name="action_confirm" states="draft" type="object" />
+						<button string="Cancel" name="action_refuse" states="draft" type="object"  />
+						<field name="state" widget="statusbar" statusbar_visible="draft,confirm"/>
+					</header>
+					<group>
+						<div class="oe_title">
+						<h1><field name="name" index="True"/></h1>
+						</div>
+					</group>
+           			<group colspan="4" col="6">
+						<field name="current_date" />
+						<field name="lead" domain="[('stage_id','=','New')]" />
+						<field name="contact_name" />
+						<field name="address" />
+						<field name="email_id" />
+						<field name="mobile" />
+						<field name="country_id" />
+						<field name="adult" />
+						<field name="child" />
+						<field name="via"/>
+						<field name="agent_id" context="{'default_agent': 1}" domain="[('agent','=',True)]" attrs="{'invisible': [('via','!=','agent')]}"/>
+					</group>
+					<separator colspan="6" string="Tour Information"/>
+					   <group col="7" colspan="4">
+						    <field name="checkin_date" />
+							<field name="checkout_date" />
+						    <field name="tour_low_price"/>
+						    <field name="tour_high_price" nolabel="1" />
+					   </group>
+					<notebook colspan="6">
+						<page string="Destinations Preferences">
+            				<group col="7" colspan="3">
+            					<field name="destination_lines_ids" nolabel="1" />
+            				</group>
+            			</page>
+            			<page string="Hotel Preferences">
+            				<group col="6" colspan="6">
+            					<field name="hotel_type_id" />
+            					<field name="room_type_id" context="{'default_type': 'service'}" domain="[('type','=','service',),('categ_id','=','Room Types')]"/>
+								<!-- <field name="room_type_id" context="{'default_type': 'service', 'default_categ_id': 5}" domain="[('type','=','service'),('categ_id','=',4)]"/> -->
+								<field name="room_req" />	
+								<field name="low_price" />
+								<field name="high_price" nolabel="1"/>
+            				</group>
+            			</page>
+						<page string="Transport Preferences">
+            				<group colspan="4" col="6">
+            					<field name="transport_ids" nolabel="1">	
+				    	       		<tree string="Transport Details" >
+					           			<field name="name" />
+					            		<!-- <field name="transport_type_id" context="{'default_type': 'service', 'default_categ_id': 5}" domain="[('type','=','service'),('categ_id','=',5)]"/> -->
+					            		<field name="transport_type_id" context="{'default_type': 'service'}" domain="[('type','=','service',),('categ_id','=','Transport Service Type')]"/>
+					            		<field name="travel_class_id" context="{'default_transport_type_id': transport_type_id}" domain="[('transport_type_id', '=', transport_type_id)]"/>
+									</tree>
+									<form string="Transport Details" >
+									    <group>
+					           				<field name="name" />
+					            			<!-- <field name="transport_type_id" context="{'default_type': 'service', 'default_categ_id': 5}" domain="[('type','=','service'),('categ_id','=',5)]"/> -->
+					            			<field name="transport_type_id" context="{'default_type': 'service'}" domain="[('type','=','service')]"/>
+					            			<field name="travel_class_id" context="{'default_transport_type_id': transport_type_id}" domain="[('transport_type_id', '=', transport_type_id)]"/>
+					            		</group>
+									</form>
+								</field>
+            				</group>
+            			</page>
+					</notebook>
+				</form>
+			</field>
+		</record>
+
+        <record id="tour_preference_tree_view" model="ir.ui.view">
+			<field name="name">tour.preference.tree</field>
+			<field name="model">tour.preference</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Tour Preference">
+						<field name="name"/>
+						<field name="lead"/>		
+						<field name="current_date"/>
+						<field name="adult" />
+						<field name="child" />
+						<field name="email_id" />
+						<field name="mobile"/>
+						<field name="state"/>
+				</tree>
+			</field>
+		</record>
+		
+        <record model="ir.actions.act_window" id="action_tour_preference_form_view">
+			<field name="name">Tour Preference</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">tour.preference</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+   
+      <menuitem name="Tour Preference"  action="action_tour_preference_form_view" sequence="1"
+			id="menu_tour_preference_form"  parent="menu_custom_tour" />
+		
+		<record id="custom_tour_destination_form_view" model="ir.ui.view">
+            <field name="name">custom.tour.destination.form</field>
+            <field name="model">custom.tour.destination</field>
+            <field name="type">form</field> 
+            <field name="arch" type="xml">
+           		<form string="Tour Destination">
+           			<group colspan="3" col="6">
+	            		<field name="destination_id" />
+						<field name="country_id"/>
+						<field name="name"/>
+					</group>
+					<group colspan="3" col="6">
+						<field name="site_line_ids" nolabel="1"/>
+					</group>
+					</form>
+				</field>
+			</record>
+			
+			<record id="custom_tour_destination_tree_view" model="ir.ui.view">
+            <field name="name">custom.tour.destination.tree</field>
+            <field name="model">custom.tour.destination</field>
+            <field name="type">tree</field> 
+            <field name="arch" type="xml">
+           		<tree string="Tour Destination">
+	            	<field name="destination_id" />
+					<field name="country_id"/>
+					<field name="name"/>
+				</tree>
+				</field>
+			</record>
+
+		 <record model="ir.actions.act_window" id="action_custom_tour_destination_type_form_view">
+			<field name="name">Carrier Type</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">custom.tour.destination</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		
+		<record id="custom_tour_site_form_view" model="ir.ui.view">
+            <field name="name">custom.tour.site.form</field>
+            <field name="model">custom.tour.site</field>
+            <field name="type">form</field> 
+            <field name="arch" type="xml">
+           		<form string="Sites Details">
+           			<group>
+						<!-- <field name="name" context="{'default_type': 'service', 'default_categ_id': 8}" domain="[('type','=','service'),('categ_id','=',8)]"/> -->
+						<field name="name" context="{'default_type': 'service'}" domain="[('type','=','service')]"/>
+					</group>
+					</form>
+				</field>
+			</record>
+			
+			<record id="custom_tour_site_tree_view" model="ir.ui.view">
+            <field name="name">custom.tour.site.tree</field>
+            <field name="model">custom.tour.site</field>
+            <field name="type">tree</field> 
+            <field name="arch" type="xml">
+           		<tree string="Sites Details">
+					<!-- <field name="name" context="{'default_type': 'service', 'default_categ_id': 8}" domain="[('type','=','service'),('type','=',8)]"/> -->
+					<field name="name" context="{'default_type': 'service'}" domain="[('type','=','service')]"/>
+				</tree>
+				</field>
+			</record>
+		
+		<record id="custom_tour_itinarary_form_view" model="ir.ui.view">
+            <field name="name">custom.tour.itinarary.form</field>
+            <field name="model">custom.tour.itinarary</field>
+            <field name="type">form</field> 
+            <field name="arch" type="xml">
+           		<form string="Tour Itinerary" version="7.0">
+					<header>
+						<button string="Confirm" name="action_confirm" states="draft" type="object" groups="tour_travel.group_tour_manager" />
+						<button string="Send To Customer" name="action_sent" states="confirm" type="object" />
+						<button string="Approved" name="action_approve" states="send_to" type="object" />
+						<button string="Refuse" name="action_refuse" states="send_to" type="object" />
+						<button string="Create Tour" name="action_create_tour" states="approve" type="object" />
+						<button string="Create Quotation" name="action_create_qutation" states="create_qutation" type="object" />
+						<field name="state" widget="statusbar" statusbar_visible="draft,confirm,send_to,approve,done" />
+					</header>
+					<group>
+						<div class="oe_title">
+						<h1><field name="name" index="True"/></h1>
+						</div>
+					</group>
+           			<group colspan="4" col="6">
+
+						<field name="tour_pref_id" index="True" domain="[('state','!=','cancel')]"/>
+						<field name="tour_name" />
+						<field name="current_date" />
+					    <field name="lead" domain="[('stage_id','=','New')]"/>
+						<field name="contact_name" />
+						<field name="address" />
+						<field name="email_id" />
+						<field name="mobile" />
+						<field name="country_id" />
+						<field name="adult" />
+						<field name="child" />
+						<field name="pricelist_id"/>
+						   <field name="via"/>
+						<!-- <field name="agent_id" context="{'default_agent': 1}" domain="[('agent','=',True)]" attrs="{'invisible': [('via','!=','agent')]}"/> -->
+						<field name="agent_id" context="{'default_agent': True}" domain="[('agent','=',True)]" attrs="{'invisible': [('via','!=','agent')]}"/>
+					</group>
+					<separator colspan="6" string="Tour Information"/>
+					   <group col="6" colspan="4">
+						    <field name="checkin_date" />
+							<field name="checkout_date" />
+						    <field name="room_req" />
+						   <field name="payment_policy_id" />
+					   </group>
+					<separator colspan="6" string="Tour Dates Details"/>
+					   <group col="6" colspan="4">
+						    <field name="start_date" />
+							<field name="book_date" />
+						    <field name="due_date"/>
+						    <field name="total_seat"/>
+						   <field name="adult_cost_price"/>
+						    <field name="child_cost_price"/>
+					   </group>
+					<notebook colspan="6">
+						<page string="Tour Program">
+            				<group col="7" colspan="3">
+            					<field name="tour_program_ids" nolabel="1" />
+            				</group>
+            			</page>
+						<page string="Destinations">
+            				<group col="7" colspan="3">
+            					<field name="tour_destination_ids" nolabel="1" >
+								<tree string="Destinations Details" >
+					           			<field name="destination_id"/>
+					            		<field name="country_id"/>
+										<field name="name" />
+									</tree>
+									<form string="Destinations Details" >
+									    <group col="4" colspan="4">
+					           				<field name="destination_id"/>
+					            			<field name="country_id"/>
+											<field name="name" />
+					            			<field name="is_visa"/>
+											<field name="visa_type" attrs="{'invisible': [('is_visa','!=',True)],'required': [('is_visa','!=',False)]}"/>
+										</group>
+									</form>
+								</field>
+            				</group>
+            			</page>
+						<page string="Cost Include">
+            				<group col="7" colspan="3">
+            					<field name="itinary_cost_include_facility_lines" nolabel="1" />
+            				</group>
+            			</page>
+						<page string="Cost Exclude">
+            				<group col="7" colspan="3">
+            					<field name="itinary_cost_exclude_facility_lines" nolabel="1" />
+            				</group>
+            			</page>
+						<page string="Site Cost">
+            				<group col="7" colspan="3">
+            					<field name="sites_costing_ids" nolabel="1">
+            					    <tree editable="bottom">
+            					        <field name="name" readonly="1"/>
+            					        <field name="new_cost_price"/>
+            					        <field name="new_sale_price"/>
+            					        <field name="total_cost_price"/>
+            					        <field name="total_sale_price"/>
+            					    </tree>
+            					</field>
+            				</group>
+            			</page>
+						<page string="Visa Cost">
+            				<group col="7" colspan="3">
+            					<field name="visa_costing_ids" nolabel="1" />
+            				</group>
+            			</page>
+						<page string="Other Services">
+            				<group col="7" colspan="3">
+            					<field name="service_ids" nolabel="1" />
+            				</group>
+            			</page>
+						<page string="Hotel Planer">
+            				<group col="7" colspan="3">
+            					<field name="hotel_planer_ids" context="{'parent_id':active_id}" nolabel="1" />
+            				</group>
+            			</page>
+						<page string="Travel Planer">
+            				<group col="7" colspan="3">
+            					<field name="travel_planer_ids" context="{'parent_id':active_id}" nolabel="1" />
+            				</group>
+            			</page>
+					</notebook>
+					   <!-- <group class="oe_subtotal_footer oe_right" colspan="2" name="sale_total">
+                            <field name="sale_untax_amt" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+						    <field name="sale_tax_amt" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+							   <div class="oe_subtotal_footer_separator oe_inline">
+									<label for="sale_total_amt" />
+									<button name="compute" states="draft" string="(Compute)" type="object" class="oe_edit_only oe_link"/>
+								</div>
+						    <field name="sale_total_amt" nolabel="1" class="oe_subtotal_footer_separator" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+					   </group>
+					   <group class="oe_subtotal_footer oe_right" colspan="2" name="sale_total">
+							<field name="pur_untax_amt" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+						    <field name="pur_tax_amt" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+							   <div class="oe_subtotal_footer_separator oe_inline">
+									<label for="pur_total_amt" />
+								</div>
+						    <field name="pur_total_amt" nolabel="1" class="oe_subtotal_footer_separator" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+					   </group> -->
+				</form>
+			</field>
+		</record>
+
+        <record id="custom_tour_itinarary_tree_view" model="ir.ui.view">
+			<field name="name">custom.tour.itinarary.tree</field>
+			<field name="model">custom.tour.itinarary</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Tour Itinerary">
+						<field name="name"/>
+						<field name="lead"/>				
+						<field name="current_date"/>
+						<field name="adult" />
+						<field name="child" />
+						<field name="email_id" />
+						<field name="mobile"/>
+						<field name="state"/>
+				</tree>
+			</field>
+		</record>
+		
+        <record model="ir.actions.act_window" id="action_custom_tour_itinarary_form_view">
+			<field name="name">Tour Itinerary</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">custom.tour.itinarary</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+   
+      <menuitem name="Tour Itinerary"  action="action_custom_tour_itinarary_form_view" sequence="2"
+			id="menu_custom_tour_itinarary_form"  parent="menu_custom_tour" />
+		
+		
+		<record id="sites_costing_line_tree_view" model="ir.ui.view">
+            <field name="name">sites.costing.line.tree</field>
+            <field name="model">sites.costing.line</field>
+            <field name="type">tree</field> 
+            <field name="arch" type="xml">
+           		<tree string="Sites Costing" editable="top">
+					<field name="name"/>
+					<field name="cost_price" />
+					<field name="sale_price" />
+					<field name="total_cost_price" sum="Total"/>
+					<field name="total_sale_price" sum="Total"/>
+				</tree>
+				</field>
+			</record>
+		
+		<record model="ir.ui.view" id="crm_lead_form_view_history_ihnherit_tour">
+			<field name="name">crm_case_form_view_leads.inherit.tour</field>
+			<field name="type">form</field>
+			<field name="model">crm.lead</field>
+			<field name="inherit_id" ref="crm.crm_case_form_view_leads"/>
+			<field name="arch" type="xml">
+				<page name="extra" position="after">
+					<page string="Itinerary History">
+					   <field name="itinarary_ids" nolabel="1" readonly="1"/>
+					</page>
+				</page >
+			</field>
+		</record>
+		
+		<record id="itinerary_lead_history_tree_view" model="ir.ui.view">
+            <field name="name">itinerary.lead.history.tree</field>
+            <field name="model">itinerary.lead.history</field>
+            <field name="type">tree</field> 
+            <field name="arch" type="xml">
+           		<tree string="History" editable="top">
+					<field name="name"/>
+					<field name="current_date" />
+					<field name="contact_name" />
+					<field name="update_date" />
+					<field name="state" />
+				</tree>
+				</field>
+			</record>
+	
+		<record id="sites_costing_line_form_view" model="ir.ui.view">
+            <field name="name">sites.costing.line.form</field>
+            <field name="model">sites.costing.line</field>
+            <field name="type">form</field> 
+            <field name="arch" type="xml">
+           		<form string="Sites Costing">
+					<group>
+						<group>
+					<field name="name"/>
+					<field name="cost_price" />
+					<field name="sale_price" />
+					<field name="total_cost_price" />
+					<field name="total_sale_price"/>
+					</group>
+					<newline/>
+					<group colspan="4" col="4">
+						<separator string="Sale Taxes" colspan="2"/>
+						<separator string="Purchase Taxes" colspan="2"/>
+						<field colspan="2" name="sale_tax_ids" nolabel="1"/>
+						<field colspan="2" name="pur_tax_ids" nolabel="1"/>
+					</group>
+					</group>
+				</form>
+				</field>
+			</record>
+			
+		<record id="hotel_planer_details_tree_view" model="ir.ui.view">
+            <field name="name">hotel.planer.details.tree</field>
+            <field name="model">hotel.planer.details</field>
+            <field name="type">tree</field> 
+            <field name="arch" type="xml">
+           		<tree string="Hotel Planer Details" >
+					<field name="name"/>
+	            	<field name="destination_id"  context="{'tour_desti_parent_id':parent.name }" />
+					<field name="hotel_type_id" widget="selection" />
+					<field name="hotel_id" widget="selection" domain="[('is_hotel','=',True)]"/>
+					<!-- <field name="room_type_id" widget="selection" domain="[('type','=','service'),('categ_id','=',4)]"/> -->
+					<field name="room_type_id" widget="selection" domain="[('type','=','service')]"/>
+					<field name="room_req"/>
+					<field name="days"/>
+					<field name="supplier_price"/>
+				    <field name="customer_price"/>
+					<field name="supplier_price_total" sum="Total"/>
+				    <field name="customer_price_total" sum="Total"/>
+				</tree>
+				</field>
+			</record>
+		
+		<record id="hotel_planer_details_form_view" model="ir.ui.view">
+            <field name="name">hotel.planer.details.form</field>
+            <field name="model">hotel.planer.details</field>
+            <field name="type">form</field> 
+            <field name="arch" type="xml">
+           		<form string="Hotel Planer Details">
+					<group colspan="4" col="4">
+						<field name="name"/>
+		            	<field name="destination_id"  context="{'tour_desti_parent_id':parent.name }" />
+						<field name="hotel_type_id" />
+						<field context="{'default_customer': False, 'search_default_supplier': True, 'default_supplier': True,'default_hotel_type_id': hotel_type_id,'default_is_hotel': True}" domain="[('hotel_type_id', '=', hotel_type_id),('is_hotel','=',True),('supplier','=',True)]"
+							 name="hotel_id"/> 
+						<!-- <field context="{'default_customer': 0, 'search_default_supplier': 1, 'default_supplier': 1,'default_hotel_type_id': hotel_type_id,'default_is_hotel': 1}" domain="[('hotel_type_id', '=', hotel_type_id),('is_hotel','=',True),('supplier','=',True)]"
+							 name="hotel_id"/>  -->
+						<!-- <field name="room_type_id" context="{'default_type': 'service', 'default_categ_id': 4, 'pricelist':parent.pricelist_id}" domain="[('type','=','service'),('categ_id','=',4)]" /> -->
+						<field name="room_type_id" context="{'default_type': 'service', 'pricelist':parent.pricelist_id}" domain="[('type','=','service'),('categ_id','=','Room Types')]" />
+						<field name="room_req"/>
+						<field name="days"/>
+						<field name="supplier_price"/>
+					    <field name="customer_price"/>
+						<field name="supplier_price_total"/>
+					    <field name="customer_price_total"/>
+						<field name="purches_bol"/>
+					</group>
+					<group colspan="4" col="4">
+						<separator string="Sale Taxes" colspan="2"/>
+						<separator string="Purchase Taxes" colspan="2"/>
+						<field colspan="2" name="sale_tax_ids" nolabel="1"/>
+						<field colspan="2" name="pur_tax_ids" nolabel="1"/>
+					</group>
+					
+				</form>
+				</field>
+			</record>
+		
+		<record id="travel_planer_details_tree_view" model="ir.ui.view">
+            <field name="name">travel.planer.details.tree</field>
+            <field name="model">travel.planer.details</field>
+            <field name="type">tree</field> 
+            <field name="arch" type="xml">
+           		<tree string="Travel Planer Details" >
+					<field name="name" />
+					<field name="transport_id"/>
+					<field name="current_date" />
+					<field name="transport_carrier_id"/>
+					<!-- <field name="transport_type_id" context="{'default_type': 'service', 'default_categ_id': 5}" domain="[('type','=','service'),('categ_id','=',5)]" /> -->
+					<field name="transport_type_id" context="{'default_type': 'service'}" domain="[('type','=','service'),('categ_id','=','Transport Service Type')]" />
+					<field name="travel_class_id" context="{'default_transport_type_id': transport_type_id}" domain="[('transport_type_id', '=', transport_type_id)]"/>
+					<field name="from_destination_id" />
+					<field name="to_destination_id" />
+					<field name="adult" />
+					<field name="child" />
+					<field name="cost_price" />
+					<field name="cost_price_child" />
+					<field name="sale_price" />
+					<field name="sale_price_child" />
+					<field name="price_total_adult" sum="Total" />
+					<field name="price_total_child" sum="Total" />
+					<field name="price_total_adult_sale" sum="Total" />
+					<field name="price_total_child_sale" sum="Total" />
+				</tree>
+			</field>
+		</record>
+		
+		<record id="travel_planer_details_form_view" model="ir.ui.view">
+            <field name="name">travel.planer.details.form</field>
+            <field name="model">travel.planer.details</field>
+            <field name="type">form</field> 
+            <field name="arch" type="xml">
+           		<form string="Travel Planer Details">
+					<group colspan="4" col="4">
+						<field name="name" />
+						<field name="transport_id" index="True"/>
+						<field name="current_date" />
+						<field name="transport_carrier_id" />
+						<!-- <field name="transport_type_id" context="{'default_type': 'service', 'default_categ_id': 5}" domain="[('type','=','service'),('categ_id','=',5)]"/> -->
+						<field name="transport_type_id" context="{'default_type': 'service'}" domain="[('type','=','service'),('categ_id','=','Transport Service Type')]"/>
+						<field name="travel_class_id" context="{'default_transport_type_id': transport_type_id}" domain="[('transport_type_id', '=', transport_type_id)]" />
+						<field name="from_destination_id" />
+						<field name="to_destination_id" />
+						<field name="adult"/>
+						<field name="child"/>
+						<field name="cost_price"/>
+						<field name="cost_price_child"/>
+						<field name="sale_price"/>
+						<field name="sale_price_child"/>
+						<field name="price_total_adult" sum="Total"/>
+						<field name="price_total_child" sum="Total"/>
+						<field name="price_total_adult_sale" sum="Total"/>
+						<field name="price_total_child_sale" sum="Total"/>
+						<label for ="purches_bol" string="" colspan="2"/>
+						<field name="purches_bol"/>
+					</group>
+					<group colspan="4" col="4">
+						<separator string="Sale Taxes" colspan="2"/>
+						<separator string="Purchase Taxes" colspan="2"/>
+						<field colspan="2" name="sale_tax_ids" nolabel="1"/>
+						<field colspan="2" name="pur_tax_ids" nolabel="1"/>
+					</group>
+				</form>
+				</field>
+			</record>
+		
+		<record id="view_tour_new_programme_line_form" model="ir.ui.view">
+			<field name="name">custom.tour.programme.form</field>
+			<field name="model">custom.tour.programme</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Tour Programme" >
+				    <group col="4" colspan="4">
+						<field name="name" />
+						<field name="description"/>
+					</group>
+					<group colspan="4" col="6">
+						<field name="breakfast" />
+						<field name="lunch"/>
+						<field name="dinner" />
+					</group>
+					<newline/>
+					<!-- <field name="sites_ids" context="{'default_type': 'service', 'default_categ_id': 8}" domain="[('type','=','service'),('categ_id','=',8)]" colspan="4"> -->
+					<field name="sites_ids" context="{'default_type': 'service'}" domain="[('type','=','service')]" colspan="4">
+						<form string="Tour Sites" >
+						    <group>
+								<!-- <field name="name" context="{'default_type': 'service', 'default_categ_id': 8}" domain="[('type','=','service'),('categ_id','=',8)]"/> -->
+								<field name="name" context="{'default_type': 'service'}" domain="[('type','=','service')]"/>
+							</group>
+						</form>
+						<tree string="Tour Sites" >
+							<!-- <field name="name" context="{'default_type': 'service', 'default_categ_id': 8}" domain="[('type','=','service'),('categ_id','=',8)]"/> -->
+							<field name="name" context="{'default_type': 'service'}" domain="[('type','=','service')]"/>
+						</tree>
+					</field>
+				</form>
+			</field>
+		</record>
+		
+		<record id="view_tour_new_programme_line_tree" model="ir.ui.view">
+			<field name="name">custom.tour.programme.tree</field>
+			<field name="model">custom.tour.programme</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Tour Programme" >
+						<field name="name" />
+						<field name="description"/>
+						<field name="breakfast" />
+						<field name="lunch"/>
+						<field name="dinner" />
+				</tree>
+			</field>
+		</record>
+		
+		
+		<record id="tour_days_form_view" model="ir.ui.view">
+            <field name="name">tour.days.form.view</field>
+            <field name="model">tour.days</field>
+            <field name="type">form</field> 
+            <field name="arch" type="xml">
+           		<form string="Tour Days">
+           			<group colspan="6" col="2">
+						<field name="name"/>
+					</group>
+				</form>
+			</field>
+		</record>
+		
+		<record id="visa_costing_line_tree_view" model="ir.ui.view">
+            <field name="name">visa.costing.line.tree</field>
+            <field name="model">visa.costing.line</field>
+            <field name="type">tree</field> 
+            <field name="arch" type="xml">
+           		<tree string="Visa Costing" editable="top">
+					<field name="country_id"/>
+					<!-- <field name="name" context="{'default_type': 'service', 'default_categ_id': 6}" domain="[('type','=','service'),('categ_id','=',6)]"/> -->
+					<field name="name" context="{'default_type': 'service'}" domain="[('type','=','service')]"/>
+					<field name="visa_type"/>
+					<field name="cost_price" />
+					<field name="sale_price" />
+					<field name="total_person" />
+					<field name="total_cost_price" sum="Total"/>
+					<field name="total_sale_price" sum="Total"/>
+				</tree>
+				</field>
+			</record>
+		
+		<record id="visa_costing_line_form_view" model="ir.ui.view">
+            <field name="name">visa.costing.line.form</field>
+            <field name="model">visa.costing.line</field>
+            <field name="type">form</field> 
+            <field name="arch" type="xml">
+           		<form string="Visa Costing" >
+					<group colspan="4" col="4">
+						<group>
+						<field name="country_id"/>
+					<!-- <field name="name" context="{'default_type': 'service', 'default_categ_id': 6}" domain="[('type','=','service'),('categ_id','=',6)]"/> -->
+						<field name="name" context="{'default_type': 'service'}" domain="[('type','=','service')]"/>
+						<field name="visa_type"/>
+						<field name="cost_price" />
+						<field name="sale_price" />
+						<field name="total_person" />
+						<field name="total_cost_price" />
+						<field name="total_sale_price"/>
+							</group>
+					<group colspan="4" col="4">
+						<separator string="Sale Taxes" colspan="2"/>
+						<separator string="Purchase Taxes" colspan="2"/>
+						<field colspan="2" name="sale_tax_ids" nolabel="1"/>
+						<field colspan="2" name="pur_tax_ids" nolabel="1"/>
+					</group>
+					</group>
+				</form>
+				</field>
+			</record>
+		
+		<record id="tour_service_line_form_view" model="ir.ui.view">
+			<field name="name">tour.service.line.details.form</field>
+			<field name="model">tour.service.line.details</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Other Services" >
+					<group col="4">
+						<!-- <field name="product_id" domain="[('categ_id','not in',[3,4,5,6,7,8])]"/> -->
+						<field name="product_id" domain="[('categ_id','not in',[])]"/>
+						<field name="price_unit" />
+						<field name="sale_price" />
+						<field name="product_uom_qty" />
+						<field name="product_uom" />
+						<field name="price_subtotal_cost" />
+						<field name="price_subtotal" />
+						<field name="discount" />
+						<label for ="purches_bol" string="" colspan="2" />
+						<field name="purches_bol" />
+					</group>
+					<group colspan="4" col="4">
+							<separator string="Sale Taxes" colspan="2"/>
+							<separator string="Purchase Taxes" colspan="2"/>
+							<field colspan="2" name="sale_tax_ids" nolabel="1"/>
+							<field colspan="2" name="pur_tax_ids" nolabel="1"/>
+					</group>
+				</form>
+			</field>
+		</record>
+		
+		<record id="tour_service_line_tree_view" model="ir.ui.view">
+			<field name="name">tour.service.line.details.tree</field>
+			<field name="model">tour.service.line.details</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Other Services" >
+					<!-- <field name="product_id" domain="[('categ_id','not in',[3,4,5,6,7,8])]"/> -->
+					<field name="product_id" domain="[('categ_id','not in',[])]"/>
+					<field name="price_unit" />
+					<field name="sale_price" />
+					<field name="product_uom_qty" />
+					<field name="product_uom" />
+					<field name="discount" />
+					<field name="price_subtotal_cost" sum="Total"/>
+					<field name="price_subtotal" sum="Total"/>
+				</tree>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="tour_book_form_view1_inherit">
+			<field name="name">tour.package.form.inherit</field>
+			<field name="type">form</field>
+			<field name="model">tour.package</field>
+			<field name="inherit_id" ref="tour_travel.tour_book_form_view1" />
+			<field name="arch" type="xml">
+				<field name="days" position="after">
+					<field name="itinary_id" attrs="{'invisible': [('itinary_id','!=',True)]}"/>
+				</field >
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="tour_booking_form_view21_inherit">
+			<field name="name">tour.booking.form.inherit</field>
+			<field name="type">form</field>
+			<field name="model">tour.booking</field>
+			<field name="inherit_id" ref="tour_travel.tour_booking_form_view21" />
+			<field name="arch" type="xml">
+				<field name="payment_policy_id" position="after">
+					<field name="itinary_id" />
+				</field >
+			</field>
+		</record>
+		
+		<record model="ir.actions.act_window" id="action_custom_tour_itinarary_form_approv_done_view">
+			<field name="name">Tour Itinearay</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">custom.tour.itinarary</field>
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[('state','in',['done','approve'])]</field>
+		</record>
+   
+      <menuitem name="Approved Tour Itinearay"  action="action_custom_tour_itinarary_form_approv_done_view" sequence="3"
+			id="menu_custom_tour_itinarary_approve_done_form"  parent="menu_custom_tour" />
+		
+		<record model="ir.actions.act_window" id="action_tour_booking_form_custom_view">
+			<field name="name">Custom Tour Booking</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">tour.booking</field>
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[('itinary_id','!=',False)]</field>
+		</record>
+   
+	   <menuitem name="Custom Tour Booking"  action="action_tour_booking_form_custom_view" sequence="4"
+			id="menu_tour_booking_custom_form"  parent="menu_custom_tour" />
+		
+    </data>
+</odoo>
+	

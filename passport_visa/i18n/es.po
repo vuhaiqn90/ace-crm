@@ -1,0 +1,491 @@
+# Spanish Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* passport_visa
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 7.0-20130412-232402\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-10-18 05:58+0000\n"
+"PO-Revision-Date: 2013-10-18 05:58+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: passport_visa
+#: model:ir.model,name:passport_visa.model_visa_journal_entry_wizard
+msgid "Visa_journal_entry Detail Wizard"
+msgstr "Visa_diario_detalle de entrada Wizard"
+
+#. module: passport_visa
+#: code:addons/passport_visa/passport.py:168
+#: code:addons/passport_visa/passport.py:175
+#: code:addons/passport_visa/passport.py:206
+#: code:addons/passport_visa/passport.py:232
+#: code:addons/passport_visa/passport.py:238
+#: code:addons/passport_visa/visa.py:169
+#: code:addons/passport_visa/visa.py:176
+#: code:addons/passport_visa/visa.py:209
+#: code:addons/passport_visa/visa.py:230
+#: code:addons/passport_visa/visa.py:236
+#: code:addons/passport_visa/wizard/passport_journal_entry.py:42
+#: code:addons/passport_visa/wizard/visa_journal_entry.py:42
+#, python-format
+msgid "Warnning"
+msgstr "Aviso"
+
+#. module: passport_visa
+#: field:service.scheme,duration:0
+#: field:visa.scheme,duration:0
+msgid "Duration In Days"
+msgstr "Duración en días"
+
+#. module: passport_visa
+#: view:passport.booking:0
+#: selection:passport.booking,state:0
+#: view:visa.booking:0
+#: selection:visa.booking,state:0
+msgid "Confirm"
+msgstr "Confirmado"
+
+#. module: passport_visa
+#: model:ir.actions.act_window,name:passport_visa.act_visa_journal_entry
+#: view:visa_journal_entry.wizard:0
+msgid "Visa Journal Entry"
+msgstr "Diario de Entrada de Visa"
+
+#. module: passport_visa
+#: field:ir.attachment,visa_book_id:0
+msgid "Visa Book ID"
+msgstr "ID Reserva de Visa"
+
+#. module: passport_visa
+#: view:visa.booking:0
+msgid "Issue Visa"
+msgstr "Emitir Visa"
+
+#. module: passport_visa
+#: model:ir.actions.act_window,name:passport_visa.action_visa_scheme_tree_view
+#: model:ir.ui.menu,name:passport_visa.menu_visa_scheme
+msgid "Visa Schemes"
+msgstr "Plan de Visa"
+
+#. module: passport_visa
+#: code:addons/passport_visa/passport.py:40
+#: code:addons/passport_visa/visa.py:43
+#, python-format
+msgid "Warning !"
+msgstr "¡Aviso!"
+
+#. module: passport_visa
+#: code:addons/passport_visa/passport.py:168
+#: code:addons/passport_visa/passport.py:175
+#: code:addons/passport_visa/passport.py:238
+#: code:addons/passport_visa/visa.py:169
+#: code:addons/passport_visa/visa.py:176
+#: code:addons/passport_visa/visa.py:236
+#, python-format
+msgid "Documents not verified. Please verify documents and make attachment"
+msgstr "Los documentos no estan verificados. Por favor, verifique los documentos y adjuntelo."
+
+#. module: passport_visa
+#: view:passport.booking:0
+#: view:visa.booking:0
+msgid "Create Invoice"
+msgstr "Crear factura"
+
+#. module: passport_visa
+#: selection:passport.booking,state:0
+#: selection:visa.booking,state:0
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: passport_visa
+#: view:passport.booking:0
+#: view:visa.booking:0
+msgid "Attachment"
+msgstr "Adjuntar"
+
+#. module: passport_visa
+#: model:ir.ui.menu,name:passport_visa.menu_passport
+msgid "Passport"
+msgstr "Pasaporte"
+
+#. module: passport_visa
+#: model:ir.model,name:passport_visa.model_ir_attachment
+msgid "ir.attachment"
+msgstr "ir.adjunto"
+
+#. module: passport_visa
+#: view:passport.booking:0
+msgid "Send To Passport Office"
+msgstr "Enviar a Oficina de Pasaportes"
+
+#. module: passport_visa
+#: model:ir.model,name:passport_visa.model_passport_document_line
+msgid "Passport document line "
+msgstr "Línea del documento de Pasaporte"
+
+#. module: passport_visa
+#: view:passport.booking:0
+#: view:visa.booking:0
+msgid "Approve By Officer"
+msgstr "Aprobado por el oficial"
+
+#. module: passport_visa
+#: model:ir.model,name:passport_visa.model_visa_booking
+msgid "Visa Booking "
+msgstr "Reservas por Visa"
+
+#. module: passport_visa
+#: code:addons/passport_visa/passport.py:232
+#: code:addons/passport_visa/visa.py:230
+#: code:addons/passport_visa/wizard/passport_journal_entry.py:42
+#: code:addons/passport_visa/wizard/visa_journal_entry.py:42
+#, python-format
+msgid "Invoice Is Not Paid Yet. Please Pay The Invoice Amount"
+msgstr "Factura no esta pagada aún. Por favor, pague el importe de la factura"
+
+#. module: passport_visa
+#: model:ir.actions.act_window,name:passport_visa.action_visa_booking_form_view
+#: model:ir.ui.menu,name:passport_visa.menu_visa_booking_form
+#: view:visa.booking:0
+msgid "Visa Booking"
+msgstr "Reservas Visa"
+
+#. module: passport_visa
+#: field:passport.document.line,passport_book_id:0
+#: field:passport_journal_entry.wizard,passport_id:0
+msgid "Passport Booking ID"
+msgstr "ID de Reserva de Pasaporte"
+
+#. module: passport_visa
+#: field:passport.booking,state:0
+#: field:visa.booking,state:0
+msgid "Status"
+msgstr "Estado"
+
+#. module: passport_visa
+#: model:ir.actions.act_window,name:passport_visa.act_passport_journal_entry
+#: view:passport_journal_entry.wizard:0
+msgid "Passport Journal Entry"
+msgstr "Diario de Entrada de Pasaporte"
+
+#. module: passport_visa
+#: field:document.management,description:0
+#: field:passport_journal_entry.wizard,name:0
+#: field:visa_journal_entry.wizard,name:0
+msgid "Description"
+msgstr "Descripción"
+
+#. module: passport_visa
+#: model:ir.ui.menu,name:passport_visa.menu_service_scheme
+msgid "Passport Schemes"
+msgstr "Planes de  Pasaporte"
+
+#. module: passport_visa
+#: view:passport.booking:0
+#: view:visa.booking:0
+msgid "Document Information"
+msgstr "Información del documento"
+
+#. module: passport_visa
+#: model:ir.ui.menu,name:passport_visa.menu_passport_visa
+msgid "Passport and Visa"
+msgstr "Pasaporte y Visa"
+
+#. module: passport_visa
+#: field:passport_journal_entry.wizard,journal_id:0
+#: field:visa_journal_entry.wizard,journal_id:0
+msgid "Journal"
+msgstr "Diario"
+
+#. module: passport_visa
+#: help:visa.booking,country_id:0
+msgid "Country name for which visa to be applied."
+msgstr "Nombre del país para el que se Solicita la Visa"
+
+#. module: passport_visa
+#: selection:passport.booking,state:0
+#: selection:visa.booking,state:0
+msgid "In Process"
+msgstr "En proceso"
+
+#. module: passport_visa
+#: code:addons/passport_visa/passport.py:206
+#: code:addons/passport_visa/visa.py:209
+#, python-format
+msgid "No Income Account Defined for Service Product. Please Select Income Account In Product"
+msgstr "No hay Cuenta de Ingresos definida para el servicio del producto . Por favor Seleccione Cuenta de Ingresos en el producto"
+
+#. module: passport_visa
+#: model:ir.ui.menu,name:passport_visa.menu_visa_scheme_tree
+#: field:visa.booking,scheme_id:0
+#: view:visa.scheme:0
+msgid "Visa Scheme"
+msgstr "Plan de Visa"
+
+#. module: passport_visa
+#: field:visa.booking,visa_invoice_ids:0
+msgid "Visa Invoices"
+msgstr "Facturas de Visa"
+
+#. module: passport_visa
+#: field:passport.booking,service_charge:0
+#: field:passport_journal_entry.wizard,service_cost:0
+#: field:service.scheme,service_cost:0
+#: field:visa.booking,service_charge:0
+#: field:visa_journal_entry.wizard,service_cost:0
+msgid "Service Cost"
+msgstr "Coste de servicio"
+
+#. module: passport_visa
+#: model:ir.ui.menu,name:passport_visa.menu_visa
+msgid "Visa"
+msgstr "Tarjeta Visa"
+
+#. module: passport_visa
+#: model:ir.model,name:passport_visa.model_passport_booking
+msgid "Passport  booking class "
+msgstr "Clase de reserva de Pasaporte"
+
+#. module: passport_visa
+#: model:ir.ui.menu,name:passport_visa.menu_service_scheme_form
+#: field:passport.booking,scheme_id:0
+#: view:service.scheme:0
+msgid "Service Scheme"
+msgstr "Plan de Servicio"
+
+#. module: passport_visa
+#: field:passport_journal_entry.wizard,payment_date:0
+#: field:visa_journal_entry.wizard,payment_date:0
+msgid "Payment Date"
+msgstr "Fecha de Pago"
+
+#. module: passport_visa
+#: field:passport.booking,current_date:0
+#: field:visa.booking,current_date:0
+msgid "Date"
+msgstr "Fecha"
+
+#. module: passport_visa
+#: field:passport.booking,pricelist_id:0
+#: field:visa.booking,pricelist_id:0
+msgid "Pricelist"
+msgstr "Lista de precios"
+
+#. module: passport_visa
+#: selection:passport.booking,state:0
+#: selection:visa.booking,state:0
+msgid "Approved"
+msgstr "Aprobado"
+
+#. module: passport_visa
+#: field:passport.booking,customer_id:0
+#: field:passport_journal_entry.wizard,partner_id:0
+#: field:visa.booking,customer_id:0
+#: field:visa_journal_entry.wizard,partner_id:0
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: passport_visa
+#: model:ir.model,name:passport_visa.model_passport_journal_entry_wizard
+msgid "passport_journal_entry Detail Wizard"
+msgstr "Facturas de Reservacion de habitacion de Transporte"
+
+#. module: passport_visa
+#: field:visa.scheme,cost_price:0
+msgid "Cost Price"
+msgstr "Coste de precio"
+
+#. module: passport_visa
+#: field:passport.booking,mobile:0
+#: field:visa.booking,mobile:0
+msgid "Mobile Number"
+msgstr "Número de móvil"
+
+#. module: passport_visa
+#: field:document.management,name:0
+#: field:passport.booking,name:0
+#: field:service.scheme,name:0
+#: field:visa.booking,name:0
+#: field:visa.scheme,name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: passport_visa
+#: field:passport.booking,product_id:0
+#: field:visa.booking,product_id:0
+msgid "Service"
+msgstr "Servicio"
+
+#. module: passport_visa
+#: field:visa.booking,country_id:0
+msgid "Country"
+msgstr "País"
+
+#. module: passport_visa
+#: model:ir.model,name:passport_visa.model_service_scheme
+msgid "SCHEMES For Tours and Travel Services"
+msgstr "Los planes para vacaciones y turismo"
+
+#. module: passport_visa
+#: view:passport_journal_entry.wizard:0
+#: view:visa_journal_entry.wizard:0
+msgid "Create Journal Entry"
+msgstr "Creación de Entrada de diario"
+
+#. module: passport_visa
+#: model:ir.actions.act_window,name:passport_visa.action_service_scheme_tree_view
+msgid "Service Schemes"
+msgstr "Planes de servicio"
+
+#. module: passport_visa
+#: field:ir.attachment,pass_book_id:0
+msgid "Passport Book ID"
+msgstr "ID de Reserva de Pasaporte"
+
+#. module: passport_visa
+#: field:passport.booking,passport_invoice_ids:0
+msgid "Passport Invoices"
+msgstr "Facturas de Pasaportes"
+
+#. module: passport_visa
+#: view:visa.booking:0
+msgid "Visa Information"
+msgstr "Información de Visados"
+
+#. module: passport_visa
+#: model:ir.model,name:passport_visa.model_document_management
+msgid "Documents Management For Tours and Travel Services"
+msgstr "Gestión de Documentos para Servicios de Viajes y Turismo"
+
+#. module: passport_visa
+#: view:passport.booking:0
+#: view:visa.booking:0
+msgid "History"
+msgstr "Historial"
+
+#. module: passport_visa
+#: field:passport.document.line,name:0
+msgid "Xerox Copy/Photo Copy"
+msgstr "Xerox Copia / Foto Copia"
+
+#. module: passport_visa
+#: view:visa.booking:0
+msgid "Send To Visa Office"
+msgstr "Enviar a Visa Oficina"
+
+#. module: passport_visa
+#: field:passport.booking,attachment_line_ids:0
+#: field:visa.booking,attachment_line_ids:0
+msgid "Attachment Lines"
+msgstr "Líneas para Adjuntar"
+
+#. module: passport_visa
+#: field:passport.booking,document_line_ids:0
+#: view:passport.document.line:0
+#: field:visa.booking,document_line_ids:0
+msgid "Document Line"
+msgstr "Línea documento"
+
+#. module: passport_visa
+#: model:ir.actions.act_window,name:passport_visa.action_passport_booking_form_view
+#: model:ir.ui.menu,name:passport_visa.menu_passport_booking_form
+#: view:passport.booking:0
+msgid "Passport Booking"
+msgstr "Reservas Pasaporte"
+
+#. module: passport_visa
+#: field:visa.scheme,service_cost:0
+msgid "Sale Price"
+msgstr "Precio de Venta"
+
+#. module: passport_visa
+#: model:ir.model,name:passport_visa.model_visa_scheme
+msgid "Visa SCHEMES For Tours and Travel Services"
+msgstr "Plan de visa para Servicios de vacaciones y turismo"
+
+#. module: passport_visa
+#: view:passport.booking:0
+msgid "Issue Passport"
+msgstr "Emitir Pasaporte"
+
+#. module: passport_visa
+#: field:passport_journal_entry.wizard,period_id:0
+#: field:visa_journal_entry.wizard,period_id:0
+msgid "Period"
+msgstr "Período"
+
+#. module: passport_visa
+#: model:ir.ui.menu,name:passport_visa.menu_service_document
+#: model:ir.ui.menu,name:passport_visa.menu_service_document_form
+msgid "Service Document"
+msgstr "Documento de Servicio"
+
+#. module: passport_visa
+#: selection:passport.booking,state:0
+#: selection:visa.booking,state:0
+msgid "Canceled"
+msgstr "Cancelado"
+
+#. module: passport_visa
+#: view:passport.booking:0
+msgid "Passport Information"
+msgstr "Información de Pasaportes"
+
+#. module: passport_visa
+#: selection:passport.booking,state:0
+#: selection:visa.booking,state:0
+msgid "Done"
+msgstr "Listo"
+
+#. module: passport_visa
+#: view:passport.booking:0
+#: selection:passport.booking,state:0
+#: view:visa.booking:0
+#: selection:visa.booking,state:0
+msgid "Verify Document"
+msgstr "Verificar documento"
+
+#. module: passport_visa
+#: view:passport.booking:0
+#: view:passport_journal_entry.wizard:0
+#: view:visa.booking:0
+#: view:visa_journal_entry.wizard:0
+msgid "Cancel"
+msgstr "Cancelado"
+
+#. module: passport_visa
+#: field:passport.document.line,original_copy:0
+msgid "Original Copy"
+msgstr "Copia original"
+
+#. module: passport_visa
+#: selection:passport.booking,state:0
+#: selection:visa.booking,state:0
+msgid "Invoiced"
+msgstr "Facturado"
+
+#. module: passport_visa
+#: view:document.management:0
+#: model:ir.actions.act_window,name:passport_visa.action_document_type_tree_view
+#: field:passport.document.line,document_type_id:0
+msgid "Document Type"
+msgstr "Tipo de documento"
+
+#. module: passport_visa
+#: field:passport.document.line,visa_book_id:0
+#: field:visa_journal_entry.wizard,visa_id:0
+msgid "Visa Booking ID"
+msgstr "ID N º de Reserva de Visa"
+
+#. module: passport_visa
+#: field:passport.booking,email_id:0
+#: field:visa.booking,email_id:0
+msgid "Email Id"
+msgstr "Email Id"
+

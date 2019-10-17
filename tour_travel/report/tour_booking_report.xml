@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<template id="tour_booking_report_doc">
+			<t t-call="report.external_layout">
+				<div class="page">
+					<div class="row">
+						<div>
+							<center><strong><h3 class="text-center mb32">Transportation Details:</h3></strong></center>
+						</div>
+						<br/>
+						<br/>
+						<div>
+							<table>
+								<tbody class="sale_tbody">
+									<!-- <tr t-foreach="doc.tour_id.tour_road_travel_lines" t-as="line"> -->
+									<tr>
+										<td width="20%" height = "30">
+											<strong>From:</strong>
+										</td>
+										<td width="20%">
+											<span t-field="line.from_destination_id"/>
+										</td>
+										<td class="text-right" width="20%" height = "30">
+											<strong>To:</strong>
+										</td>
+										<td class="text-right" width="20%">
+											<span t-field="line.to_destination_id"/>
+										</td>
+									</tr>
+									<tr t-foreach="doc.tour_id.tour_road_travel_lines" t-as="line">
+										<td width="20%" height = "30">
+											<strong>Travel Type:</strong>
+										</td>
+										<td width="20%">
+											<span t-field="line.transport_type_id"/>
+										</td>
+										<td class="text-right" width="20%" height = "30">
+											<strong>Travel Class:</strong>
+										</td>
+										<td class="text-right" width="20%">
+											<span t-field="line.travel_class_id"/>
+										</td>
+
+									</tr>
+									<tr t-foreach="doc.tour_id.tour_road_travel_lines" t-as="line">
+										<td width="20%" height = "30">
+											<strong>Date of Arrival:</strong>
+										</td>
+										<td width="20%">
+											<!-- <span t-esc="doc.get_partner_lang_date(doc.transport_id_new.arrival_date,doc.customer_id.lang)"/> -->
+										</td>
+										<td class="text-right" width="20%" height = "30">
+											<strong>Date of Departure:</strong>
+										</td>
+										<td width="20%">
+											<span t-field="doc.transport_id_new"/>
+											<!-- <span t-esc="doc.get_partner_lang_date(doc.transport_id_new.depart_date,doc.customer_id.lang)"/> -->
+										</td>
+									</tr>
+									<tr t-foreach="doc.tour_id.tour_road_travel_lines" t-as="line">
+										<td width="20%" height = "30">
+											<strong>Carrier:</strong>
+										</td>
+										<td width="20%">
+											<span t-field="line.provider_ids.transport_carrier_id"/>
+										</td>
+										<td class="text-right" width="20%" height = "30">
+											<strong>Carrier No:</strong>
+										</td>
+										<td class="text-right" width="20%">
+											<span t-field="line.name"/>
+										</td>
+
+									</tr>
+									<tr t-foreach="doc.tour_id.tour_road_travel_lines" t-as="line">
+										<td width="20%" height = "30">
+											<strong>PNR No.:</strong>
+										</td>
+										<td width="20%">
+											<!-- <span t-field="line.email_id"/> -->
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<br/>
+						<br/>
+						<br/>
+					</div>
+				</div>
+			</t>
+		</template>
+		<template id="tour_booking_report">
+			<t t-call="report.html_container">
+				<t t-foreach="docs" t-as="doc">
+					<!-- <t t-raw="translate_doc(doc, doc_model, 'partner_id.lang', 'tour_travel.tour_invoice_report_doc')"/> -->
+					<t t-call="tour_travel.tour_booking_report_doc" t-lang="doc.customer_id.lang"/>
+				</t>
+			</t>
+		</template>
+	</data>
+</odoo>

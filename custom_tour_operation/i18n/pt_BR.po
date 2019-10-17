@@ -1,0 +1,1196 @@
+# Translation of OpenERP Server.
+# This file contains the Portuguese translation of the following modules:
+#	* custom_tour_operation
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 7.0-20130412-232402\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-12-16 06:30+0000\n"
+"PO-Revision-Date: 2013-12-16 06:30+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: custom_tour_operation
+#: model:ir.actions.act_window,name:custom_tour_operation.action_tour_preference_form_view
+#: model:ir.model,name:custom_tour_operation.model_tour_preference
+#: view:tour.preference:0
+msgid "Tour Preference"
+msgstr "Preferência de passeio"
+
+#. module: custom_tour_operation
+#: field:hotel.planer.details,supplier_price_total:0
+msgid "Total Supplier Price"
+msgstr "Preço total do fornecedor"
+
+#. module: custom_tour_operation
+#: field:custom.tour.itinarary,lead:0
+#: field:tour.preference,lead:0
+msgid "Lead"
+msgstr "Conduzir"
+
+#. module: custom_tour_operation
+#: field:custom.tour.destination,destination_id:0
+#: field:custom.tour.destination,tour_pref_id:0
+#: field:custom.tour.site,site_id:0
+#: field:hotel.planer.details,destination_id:0
+msgid "Destination"
+msgstr "Destino"
+
+#. module: custom_tour_operation
+#: view:tour.preference:0
+msgid "Transport Details"
+msgstr "Detalhes de transporte"
+
+#. module: custom_tour_operation
+#: code:addons/custom_tour_operation/custom_tour_operation.py:1758
+#: code:addons/custom_tour_operation/custom_tour_operation.py:1764
+#, python-format
+msgid "Costing is missing For Visa"
+msgstr "Custeio está faltando Para Visa"
+
+#. module: custom_tour_operation
+#: field:custom.tour.itinarary,room_req:0
+msgid "Room Required"
+msgstr "Quarto solicitado"
+
+#. module: custom_tour_operation
+#: model:ir.model,name:custom_tour_operation.model_hotel_planer_details
+msgid "hotel planer details"
+msgstr "detalhes de plaina Hotel"
+
+#. module: custom_tour_operation
+#: field:tour.preference,name:0
+msgid "Enquiry No."
+msgstr "Inquérito n º."
+
+#. module: custom_tour_operation
+#: field:custom.tour.itinarary,payment_policy_id:0
+msgid "Payment Policy"
+msgstr "Política de Pagamento"
+
+#. module: custom_tour_operation
+#: field:hotel.planer.details,room_req:0
+msgid "No. of Room Required"
+msgstr "N º de quarto necessário"
+
+#. module: custom_tour_operation
+#: field:travel.planer.details,child:0
+msgid "No. of Child"
+msgstr "N º de crianças"
+
+#. module: custom_tour_operation
+#: field:custom.tour.itinarary,book_date:0
+msgid "Last Date of Booking"
+msgstr "Última data da reserva"
+
+#. module: custom_tour_operation
+#: code:addons/custom_tour_operation/custom_tour_operation.py:1036
+#, python-format
+msgid " Please Confirm The Sale Order Before Booking"
+msgstr "Por favor, confirmar a Ordem de venda antes de reservar"
+
+#. module: custom_tour_operation
+#: code:addons/custom_tour_operation/custom_tour_operation.py:51
+#: code:addons/custom_tour_operation/custom_tour_operation.py:1467
+#: code:addons/custom_tour_operation/custom_tour_operation.py:1473
+#: code:addons/custom_tour_operation/custom_tour_operation.py:1618
+#: code:addons/custom_tour_operation/custom_tour_operation.py:1624
+#, python-format
+msgid "Warning !"
+msgstr "Aviso!"
+
+#. module: custom_tour_operation
+#: field:hotel.planer.details,customer_price_total:0
+msgid "Total Customer Price"
+msgstr "Preço total do cliente"
+
+#. module: custom_tour_operation
+#: view:custom.tour.itinarary:0
+msgid "Tour Dates Details"
+msgstr "Detalhes de dates do tour"
+
+#. module: custom_tour_operation
+#: code:addons/custom_tour_operation/custom_tour_operation.py:695
+#, python-format
+msgid "Create Partner"
+msgstr "Criar Parceiro"
+
+#. module: custom_tour_operation
+#: view:custom.tour.itinarary:0
+#: selection:custom.tour.itinarary,state:0
+#: selection:itinerary.lead.history,state:0
+msgid "Approved"
+msgstr "Aprovado"
+
+#. module: custom_tour_operation
+#: field:visa.costing.line,cost_price:0
+msgid "Visa Cost Price"
+msgstr "Preço de custo de Visa "
+
+#. module: custom_tour_operation
+#: field:custom.tour.transport,travel_class_id:0
+#: field:travel.planer.details,travel_class_id:0
+msgid "Travel Class"
+msgstr "Classe de viagem"
+
+#. module: custom_tour_operation
+#: view:custom.tour.itinarary:0
+msgid "Refuse"
+msgstr "Recusar"
+
+#. module: custom_tour_operation
+#: field:tour.service.line.details,product_uom:0
+msgid "Unit of Measure "
+msgstr "Unidade de medida"
+
+#. module: custom_tour_operation
+#: view:custom.tour.itinarary:0
+msgid "Visa Cost"
+msgstr "Custo de Visa "
+
+#. module: custom_tour_operation
+#: field:hotel.planer.details,customer_price:0
+msgid "Customer Rent / Night"
+msgstr "Cliente alugar / noite"
+
+#. module: custom_tour_operation
+#: field:tour.preference,high_price:0
+#: field:tour.preference,low_price:0
+msgid "Price Limit (min/max)"
+msgstr "Limite de Preço (min / max)"
+
+#. module: custom_tour_operation
+#: field:custom.tour.programme,name:0
+msgid "Days"
+msgstr "Dias"
+
+#. module: custom_tour_operation
+#: code:addons/custom_tour_operation/custom_tour_operation.py:1042
+#, python-format
+msgid " Please Validate The Invoice Before Booking"
+msgstr "Por favor valide a factura antes de Reserva"
+
+#. module: custom_tour_operation
+#: model:ir.model,name:custom_tour_operation.model_tour_cost_exclude_facility
+msgid "Tour Cost Exclude Facility"
+msgstr "Custo do tour sem facilidade"
+
+#. module: custom_tour_operation
+#: field:custom.tour.programme,dinner:0
+msgid "Dinner"
+msgstr "Jantar"
+
+#. module: custom_tour_operation
+#: code:addons/custom_tour_operation/custom_tour_operation.py:775
+#, python-format
+msgid "Please Configuration Custom Tour as a product."
+msgstr "Por favor configurar  tour personalizado como um produto."
+
+#. module: custom_tour_operation
+#: selection:custom.tour.transport,name:0
+msgid "Between Destinations"
+msgstr "Entre os destinos"
+
+#. module: custom_tour_operation
+#: model:ir.model,name:custom_tour_operation.model_custom_tour_site
+msgid "Custom Tour Site"
+msgstr "Site de tour personalizado"
+
+#. module: custom_tour_operation
+#: field:custom.tour.itinarary,adult_cost_price:0
+msgid "Sale Price/ Person(Adult)"
+msgstr "Preço de venda / Pessoa (Adulto)"
+
+#. module: custom_tour_operation
+#: field:custom.tour.itinarary,tour_name:0
+msgid "Tour Name"
+msgstr "Nome do Tour"
+
+#. module: custom_tour_operation
+#: model:ir.model,name:custom_tour_operation.model_tour_customer_details
+msgid "Tour Customer Details Inheritance"
+msgstr "Detalhes herança do cliente do Tour "
+
+#. module: custom_tour_operation
+#: field:custom.tour.itinarary,country_id:0
+#: field:tour.preference,country_id:0
+msgid "Origin"
+msgstr "Origem"
+
+#. module: custom_tour_operation
+#: field:custom.tour.itinarary,child_cost_price:0
+msgid "Sale Price/ Person(Child)"
+msgstr "Preço de venda / Pessoa (criança)"
+
+#. module: custom_tour_operation
+#: field:travel.planer.details,price_total_child:0
+msgid "Total Cost Price (Child)"
+msgstr "Preço de custo total (Criança)"
+
+#. module: custom_tour_operation
+#: field:travel.planer.details,sale_price_child:0
+msgid "Sale Price(Child)"
+msgstr "Preço de venda (criança)"
+
+#. module: custom_tour_operation
+#: field:custom.tour.itinarary,agent_id:0
+#: selection:custom.tour.itinarary,via:0
+#: field:tour.preference,agent_id:0
+#: selection:tour.preference,via:0
+msgid "Agent"
+msgstr "Agente"
+
+#. module: custom_tour_operation
+#: field:tour.preference,room_req:0
+msgid "No of Room Required"
+msgstr "N º de quarto necessário"
+
+#. module: custom_tour_operation
+#: view:crm.lead:0
+#: field:crm.lead,itinarary_ids:0
+msgid "Itinerary History"
+msgstr "História de itinerário"
+
+#. module: custom_tour_operation
+#: model:ir.actions.act_window,name:custom_tour_operation.action_tour_booking_form_custom_view
+#: model:ir.ui.menu,name:custom_tour_operation.menu_tour_booking_custom_form
+msgid "Custom Tour Booking"
+msgstr "Reserva de tour personalizado"
+
+#. module: custom_tour_operation
+#: view:crm.lead:0
+msgid "Extra Info"
+msgstr "Informações Adicionais"
+
+#. module: custom_tour_operation
+#: code:addons/custom_tour_operation/wizard/add_new_sites.py:43
+#, python-format
+msgid "Warning!"
+msgstr "Aviso!"
+
+#. module: custom_tour_operation
+#: selection:visa.costing.line,visa_type:0
+msgid "Tourist Visa(Single Entry)"
+msgstr "Tourist Visa (Entrada Individual)"
+
+#. module: custom_tour_operation
+#: selection:custom.tour.itinarary,state:0
+#: selection:itinerary.lead.history,state:0
+#: selection:tour.preference,state:0
+msgid "Draft"
+msgstr "Rascunho"
+
+#. module: custom_tour_operation
+#: field:custom.tour.programme,breakfast:0
+msgid "Breakfast"
+msgstr "Café da manhã"
+
+#. module: custom_tour_operation
+#: view:custom.tour.itinarary:0
+#: model:ir.actions.act_window,name:custom_tour_operation.action_custom_tour_itinarary_form_view
+#: model:ir.ui.menu,name:custom_tour_operation.menu_custom_tour_itinarary_form
+msgid "Tour Itinerary"
+msgstr "Itinerário"
+
+#. module: custom_tour_operation
+#: field:custom.tour.itinarary,email_id:0
+#: field:tour.preference,email_id:0
+msgid "Email Id"
+msgstr "Id do email"
+
+#. module: custom_tour_operation
+#: field:sites.costing.line,total_sale_price:0
+#: field:visa.costing.line,total_sale_price:0
+msgid "Total Sale Price"
+msgstr "Preço de venda total"
+
+#. module: custom_tour_operation
+#: field:travel.planer.details,price_total_adult:0
+msgid "Total Cost Price (Adult)"
+msgstr "Preço de custo total (Adulto)"
+
+#. module: custom_tour_operation
+#: field:travel.planer.details,from_destination_id:0
+msgid "From"
+msgstr "De"
+
+#. module: custom_tour_operation
+#: model:ir.model,name:custom_tour_operation.model_crm_partner_binding
+msgid "Handle partner binding or generation in CRM wizards."
+msgstr "Lidar com a associação ou geração dos parceiros nos assistentes do CRM"
+
+#. module: custom_tour_operation
+#: view:custom.tour.itinarary:0
+#: selection:custom.tour.itinarary,state:0
+#: selection:itinerary.lead.history,state:0
+#: view:tour.preference:0
+#: selection:tour.preference,state:0
+msgid "Confirm"
+msgstr "Confirmar"
+
+#. module: custom_tour_operation
+#: model:ir.model,name:custom_tour_operation.model_tour_service_line_details
+msgid "tour Itinarary Service line details"
+msgstr "tour Itinarary Service line details"
+
+#. module: custom_tour_operation
+#: view:custom.tour.programme:0
+msgid "Tour Sites"
+msgstr "Sites de turismo"
+
+#. module: custom_tour_operation
+#: view:visa.costing.line:0
+msgid "Visa Costing"
+msgstr "Visa custando"
+
+#. module: custom_tour_operation
+#: field:custom.tour.programme,program_id:0
+#: field:tour.booking,itinary_id:0
+#: field:tour.package,itinary_id:0
+msgid "Itinerary Id"
+msgstr "Id de itinerário"
+
+#. module: custom_tour_operation
+#: model:ir.model,name:custom_tour_operation.model_crm_lead2opportunity_partner
+msgid "Lead To Opportunity Partner"
+msgstr "Prospecto para Oportunidade de Parceiro"
+
+#. module: custom_tour_operation
+#: field:custom.tour.transport,name:0
+msgid "Location"
+msgstr "Localização"
+
+#. module: custom_tour_operation
+#: field:tour.service.line.details,price_subtotal:0
+msgid "Sale Subtotal"
+msgstr "Subtotal de venda"
+
+#. module: custom_tour_operation
+#: code:addons/custom_tour_operation/custom_tour_operation.py:1465
+#: code:addons/custom_tour_operation/custom_tour_operation.py:1471
+#, python-format
+msgid "Rate is not define for above Hotel information."
+msgstr "Taxa não está definida para as informações do Hotel acima."
+
+#. module: custom_tour_operation
+#: view:hotel.planer.details:0
+#: field:hotel.planer.details,pur_tax_ids:0
+#: view:sites.costing.line:0
+#: field:sites.costing.line,pur_tax_ids:0
+#: view:tour.service.line.details:0
+#: field:tour.service.line.details,pur_tax_ids:0
+#: view:travel.planer.details:0
+#: field:travel.planer.details,pur_tax_ids:0
+#: view:visa.costing.line:0
+#: field:visa.costing.line,pur_tax_ids:0
+msgid "Purchase Taxes"
+msgstr "Impostos de compra"
+
+#. module: custom_tour_operation
+#: field:custom.tour.itinarary,name:0
+#: field:itinerary.lead.history,name:0
+msgid "Itinerary No."
+msgstr "n º de Itinerário "
+
+#. module: custom_tour_operation
+#: code:addons/custom_tour_operation/custom_tour_operation.py:675
+#, python-format
+msgid "Payment Due Date should not be greater than Tour Start Date."
+msgstr "Data de vencimento do pagamento não deve ser superior a data de início do Tour. "
+
+#. module: custom_tour_operation
+#: code:addons/custom_tour_operation/custom_tour_operation.py:673
+#: code:addons/custom_tour_operation/custom_tour_operation.py:675
+#: code:addons/custom_tour_operation/custom_tour_operation.py:1036
+#: code:addons/custom_tour_operation/custom_tour_operation.py:1042
+#: code:addons/custom_tour_operation/custom_tour_operation.py:1048
+#: code:addons/custom_tour_operation/custom_tour_operation.py:1051
+#: code:addons/custom_tour_operation/custom_tour_operation.py:1056
+#: code:addons/custom_tour_operation/custom_tour_operation.py:1250
+#: code:addons/custom_tour_operation/custom_tour_operation.py:1270
+#: code:addons/custom_tour_operation/custom_tour_operation.py:1317
+#: code:addons/custom_tour_operation/custom_tour_operation.py:1758
+#: code:addons/custom_tour_operation/custom_tour_operation.py:1764
+#, python-format
+msgid "Error !"
+msgstr "Erro!"
+
+#. module: custom_tour_operation
+#: field:tour.service.line.details,product_uom_qty:0
+msgid "Quantity (UoM)"
+msgstr "Quantidade (UoM)"
+
+#. module: custom_tour_operation
+#: field:itinerary.lead.history,current_date:0
+msgid "Creation Date"
+msgstr "Data de criação"
+
+#. module: custom_tour_operation
+#: field:travel.planer.details,price_total_adult_sale:0
+msgid "Total Sale Price (Adult)"
+msgstr "Preço de venda total (Adulto)"
+
+#. module: custom_tour_operation
+#: field:tour.preference,tour_high_price:0
+#: field:tour.preference,tour_low_price:0
+msgid "Budget/ Person (min/max)"
+msgstr "Orçamento / Pessoa (min / max)"
+
+#. module: custom_tour_operation
+#: field:custom.tour.transport,transport_type_id:0
+#: field:travel.planer.details,transport_type_id:0
+msgid "Transport Type"
+msgstr "Tipo de transporte"
+
+#. module: custom_tour_operation
+#: field:sites.costing.line,cost_price:0
+msgid "Cost Price/ Person"
+msgstr "Preço de custo / Pessoa"
+
+#. module: custom_tour_operation
+#: view:custom.tour.destination:0
+msgid "Tour Destination"
+msgstr "Destino de turismo"
+
+#. module: custom_tour_operation
+#: field:travel.planer.details,transport_carrier_id:0
+msgid "Carrier Name"
+msgstr "O nome do transportador"
+
+#. module: custom_tour_operation
+#: code:addons/custom_tour_operation/custom_tour_operation.py:264
+#, python-format
+msgid "Invalid action !"
+msgstr "Ação inválida!"
+
+#. module: custom_tour_operation
+#: view:hotel.planer.details:0
+msgid "Hotel Planer Details"
+msgstr "Detalhes Hotel plaina"
+
+#. module: custom_tour_operation
+#: field:custom.tour.itinarary,pricelist_id:0
+msgid "Pricelist"
+msgstr "Lista de preços"
+
+#. module: custom_tour_operation
+#: view:custom.tour.itinarary:0
+#: field:custom.tour.itinarary,tour_program_ids:0
+msgid "Tour Program"
+msgstr "Tour Program"
+
+#. module: custom_tour_operation
+#: code:addons/custom_tour_operation/custom_tour_operation.py:863
+#, python-format
+msgid "Custom Tour of name '%s' has been Created."
+msgstr "Tour personalizado do nome '% s' foi criado."
+
+#. module: custom_tour_operation
+#: model:ir.model,name:custom_tour_operation.model_custom_tour_programme
+msgid "Custom Tour Programme"
+msgstr "Custom Tour Programme"
+
+#. module: custom_tour_operation
+#: field:custom.tour.itinarary,total_seat:0
+msgid "Total Seats"
+msgstr "Assentos totais"
+
+#. module: custom_tour_operation
+#: field:custom.tour.itinarary,contact_name:0
+#: field:itinerary.lead.history,contact_name:0
+#: field:tour.preference,contact_name:0
+msgid "Contact Name"
+msgstr "Nome de contato "
+
+#. module: custom_tour_operation
+#: field:sites.costing.line,tour_program_id:0
+msgid "Tour Program ID"
+msgstr "ID do programa Tour "
+
+#. module: custom_tour_operation
+#: field:custom.tour.itinarary,adult:0
+#: field:tour.preference,adult:0
+msgid "Adult Persons"
+msgstr "Pessoas adultas"
+
+#. module: custom_tour_operation
+#: view:custom.tour.itinarary:0
+#: field:custom.tour.itinarary,service_ids:0
+#: view:tour.service.line.details:0
+msgid "Other Services"
+msgstr "Outros serviços"
+
+#. module: custom_tour_operation
+#: view:tour.preference:0
+#: selection:tour.preference,state:0
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: custom_tour_operation
+#: field:custom.tour.destination,name:0
+msgid "No. Of Nights"
+msgstr "N º de  noites"
+
+#. module: custom_tour_operation
+#: view:custom.tour.itinarary:0
+msgid "Create Tour"
+msgstr "Criar Tour"
+
+#. module: custom_tour_operation
+#: code:addons/custom_tour_operation/custom_tour_operation.py:777
+#, python-format
+msgid "Please convert the Lead '%s' in Opportunity first!"
+msgstr "Por favor, converter o Lead '% s' na primeira oportunidade!"
+
+#. module: custom_tour_operation
+#: code:addons/custom_tour_operation/custom_tour_operation.py:654
+#, python-format
+msgid "Pricelist Warning!"
+msgstr "Aviso lista de preços!"
+
+#. module: custom_tour_operation
+#: field:tour.service.line.details,discount:0
+msgid "Discount (%)"
+msgstr "Desconto (%)"
+
+#. module: custom_tour_operation
+#: field:custom.tour.itinarary,via:0
+#: field:tour.preference,via:0
+msgid "Via"
+msgstr "Via"
+
+#. module: custom_tour_operation
+#: field:hotel.planer.details,days:0
+msgid "No. of Days to stay"
+msgstr "N º de dias para ficar"
+
+#. module: custom_tour_operation
+#: model:ir.ui.menu,name:custom_tour_operation.menu_tour_preference_form
+msgid "Tour Prefrence"
+msgstr "Tour Prefrence"
+
+#. module: custom_tour_operation
+#: model:ir.model,name:custom_tour_operation.model_itinerary_lead_history
+msgid "itinerary lead history"
+msgstr "história lead de itinerário"
+
+#. module: custom_tour_operation
+#: field:custom.tour.itinarary,tour_pref_id:0
+msgid "Customer Enquiry No"
+msgstr "Número de inquérito do cliente"
+
+#. module: custom_tour_operation
+#: code:addons/custom_tour_operation/custom_tour_operation.py:264
+#, python-format
+msgid "Cannot delete these Itinerary.!"
+msgstr "Não é possível excluir estes Itinerário.!"
+
+#. module: custom_tour_operation
+#: field:visa.costing.line,visa_type:0
+msgid "Visa Type"
+msgstr "Tipo de Visa "
+
+#. module: custom_tour_operation
+#: field:hotel.planer.details,hotel_planer_id:0
+#: field:sites.costing.line,itinary_id:0
+#: field:tour.cost.exclude.facility,itinary_id:0
+#: field:tour.cost.include.facility,itinary_id:0
+#: field:tour.destination.line,itinarary_id:0
+#: field:travel.planer.details,travel_planer_id:0
+#: field:visa.costing.line,itinary_id:0
+msgid "Itinerary Ref"
+msgstr "Ref. de Itinerário "
+
+#. module: custom_tour_operation
+#: field:travel.planer.details,cost_price:0
+msgid "Cost Price(Adult)"
+msgstr "Preço de custo (Adulto)"
+
+#. module: custom_tour_operation
+#: field:tour.service.line.details,itinarary_id:0
+msgid "itinarary_id"
+msgstr "itinarary_id"
+
+#. module: custom_tour_operation
+#: code:addons/custom_tour_operation/wizard/add_new_sites.py:43
+#, python-format
+msgid "Site '%s' is all ready added to the list."
+msgstr "Site '% s' já é adicionado à lista."
+
+#. module: custom_tour_operation
+#: view:custom.tour.itinarary:0
+msgid "Destinations"
+msgstr "Destinos"
+
+#. module: custom_tour_operation
+#: model:ir.model,name:custom_tour_operation.model_tour_days
+msgid "Tour Days"
+msgstr "Dias de Tour"
+
+#. module: custom_tour_operation
+#: selection:custom.tour.itinarary,state:0
+msgid "Sent To Customer"
+msgstr "Enviado para o cliente"
+
+#. module: custom_tour_operation
+#: code:addons/custom_tour_operation/custom_tour_operation.py:1056
+#, python-format
+msgid "Tour Booking Is Closed"
+msgstr "Tour reserva está fechada"
+
+#. module: custom_tour_operation
+#: field:travel.planer.details,sale_price:0
+msgid "Sale Price(Adult)"
+msgstr "Preço de venda (Adulto)"
+
+#. module: custom_tour_operation
+#: field:custom.tour.itinarary,itinary_cost_exclude_facility_lines:0
+msgid "Tour Cost Excluded Facility Lines"
+msgstr "Custo da tour excluídas linhas de instalações "
+
+#. module: custom_tour_operation
+#: field:travel.planer.details,transport_id:0
+msgid "Transport Company"
+msgstr "Empresa de Transportes"
+
+#. module: custom_tour_operation
+#: code:addons/custom_tour_operation/custom_tour_operation.py:775
+#, python-format
+msgid "Configuration Error !"
+msgstr "Erro de configuração!"
+
+#. module: custom_tour_operation
+#: model:ir.actions.act_window,name:custom_tour_operation.action_custom_tour_itinarary_form_approv_done_view
+msgid "Tour Itinearay"
+msgstr "Tour Itinearay"
+
+#. module: custom_tour_operation
+#: field:custom.tour.itinarary,checkout_date:0
+#: field:tour.preference,checkout_date:0
+msgid "Prefer End Date"
+msgstr "Preferem a data de término"
+
+#. module: custom_tour_operation
+#: view:custom.tour.itinarary:0
+#: field:custom.tour.itinarary,hotel_planer_ids:0
+msgid "Hotel Planer"
+msgstr "Hotel plaina"
+
+#. module: custom_tour_operation
+#: field:custom.tour.itinarary,state:0
+#: field:itinerary.lead.history,state:0
+#: field:tour.preference,state:0
+msgid "Status"
+msgstr "Status"
+
+#. module: custom_tour_operation
+#: field:visa.costing.line,total_person:0
+msgid "No. of Person"
+msgstr "N º de pessoa"
+
+#. module: custom_tour_operation
+#: code:addons/custom_tour_operation/custom_tour_operation.py:777
+#: code:addons/custom_tour_operation/custom_tour_operation.py:1440
+#: code:addons/custom_tour_operation/custom_tour_operation.py:1577
+#: code:addons/custom_tour_operation/custom_tour_operation.py:1842
+#, python-format
+msgid "Warning"
+msgstr "Aviso"
+
+#. module: custom_tour_operation
+#: field:hotel.planer.details,purches_bol:0
+#: field:tour.service.line.details,purches_bol:0
+#: field:travel.planer.details,purches_bol:0
+msgid "Show Purchase Tax"
+msgstr "Mostrar imposto de compra"
+
+#. module: custom_tour_operation
+#: field:hotel.planer.details,hotel_id:0
+msgid "Hotel"
+msgstr "Hotel"
+
+#. module: custom_tour_operation
+#: view:tour.preference:0
+msgid "Hotel Preferences"
+msgstr "Preferências do hotel"
+
+#. module: custom_tour_operation
+#: field:travel.planer.details,price_total_child_sale:0
+msgid "Total Sale Price (Child)"
+msgstr "Preço de venda total (Criança)"
+
+#. module: custom_tour_operation
+#: field:custom.tour.programme,lunch:0
+msgid "Lunch"
+msgstr "Almoço"
+
+#. module: custom_tour_operation
+#: field:visa.costing.line,name:0
+msgid "Visa"
+msgstr "Visa"
+
+#. module: custom_tour_operation
+#: field:sites.costing.line,total_cost_price:0
+#: field:visa.costing.line,total_cost_price:0
+msgid "Total Cost Price"
+msgstr "Preço de custo total"
+
+#. module: custom_tour_operation
+#: field:custom.tour.itinarary,child:0
+#: field:tour.preference,child:0
+msgid "Child"
+msgstr "Criança"
+
+#. module: custom_tour_operation
+#: field:hotel.planer.details,hotel_type_id:0
+#: field:tour.preference,hotel_type_id:0
+msgid "Hotel Type"
+msgstr "Tipo de hotel"
+
+#. module: custom_tour_operation
+#: field:travel.planer.details,adult:0
+msgid "No. of Adult"
+msgstr "N º de adultos"
+
+#. module: custom_tour_operation
+#: model:ir.model,name:custom_tour_operation.model_custom_tour_destination
+msgid "Custom Tour Destination"
+msgstr "Destino de tour personalizado"
+
+#. module: custom_tour_operation
+#: model:ir.model,name:custom_tour_operation.model_custom_tour_transport
+msgid "Custom Tour Transport"
+msgstr "Transporte de tour personalizado"
+
+#. module: custom_tour_operation
+#: code:addons/custom_tour_operation/custom_tour_operation.py:1051
+#, python-format
+msgid " No Seats Available"
+msgstr "Não há lugares disponíveis"
+
+#. module: custom_tour_operation
+#: code:addons/custom_tour_operation/custom_tour_operation.py:1440
+#: code:addons/custom_tour_operation/custom_tour_operation.py:1577
+#: code:addons/custom_tour_operation/custom_tour_operation.py:1842
+#, python-format
+msgid "PriceList is not Selected !"
+msgstr "PriceList is not Selected !"
+
+#. module: custom_tour_operation
+#: field:custom.tour.itinarary,sale_untax_amt:0
+msgid "Sale Untaxed Amount"
+msgstr "Valor de venda não tributado"
+
+#. module: custom_tour_operation
+#: field:custom.tour.itinarary,pur_untax_amt:0
+msgid "Purchase Untaxed Amount"
+msgstr "Valor da compra não tributado"
+
+#. module: custom_tour_operation
+#: field:custom.tour.destination,site_line_ids:0
+#: field:tour.preference,destination_lines_ids:0
+#: field:tour.preference,transport_ids:0
+msgid "Sites"
+msgstr "Sítios"
+
+#. module: custom_tour_operation
+#: field:visa.costing.line,destination_id:0
+msgid "Tour destination Ref"
+msgstr "Ref. de destino turístico "
+
+#. module: custom_tour_operation
+#: field:custom.tour.itinarary,itinary_cost_include_facility_lines:0
+msgid "Tour Cost Included Facility Lines"
+msgstr "Custo da tour incluído linhas de instalações  "
+
+#. module: custom_tour_operation
+#: view:tour.preference:0
+msgid "Transport Preferences"
+msgstr "Preferências de transporte"
+
+#. module: custom_tour_operation
+#: view:custom.tour.site:0
+msgid "Sites Details"
+msgstr "Detalhes de sítios "
+
+#. module: custom_tour_operation
+#: field:hotel.planer.details,supplier_price:0
+msgid "Supplier Rent / Night"
+msgstr "Aluguel/noite de fornecedor "
+
+#. module: custom_tour_operation
+#: view:itinerary.lead.history:0
+#: field:itinerary.lead.history,ref_id:0
+msgid "History"
+msgstr "História"
+
+#. module: custom_tour_operation
+#: view:tour.preference:0
+msgid "Destinations Preferences"
+msgstr "Preferências de destinos"
+
+#. module: custom_tour_operation
+#: model:ir.ui.menu,name:custom_tour_operation.menu_custom_tour
+msgid "Custom Tour"
+msgstr "Tour personalizado"
+
+#. module: custom_tour_operation
+#: field:travel.planer.details,to_destination_id:0
+msgid "To"
+msgstr "Para"
+
+#. module: custom_tour_operation
+#: field:visa.costing.line,sale_price:0
+msgid "Visa Sale Price"
+msgstr "Preço de venda de Visa "
+
+#. module: custom_tour_operation
+#: code:addons/custom_tour_operation/custom_tour_operation.py:655
+#, python-format
+msgid "If you change the pricelist of this order (and eventually the currency), prices of existing order lines will not be updated."
+msgstr "Se você alterar a lista de preços nesta ordem (e, eventualmente, a moeda), os preços das linhas de ordem existente não serão atualizados."
+
+#. module: custom_tour_operation
+#: view:custom.tour.itinarary:0
+msgid "Cost Exclude"
+msgstr "Custos excluídos"
+
+#. module: custom_tour_operation
+#: field:custom.tour.transport,tour_transport_id:0
+msgid "Destination Ref"
+msgstr "Destino Ref"
+
+#. module: custom_tour_operation
+#: view:custom.tour.itinarary:0
+msgid "(Compute)"
+msgstr "(Computação)"
+
+#. module: custom_tour_operation
+#: view:custom.tour.itinarary:0
+msgid "Create Quotation"
+msgstr "Criar cotação"
+
+#. module: custom_tour_operation
+#: field:custom.tour.programme,sites_ids:0
+#: field:custom.tour.site,name:0
+#: field:sites.costing.line,name:0
+msgid "Sites Name"
+msgstr "Nome de sítios"
+
+#. module: custom_tour_operation
+#: selection:custom.tour.itinarary,state:0
+msgid "Done"
+msgstr "Feito"
+
+#. module: custom_tour_operation
+#: selection:custom.tour.transport,name:0
+msgid "Site Seeing"
+msgstr "Site vendo"
+
+#. module: custom_tour_operation
+#: model:ir.actions.act_window,name:custom_tour_operation.action_custom_tour_destination_type_form_view
+msgid "Carrier Type"
+msgstr "Tipo transportadora"
+
+#. module: custom_tour_operation
+#: field:custom.tour.itinarary,sites_costing_ids:0
+#: field:custom.tour.itinarary,visa_costing_ids:0
+#: view:sites.costing.line:0
+msgid "Sites Costing"
+msgstr "Custeio de sítios "
+
+#. module: custom_tour_operation
+#: view:custom.tour.itinarary:0
+msgid "Cost Include"
+msgstr "Custo incluído"
+
+#. module: custom_tour_operation
+#: field:custom.tour.itinarary,tour_destination_ids:0
+#: model:ir.model,name:custom_tour_operation.model_sites_costing_line
+#: model:ir.model,name:custom_tour_operation.model_tour_destination_line
+msgid "Tour Destination Lines"
+msgstr "Linhas do destino turístico"
+
+#. module: custom_tour_operation
+#: field:custom.tour.itinarary,due_date:0
+msgid "Payment Due Date"
+msgstr "Data de vencimento do pagamento "
+
+#. module: custom_tour_operation
+#: code:addons/custom_tour_operation/custom_tour_operation.py:673
+#, python-format
+msgid "Payment Due Date should not be less than Last Date of Booking."
+msgstr "Data de vencimento do pagamento não deve ser menor do que a última data da reserva."
+
+#. module: custom_tour_operation
+#: field:tour.service.line.details,price_unit:0
+msgid "Cost Price"
+msgstr "Preço de custo"
+
+#. module: custom_tour_operation
+#: sql_constraint:custom.tour.itinarary:0
+#: sql_constraint:tour.preference:0
+msgid "Preferred end date must be greater than Preferred start date !"
+msgstr "Data de término preferenciais deve ser maior que data de início preferido!"
+
+#. module: custom_tour_operation
+#: field:travel.planer.details,current_date:0
+msgid "Booking Date"
+msgstr "Data de Reserva"
+
+#. module: custom_tour_operation
+#: model:ir.model,name:custom_tour_operation.model_crm_lead
+msgid "Lead/Opportunity"
+msgstr "Prospecto/Oportunidade"
+
+#. module: custom_tour_operation
+#: field:tour.service.line.details,product_id:0
+msgid "Product"
+msgstr "Produto"
+
+#. module: custom_tour_operation
+#: field:custom.tour.programme,description:0
+msgid "Description"
+msgstr "Descrição"
+
+#. module: custom_tour_operation
+#: field:custom.tour.itinarary,pur_total_amt:0
+msgid "Purchase Total Amount"
+msgstr "Valor Total da compra"
+
+#. module: custom_tour_operation
+#: code:addons/custom_tour_operation/custom_tour_operation.py:1250
+#: code:addons/custom_tour_operation/custom_tour_operation.py:1270
+#: code:addons/custom_tour_operation/custom_tour_operation.py:1317
+#, python-format
+msgid "Product Visa is not Found."
+msgstr "Visa produto não foi encontrado."
+
+#. module: custom_tour_operation
+#: view:travel.planer.details:0
+msgid "Travel Planer Details"
+msgstr "Detalhes de plaina de viagens"
+
+#. module: custom_tour_operation
+#: field:custom.tour.itinarary,sale_total_amt:0
+msgid "Sale Total Amount"
+msgstr "Valor total de venda"
+
+#. module: custom_tour_operation
+#: field:custom.tour.itinarary,current_date:0
+#: field:tour.preference,current_date:0
+msgid "Enquiry Date"
+msgstr "Data do inquérito"
+
+#. module: custom_tour_operation
+#: selection:custom.tour.itinarary,state:0
+#: selection:itinerary.lead.history,state:0
+msgid "Refused"
+msgstr "Recusou"
+
+#. module: custom_tour_operation
+#: selection:visa.costing.line,visa_type:0
+msgid "Tourist Visa(Multiple Entry)"
+msgstr "Tourist Visa (Entrada Múltipla)"
+
+#. module: custom_tour_operation
+#: model:ir.model,name:custom_tour_operation.model_tour_booking
+msgid "Tour Booking"
+msgstr "Reserva de Tour"
+
+#. module: custom_tour_operation
+#: model:ir.model,name:custom_tour_operation.model_visa_costing_line
+msgid "Visa costing Lines"
+msgstr "Linhas de custeio de Visa"
+
+#. module: custom_tour_operation
+#: field:custom.tour.itinarary,address:0
+#: field:tour.preference,address:0
+msgid "Address"
+msgstr "Endereço"
+
+#. module: custom_tour_operation
+#: field:travel.planer.details,cost_price_child:0
+msgid "Cost Price(Child)"
+msgstr "Preço de custo (criança)"
+
+#. module: custom_tour_operation
+#: view:hotel.planer.details:0
+#: field:hotel.planer.details,sale_tax_ids:0
+#: view:sites.costing.line:0
+#: field:sites.costing.line,sale_tax_ids:0
+#: view:tour.service.line.details:0
+#: field:tour.service.line.details,sale_tax_ids:0
+#: view:travel.planer.details:0
+#: field:travel.planer.details,sale_tax_ids:0
+#: view:visa.costing.line:0
+#: field:visa.costing.line,sale_tax_ids:0
+msgid "Sale Taxes"
+msgstr "Impostos de venda"
+
+#. module: custom_tour_operation
+#: model:ir.model,name:custom_tour_operation.model_tour_cost_include_facility
+msgid "Tour Cost Include Facility"
+msgstr "Custo do tour com facilidade "
+
+#. module: custom_tour_operation
+#: field:custom.tour.itinarary,mobile:0
+#: field:tour.preference,mobile:0
+msgid "Mobile Number"
+msgstr "Número de celular"
+
+#. module: custom_tour_operation
+#: field:tour.days,name:0
+msgid "Name"
+msgstr "Nome"
+
+#. module: custom_tour_operation
+#: model:ir.model,name:custom_tour_operation.model_tour_destinations
+msgid "Tour Destinations"
+msgstr "Destinos turísticos"
+
+#. module: custom_tour_operation
+#: field:custom.tour.destination,country_id:0
+#: field:visa.costing.line,country_id:0
+msgid "Country"
+msgstr "País"
+
+#. module: custom_tour_operation
+#: code:addons/custom_tour_operation/custom_tour_operation.py:1048
+#, python-format
+msgid " Please Pay The Booking Amount"
+msgstr "Por favor, pagar o montante de reserva"
+
+#. module: custom_tour_operation
+#: model:ir.model,name:custom_tour_operation.model_custom_tour_itinarary
+msgid "Custom Tour Itinerary"
+msgstr "Itinerário de tour personalizado"
+
+#. module: custom_tour_operation
+#: field:hotel.planer.details,room_type_id:0
+#: field:tour.preference,room_type_id:0
+msgid "Room Type"
+msgstr "Tipo de quarto"
+
+#. module: custom_tour_operation
+#: view:custom.tour.itinarary:0
+#: field:custom.tour.itinarary,travel_planer_ids:0
+msgid "Travel Planer"
+msgstr "Plaina de viagens"
+
+#. module: custom_tour_operation
+#: view:custom.tour.programme:0
+msgid "Tour Programme"
+msgstr "Programa de turismo"
+
+#. module: custom_tour_operation
+#: model:ir.model,name:custom_tour_operation.model_tour_package
+msgid "Tour Package"
+msgstr "Pacote turístico"
+
+#. module: custom_tour_operation
+#: field:custom.tour.itinarary,start_date:0
+msgid "Start Date"
+msgstr "Data de Início"
+
+#. module: custom_tour_operation
+#: view:hotel.planer.details:0
+#: view:sites.costing.line:0
+#: view:tour.service.line.details:0
+#: view:travel.planer.details:0
+#: view:visa.costing.line:0
+msgid "Total"
+msgstr "Total"
+
+#. module: custom_tour_operation
+#: model:ir.ui.menu,name:custom_tour_operation.menu_custom_tour_itinarary_approve_done_form
+msgid "Approved Tour Itinearay"
+msgstr "Approved Tour Itinearay"
+
+#. module: custom_tour_operation
+#: field:hotel.planer.details,name:0
+#: field:travel.planer.details,name:0
+msgid "Sequence"
+msgstr "Seqüência"
+
+#. module: custom_tour_operation
+#: field:tour.service.line.details,sale_price:0
+msgid "Sale Price"
+msgstr "Preço de venda"
+
+#. module: custom_tour_operation
+#: code:addons/custom_tour_operation/custom_tour_operation.py:1616
+#: code:addons/custom_tour_operation/custom_tour_operation.py:1622
+#, python-format
+msgid "Rate is not define for above transport information."
+msgstr "Taxa não está definida para as informações de transporte acima. "
+
+#. module: custom_tour_operation
+#: model:ir.model,name:custom_tour_operation.model_travel_planer_details
+msgid "Travel planer details"
+msgstr "Detalhes de plaina de viagens"
+
+#. module: custom_tour_operation
+#: selection:custom.tour.itinarary,via:0
+#: selection:tour.preference,via:0
+msgid "Direct"
+msgstr "Direto"
+
+#. module: custom_tour_operation
+#: field:custom.tour.itinarary,pur_tax_amt:0
+msgid "Purchase Taxes "
+msgstr "Impostos de compra"
+
+#. module: custom_tour_operation
+#: field:custom.tour.itinarary,sale_tax_amt:0
+msgid "Sale Taxes "
+msgstr "Impostos de venda"
+
+#. module: custom_tour_operation
+#: field:custom.tour.itinarary,checkin_date:0
+#: field:tour.preference,checkin_date:0
+msgid "Prefer start Date"
+msgstr "Prefiro data de início"
+
+#. module: custom_tour_operation
+#: view:custom.tour.itinarary:0
+#: view:tour.preference:0
+msgid "Tour Information"
+msgstr "Informações Turísticas"
+
+#. module: custom_tour_operation
+#: field:itinerary.lead.history,update_date:0
+msgid "Last Updated Date"
+msgstr "Última data de actualização"
+
+#. module: custom_tour_operation
+#: view:custom.tour.itinarary:0
+#: selection:itinerary.lead.history,state:0
+msgid "Send To Customer"
+msgstr "Enviar para o cliente"
+
+#. module: custom_tour_operation
+#: field:tour.service.line.details,price_subtotal_cost:0
+msgid "Cost Subtotal"
+msgstr "Custo Subtotal"
+
+#. module: custom_tour_operation
+#: view:custom.tour.itinarary:0
+msgid "Destinations Details"
+msgstr "Detalhes de destinos"
+
+#. module: custom_tour_operation
+#: field:sites.costing.line,sale_price:0
+msgid "Sale Price/ Person"
+msgstr "Preço de venda / Pessoa"
+
+#. module: custom_tour_operation
+#: view:custom.tour.itinarary:0
+msgid "Site Cost"
+msgstr "Custo do Site"
+

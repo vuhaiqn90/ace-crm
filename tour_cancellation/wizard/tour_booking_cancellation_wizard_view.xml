@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+		<!--agent wize lead wizard form view  -->
+		<record model="ir.ui.view" id="tour_booking_cancellation_id">
+			<field name="name">tour.booking.cancellation.form</field>
+			<field name="model">tour.booking.cancellation</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Tour Details">
+				<group colspan="4" col="4">
+					<field name="tour_id" domain="[('state', '!=', 'draft')]"/>
+					<newline/>
+					<field name="tour_dates_id" />
+					<field name="current_date" />
+					<field name="pricelist_id" />
+					<newline/>
+					<field name="tour_customer_ids" readonly="1" nolabel="1" colspan="4">	
+				    	<tree string="Tour Customer Details" editable="top">
+					        <!-- <field name="partner_id" readonly="1" context="{'default_customer': 1,  'default_supplier': 0, 'default_is_hotel': 0}" domain="[('customer','=',True),('supplier','=',False),('is_hotel','=',False)]"/> -->
+					        <field name="partner_id" readonly="1" context="{'default_customer': True,  'default_supplier': False, 'default_is_hotel': False}" domain="[('customer','=',True),('supplier','=',False),('is_hotel','=',False)]"/>
+					        <field name="name" readonly="1"/>
+					        <field name="gender" readonly="1"/>
+					        <field name="type" readonly="1"/>
+					        <field name="h_flag" readonly="1"/>
+					        <field name="t_flag" readonly="1"/>
+					        <field name="i_flag" readonly="1"/>
+					        <field name="v_flag" readonly="1"/>
+					        <field name="p_flag" readonly="1"/>
+							<field name="state" readonly="1"/>
+						</tree>
+					</field>
+				</group>
+					
+					<separator colspan="4"/>
+					<group colspan="4">
+						<button icon="gtk-cancel" special="cancel" string="Exit" />
+						<button icon="gtk-ok" name="print_report" string="Ticket Cancellation" type="object" confirm="Are you sure you want to proceed ?"/>
+					</group>
+				</form>
+			</field>
+		</record>
+
+		<record id="act_tour_booking_cancellation_id" model="ir.actions.act_window">
+			<field name="name">Tour Cancellation</field>
+			<field name="res_model">tour.booking.cancellation</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="tour_booking_cancellation_id"/>
+			<field name="target">new</field>
+		</record>
+
+        <menuitem
+                name="Tour Cancellation"
+                parent="menu_tour_booking"
+                action="act_tour_booking_cancellation_id"
+                id="menu_tour_booking_cancellation"
+               />
+		
+	</data>
+</odoo>

@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_tour_cancellation_manager,tour.cancellation,model_tour_cancellation,tour_travel.group_tour_manager,1,1,1,1
+,,,,,,,
+,,,,,,,
+access_tour_cancellation_user,tour.cancellation,model_tour_cancellation,tour_travel.group_tour_user,1,0,0,0

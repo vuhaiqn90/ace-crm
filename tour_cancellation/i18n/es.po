@@ -1,0 +1,370 @@
+# Spanish Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* tour_cancellation
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 7.0-20130412-232402\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-10-18 06:05+0000\n"
+"PO-Revision-Date: 2013-10-18 06:05+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: tour_cancellation
+#: code:addons/tour_cancellation/tour_cancellation.py:268
+#: code:addons/tour_cancellation/tour_cancellation.py:475
+#, python-format
+msgid "Check Child For Policy Coverage "
+msgstr "Check Child For Policy Coverage "
+
+#. module: tour_cancellation
+#: field:tour.cancellation,insurance_line_ids:0
+msgid "Insurance Line"
+msgstr "Insurance Line"
+
+#. module: tour_cancellation
+#: field:tour.cancellation,adult_coverage:0
+msgid "Number of Adult Persons Policy Coverage"
+msgstr "Number of Adult Persons Policy Coverage"
+
+#. module: tour_cancellation
+#: field:tour.cancellation,tour:0
+msgid "Tour Booking ID"
+msgstr "Tour Booking ID"
+
+#. module: tour_cancellation
+#: field:tour.cancellation,current_date:0
+msgid "Booking Date"
+msgstr "Booking Date"
+
+#. module: tour_cancellation
+#: selection:tour.cancellation,state:0
+msgid "Draft"
+msgstr "Draft"
+
+#. module: tour_cancellation
+#: model:ir.actions.act_window,name:tour_cancellation.action_tour_cancellation_form_view
+#: model:ir.model,name:tour_cancellation.model_tour_cancellation
+#: model:ir.ui.menu,name:tour_cancellation.menu_tour_cancellation_form
+#: view:tour.cancellation:0
+msgid "Tour Cancellation"
+msgstr "Tour Cancellation"
+
+#. module: tour_cancellation
+#: code:addons/tour_cancellation/wizard/refund_payment_journal_entry.py:39
+#: code:addons/tour_cancellation/wizard/refund_payment_journal_entry.py:167
+#: code:addons/tour_cancellation/wizard/refund_payment_journal_entry.py:170
+#, python-format
+msgid "Warnning"
+msgstr "Warnning"
+
+#. module: tour_cancellation
+#: field:refund_payment_journal_entry.wizard,period_id:0
+msgid "Period"
+msgstr "Period"
+
+#. module: tour_cancellation
+#: selection:tour.cancellation,tour_type:0
+msgid "International"
+msgstr "International"
+
+#. module: tour_cancellation
+#: field:tour.cancellation,payment_policy_id:0
+msgid "Payment Policy"
+msgstr "Payment Policy"
+
+#. module: tour_cancellation
+#: code:addons/tour_cancellation/wizard/refund_payment_journal_entry.py:39
+#, python-format
+msgid "Invoice Is Not Paid Yet. Please Pay The Invoice Amount"
+msgstr "Invoice Is Not Paid Yet. Please Pay The Invoice Amount"
+
+#. module: tour_cancellation
+#: field:tour.cancellation,state:0
+msgid "Status"
+msgstr "Status"
+
+#. module: tour_cancellation
+#: field:refund_payment_journal_entry.wizard,booking_charge:0
+msgid "Booking Charges"
+msgstr "Booking Charges"
+
+#. module: tour_cancellation
+#: code:addons/tour_cancellation/tour_cancellation.py:266
+#: code:addons/tour_cancellation/tour_cancellation.py:268
+#: code:addons/tour_cancellation/tour_cancellation.py:473
+#: code:addons/tour_cancellation/tour_cancellation.py:475
+#, python-format
+msgid "Error !"
+msgstr "Error !"
+
+#. module: tour_cancellation
+#: field:refund_payment_journal_entry.wizard,name:0
+msgid "Description"
+msgstr "Description"
+
+#. module: tour_cancellation
+#: view:tour.cancellation:0
+msgid "Services"
+msgstr "Services"
+
+#. module: tour_cancellation
+#: code:addons/tour_cancellation/wizard/refund_payment_journal_entry.py:42
+#, python-format
+msgid "Account is not set for selected service."
+msgstr "Account is not set for selected service."
+
+#. module: tour_cancellation
+#: field:refund_payment_journal_entry.wizard,journal_id:0
+msgid "Journal"
+msgstr "Journal"
+
+#. module: tour_cancellation
+#: field:tour.cancellation,tour_dates_id:0
+msgid "Tour Dates"
+msgstr "Tour Dates"
+
+#. module: tour_cancellation
+#: selection:tour.cancellation,state:0
+msgid "In Process"
+msgstr "In Process"
+
+#. module: tour_cancellation
+#: code:addons/tour_cancellation/tour_cancellation.py:266
+#: code:addons/tour_cancellation/tour_cancellation.py:473
+#, python-format
+msgid "Check Adult Persons For Policy Coverage "
+msgstr "Check Adult Persons For Policy Coverage "
+
+#. module: tour_cancellation
+#: field:tour.cancellation,tour_sale_order_ids:0
+msgid "Sales Orders"
+msgstr "Sales Orders"
+
+#. module: tour_cancellation
+#: code:addons/tour_cancellation/tour_cancellation.py:328
+#: code:addons/tour_cancellation/wizard/refund_payment_journal_entry.py:42
+#, python-format
+msgid "Warning"
+msgstr "Warning"
+
+#. module: tour_cancellation
+#: field:refund_payment_journal_entry.wizard,payment_date:0
+msgid "Payment Date"
+msgstr "Payment Date"
+
+#. module: tour_cancellation
+#: field:tour.cancellation,child:0
+msgid "Child"
+msgstr "Child"
+
+#. module: tour_cancellation
+#: field:tour.cancellation,total_insurance_amt:0
+msgid "Insurance Amount"
+msgstr "Insurance Amount"
+
+#. module: tour_cancellation
+#: field:refund_payment_journal_entry.wizard,refund_amt:0
+msgid "Refund Ammount"
+msgstr "Refund Ammount"
+
+#. module: tour_cancellation
+#: field:tour.cancellation,pricelist_id:0
+msgid "Pricelist"
+msgstr "Pricelist"
+
+#. module: tour_cancellation
+#: model:ir.model,name:tour_cancellation.model_tour_insurance_line
+msgid "Tour Insurance Lines"
+msgstr "Lineas de seguro de Tour"
+
+#. module: tour_cancellation
+#: model:ir.model,name:tour_cancellation.model_refund_payment_journal_entry_wizard
+msgid "refund_payment_journal_entry Detail Wizard"
+msgstr "refund_payment_journal_entry Detail Wizard"
+
+#. module: tour_cancellation
+#: field:refund_payment_journal_entry.wizard,partner_id:0
+#: field:tour.cancellation,customer_id:0
+msgid "Customer"
+msgstr "Customer"
+
+#. module: tour_cancellation
+#: field:tour.cancellation,cancel_date:0
+msgid "Tour Cancel Date"
+msgstr "Tour Cancel Date"
+
+#. module: tour_cancellation
+#: field:tour.cancellation,tour_booking_invoice_ids:0
+msgid "Tour Invoices"
+msgstr "Tour Invoices"
+
+#. module: tour_cancellation
+#: field:tour.cancellation,mobile1:0
+msgid "Mobile Number"
+msgstr "Mobile Number"
+
+#. module: tour_cancellation
+#: field:refund_payment_journal_entry.wizard,cancellation_id:0
+#: field:tour.cancellation,name:0
+msgid "Tour Cancellation ID"
+msgstr "Tour Cancellation ID"
+
+#. module: tour_cancellation
+#: field:tour.cancellation,adult:0
+msgid "Adult Persons"
+msgstr "Adult Persons"
+
+#. module: tour_cancellation
+#: view:tour.cancellation:0
+msgid "Refund Payment"
+msgstr "Refund Payment"
+
+#. module: tour_cancellation
+#: view:tour.cancellation:0
+msgid "Request To Process"
+msgstr "Request To Process"
+
+#. module: tour_cancellation
+#: view:refund_payment_journal_entry.wizard:0
+msgid "Create Journal Entry"
+msgstr "Create Journal Entry"
+
+#. module: tour_cancellation
+#: field:tour.cancellation,tour_id:0
+msgid "Tour"
+msgstr "Tour"
+
+#. module: tour_cancellation
+#: view:tour.cancellation:0
+msgid "Tour Information"
+msgstr "Tour Information"
+
+#. module: tour_cancellation
+#: model:ir.actions.act_window,name:tour_cancellation.act_refund_payment_journal_entry
+#: view:refund_payment_journal_entry.wizard:0
+msgid "Refund Payment Journal Entry"
+msgstr "Refund Payment Journal Entry"
+
+#. module: tour_cancellation
+#: field:tour.cancellation,tour_cost:0
+msgid "Tour Cost"
+msgstr "Tour Cost"
+
+#. module: tour_cancellation
+#: field:tour.cancellation,tour_type:0
+msgid "Tour Type"
+msgstr "Tour Type"
+
+#. module: tour_cancellation
+#: code:addons/tour_cancellation/tour_cancellation.py:55
+#, python-format
+msgid "Warning !"
+msgstr "Warning !"
+
+#. module: tour_cancellation
+#: view:tour.cancellation:0
+#: field:tour.cancellation,tour_customer_ids:0
+msgid "Tour Customer Details"
+msgstr "Tour Customer Details"
+
+#. module: tour_cancellation
+#: view:tour.cancellation:0
+msgid "History"
+msgstr "History"
+
+#. module: tour_cancellation
+#: code:addons/tour_cancellation/wizard/refund_payment_journal_entry.py:167
+#, python-format
+msgid "Please Configure the deduction Policy "
+msgstr "Please Configure the deduction Policy "
+
+#. module: tour_cancellation
+#: field:tour.cancellation,via:0
+msgid "Via"
+msgstr "Via"
+
+#. module: tour_cancellation
+#: model:ir.model,name:tour_cancellation.model_tour_customer_details
+msgid "Tour Customer Details Inheritance"
+msgstr "Sucesión de detalles del cliente del Tour"
+
+#. module: tour_cancellation
+#: code:addons/tour_cancellation/wizard/refund_payment_journal_entry.py:170
+#, python-format
+msgid "Please Configure the deduction Policy"
+msgstr "Please Configure the deduction Policy"
+
+#. module: tour_cancellation
+#: field:tour.cancellation,child_coverage1:0
+msgid "Number of Child Policy Coverage"
+msgstr "Number of Child Policy Coverage"
+
+#. module: tour_cancellation
+#: selection:tour.cancellation,tour_type:0
+msgid "Domestic"
+msgstr "Domestic"
+
+#. module: tour_cancellation
+#: selection:tour.cancellation,via:0
+msgid "Direct"
+msgstr "Direct"
+
+#. module: tour_cancellation
+#: field:tour.cancellation,agent_id:0
+#: selection:tour.cancellation,via:0
+msgid "Agent"
+msgstr "Agent"
+
+#. module: tour_cancellation
+#: field:tour.customer.details,tour_cancel_id:0
+#: field:tour.insurance.line,tour_cancel_id:0
+msgid "Tour cancel ID"
+msgstr "Tour cancel ID"
+
+#. module: tour_cancellation
+#: code:addons/tour_cancellation/tour_cancellation.py:328
+#, python-format
+msgid "Cannot change Tour Booking ID at this stage."
+msgstr "Cannot change Tour Booking ID at this stage."
+
+#. module: tour_cancellation
+#: view:tour.cancellation:0
+msgid "Tour Customers"
+msgstr "Tour Customers"
+
+#. module: tour_cancellation
+#: selection:tour.cancellation,state:0
+msgid "Done"
+msgstr "Done"
+
+#. module: tour_cancellation
+#: field:tour.cancellation,season_id:0
+msgid "Season"
+msgstr "Season"
+
+#. module: tour_cancellation
+#: view:refund_payment_journal_entry.wizard:0
+msgid "Cancel"
+msgstr "Cancel"
+
+#. module: tour_cancellation
+#: field:refund_payment_journal_entry.wizard,deduct_amt:0
+msgid "Deducted Ammount"
+msgstr "Deducted Ammount"
+
+#. module: tour_cancellation
+#: field:tour.cancellation,total_amt:0
+msgid "Total Amount"
+msgstr "Total Amount"
+
+#. module: tour_cancellation
+#: field:tour.cancellation,email_id:0
+msgid "Email Id"
+msgstr "Email Id"
+

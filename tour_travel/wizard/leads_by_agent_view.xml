@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+		<!--agent wize lead wizard form view  -->
+		<record model="ir.ui.view" id="leads_by_agent_detail">
+			<field name="name">leads_by_agent.wizard.form</field>
+			<field name="model">leads.by.agent.wizard</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Details">
+				<group colspan="4" col="4">
+					<field name="start_date"/>
+					<field name="end_date" />
+					<newline/>
+					<field name="report_basis" />
+					<field name="partner_id" domain="[('agent','=',True)]" attrs="{'invisible': [('report_basis','=','direct')]}" />
+					<newline/>
+					<field name="categ_id" />
+				</group>
+					
+					<separator colspan="4"/>
+					<group colspan="4">
+						<button icon="gtk-cancel" special="cancel" string="Cancel" />
+						<button icon="gtk-ok" name="print_report" string="Print" type="object" />
+					</group>
+				</form>
+			</field>
+		</record>
+
+		<record id="act_leads_by_agent_detail" model="ir.actions.act_window">
+			<field name="name">Leads by Agent</field>
+			<field name="res_model">leads.by.agent.wizard</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="leads_by_agent_detail"/>
+			<field name="target">new</field>
+		</record>
+
+	</data>
+</odoo>

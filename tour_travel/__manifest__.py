@@ -1,0 +1,50 @@
+{
+    "name": "Odoo Tours & Travel Management",
+    "version": "12.0",
+    'author': 'Pragmatic Techsoft Pvt. Ltd.',
+    "website": "http://www.pragtech.co.in",
+    "description": """Tours And Travel Management""",
+    "depends": ["sale_management", 'account', 'passport_visa', 'account_voucher'],
+    "category": "Generic Modules",
+    "demo_xml": [],
+    "data": [
+        'data/tour_travel_demo_data.xml',
+
+        'security/tour_travel_security.xml',
+        "security/ir.model.access.csv",
+
+        "views/tour_travel_view.xml",
+        "wizard/checkout_detail_view.xml",
+        "views/hotel_reservation_view.xml",
+        "views/transport_view.xml",
+        "views/agent_commission_view.xml",
+        "views/tour_hotel_reservation_view.xml",
+        "views/insurance_view.xml",
+        "views/passport_visa_view.xml",
+        'views/tour_travel_sequence_view.xml',
+        "views/product.xml",
+
+        "wizard/checkout_details_transport_view.xml",
+        "wizard/tour_information_wizard.xml",
+        "wizard/lead_to_opportunity_view.xml",
+        "wizard/lead_group_by_agent_view.xml",
+        "wizard/room_book_wizard.xml",
+
+        "edi/mail_template_edi.xml",
+
+        "report/tour_report_view.xml",
+        "report/report_hotel_information.xml",
+        "report/tour_information_printing.xml",
+        "report/tour_quotation_report.xml",
+        "report/tour_transport_report.xml",
+        "report/report_tour_booking.xml",
+
+        # "report/tour_invoice_report.xml",
+        # "report/tour_booking_report.xml",
+    ],
+    'installable': True,
+    'application': False,
+    'auto_install': False,
+    "active": False,
+    'license': 'OPL-1',
+}

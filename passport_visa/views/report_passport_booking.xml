@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<template id="report_passport_booking_document">
+			<t t-call="web.external_layout">
+				<t t-set="doc"  t-value="doc.with_context({'lang':doc.customer_id.lang})"/>
+					<div class="page">
+						<div class="oe_structure"/>
+						<div margin-left="50px">
+							<div >
+								<h3 class="text-center" margin=" 140px 0px 70px">
+									<strong>Passport Booking Details</strong>
+								</h3>
+							</div>
+						</div>
+						<br/>
+						<br/>
+						<br/>
+						<div  id="informations">
+                          <div>
+                            	<table >
+                                <tbody class="sale_tbody">
+                                	<tr>
+                                            <td width="10%" height="30">
+                                                <strong>Name:</strong>
+                                            </td >
+                                            
+                                            <td width="10%" >
+                                            	<span t-field="doc.name"/>
+                                            </td>
+                                            <td width="10%">
+                                            </td>
+                                            <td width="10%" height="30">
+                                                <strong>Customer:</strong>
+                                            </td >
+                                            
+                                            <td width="10%" >
+                                            	<span t-field="doc.customer_id.name"/>
+                                            </td>
+                                      </tr>
+                                      
+                                      <tr>
+                                            <td width="10%" height="30" >
+                                                <strong>Email-ID:</strong>
+                                            </td >
+                                            
+                                            <td width="10%" >
+                                            	<span t-field="doc.email_id"/>
+                                            </td>
+                                            <td width="10%">
+                                            </td>
+                                            <td width="10%" height="30">
+                                                <strong>Mobile:</strong>
+                                            </td >
+                                            
+                                            <td width="10%" >
+                                            	<span t-field="doc.mobile"/>
+                                            </td>
+                                          
+                                      </tr>
+                                      <tr>
+                                      	<td width="10%" height="30">
+                                               <strong>Date:</strong>
+                                            </td>
+                                            
+                                            <td width="30%" >
+                                            	<span t-esc="doc.get_partner_lang_date(doc.current_date,doc.customer_id.lang)"/>
+                                            </td>
+                                    	</tr>
+                                </tbody>
+                               	</table>
+                               	<br/>
+                               	<br/>
+                               		<div >
+								<h4 class="text-left" margin=" 140px 0px 70px">
+									<strong>Tour Information</strong>
+								</h4>
+								</div>
+                               	
+                               	<table class="table table-condensed">
+								<thead>
+								<tr>
+									<th width="5%">Tour Booking Ref </th>
+									<th width="20%" class="text-center">Tour</th>
+									<th width="10%" class="text-center">Tour Date  </th>
+								</tr>
+								</thead>
+								
+								<tbody class="sale_tbody">
+									<tr>
+										<td width="5%">
+											<span t-field="doc.tour_book_id"/>
+										</td>
+										<td width="20%" class="text-center">
+											<span t-field="doc.tour_id"/>
+										</td>
+										<td width="10%" class="text-center">
+											<span t-field="doc.tour_date" />
+										</td>
+
+									</tr>
+							</tbody>
+							</table>
+                               	<br/>
+                               	<br/>
+                               	
+                               	<div >
+								<h4 class="text-left" margin=" 140px 0px 70px">
+									<strong>Passport Information</strong>
+								</h4>
+								</div>
+                               	
+                               	<table class="table table-condensed">
+								<thead>
+								<tr >
+									<th width="10%">Service</th>
+									<th width="10%" class="text-center" >Service Scheme </th>
+									<th width="10%" class="text-right">Service Cost</th>
+								</tr>
+								</thead>
+								
+								<tbody class="sale_tbody">
+									<tr>
+										<td width="10%">
+											<span t-field="doc.product_id.name"/>
+										</td>
+										<td width="10%" class="text-center">
+											<span t-field="doc.scheme_id"/>
+										</td>
+										<td width="10%" class="text-right">
+											<span t-field="doc.service_charge"/>
+										</td>
+
+									</tr>
+							</tbody>
+							</table>	
+								<br/>
+								<br/>
+							
+                      </div>
+                      </div>         	
+                          
+				</div>
+				
+			</t>
+		</template>
+		
+		<template id="report_passport_booking">
+			<t t-call="web.html_container">
+				<t t-foreach="docs" t-as="doc">
+					<t t-call="passport_visa.report_passport_booking_document" t-lang="doc.customer_id.lang"/>
+				</t>
+			</t>
+			
+			
+		</template>
+
+	</data>
+</odoo>

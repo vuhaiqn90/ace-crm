@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report 
+            id="report_visa"
+            string="Visa Information"
+            model="visa.booking" 
+            report_type="qweb-pdf"
+            file="passport_visa.tour_visa_report" 
+            name="passport_visa.tour_visa_report" 
+        />
+       
+        <report
+            id="report_passport"
+            string="Passport Booking Information"
+            model="passport.booking"
+            report_type="qweb-pdf"
+            file="passport_visa.report_passport_booking"
+            name="passport_visa.report_passport_booking"
+        />
+        
+    </data>
+</odoo>

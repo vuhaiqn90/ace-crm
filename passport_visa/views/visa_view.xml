@@ -1,0 +1,143 @@
+<?xml version="1.0" ?>
+
+<odoo>
+    <data>
+	<!--
+		=========================================================
+       		 Visa Services Scheme Tree View 	
+       	=========================================================
+        -->
+        
+	<record id="visa_scheme_tree_view" model="ir.ui.view">
+            <field name="name">visa.scheme.tree</field>
+            <field name="model">visa.scheme</field>
+            <field name="type">tree</field> 
+            <field name="arch" type="xml">
+           		<tree string="Visa Scheme" editable="top">
+	            		<field name="name" />
+	            		<field name="duration" />
+					    <field name="cost_price" />
+						<field name="service_cost" />
+
+				</tree>
+				</field>
+			</record>
+	
+	 <record model="ir.actions.act_window" id="action_visa_scheme_tree_view">
+			<field name="name">Visa Schemes</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">visa.scheme</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		
+		
+	<menuitem name="Visa Schemes"  sequence="3"	id="menu_visa_scheme"  parent="menu_passport_visa" />
+	<menuitem name="Visa Scheme" action="action_visa_scheme_tree_view" sequence="6"
+			id="menu_visa_scheme_tree"  parent="menu_visa_scheme" />
+	
+	
+	
+	
+	<!--
+		=========================================================
+       		 Visa Booking Form View 	
+       	=========================================================
+        -->
+       	<record id="visa_booking_form_view" model="ir.ui.view">
+            <field name="name">visa.booking.form</field>
+            <field name="model">visa.booking</field>
+            <field name="type">form</field> 
+            <field name="arch" type="xml">
+           		<form string="Visa Booking" version="7.0">
+					<header>
+						<button string="Confirm" name="button_confirm" type="object" states="draft"/>
+						<button string="Cancel" name="button_cancel" type="object" states="draft"/>
+						<button string="Verify Document" name="verify_document" type="object" states="confirm"/>
+						<button string="Approve By Officer" name="approve_document" type="object" states="verify"/>
+						<button string="Create Invoice" name="create_invoice" type="object" states="approve"/>
+						<button string="Send To Visa Office" name="%(act_visa_journal_entry)d" states="invoice" type="action"  target="new"/>
+						<button string="Issue Visa" name="issue_visa" type="object" states="in_process"/>
+						<field name="state" widget="statusbar" statusbar_visible="draft,confirm,verify,approve,invoice,in_process,done"/>
+					</header>
+                     <div class="oe_button_box" name="button_box">
+					<button class="oe_stat_button" name="%(account.action_move_journal_line)d"
+                        type="action" icon="fa-flask" string="journal Entries" >
+<!--                         <field string="Sales" name="sale_order_count" widget="statinfo"/>-->
+                    </button>
+					 </div>
+           			<group colspan="4" col="6">
+						<field name="name" index="True"/>
+						<field name="customer_id"/>
+						<field name="current_date" />
+						<!--<field name="address_id" />-->
+						<field name="email_id" />
+						<field name="mobile" />
+						<separator colspan="6" string="Visa Information"/>
+						<field name="country_id" />
+						<field name="pricelist_id" />
+						<field name="product_id" domain="[('type', '=', 'service'),('categ_id', '=', 6)]"/>
+						<field name="scheme_id" />
+						<field name="service_charge" />
+						
+					</group>
+					<separator colspan="6"/>
+					<notebook colspan="4">
+						<page string="Document Information">
+            				<group col="7" colspan="3">
+            					<field name="document_line_ids" index="True" nolabel="1"/>
+            				</group>
+            			</page>
+            			<page string="Attachment">
+            				<group col="7" colspan="3">
+            					<field name="attachment_line_ids" index="True" nolabel="1"/>
+            				</group>
+            			</page>
+            			<page string="History">
+            				<group col="7" colspan="3">
+            					<field name="visa_invoice_ids" index="True" nolabel="1"/>
+            				</group>
+            			</page>
+					</notebook>
+
+				</form>
+			</field>
+		</record>
+
+		<!--
+		========================================================= 
+					Visa Booking tree view        
+		=========================================================	
+        -->
+        <record id="visa_booking_tree_view" model="ir.ui.view">
+			<field name="name">visa.booking.tree</field>
+			<field name="model">visa.booking</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Visa Booking">
+						<field name="name"/>
+						<field name="current_date" />
+						<field name="customer_id" />
+						<!--<field name="address_id" />-->
+						<field name="email_id" />
+						<field name="mobile" />
+						<field name="country_id" />
+						<field name="service_charge" />
+						<field name="state" />
+				</tree>
+			</field>
+		</record>
+		
+        <record model="ir.actions.act_window" id="action_visa_booking_form_view">
+			<field name="name">Visa Booking</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">visa.booking</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+   
+   <menuitem name="Visa"  sequence="5"	id="menu_visa"  parent="menu_passport_visa" />
+   <menuitem name="Visa Booking"  action="action_visa_booking_form_view" sequence="1"
+			id="menu_visa_booking_form"  parent="menu_visa" />
+				
+
+    </data>
+</odoo>

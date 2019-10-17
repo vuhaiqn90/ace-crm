@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+		<!--checkout wizard form view  -->
+		<record model="ir.ui.view" id="add_sites_form">
+			<field name="name">add.sites.wizard.form</field>
+			<field name="model">add.sites.wizard1</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Add Details">
+					<field name="tour_day"/>
+					<newline/>
+					<field name="sites_details" colspan="4">
+						<form string="Tour Sites" >
+							<field name="name" />
+						</form>
+						<tree string="Tour Sites" >
+							<field name="name" />
+						</tree>
+					</field>
+					<separator colspan="4"/>
+					<group colspan="4">
+						<button icon="gtk-cancel" special="cancel" string="Cancel" />
+						<button icon="gtk-ok" name="add_sites_form" string="Save" type="object" />
+					</group>
+				</form>
+			</field>
+		</record>
+
+		<record id="act_add_sites_wizard" model="ir.actions.act_window">
+			<field name="name">Add Sites</field>
+			<field name="res_model">add.sites.wizard1</field>
+			<field name="src_model">custom.tour.programme</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field>
+			<field name="auto_refresh" eval="1" />
+			<field name="target">new</field>
+			<field name="context">{'ids':active_id}</field>
+		</record>
+	</data>
+</odoo>

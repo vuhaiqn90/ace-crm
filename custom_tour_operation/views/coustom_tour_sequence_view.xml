@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+
+        <record id="seq_tour_preference" model="ir.sequence">
+            <field name="name">Tour Preference</field>
+            <field name="code">tour.preference</field>
+            <field name="prefix">ENQ</field>
+            <field name="padding">6</field>
+        </record>
+		
+
+        <record id="seq_custom_tour_itinarary" model="ir.sequence">
+            <field name="name">Custom Tour Itinarary</field>
+            <field name="code">custom.tour.itinarary</field>
+            <field name="prefix">/</field>
+            <field name="padding">2</field>
+        </record>
+		
+        
+        <record id="sequence_tour_booking_cuctom" model="ir.sequence">
+            <field name="name">Tour Booking</field>
+            <field name="code">custom.tour.booking</field>
+            <field name="prefix">CTB</field>
+            <field name="padding">6</field>
+        </record>
+
+    </data>
+</odoo>

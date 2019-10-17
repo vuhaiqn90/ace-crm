@@ -1,0 +1,158 @@
+<?xml version="1.0" ?>
+
+<odoo>
+    <data>
+		
+	<menuitem name="Tour Hotel Room Reservation"  sequence="5"	id="menu_tour_hotel_reservation"  parent="menu_tour_booking" />	
+		
+	 <!--
+		=========================================================
+       		 Tour Hotel Room Reservation Form View 	
+       	=========================================================
+        -->
+       	<record id="tour_hotel_room_reservation_form_view" model="ir.ui.view">
+            <field name="name">tour.hotel.reservation.form</field>
+            <field name="model">tour.hotel.reservation</field>
+            <field name="type">form</field> 
+            <field name="arch" type="xml">
+           		<form string="Tour Hotel Room Reservation" version="7.0">
+					<header>
+						<button string="Confirm" name="make_confirm" states="draft" type="object" />
+						<button string="Cancel" name="button_cancel" type="object" states="draft"/>
+						<button string="Send To Hotel" name="send_to_hotel" states="confirm" type="object"  />
+						<button string="Approval From Hotel" name="make_approval" states="request" type="object"  />
+						<button string="Confirm Booking" name="make_booking" states="approve" type="object"  />
+						<button string="Issue Ticket" name="issue_ticket" states="book" type="object"  />
+						<button string="Done" name="make_done" states="issue" type="object"  />
+						<field name="state" widget="statusbar" statusbar_visible="draft,confirm,request,approve,book,issue,done"/>
+            		</header>
+					<group>
+						<div class="oe_title">
+						<h1><field name="name" index="True"/></h1>
+						</div>
+					</group>
+           			<group colspan="4" col="6">
+						<field name="current_date" />
+						<field name="customer_id" />
+						<field name="email_id" />
+						<field name="mobile" />
+						<field name="adult" />
+						<field name="child" />
+						<field name="pricelist_id" required="1"/>
+					</group>
+					<separator colspan="6" string="Hotel Information"/>
+					<group colspan="4" col="6">
+						<field name="hotel_type_id" />
+						
+						<!-- <field name="hotel_id" context="{'default_customer': 0, 'search_default_supplier': 1, 'default_supplier': 1,'default_is_hotel': 1 ,'default_hotel_type_id':hotel_type_id}" 
+							domain="[('hotel_type_id', '=', hotel_type_id),('is_hotel','=',True),('supplier','=',True)]"/> -->
+						<field name="hotel_id"  domain="[('hotel_type_id', '=', hotel_type_id)]"/>
+						<!-- context="{'default_customer': False, 'search_default_supplier': True, 'default_supplier': True,'default_is_hotel': True ,'default_hotel_type_id':hotel_type_id}" 
+							domain="[('hotel_type_id', '=', hotel_type_id),('is_hotel','=',True),('supplier','=',True)]"/> -->
+						<!-- <field name="room_type_id" required="1" 
+							context="{'default_type': 'service', 'default_categ_id': 4}" domain="[('type','=','service'),('categ_id','=',4)]"/> -->
+						<field name="room_type_id" required="1" 
+							context="{'default_type': 'service'}" domain="[('type','=','service')]"/>
+						<field name="room_rent" />
+						<field name="checkin_date" />
+						<field name="hotel_rent" />
+						<field name="checkout_date" />
+						<field name="room_required" />
+						<field name="no_of_days" />	
+						<!-- <label string="" />
+						<label string="" />
+						<label string="" />
+						<label string="" />
+						<label string="" /> -->
+						<!-- <button string="Compute" name="compute_amt" type="object"  /> -->
+					</group>
+					<separator colspan="6" string="Tour Information"/>
+					<group col="8" colspan="4">
+						<field name="tour_id" />
+						<field name="tour_start_date" />
+						<field name="tour_book_id" />	
+						<field name="destination_id" />	
+					</group>
+					<notebook colspan="6">
+						<page string="Customer Information">
+            				<group col="7" colspan="3">
+								<field name="tour_customer_ids" nolabel="1" >
+									<tree string="Tour Customer Details" editable="top">
+					           			<field name="partner_id" />
+					            		<field name="name"/>
+					            		<field name="gender"/>
+					            		<field name="type"/>
+					            		<field name="room_no" string="Room Type / Room No"/>
+									</tree>
+								</field>
+            				</group>
+            			</page>
+            			<page string="Tax Information">
+            				<group col="7" colspan="3">
+								<field name="tax_ids" nolabel="1"/>
+            				</group>
+            			</page>
+            			<page string="History">
+            				<group col="7" colspan="3">
+								<field name="hotel_room_reserve_invoice_ids" nolabel="1"/>
+            				</group>
+            				<group col="7" colspan="3">
+								<field name="hotel_room_reserve_supplier_invoice_ids" nolabel="1"/>
+            				</group>
+            			</page>
+					</notebook>
+					<group class="oe_subtotal_footer oe_right" colspan="2" name="sale_total">
+                        <field name="untax_amt"  readonly="1" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                        <field name="tax_amt"  readonly="1" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+						<div class="oe_subtotal_footer_separator oe_inline">
+                              <label for="total_amt" />
+                        </div>
+                        <field name="total_amt" widget='monetary' options="{'currency_field': 'currency_id'}" readonly="1" nolabel="1" class="oe_subtotal_footer_separator"/>
+						<field name="hotel_invoice_amt"  readonly="1"  widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                    </group>
+				</form>
+			</field>
+		</record>
+
+
+
+
+		<!--
+		========================================================= 
+					Tour Hotel Room Reservation tree view        
+		=========================================================	
+        -->
+        <record id="tour_hotel_room_reservation_tree_view" model="ir.ui.view">
+			<field name="name">tour.hotel.reservation.tree</field>
+			<field name="model">tour.hotel.reservation</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Hotel Reservation">
+						<field name="name"/>
+						<field name="customer_id"/>				
+						<field name="checkin_date"/>
+						<field name="checkout_date"/>
+						<field name="email_id"/>
+						<field name="mobile"/>
+						<field name="tour_book_id" />
+						<field name="tour_start_date" />
+						<field name="hotel_id" />
+						<field name="adult" />
+						<field name="child" />
+						<field name="state"/>
+				</tree>
+			</field>
+		</record>
+		
+        <record model="ir.actions.act_window" id="action_tour_hotel_room_reservation_form_view">
+			<field name="name">Tour Hotel Reservation</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">tour.hotel.reservation</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+   
+   <menuitem name="Tour Hotel Reservation"  action="action_tour_hotel_room_reservation_form_view" sequence="10"
+			id="menu_tour_room_reservation_form"  parent="menu_hotel" />
+    
+    </data>
+</odoo>

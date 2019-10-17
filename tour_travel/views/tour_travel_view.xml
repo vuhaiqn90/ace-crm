@@ -1,0 +1,1365 @@
+<?xml version="1.0" ?>
+
+<odoo>
+    <data>
+
+        <!-- <menuitem name="Tours And Travel" id="menu_tour_travel" web_icon="images/tours.png" web_icon_hover="images/tours_hang.png"/> -->
+        <menuitem name="Tours And Travel" id="menu_tour_travel"/>
+
+        <menuitem name="Tour" id="menu_tour_booking" parent="menu_tour_travel" sequence="2"/>
+        <menuitem name="Configuration" id="tour_conf" parent="menu_tour_booking" sequence="1"/>
+        <menuitem name="Transport" id="menu_transport" parent="menu_tour_travel" sequence="3"/>
+
+        <!--
+       =========================================================
+               Tour Packages  Form View
+          =========================================================
+       -->
+        <record id="tour_package_type_form_view" model="ir.ui.view">
+            <field name="name">tour.package.type.form</field>
+            <field name="model">tour.package.type</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Packages">
+                    <group colspan="4" col="6">
+                        <field name="name" index="True"/>
+                        <field name="code"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <!--
+        =========================================================
+                    Tour Packages Tree View
+        =========================================================
+        -->
+        <record id="tour_packages_type_tree_view" model="ir.ui.view">
+            <field name="name">tour.package.type.tree</field>
+            <field name="model">tour.package.type</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Tour Packages" editable="top">
+                    <field name="name"/>
+                    <field name="code"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_tour_packages_tree_view">
+            <field name="name">Tour Package Type</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">tour.package.type</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem name="Package Types" action="action_tour_packages_tree_view" sequence="1"
+                  id="menu_tour_packages" parent="tour_conf"/>
+
+        <!--
+           =========================================================
+                   Tour Package info Form View
+              =========================================================
+           -->
+        <record id="tour_package_info_form_view" model="ir.ui.view">
+            <field name="name">tour.package.info.form</field>
+            <field name="model">tour.package.info</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Tour Packages">
+                    <group colspan="4" col="6">
+                        <field name="package_type_id"/>
+                        <field name="name"/>
+                    </group>
+                    <notebook colspan="6">
+                        <page string="Tour Information">
+                            <group col="7" colspan="3">
+                                <field name="tour_line_ids" nolabel="1"/>
+                            </group>
+                        </page>
+                    </notebook>
+
+                </form>
+            </field>
+        </record>
+
+        <!--
+         =========================================================
+                     Tour Packages Info Tree View
+         =========================================================
+         -->
+        <record id="tour_packages_info_tree_view" model="ir.ui.view">
+            <field name="name">tour.package.info.tree</field>
+            <field name="model">tour.package.info</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Tour Packages">
+                    <field name="package_type_id"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_tour_packages_info_form_view">
+            <field name="name">Tour Packages</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">tour.package.info</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem name="Tour Package" action="action_tour_packages_info_form_view" sequence="3"
+                  id="menu_tour_packages_info" parent="tour_conf"/>
+
+        <!--
+           =========================================================
+                   Tour Season  Form View
+              =========================================================
+           -->
+        <record id="tour_season_form_view" model="ir.ui.view">
+            <field name="name">tour.season.form</field>
+            <field name="model">tour.season</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Tour Seasons">
+                    <group colspan="4" col="6">
+                        <field name="name" index="True"/>
+                        <field name="code"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <!--
+        =========================================================
+                    Tour Season Tree View
+        =========================================================
+        -->
+        <record id="tour_season_tree_view" model="ir.ui.view">
+            <field name="name">tour.season.tree</field>
+            <field name="model">tour.season</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Tour Season" editable="top">
+                    <field name="name"/>
+                    <field name="code"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_tour_season_form_view">
+            <field name="name">Tour Season</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">tour.season</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem name="Tour Season" action="action_tour_season_form_view" sequence="3"
+                  id="menu_tour_season" parent="tour_conf"/>
+
+        <!--
+        =========================================================
+                    Tour Dates Tree View
+        =========================================================
+        -->
+
+        <record id="tour_dates_form_view123" model="ir.ui.view">
+            <field name="name">tour.dates.form.view</field>
+            <field name="model">tour.dates</field>
+            <field name="type">form</field>
+            <field name="priority">5</field>
+            <field name="arch" type="xml">
+                <form string="Tour Dates">
+                    <group colspan="2" col="4">
+                        <field name="name" invisible="1"/>
+                        <field name="season_id"/>
+                        <field name="start_date"/>
+                        <field name="book_date"/>
+                        <field name="due_date"/>
+                        <field name="total_seat"/>
+                        <field name="available_seat"/>
+                        <field name="adult_cost_price"/>
+                        <field name="child_cost_price"/>
+                        <field name="state"/>
+                    </group>
+                    <button string="Confirm" name="confirm_tour" states="draft" type="object"/>
+                    <button string="Close" name="open_tour" states="available" type="object"/>
+                    <button string="Re-Open" name="reopen_tour" states="closed" type="object"/>
+                </form>
+            </field>
+        </record>
+
+        <record id="tour_dates_tree_view" model="ir.ui.view">
+            <field name="name">tour.dates.tree</field>
+            <field name="model">tour.dates</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Tour Dates">
+                    <field name="name" invisible="1"/>
+                    <field name="season_id"/>
+                    <field name="start_date"/>
+                    <field name="book_date"/>
+                    <field name="due_date"/>
+                    <field name="total_seat"/>
+                    <field name="available_seat"/>
+                    <field name="adult_cost_price"/>
+                    <field name="child_cost_price"/>
+                    <field name="state"/>
+                    <button string="Confirm" name="confirm_tour" states="draft" type="object"/>
+                    <button string="Close" name="open_tour" states="available" type="object"/>
+                    <button string="Re-Open" name="reopen_tour" states="closed" type="object"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.actions.act_window" id="action_tour_dates_view">
+            <field name="name">Tour Dates</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">tour.dates</field>
+            <field name="view_mode">form,tree</field>
+            <field name="view_type">form</field>
+        </record>
+
+        <!--
+        =========================================================
+                Tour Programme Line tree view
+        =========================================================
+        -->
+        <record id="tour_programme_line_tree_view" model="ir.ui.view">
+            <field name="name">tour.programme.tree</field>
+            <field name="model">tour.programme</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Tour Programme" editable="bottom">
+                    <field name="name"/>
+                    <field name="description" />
+                    <field name="breakfast"/>
+                    <field name="lunch"/>
+                    <field name="dinner"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <!--
+        =========================================================
+                Tour Destination Form view
+        =========================================================
+        -->
+
+
+        <record id="tour_destination_form_view" model="ir.ui.view">
+            <field name="name">tour.destinations.form</field>
+            <field name="model">tour.destinations</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Tour Destinations">
+                    <group>
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="country_id"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <!--
+       =========================================================
+               Tour Destination Tree view
+       =========================================================
+       -->
+        <record id="tour_destination_tree_view" model="ir.ui.view">
+            <field name="name">tour.destinations.tree</field>
+            <field name="model">tour.destinations</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Tour Destinations" editable="bottom">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="country_id"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.actions.act_window" id="action_tour_destination_tree_view">
+            <field name="name">Tour Destinations</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">tour.destinations</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem name="Tour Destinations" action="action_tour_destination_tree_view" sequence="5"
+                  id="menu_tour_destination" parent="tour_conf"/>
+
+
+        <!--
+        =========================================================
+                Tour Facility Form view
+        =========================================================
+        -->
+
+
+        <record id="tour_facility_form_view" model="ir.ui.view">
+            <field name="name">tour.facility.form</field>
+            <field name="model">tour.facility</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Tour Facility">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="desc"/>
+                </form>
+            </field>
+        </record>
+
+        <!--
+       =========================================================
+               Tour Facility Tree view
+       =========================================================
+       -->
+        <record id="tour_facility_tree_view" model="ir.ui.view">
+            <field name="name">tour.facility.tree</field>
+            <field name="model">tour.facility</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Tour Facility" editable="bottom">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="desc"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_tour_facility_tree_view">
+            <field name="name">Tour Facilities</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">tour.facility</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem name="Tour Facilities" action="action_tour_facility_tree_view" sequence="6"
+                  id="menu_tour_facility" parent="tour_conf"/>
+
+
+        <!--
+            =========================================================
+                    Tour Deduction Policy Form view
+            =========================================================
+            -->
+
+
+        <record id="tour_deduction_policy_form_view" model="ir.ui.view">
+            <field name="name">tour.deduction.policy.form</field>
+            <field name="model">tour.deduction.policy</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Tour Deduction Policy">
+                    <field name="name"/>
+                    <field name="max_limit"/>
+                    <field name="deduction_percentage"/>
+                </form>
+            </field>
+        </record>
+
+        <!--
+       =========================================================
+               Tour Deduction Policy Tree view
+       =========================================================
+       -->
+        <record id="tour_deduction_policy_view" model="ir.ui.view">
+            <field name="name">tour.deduction.policy.tree</field>
+            <field name="model">tour.deduction.policy</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Tour Deduction Policy" editable="top">
+                    <field name="name"/>
+                    <field name="max_limit"/>
+                    <field name="deduction_percentage"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.actions.act_window" id="action_tour_deduction_policy_tree_view">
+            <field name="name">Tour Deduction Policy</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">tour.deduction.policy</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem name="Tour Deduction Policy" action="action_tour_deduction_policy_tree_view" sequence="8"
+                  id="menu_tour_deduction_policy" parent="tour_conf"/>
+
+
+        <!--
+        =========================================================
+                Tour Destination Line Form view
+        =========================================================
+        -->
+        <record id="tour_destination_line_form_view12" model="ir.ui.view">
+            <field name="name">tour.destination.line12.form</field>
+            <field name="model">tour.destination.line</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Tour Destinations Lines">
+                    <group colspan="4" col="6">
+                        <field name="destination_id"/>
+                        <field name="country_id"/>
+                        <field name="name"/>
+                        <field name="is_visa"/>
+                        <field name="visa_type"
+                               attrs="{'invisible': [('is_visa','!=',True)],'required': [('is_visa','!=',False)]}"/>
+                    </group>
+                    <separator colspan="6" string="Hotel Information"/>
+                    <group colspan="4" col="6">
+                        <field name="hotel_lines" nolabel="1">
+                            <tree string="Tour Destination Hotel Lines" editable="bottom">
+                                <field name="hotel_type_id" options="{'no_create': True,'no_quick_create':True,'no_open':True}" />
+                                 
+                                <!-- <field name="hotel_id" context="{'default_customer': 0, 'search_default_supplier': 1, 'default_supplier': 1,'default_is_hotel': 1, 'default_hotel_type_id': hotel_type_id}" domain="[('hotel_type_id', '=', hotel_type_id),('is_hotel','=',True),('supplier','=',True)]"/> -->
+                                <field name="hotel_id"
+                                       context="{'default_customer': False, 'search_default_supplier': True, 'default_supplier': True,'default_is_hotel': True, 'default_hotel_type_id': hotel_type_id}"
+                                       domain="[('hotel_type_id', '=', hotel_type_id),('is_hotel','=',True),('supplier','=',True)]" options="{'no_create': True,'no_quick_create':True,'no_open':True}"/>
+                                <field name="room_type_id" context="{'default_type': 'service'}"
+                                       domain="[('type','=','service')]" options="{'no_create': True,'no_quick_create':True,'no_open':True}"/>
+                                <field name="name" options="{'no_create': True,'no_quick_create':True,'no_open':True}"/>
+                            </tree>
+                        </field>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+        <!--
+        =========================================================
+                Tour Destination Line tree view
+        =========================================================
+        -->
+        <record id="tour_destination_line_tree_view" model="ir.ui.view">
+            <field name="name">tour.destination.line.tree</field>
+            <field name="model">tour.destination.line</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Tour Destinations Lines">
+                    <field name="destination_id"/>
+                    <field name="country_id"/>
+                    <field name="name"/>
+                    <field name="is_visa"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--
+        =========================================================
+                Tour Destination Hotel Line tree view
+        =========================================================
+        -->
+        <record id="tour_destination_hotel_line_tree_view" model="ir.ui.view">
+            <field name="name">tour.destination.hotel.line.tree</field>
+            <field name="model">tour.destination.hotel.line</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Tour Destinations Hotel Lines">
+                    <field name="hotel_type_id"/>
+                    <field name="hotel_type_id"/>
+                    <!-- <field name="hotel_id"
+                        context="{'default_customer': 0, 'search_default_supplier': 1, 'default_supplier': 1, 'default_hotel_type_id': hotel_type_id,'default_is_hotel': 1}"
+                        domain="[('hotel_type_id', '=', hotel_type_id),('is_hotel','=',True),('supplier','=',True)]"/> -->
+                    <field name="hotel_id"
+                           context="{'default_customer': False, 'search_default_supplier': True, 'default_supplier': True, 'default_hotel_type_id': hotel_type_id,'default_is_hotel': True}"
+                           domain="[('hotel_type_id', '=', hotel_type_id),('is_hotel','=',True),('supplier','=',True)]"/>
+                    <!-- <field name="room_type_id" domain="[('type','=','service'),('categ_id','=',4)]"/> -->
+
+                    <field name="room_type_id" domain="[('type','=','service')]"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="tour_destination_hotel_line_form_view" model="ir.ui.view">
+            <field name="name">tour.destination.hotel.line.form</field>
+            <field name="model">tour.destination.hotel.line</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Tour Destinations Hotel Lines">
+                    <field name="hotel_type_id"/>
+                    <field name="hotel_id"
+                           context="{'default_customer': False, 'search_default_supplier': True, 'default_supplier': True, 'default_hotel_type_id': hotel_type_id,'default_is_hotel': True}"
+                           domain="[('hotel_type_id', '=', hotel_type_id),('is_hotel','=',True),('supplier','=',True)]"/>
+                    <!-- <field name="hotel_id"
+                        context="{'default_customer': 0, 'search_default_supplier': 1, 'default_supplier': 1, 'default_hotel_type_id': hotel_type_id,default_is_hotel': 1,}"
+                        domain="[('hotel_type_id', '=', hotel_type_id),('is_hotel','=',True),('supplier','=',True)]"/> -->
+                    <field name="hotel_id"
+                           context="{'default_hotel_type_id': hotel_type_id}"
+                           domain="[('hotel_type_id', '=', hotel_type_id),('is_hotel','=',True),('supplier','=',True)]"/>
+                    <!-- <field name="room_type_id" domain="[('type','=','service'),('categ_id','=',4)]"/> -->
+                    <field name="room_type_id" domain="[('hotel_id','=','service')]"/>
+                    <field name="name"/>
+                </form>
+            </field>
+        </record>
+
+
+        <!--
+        =========================================================
+                Tour Cost Included Facility Line tree view
+        =========================================================
+        -->
+        <record id="tour_cost_include_line_tree_view" model="ir.ui.view">
+            <field name="name">tour.cost.include.facility.tree</field>
+            <field name="model">tour.cost.include.facility</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Tour Cost Include Facility Lines" editable="bottom">
+                    <field name="facility_id"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--
+        =========================================================
+                Tour Cost Excluded Facility Line tree view
+        =========================================================
+        -->
+        <record id="tour_cost_exclude_line_tree_view" model="ir.ui.view">
+            <field name="name">tour.cost.exclude.facility.tree</field>
+            <field name="model">tour.cost.exclude.facility</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Tour Cost exclude Facility Lines" editable="bottom">
+                    <field name="facility_id"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <!--
+        =========================================================
+                Tour Road Travel tree view
+        =========================================================
+        -->
+        <record id="tour_road_travel_form_view" model="ir.ui.view">
+            <field name="name">tour.road.travel.form</field>
+            <field name="model">tour.road.travel</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Tour Travel Road">
+                    <group col="4" colspan="4">
+                        <field name="from_destination_id"/>
+                        <field name="to_destination_id"/>
+                        <field name="transport_type_id" context="{'default_type': 'service'}"
+                               domain="[('type','=','service'),('categ_id','=','Transport Service Type')]"/>
+                        <field name="travel_class_id" context="{'default_transport_type_id': transport_type_id }"
+                               domain="[('transport_type_id', '=', transport_type_id)]"/>
+                        <field name="name"/>
+                        <field name="approx_time"/>
+                    </group>
+                    <group col="4" colspan="4">
+                        <notebook colspan="6">
+                            <page string="Provider Information">
+                                <group col="4" colspan="4">
+                                    <field name="provider_ids" nolabel="1"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="tour_road_travel_tree_view" model="ir.ui.view">
+            <field name="name">tour.road.travel.tree</field>
+            <field name="model">tour.road.travel</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Tour Road Travel">
+                    <field name="from_destination_id"/>
+                    <field name="to_destination_id"/>
+                    <!-- <field name="transport_type_id" context="{'default_type': 'service', 'default_categ_id': 5}" domain="[('type','=','service'),('categ_id','=',5)]"/> -->
+                    <field name="transport_type_id" context="{'default_type': 'service'}"
+                           domain="[('type','=','service')]"/>
+                    <field name="travel_class_id" context="{'default_transport_type_id': transport_type_id }"
+                           domain="[('transport_type_id', '=', transport_type_id)]"/>
+                    <field name="name"/>
+                    <field name="approx_time"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <!--
+        =========================================================
+                Transport Provider Information tree view
+        =========================================================
+        -->
+        <record id="transport_provider_tree_view" model="ir.ui.view">
+            <field name="name">provider.information.line.tree</field>
+            <field name="model">provider.information.line</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Provider Information" editable="top">
+                    <field name="provider_id"/>
+                    <field name="transport_carrier_id"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--
+        =========================================================
+                Tour Insurance Line tree view
+        =========================================================
+        -->
+        <record id="tour_insurance_line_tree_view" model="ir.ui.view">
+            <field name="name">tour.insurance.line.tree</field>
+            <field name="model">tour.insurance.line</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Insurance Service" editable="bottom">
+                    <field name="insurance_policy_id"/>
+                    <field name="name"/>
+                    <field name="child_coverage1"/>
+                    <field name="insurance_cost"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--
+       =========================================================
+               Tour Payment Policy Configuration
+          =========================================================
+       -->
+        <record id="tour_payment_ploicy_form_view" model="ir.ui.view">
+            <field name="name">tour.payment.policy.form</field>
+            <field name="model">tour.payment.policy</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Tour Payment Policy">
+                    <group colspan="4" col="6">
+                        <field name="name" index="True"/>
+                        <field name="before_book_date_perc" index="True"/>
+                        <field name="before_pay_date_perc" readonly="1"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <!--
+        =========================================================
+                    Tour and Travel Management
+        =========================================================
+        -->
+
+
+        <record id="tour_payment_ploicy_tree_view" model="ir.ui.view">
+            <field name="name">tour.payment.policy.tree</field>
+            <field name="model">tour.payment.policy</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Tour Payment Policy" editable="top">
+                    <field name="name"/>
+                    <field name="before_book_date_perc"/>
+                    <field name="before_pay_date_perc" readonly="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_tour_payment_policy_tree_view">
+            <field name="name">Payment Policy</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">tour.payment.policy</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem name="Payment Policy" action="action_tour_payment_policy_tree_view" sequence="7"
+                  id="menu_tour_payment_policy" parent="tour_conf"/>
+
+        <record id="hotel_room_line_form_view" model="ir.ui.view">
+            <field name="name">room.line.form</field>
+            <field name="model">room.line</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Room Line Form">
+                    <group colspan="4" col="6">
+                        <field name="name" index="True"/>
+                        <field name="room_type_id" index="True" domain="[('hotel_id', '=', parent.hotel_id)]"/>
+                        <field name="room_cost" index="True"/>
+                        <field name="available_rooms"/>
+                        <field name="days_required"/>
+                        <field name="required_rooms" index="True"/>
+                        <field name="total_price" index="True"/>
+                        <field name="state"/>
+                        <button string="Check Available" name="check_availability" states="draft" type="object"/>
+                    </group>
+
+                </form>
+            </field>
+        </record>
+
+        <!--
+        =========================================================
+                    Hotel Room Line tree view
+        =========================================================
+        -->
+        <record id="hotel_room_line_tree_view" model="ir.ui.view">
+            <field name="name">room.line.book.tree</field>
+            <field name="model">room.line</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Room Line" editable="bottom">
+                    <field name="room_type_id" domain="[('hotel_id', '=', parent.hotel_id)]"/>
+                    <field name="name" string="Description"/>
+                    <field name="available_rooms"/>
+                    <field name="days_required"/>
+                    <field name="required_rooms"/>
+                    <field name="room_cost"/>
+                    <field name="total_price" sum="total_price"/>
+                    <field name="state"/>
+                    <button string="Book" name="check_availability" states="draft" type="object"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--
+            =========================================================
+                    Tour Hotel Customer Booking Line tree view
+            =========================================================
+            -->
+        <record id="tour_hotel_customer_line_tree_view" model="ir.ui.view">
+            <field name="name">tour.hotel.customer.book.tree</field>
+            <field name="model">tour.hotel.customer.book</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Tour Hotel Customer Booking" editable="bottom">
+                    <field name="partner_id"/>
+                    <field name="name"/>
+                    <field name="childs"/>
+                    <field name="state"/>
+                    <button string="Request To Book" name="button_request" type="object" states="draft"/>
+                    <button string="Confirm" name="button_confirm" type="object" states="wait"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--
+           =========================================================
+                  Tour Hotel Info Line Form View
+              =========================================================
+           -->
+        <record id="tour_hotel_info_line_form_view" model="ir.ui.view">
+            <field name="name">tour.hotel.info.form</field>
+            <field name="model">tour.hotel.info</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Hotel Information" version="7.0">
+                    <header>
+                        <field name="state"/>
+                        <button string="Confirm" name="confirm" states="draft" type="object"/>
+                    </header>
+                    <group colspan="4" col="6">
+                        <field name="hotel_id" index="True"/>
+                        <field name="name" index="True"/>
+                    </group>
+                    <notebook colspan="6">
+                        <page string="Customer Booking Information">
+                            <group col="7" colspan="3">
+                                <field name="hotel_customer_booking_lines" nolabel="1"/>
+                            </group>
+                        </page>
+                        <page string="Attachments">
+                            <group col="7" colspan="3">
+                                <field name="attachment_ids" nolabel="1"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+
+        <!--
+        =========================================================
+                Tour Hotel Line tree view
+        =========================================================
+        -->
+        <record id="tour_hotel_information_tree_view" model="ir.ui.view">
+            <field name="name">tour.hotel.info.tree</field>
+            <field name="model">tour.hotel.info</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Tour Hotel Information">
+                    <field name="hotel_id"/>
+                    <field name="name"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--
+
+       =========================================================
+              New Tour  Form View
+          =========================================================
+       -->
+        <record id="tour_book_form_view1" model="ir.ui.view">
+            <field name="name">tour.package.form</field>
+            <field name="model">tour.package</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="New_Tour" version="7.0">
+                    <header>
+                        <button string="Confirm" name="button_confirm" type="object" states="draft"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirm"/>
+                    </header>
+
+                    <group colspan="4" col="4">
+                        <!--           				<field name="code" />-->
+                        <!-- <field name="product_id"
+                            context="{'default_type': 'service', 'default_categ_id': 3,'default_is_tour': 1}"
+                            domain="[('type','=','service'),('is_tour','=',True),('categ_id','=',3)]" index="True"/> -->
+                        <field name="product_id"
+                               context="{'default_type': 'service','default_is_tour': True}"
+                               domain="[('type','=','service'),('is_tour','=',True)]" index="True"/>
+                        <field name="tour_type" index="True"/>
+                       
+                       
+                        <field name="current_date"/>
+                        <field name="days"/>
+
+                        <field name="tour_category" invisible="1" index="True"/>
+                        <field name="company" invisible="1"/>
+                        <field name="website" invisible="1"/>
+                        <field name="user_name" invisible="1"/>
+                         <field name="name1" invisible="1"/>
+                    </group>
+                    <separator colspan="6" string="Introduction"/>
+                    <field name="tour_intro" style="text-align:justify;" nolabel="1"/>
+                    <separator colspan="6" string="Other Information"/>
+                    <notebook colspan="8">
+                        <page string="Tour Dates">
+                            <group col="7" colspan="3">
+                                <field name="tour_date_lines" nolabel="1"/>
+                            </group>
+                        </page>
+                        <page string="Tour Programme">
+                            <group col="8" colspan="3">
+                                <field name="tour_programme_lines" nolabel="1"/>
+                            </group>
+                        </page>
+                        <page string="Destinations">
+                            <group col="8" colspan="3">
+                                <field name="tour_destination_lines" nolabel="1"
+                                       attrs="{'readonly':[('state','!=','draft')]}"/>
+                            </group>
+                        </page>
+                        <page string="Cost Include">
+                            <group col="8" colspan="3">
+                                <field name="tour_cost_include_facility_lines" nolabel="1"/>
+                            </group>
+                        </page>
+                        <page string="Cost Exclude">
+                            <group col="8" colspan="3">
+                                <field name="tour_cost_exclude_facility_lines" nolabel="1"/>
+                            </group>
+                        </page>
+                        <page string="Travel Details">
+                            <group col="8" colspan="3">
+                                <field name="tour_road_travel_lines" nolabel="1"/>
+                            </group>
+                        </page>
+                        <page string="Hotel Information">
+                            <group col="8" colspan="3">
+                                <field name="tour_hotel_info_lines" nolabel="1" readonly="1"/>
+                            </group>
+                        </page>
+                        <page string="Booking History">
+                            <field name="tour_booking_customer_ids" nolabel="1"/>
+                        </page>
+                        <page string="Addon Services">
+                            <field name="product_line_id" attrs="{'readonly':[('state','!=','draft')]}"/>
+                        </page>
+                    </notebook>
+
+                    <group class="oe_subtotal_footer oe_right" colspan="2" name="sale_total">
+                        <!-- <field name="subtotal" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                        <field name="tax_amt" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                        <div class="oe_subtotal_footer_separator oe_inline">
+                            <label for="total_amt" />
+                            <button name="button_dummy"
+                                states="draft,sent" string="(update)" type="object" class="oe_edit_only oe_link"/>
+                        </div>
+                        <field name="total_amt" nolabel="1" class="oe_subtotal_footer_separator" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+-->                      </group>
+
+                </form>
+            </field>
+        </record>
+
+        <!--
+        =====================================================================
+                    Tour Booking Tree View
+        ======================================================================
+        -->
+        <record id="tour_book_tree_views" model="ir.ui.view">
+            <field name="name">tour.package.new_tree1</field>
+            <field name="model">tour.package</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Tour">
+                    <field name="name1"/>
+                    <field name="tour_type"/>
+                    <field name="current_date"/>
+                    <field name="days"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="action_tour_package_form_view">
+            <field name="name">New Tour</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">tour.package</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="New Tour Creation" action="action_tour_package_form_view" sequence="2"
+                  id="menu_tour_package" parent="menu_tour_booking"/>
+
+
+        <!--
+            =========================================================
+                    Tour Booking Form View
+               =========================================================
+            -->
+
+
+
+
+
+
+
+        <record id="tour_booking_form_view21" model="ir.ui.view">
+            <field name="name">tour.booking.form1</field>
+            <field name="model">tour.booking</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Tour Booking">
+                    <header>
+                        <button string="Confirm" name="check_availability" states="draft" type="object"
+                                groups="tour_travel.group_tour_manager"/>
+                        <button string="Cancel" name="tour_cancel" states="draft" type="object"/>
+                        <button string="Create Quotation" name="create_order" states="confirm" type="object"/>
+                        <button string="Book Seat" name="confirm_booking" states="in_process" type="object"/>
+                        <button string="Check Payment" name="check_payment" states="booked" type="object"/>
+                        <button string="Done" name="action_done" states="invoiced" type="object"/>
+                        <field name="state" widget="statusbar"
+                               statusbar_visible="draft,confirm,in_process,booked,invoiced,done"/>
+                    </header>
+                     <div class="oe_button_box" name="button_box">
+
+                     <button class="oe_stat_button" name="call_so_from_booking"
+                        type="object" icon="fa-usd">
+                         <field string="Sales" name="sale_order_count" widget="statinfo"/>
+                    </button>
+                    <!--<button class="oe_stat_button" name="%(sale.action_quotations_with_onboarding)d"
+                        type="action" icon="fa-usd">
+                         <field string="Sales" name="sale_order_count" widget="statinfo"/>
+                    </button>-->
+                </div>
+                    
+                    <group>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" index="True"/>
+                            </h1>
+                        </div>
+                    </group>
+                    <!--					<separator></separator>-->
+                    <group colspan="4" col="4">
+                    <label for="customer_id" string="Customer"/>
+                            <div class="o_address_format">
+                             <field name="customer_id"
+                               context="{'default_customer': True,  'default_supplier': False, 'default_is_hotel': False}"
+                               domain="[('customer','=',True),('supplier','=',False),('is_hotel','=',False)]"  />
+                                <br/>
+                             <field name="email_id"   nolabel="1"/><br/>
+                              <field name="mobile1"  nolabel="1" />
+                            </div>
+                        <field name="current_date"/>
+                        <!-- <field name="customer_id" context="{'default_customer': 1,  'default_supplier': 0, 'default_is_hotel': 0}" domain="[('customer','=',True),('supplier','=',False),('is_hotel','=',False)]"/> -->
+                        <field name="adult"/>
+                        <field name="child"/>
+                        <field name="via"/>
+                        <field name="agent_id" context="{'default_agent': 1}" domain="[('agent','=',True)]"
+                               attrs="{'invisible': [('via','=','direct')],'required': [('via','!=','direct')]}"/>
+                        <field name="pricelist_id" required="1"/>
+                    </group>
+                    <separator colspan="6" string="Tour Information"/>
+                    <group colspan="4" col="6">
+                        <field name="tour_type"/>
+                        <field name="season_id"/>
+                        <field name="tour_id" domain="[('tour_type','=',tour_type)]"/>
+                        <field name="tour_dates_id" domain="[('tour_id','=',tour_id),('season_id','=',season_id),('state','=','available')],"
+                               options="{'no_create_edit': True}"/>
+                        <field name="payment_policy_id"/>
+                        <field name="commission_compute" invisible="1"/>
+                    </group>
+                    <notebook colspan="6">
+                        <page string="Tour Customers">
+                            <group col="7" colspan="3">
+                                <field name="tour_customer_ids" nolabel="1">
+                                    <tree string="Tour Customer Details" editable="bottom">
+                                        <!-- <field name="partner_id" context="{'default_customer': 1,  'default_supplier': 0, 'default_is_hotel': 0}" domain="[('customer','=',True),('supplier','=',False),('is_hotel','=',False)]"/> -->
+                                        <field name="partner_id"
+                                               context="{'default_customer': True,  'default_supplier': False, 'default_is_hotel': False}"
+                                               domain="[('customer','=',True),('supplier','=',False),('is_hotel','=',False)]"/>
+                                        <field name="name"/>
+                                        <field name="gender"/>
+                                        <field name="type"/>
+                                        <field name="h_flag" readonly="1"/>
+                                        <field name="t_flag" readonly="1"/>
+                                        <field name="i_flag"/>
+                                        <field name="v_flag" readonly="1"/>
+                                        <field name="p_flag"/>
+                                        <field name="state" readonly="1"/>
+                                    </tree>
+                                </field>
+                            </group>
+                        </page>
+                        <page string="Addon Services">
+                            <group col="7" colspan="3">
+                                <field name="product_line_ids" nolabel="1"/>
+                            </group>
+                        </page>
+                        <page string="Services">
+                            <group col="7" colspan="3">
+                                <field name="insurance_line_ids" nolabel="1"/>
+                            </group>
+                        </page>
+                        <page string="History">
+                            <group col="7" colspan="3">
+                                <field name="tour_sale_order_ids" nolabel="1"/>
+                            </group>
+                            <group col="7" colspan="3">
+                                <field name="tour_booking_invoice_ids" nolabel="1"/>
+                            </group>
+                        </page>
+                    </notebook>
+                    <group class="oe_subtotal_footer oe_right" colspan="2" name="sale_total">
+                        <field name="subtotal" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                        <field name="tax_amt" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                        <field name="total_insurance_amt" readonly="1"/>
+                        <div class="oe_subtotal_footer_separator oe_inline">
+                            <label for="total_amt"/>
+                        </div>
+                        <field name="total_amt" readonly="1" nolabel="1" class="oe_subtotal_footer_separator"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <!--
+        =========================================================
+                    Tour Booking tree view
+        =========================================================
+        -->
+        <record id="tour_booking_tree_view" model="ir.ui.view">
+            <field name="name">tour.booking.tree</field>
+            <field name="model">tour.booking</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Tour Booking">
+                    <field name="name"/>
+                    <field name="customer_id"/>
+                    <field name="current_date"/>
+                    <field name="adult"/>
+                    <field name="child"/>
+                    <field name="email_id"/>
+                    <field name="mobile1"/>
+                    <field name="tour_type"/>
+                    <field name="tour_id"/>
+                    <field name="tour_dates_id"/>
+                    <field name="total_amt"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_tour_booking_form_view">
+            <field name="name">Tour Booking</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">tour.booking</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Tour Booking" action="action_tour_booking_form_view" sequence="3"
+                  id="menu_tour_booking_form" parent="menu_tour_booking"/>
+
+
+        <record model="ir.ui.view" id="sale_order_inherit_form_tour_book">
+            <field name="name">sale.order.inherit.tour_book</field>
+            <field name="type">form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <br></br>
+                    <field name="tour_book_id"/>
+                </field>
+                <field name="pricelist_id" position="after">
+                    <field name="tour_id"/>
+                </field>
+
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="partner_for_inherit_form_tour_history">
+            <field name="name">res.partner.inherit.tour_history</field>
+            <field name="type">form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <page name='internal_notes' position="after">
+                    <page string="Tour History">
+                        <field name="tour_partner_history_ids" nolabel="1"/>
+                    </page>
+                    <page string="Email List">
+                        <field name="email_list_ids" nolabel="1"/>
+                    </page>
+                </page>
+            </field>
+        </record>
+
+        <!--
+            =========================================================
+                        Agent Commission Line view
+            =========================================================
+            -->
+        <record id="agent_commission_tree_view" model="ir.ui.view">
+            <field name="name">agent.commission.line.tree</field>
+            <field name="model">agent.commission.line</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Agent Commission Line" editable="bottom">
+                    <field name="tour_id"/>
+                    <field name="name" invisible="1"/>
+                    <field name="percentage"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="partner_form_inherit_is_agent">
+            <field name="name">res.partner.inherit.agent</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page[@name='sales_purchases']/group/group/field[@name='supplier']"
+                       position="after">
+                    <field name="agent"/>
+                    <field name="is_hotel"/>
+                    <field name="hotel_type_id" attrs="{'invisible': [('is_hotel','=',False)]}"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="partner_form_inherit_agent_commission">
+            <field name="name">res.partner.inherit.agent_commission</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <page name="sales_purchases" position="after">
+                    <page string="Commission" attrs="{'invisible': [('agent','=',False)]}">
+                        <field name="commission_line_ids" nolabel="1"/>
+                    </page>
+                </page>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="product_form_inherit_is_tour12">
+            <field name="name">product.product.inherit.tour</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+                <label for="sale_ok" position="after">
+                    <field name="is_tour"/>
+                    <label for="is_tour"/>
+                </label>
+            </field>
+        </record>
+
+        <!-- CRM Lead Inherited Fields	-->
+
+        <record model="ir.ui.view" id="crm_case_form_view_leads_inherit_tour">
+            <field name="name">crm_case_form_view_leads.inherit.tour</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_case_form_view_leads"/>
+            <field name="arch" type="xml">
+                <field name="name" required="1" position="before">
+                    <field name="lead_sequence"/>
+                </field>
+                <field name="type" invisible="1" position="after">
+                    <newline/>
+                    <field name="via"/>
+                    <field name="agent_id" domain="[('agent','=',True)]"
+                           attrs="{'invisible': [('via','!=','agent')],'required': [('via','=','agent')]}"/>
+                </field>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="crm_case_form_view_oppor_inherit_tour">
+            <field name="name">crm.case.form.view.oppor.inherit.tour</field>
+            <field name="type">form</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_case_form_view_oppor"/>
+            <field name="arch" type="xml">
+                <field name="priority" position="after">
+                    <field name="via"/>
+                    <!-- <field name="agent_id" context="{'default_agent': 1}" domain="[('agent','=',True)]" attrs="{'invisible': [('via','=','direct')],'required': [('via','!=','direct')]}"/> -->
+                    <field name="agent_id" context="{'default_agent': True}" domain="[('agent','=',True)]"
+                           attrs="{'invisible': [('via','=','direct')],'required': [('via','!=','direct')]}"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="product.product_supplierinfo_form_view" model="ir.ui.view">
+            <field name="name">product.supplierinfo.form.view</field>
+            <field name="model">product.supplierinfo</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Supplier Information">
+                    <group>
+                        <field name="name"/>
+                        <field name="sequence"/>
+                        <field name="product_name" groups="base.group_extended"/>
+                        <field name="product_code" groups="base.group_extended"/>
+                        <field name="min_qty"/>
+                        <field name="product_uom"/>
+                        <field name="delay"/>
+                        <field name="company_id" groups="base.group_multi_company" widget="selection"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <!--  code by resham   -->
+
+        <record id="carrier_type_form_view" model="ir.ui.view">
+            <field name="name">carrier.type.form</field>
+            <field name="model">carrier.type</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Carrier Type">
+                    <group colspan="2" col="4">
+                        <field name="name"/>
+                        <field name="description"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="carrier_type_tree_view" model="ir.ui.view">
+            <field name="name">carrier.type.tree</field>
+            <field name="model">carrier.type</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Carrier Type">
+                    <field name="name"/>
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_tour_carrier_type_form_view">
+            <field name="name">Carrier Type</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">carrier.type</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="view_tour_package_products_line_tree" model="ir.ui.view">
+            <field name="name">view.tour.package.products.line.tree</field>
+            <field name="model">tour.package.products.line</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Products">
+                    <field name="name"/>
+                    <field name="qty"/>
+                    <field name="price_unit"/>
+                    <field name="tax_id" widget="many2many_tags" domain="[('type_tax_use','&lt;&gt;','purchase')]"/>
+                    <field name="price_subtotal"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="view_tour_package_products_line_form" model="ir.ui.view">
+            <field name="name">view.tour.package.products.line.form</field>
+            <field name="model">tour.package.products.line</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Products">
+                    <header name="state">
+                    </header>
+                    <group col="2" colspan="2">
+                        <field name="product_id"/>
+                        <field name="name"/>
+                        <field name="qty"/>
+                        <field name="price_unit"/>
+                        <field name="tax_id" widget="many2many_tags" domain="[('type_tax_use','&lt;&gt;','purchase')]"/>
+                        <field name="price_subtotal"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="accout_invoice_inherited_form">
+            <field name="name">accout.invoice.inherited.form</field>
+            <field name="type">form</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+            <field name="arch" type="xml">
+                <field name="fiscal_position_id" position="after">
+                    <field name="tour_product_id"/>
+                </field>
+            </field>
+        </record>
+
+
+        <record id="email_type_form_view" model="ir.ui.view">
+            <field name="name">email.list.type.form</field>
+            <field name="model">email.list</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Email List">
+                    <group colspan="4" col="6">
+                        <field name="name" index="True"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <!--
+        =========================================================
+                    Tour Packages Tree View
+        =========================================================
+        -->
+        <record id="email_type_tree_view" model="ir.ui.view">
+            <field name="name">email.list.tree</field>
+            <field name="model">email.list</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Email List">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_email_tree_view">
+            <field name="name">Email List</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">email.list</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Email List" action="action_email_tree_view" sequence="1" id="menu_email_list"
+                  parent="sale.menu_sale_config"/>
+
+    </data>
+</odoo>

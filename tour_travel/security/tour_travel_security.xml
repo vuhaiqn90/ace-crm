@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="0">
+        <record id="group_tour_manager" model="res.groups">
+        <field name="name">Tour Management / Manager</field>
+    </record>
+    <record id="group_tour_user" model="res.groups">
+        <field name="name">Tour Management / User</field>
+    </record>
+	
+	 <!-- Multi - Company Rules -->
+	
+	<!--<record model="ir.rule" id="hotel_room_comp_rule">
+        <field name="name">Hotel Room multi-company</field>
+        <field name="model_id" ref="model_hotel_room"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+    </record>-->
+		
+    </data>
+</openerp>

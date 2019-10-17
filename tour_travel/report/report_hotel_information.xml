@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<template id="report_hotel_information_document">
+			<t t-call="web.external_layout">
+				<t t-set="doc"  t-value="doc.with_context({'lang':doc.customer_id.lang})"/>
+					<div class="page">
+						<div class="oe_structure"/>
+						<div margin-left="50px">
+							<div >
+								<h3 class="text-center" margin=" 140px 0px 70px">
+									<strong>Hotel Accomodation Details</strong>
+								</h3>
+							</div>
+						</div>
+						<br/>
+						<br/>
+						<br/>
+						<div  id="informations">
+                          <div>
+                            	<table >
+                                <tbody class="sale_tbody">
+                                	
+                                	<tr>
+                                            <td width="10%" height="30">
+                                                <strong>Booking ID:</strong>
+                                            </td >
+                                            
+                                            <td width="5%" class="text-left">
+                                            	<span t-field="doc.name"/>
+                                            </td>
+                                            
+                                            <td width="10%">
+                                            </td>
+                                            
+                                            <td width="10%" height="30">
+                                               <strong>Customer:</strong>
+                                            </td>
+                                            
+                                            <td width="10%" class="text-left">
+                                            	
+                                            	<span t-field="doc.customer_id.name" />
+                                            </td>
+                                      </tr>
+                                	
+                                	<tr>
+                                            <td width="10%" height="30">
+                                                <strong>Email-ID:</strong>
+                                            </td >
+                                            
+                                            <td width="5%" class="text-left">
+                                            	<span t-field="doc.email_id"/>
+                                            </td>
+                                            
+                                            <td width="10%">
+                                            </td>
+                                            
+                                            <td width="10%" height="30">
+                                               <strong>Mobile:</strong>
+                                            </td>
+                                            
+                                            <td width="10%" class="text-left">
+                                            	
+                                            	<span t-field="doc.mobile" />
+                                            </td>
+                                      </tr>
+                                	
+                                	<tr>
+                                            <td width="10%" height="30">
+                                                <strong>Destination:</strong>
+                                            </td >
+                                            
+                                            <td width="5%" class="text-left">
+                                            	<span t-field="doc.destination_id.name"/>
+                                            </td>
+                                            
+                                            <td width="10%">
+                                            </td>
+                                            
+                                            <td width="10%" height="30">
+                                               <strong>From Date:</strong>
+                                            </td>
+                                            
+                                            <td width="20%" class="text-left">
+                                            	<!-- <span t-field="doc.checkin_date"/> -->
+                                            	<span t-esc="doc.get_partner_lang_date(doc.checkin_date,doc.customer_id.lang)"/>
+                                            </td>
+                                      </tr>
+                                   
+                                      <tr>
+                                            <td width="10%" height="30" >
+                                                <strong>Hotel Name:</strong>
+                                            </td >
+                                            
+                                            <td width="5%" class="text-left">
+                                            	<span t-field="doc.hotel_id.name"/>
+                                            </td>
+                                            
+                                            <td width="10%">
+                                            </td>
+                                            
+                                            <td width="10%" height="30">
+                                               <strong>To Date:</strong>
+                                            </td>
+                                            
+                                            <td width="20%" class="text-left">
+                                            	<!-- <span t-field="doc.checkout_date"/> -->
+                                            	<span t-esc="doc.get_partner_lang_date(doc.checkout_date,doc.customer_id.lang)"/>
+                                            </td>
+                                      </tr>
+                                </tbody>
+                               	</table>
+                               	</div>
+                         		</div>
+                         	<br/>
+                         	<br/>
+                         	<div>
+									<strong>Tour Information </strong>
+							</div>
+							<br/>
+						
+                         	<table class="table table-condensed">
+								<thead>
+								<tr>
+									<th >Tour Booking Ref </th>
+									<th >Tour</th>
+									<th >Tour Start Date  </th>
+									<th >Destination</th>
+								</tr>
+								</thead>
+								
+								<tbody class="sale_tbody">
+									<tr>
+										<td>
+											<span t-field="doc.tour_book_id"/>
+										</td>
+										<td>
+											<span t-field="doc.tour_id"/>
+										</td>
+										<td>
+											<span t-field="doc.tour_start_date"/>
+										</td>
+										<td>
+											<span t-field="doc.destination_id.name"/>
+										</td>
+
+									</tr>
+							</tbody>
+							</table>
+                         	<br/>
+                      
+                             <div>
+									<strong>Customer details </strong>
+							</div>	
+							<br/>
+							<table class="table table-condensed">
+							<thead>
+								<tr>
+									<th width="10%">Name</th>
+									<th width="10%">Age</th>
+									<th width="10%">Gender</th>
+									<th width="10%">Adult/ Child</th>
+									<th width="10%" class="text-center">Room Type / Room No</th>
+								</tr>
+							</thead>
+							<tbody class="sale_tbody">
+								<t t-foreach="doc.tour_customer_ids" t-as="l">
+									<tr>
+										<td width="10%">
+											<span t-field="l.partner_id.name"/>
+										</td>
+										<td width="10%">
+											<span t-field="l.name"/>
+										</td>
+										<td width="10%">
+											<span t-field="l.gender"/>
+										</td>
+										<td width="10%">
+											<span t-field="l.type"/>
+										</td>
+										<td width="10%" class="text-center">
+											<span t-field="l.room_no"/>
+										</td>
+
+									</tr>
+								</t>
+							</tbody>													
+							</table>
+					</div>
+
+			</t>
+		</template>
+		<template id="report_hotel_information">
+			<t t-call="web.html_container">
+				<t t-foreach="docs" t-as="doc">
+					<t t-call="tour_travel.report_hotel_information_document" t-lang="doc.customer_id.lang"/>
+				</t>
+			</t>
+		</template>
+
+	</data>
+</odoo>
+

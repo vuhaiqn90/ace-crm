@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        				
+			<!--  Service Document   -->
+			
+			<record id="list80" model="document.management">
+	            <field name="name">Birth Certificate</field>
+	            <field name="description">Birth Certificate</field>
+	        </record>
+	        <record id="list81" model="document.management">
+	            <field name="name">Election Card</field>
+	            <field name="description">Election Card</field>
+	        </record>
+	        <record id="list82" model="document.management">
+	            <field name="name">Address Proof</field>
+	            <field name="description">Address Proof</field>
+	        </record>
+	        <record id="list83" model="document.management">
+	            <field name="name">Driving License</field>
+	            <field name="description">Driving License</field>
+	        </record>
+	        
+			<!--	 Service Schemes      -->
+			
+			<record id="list90" model="service.scheme">
+	            <field name="name">Urgency Quota</field>
+	            <field name="duration">15</field>
+	            <field name="service_cost">3000</field>
+	        </record>
+	        
+	        <record id="list91" model="service.scheme">
+	            <field name="name">Regular</field>
+	            <field name="duration">45</field>
+	            <field name="service_cost">1000</field>
+	        </record>
+		
+		<!--	 Visa Schemes      -->
+		
+		<record id="visa_1" model="visa.scheme">
+	            <field name="name">Tourist Visa(Single Entry)</field>
+	            <field name="duration">15</field>
+				<field name="cost_price">500</field>
+	            <field name="service_cost">1000</field>
+	        </record>
+	        
+	        <record id="visa_2" model="visa.scheme">
+	            <field name="name">Tourist Visa(Multiple Entry)</field>
+	            <field name="duration">15</field>
+				<field name="cost_price">2000</field>
+	            <field name="service_cost">3000</field>
+	        </record>
+	        
+		       
+    </data>
+</odoo>
+

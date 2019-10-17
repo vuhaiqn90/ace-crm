@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+			<record id="product_uom_unit_new" model="uom.category">
+				<field name="category_id" ref="uom.product_uom_categ_unit"/>
+				<field name="name">Nos</field>
+				<field name="factor" eval="1.0"/>
+				<field name="rounding" eval="1.0"/>
+			</record>
+		
+			<!-- Product Category -->
+			<record id="product_cat_in1" model="product.category">
+				<field name="name">Tour Services</field>
+			</record>
+			<record id="product_cat_in2" model="product.category">
+				<field name="name">Room Types</field>
+			</record>
+			<record id="product_cat_in3" model="product.category">
+				<field name="name">Transport Service Type</field>
+			</record>
+			<record id="product_cat_in4" model="product.category">
+				<field name="name">Visa Services</field>
+			</record>
+			<record id="product_cat_in5" model="product.category">
+				<field name="name">Passport Services</field>
+			</record>
+			<record id="product_cat_in6" model="product.category">
+				<field name="name">Sites</field>
+			</record>
+		
+		<!--    Product		-->
+		
+			<record id="product_product_transport_type1" model="product.product">
+				<field name="list_price">1</field>
+				<field name="standard_price">1</field>
+				<field name="uom_id" ref="product_uom_unit_new"/>
+				<field name="uom_po_id" ref="product_uom_unit_new"/>
+				<field name="type">service</field>
+				<field name="name">Flight</field>
+				<field name="categ_id" ref="product_cat_in3"/>
+			</record>
+			<record id="product_product_transport_type2" model="product.product">
+				<field name="list_price">1</field>
+				<field name="standard_price">1</field>
+				<field name="uom_id" ref="product_uom_unit_new"/>
+				<field name="uom_po_id" ref="product_uom_unit_new"/>
+				<field name="type">service</field>
+				<field name="name">Train</field>
+				<field name="categ_id" ref="product_cat_in3"/>
+			</record>
+			<record id="product_product_transport_type3" model="product.product">
+				<field name="list_price">1</field>
+				<field name="standard_price">1</field>
+				<field name="uom_id" ref="product_uom_unit_new"/>
+				<field name="uom_po_id" ref="product_uom_unit_new"/>
+				<field name="type">service</field>
+				<field name="name">Bus</field>
+				<field name="categ_id" ref="product_cat_in3"/>
+			</record>
+			<record id="product_product_transport_type4" model="product.product">
+				<field name="list_price">1</field>
+				<field name="standard_price">1</field>
+				<field name="uom_id" ref="product_uom_unit_new"/>
+				<field name="uom_po_id" ref="product_uom_unit_new"/>
+				<field name="type">service</field>
+				<field name="name">Ship</field>
+				<field name="categ_id" ref="product_cat_in3"/>
+			</record>
+			<record id="product_product_transport_type5" model="product.product">
+				<field name="list_price">1</field>
+				<field name="standard_price">1</field>
+				<field name="uom_id" ref="product_uom_unit_new"/>
+				<field name="uom_po_id" ref="product_uom_unit_new"/>
+				<field name="type">service</field>
+				<field name="name">Car</field>
+				<field name="categ_id" ref="product_cat_in3"/>
+			</record>
+			
+			<record id="product_product_transport_type544" model="product.product">
+				<field name="list_price">1</field>
+				<field name="standard_price">1</field>
+				<field name="uom_id" ref="product_uom_unit_new"/>
+				<field name="uom_po_id" ref="product_uom_unit_new"/>
+				<field name="type">service</field>
+				<field name="name">Insurance</field>
+				<field name="categ_id" ref="product_cat_in1"/>
+			</record>
+			
+			<record id="product_product_transport_type6" model="product.product">
+				<field name="list_price">1</field>
+				<field name="standard_price">1</field>
+				<field name="uom_id" ref="product_uom_unit_new"/>
+				<field name="uom_po_id" ref="product_uom_unit_new"/>
+				<field name="type">service</field>
+				<field name="name">Custom Tour</field>
+				<field name="categ_id" ref="product_cat_in1"/>
+				<field name="is_tour">True</field>
+			</record>
+			
+		
+				<!-- travel class -->
+			
+				<record id="travel_class_1" model="travel.class">
+	                <field name="name">Economy Class</field>
+	                <field name="code">EC</field>
+					<field name="transport_type_id" ref="product_product_transport_type1"/>
+	            </record>
+				<record id="travel_class_2" model="travel.class">
+	                <field name="name">Business Class</field>
+	                <field name="code">BC</field>
+					<field name="transport_type_id" ref="product_product_transport_type1"/>
+	            </record>
+				<record id="travel_class_3" model="travel.class">
+	                <field name="name">AC – First Class</field>
+	                <field name="code">AC1</field>
+					<field name="transport_type_id" ref="product_product_transport_type2"/>
+	            </record>
+				<record id="travel_class_4" model="travel.class">
+	                <field name="name">AC – 2 Tier</field>
+	                <field name="code">AC2</field>
+					<field name="transport_type_id" ref="product_product_transport_type2"/>
+	            </record>
+				<record id="travel_class_5" model="travel.class">
+	                <field name="name">AC – 3 Tier</field>
+	                <field name="code">AC3</field>
+					<field name="transport_type_id" ref="product_product_transport_type2"/>
+	            </record>
+				<record id="travel_class_6" model="travel.class">
+	                <field name="name">2 Tier Sleeper</field>
+	                <field name="code">SL</field>
+					<field name="transport_type_id" ref="product_product_transport_type2"/>
+	            </record>
+				<record id="travel_class_7" model="travel.class">
+	                <field name="name">AC – Sitting</field>
+	                <field name="code">ACST</field>
+					<field name="transport_type_id" ref="product_product_transport_type3"/>
+	            </record>
+				<record id="travel_class_8" model="travel.class">
+	                <field name="name">Non AC – Sitting</field>
+	                <field name="code">NAST</field>
+					<field name="transport_type_id" ref="product_product_transport_type3"/>
+	            </record>
+				<record id="travel_class_9" model="travel.class">
+	                <field name="name">AC – Sleeper</field>
+	                <field name="code">ACS</field>
+					<field name="transport_type_id" ref="product_product_transport_type3"/>
+	            </record>
+				<record id="travel_class_10" model="travel.class">
+	                <field name="name">Non AC – Sleeper</field>
+	                <field name="code">NACS</field>
+					<field name="transport_type_id" ref="product_product_transport_type3"/>
+	            </record>
+		
+        		<!--    Package Type	travel.class	-->
+		
+			<record id="list00" model="tour.package.type">
+	            <field name="name">Escorted Goup Tour</field>
+	            <field name="code">EGT</field>
+	        </record>
+	        
+	        <record id="list01" model="tour.package.type">
+	            <field name="name">Speciality Tour</field>
+	            <field name="code">SPT</field>
+	        </record>
+	        
+	        <record id="list02" model="tour.package.type">
+	            <field name="name">Cost Saver Tour</field>
+	            <field name="code">CST</field>
+	        </record>
+	        
+	        <record id="list03" model="tour.package.type">
+	            <field name="name">Honeymoon Package</field>
+	            <field name="code">HMT</field>
+	        </record>
+	        
+	        <record id="list04" model="tour.package.type">
+	            <field name="name">Wildlife Special Tour</field>
+	            <field name="code">WLT</field>
+	        </record>
+    		
+		<!--    Tour Season		-->
+    		<record id="list10" model="tour.season">
+	            <field name="name">Summer</field>
+	            <field name="code">SM</field>
+	        </record>
+	        
+	        <record id="list11" model="tour.season">
+	            <field name="name">Winter</field>
+	            <field name="code">WN</field>
+	        </record>
+	        
+	        <record id="list12" model="tour.season">
+	            <field name="name">Rainy</field>
+	            <field name="code">RN</field>
+	        </record>
+	        
+	        <record id="list14" model="tour.season">
+	            <field name="name">Regular</field>
+	            <field name="code">RG</field>
+	        </record>
+	        
+		<!-- Tour Destinations -->
+		
+			<record id="list20" model="tour.destinations">
+	            <field name="name">Singapore</field>
+	            <field name="code">SG</field>
+				<field name="country_id" ref="base.sg"/>
+	        </record>
+	        
+	        <record id="list21" model="tour.destinations">
+	            <field name="name">Bangkok</field>
+	            <field name="code">BG</field>
+				<field name="country_id" ref="base.th"/>
+	        </record>
+	        
+	        <record id="list22" model="tour.destinations">
+	            <field name="name">Pattaya</field>
+	            <field name="code">PT</field>
+				<field name="country_id" ref="base.th"/>
+	        </record>
+	        
+	        <record id="list23" model="tour.destinations">
+	            <field name="name">Kuala Lumpur</field>
+	            <field name="code">KL</field>
+				<field name="country_id" ref="base.my"/>
+	        </record>
+	        
+	        <record id="list24" model="tour.destinations">
+	            <field name="name">Genting Highlands</field>
+	            <field name="code">GH</field>
+				<field name="country_id" ref="base.my"/>
+	        </record>
+	        
+	        <record id="list25" model="tour.destinations">
+	            <field name="name">Malaysia</field>
+	            <field name="code">ML</field>
+				<field name="country_id" ref="base.my"/>
+	        </record>
+	        
+	        <record id="list26" model="tour.destinations">
+	            <field name="name">Mauritius</field>
+	            <field name="code">MR</field>
+				<field name="country_id" ref="base.mu"/>
+	        </record>
+	        
+	<!--	 tour Facility       -->
+	
+			<record id="list30" model="tour.facility">
+	            <field name="name">3 Star Hotel Acomodations</field>
+	            <field name="code">HM</field>
+				<field name="desc">Accommodation on twin sharing basis for the duration of the tour in the itinerary or similar.</field>
+	        </record>
+	        
+	        <record id="list31" model="tour.facility">
+	            <field name="name">Break Fast, Lunch, Dinner on Tour</field>
+	            <field name="code">ML</field>
+				<field name="desc">All meals (Breakfast, Lunch, Dinner) from Day 1 to the last day of the tour as mentioned in the itinerary.</field>
+	        </record>
+	        
+	        <record id="list32" model="tour.facility">
+	            <field name="name">Guide Tips</field>
+	            <field name="code">GT</field>
+				<field name="desc">Guide Tips are included.</field>
+	        </record>
+	        
+	        <record id="list33" model="tour.facility">
+	            <field name="name">Driver Tips</field>
+	            <field name="code">DT</field>
+				<field name="desc">Driver Tips are included.</field>
+	        </record>
+	        
+	        
+	        <record id="list34" model="tour.facility">
+	            <field name="name">Return Air Tickets</field>
+	            <field name="code">RAT</field>
+				<field name="desc">Cost of return economy class airfare From/To Sources Location.</field>
+	        </record>
+	        
+			<!--	  Payment Policy      -->
+	        
+	        <record id="list40" model="tour.payment.policy">
+	            <field name="name">10% Booking Amt</field>
+	            <field name="before_book_date_perc">10</field>
+	            <field name="before_pay_date_perc">90</field>
+	        </record>
+	        
+	        <record id="list41" model="tour.payment.policy">
+	            <field name="name">20% Booking Amt</field>
+	            <field name="before_book_date_perc">20</field>
+	            <field name="before_pay_date_perc">80</field>
+	        </record>
+	        
+	        <record id="list42" model="tour.payment.policy">
+	            <field name="name">30% Booking Amt</field>
+	            <field name="before_book_date_perc">30</field>
+	            <field name="before_pay_date_perc">70</field>
+	        </record>
+	        
+			<!--	Hotel Type        -->
+			
+			 <record id="list50" model="hotel.type">
+	            <field name="name">3 Star Hotel</field>
+	            <field name="description">3 Star Hotel</field>
+	        </record>
+	        
+	        <record id="list51" model="hotel.type">
+	            <field name="name">5 Star Hotel</field>
+	            <field name="description">5 Star Hotel</field>
+	        </record>
+	        
+	        <record id="list52" model="hotel.type">
+	            <field name="name">Deluxe Hotel</field>
+	            <field name="description">Deluxe Hotel</field>
+	        </record>
+	        
+			<!--	 Room Type       -->
+			
+			<!--<record id="list60" model="room.type">
+	            <field name="name">AC Single</field>
+	            <field name="room_type">AC_Single</field>
+	        </record>
+	        <record id="list61" model="room.type">
+	            <field name="name">AC Double</field>
+	            <field name="room_type">AC_Double</field>
+	        </record>
+	        <record id="list62" model="room.type">
+	            <field name="name">Non AC Single</field>
+	            <field name="room_type">Single</field>
+	        </record>
+	        <record id="list63" model="room.type">
+	            <field name="name">Non AC Double</field>
+	            <field name="room_type">Double</field>
+	        </record>-->
+<!-- 	        <record id="list64" model="room.type"> -->
+<!-- 	            <field name="name">Executive Suite</field> -->
+<!-- 	            <field name="room_type">Executive Suite</field> -->
+<!-- 	        </record> -->
+	        
+			
+			<!--	 Insurance Type       -->
+		
+		<record id="list100" model="insurance.type">
+	            <field name="name">Accedental Insurance</field>
+	            <field name="code">AI</field>
+	            <field name="adult_cost">2000</field>
+	            <field name="child_cost">1000</field>
+	    </record>
+	    
+	    <record id="list101" model="insurance.type">
+	            <field name="name">Life Insurance</field>
+	            <field name="code">LI</field>
+	            <field name="adult_cost">10000</field>
+	            <field name="child_cost">5000</field>
+	    </record>
+	    
+	    <record id="list102" model="insurance.type">
+	            <field name="name">Travel Insurance</field>
+	            <field name="code">TI</field>
+	            <field name="adult_cost">6000</field>
+	            <field name="child_cost">2500</field>
+	    </record>
+		
+		<record id="product_product_12" model="product.product">
+            <field name="list_price">1.00</field>
+            <field name="standard_price">1.00</field>
+            <field name="uom_id" ref="uom.product_uom_day"/>
+            <field name="uom_po_id" ref="uom.product_uom_day"/>
+            <field name="type">service</field>
+            <field name="name">Visa</field>
+            <field name="categ_id" ref="product_cat_in4"/>
+        </record>
+        <record id="product_product_13" model="product.product">
+            <field name="list_price">1.00</field>
+            <field name="standard_price">1.00</field>
+            <field name="uom_id" ref="uom.product_uom_day"/>
+            <field name="uom_po_id" ref="uom.product_uom_day"/>
+            <field name="type">service</field>
+            <field name="name">Passport</field>
+            <field name="categ_id" ref="product_cat_in5"/>
+        </record>
+		
+		<!--	 Transport  Carrier       -->
+			
+	        <record id="transport_car1" model="transport.carrier">
+	            <field name="name">Jet Airways</field>
+	            <field name="code">JET</field>
+	        </record>
+	        <record id="transport_car2" model="transport.carrier">
+	            <field name="name">Air India</field>
+	            <field name="code">AI</field>
+	        </record>
+	        <record id="transport_car3" model="transport.carrier">
+	            <field name="name">Singapore Airlines</field>
+	            <field name="code">SA</field>
+	        </record>
+	        <record id="transport_car4" model="transport.carrier">
+	            <field name="name">Qatar Airways</field>
+	            <field name="code">QA</field>
+	        </record>
+		
+		
+    </data>
+</odoo>
+

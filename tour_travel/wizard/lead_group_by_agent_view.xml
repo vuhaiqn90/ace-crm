@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+		 <menuitem name="Reports" parent="menu_tour_travel" id="menu_tour_report" sequence="10"/>
+
+		<!--agent wize lead wizard form view  -->
+		<record model="ir.ui.view" id="leads_group_by_agent_detail">
+			<field name="name">leads.group.by.agent.wizard.form</field>
+			<field name="model">leads.group.by.agent.wizard</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Details">
+				<group colspan="4" col="4">
+					<field name="start_date"/>
+					<field name="end_date" />
+					<newline/>
+					<field name="report_basis" />
+				</group>
+				<group colspan="4" col="4">
+					<field name="partner_ids" domain="[('agent','=',True)]" attrs="{'invisible': [('report_basis','=','direct')]}" />
+					<newline/>
+					<field name="categ_ids" />
+				</group>
+					
+					<separator colspan="4"/>
+					<group colspan="4">
+						<button icon="gtk-cancel" special="cancel" string="Cancel" />
+						<button icon="gtk-ok" name="print_report" string="Print" type="object" />
+					</group>
+				</form>
+			</field>
+		</record>
+
+		<record id="act_leads_gruop_by_agent_detail" model="ir.actions.act_window">
+			<field name="name">Leads Group by Agent</field>
+			<field name="res_model">leads.group.by.agent.wizard</field>
+			<field name="src_model">crm.lead</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="leads_group_by_agent_detail"/>
+			<field name="target">new</field>
+		</record>
+
+	</data>
+</odoo>

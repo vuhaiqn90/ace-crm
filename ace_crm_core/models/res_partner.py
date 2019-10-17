@@ -34,15 +34,15 @@ class ResPartner(models.Model):
 
     @api.multi
     def write(self, vals):
-        if vals.get('ref', False) and self.search_count(
-            [('ref', '=', vals.get('ref', False)), ('id', 'not in', self.ids)]) > 0:
-            raise Warning(_("Customer Code already exists."))
+        # if vals.get('ref', False) and self.search_count(
+        #     [('ref', '=', vals.get('ref', False)), ('id', 'not in', self.ids)]) > 0:
+        #     raise Warning(_("Customer Code already exists."))
         return super(ResPartner, self).write(vals)
 
     @api.model
     def create(self, vals):
-        if vals.get('ref', False) and self.search_count([('ref', '=', vals.get('ref', False))]) > 0:
-            raise Warning(_("Customer Code already exists."))
+        # if vals.get('ref', False) and self.search_count([('ref', '=', vals.get('ref', False))]) > 0:
+        #     raise Warning(_("Customer Code already exists."))
         partner_id = super(ResPartner, self).create(vals)
         # if not partner_id.ref and not partner_id.parent_id:
         #     raise UserError(_("Pls insert code for Customer."))

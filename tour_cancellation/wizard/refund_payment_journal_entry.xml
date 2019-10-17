@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+		<!--Refund Payment Journal Entry Wizard form view  -->
+		<record model="ir.ui.view" id="refund_payment_journal_entry_wizard">
+			<field name="name">refund_payment_journal_entry.wizard.form</field>
+			<field name="model">refund_payment_journal_entry.wizard</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Refund Payment Journal Entry" version="7.0">
+					<header>
+						<button icon="gtk-cancel" special="cancel" string="Cancel" />
+						<button icon="gtk-ok" name="allow_to_send" string="Create Journal Entry" type="object" />
+					</header>
+					<group colspan="4" col="4">
+					<field name="name"/>
+					<field name="cancellation_id"/>
+					<field name="partner_id"/>
+					<field name="payment_date"/>
+					<field name="journal_id"/>
+					<field name="booking_charge" />
+					<field name="deduct_amt" />
+					<field name="refund_amt" />
+					</group>
+				</form>
+			</field>
+		</record>
+
+		<record id="act_refund_payment_journal_entry" model="ir.actions.act_window">
+			<field name="name">Refund Payment Journal Entry</field>
+			<field name="res_model">refund_payment_journal_entry.wizard</field>
+			<field name="src_model">tour.cancellation</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field>
+			<field name="auto_refresh" eval="1" />
+			<field name="target">new</field>
+			<field name="context">{'ids':active_id}</field>
+		</record>
+	</data>
+</odoo>

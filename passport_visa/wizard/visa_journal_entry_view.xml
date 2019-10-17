@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+		<!--Visa Journal Entry Wizard form view  -->
+		<record model="ir.ui.view" id="visa_journal_entry_wizard">
+			<field name="name">visa_journal_entry.wizard.form</field>
+			<field name="model">visa_journal_entry.wizard</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Visa Journal Entry">
+				    <group>
+						<field name="name"/>
+						<field name="visa_id"/>
+						<field name="partner_id"/>
+						<field name="payment_date"/>
+						<field name="journal_id"/>
+						<!--  <field name="period_id"/>-->
+						<field name="service_cost" />
+					</group>				
+					<newline/>
+					<separator colspan="4"/>
+					<group colspan="4">
+						<button icon="gtk-cancel" special="cancel" string="Cancel" />
+						<button icon="gtk-ok" name="allow_to_send" string="Create Journal Entry" type="object" />
+					</group>
+				</form>
+			</field>
+		</record>
+
+		<record id="act_visa_journal_entry" model="ir.actions.act_window">
+			<field name="name">Visa Journal Entry</field>
+			<field name="res_model">visa_journal_entry.wizard</field>
+			<field name="src_model">visa.booking</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field>
+			<field name="auto_refresh" eval="1" />
+			<field name="target">new</field>
+			<field name="context">{'ids':active_id}</field>
+		</record>
+	</data>
+</odoo>
