@@ -2155,7 +2155,7 @@ class tour_booking2(models.Model):
                                 for txid in tax_id:
                                     self._cr.execute(
                                         'insert into transport_book_tax(transport_type_id,tax_id) values (%s,%s)',
-                                        (trans_id, txid.id))
+                                        (trans_id.id, txid.id))
 
                             for customer_line in obj.tour_customer_ids:
                                 if customer_line.t_flag == True:
