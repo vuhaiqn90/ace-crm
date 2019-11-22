@@ -1968,7 +1968,7 @@ class tour_booking(models.Model):
                     
                     for line in obj.tour_id.tour_date_lines:
                         if line.season_id.id == obj.season_id.id:
-                            if line.book_date > time.strftime('%Y-%m-%d'):
+                            if line.book_date and line.book_date.strftime('%Y-%m-%d') > time.strftime('%Y-%m-%d'):
                                 if obj.tour_booking_invoice_ids[i].residual > actual_pay:
                                     raise Warning(' Please Pay The Booking Amount')
                                 seats = line.available_seat
