@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="ace_tour_date_report_tree" model="ir.ui.view">
+        <field name="name">Tour Date Report Tree</field>
+        <field name="model">tour.dates</field>
+        <field name="arch" type="xml">
+            <tree string="Tour Dates">
+                <field name="tour_name"/>
+                <field name="tour_code"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="adult_cost_price"/>
+                <field name="total_seat"/>
+                <field name="adult"/>
+                <field name="booked_quantity" options='{"fg_color": "red: booked_quantity&gt;0"}'/>
+                <field name="amount_booking"/>
+                <field name="child_cost_price"/>
+                <field name="child"/>
+                <field name="state" options='{"bg_color": "green: state==&apos;available&apos;;red: state==&apos;closed&apos;",
+                "fg_color": "white: state==&apos;available&apos;;white: state==&apos;closed&apos;"}'/>
+                <field name="destination_lines" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="ace_tour_date_report_form" model="ir.ui.view">
+        <field name="name">Tour Date Report Form</field>
+        <field name="model">tour.dates</field>
+        <field name="arch" type="xml">
+            <form string="Tour Dates">
+                <header>
+                    <button string="Confirm" name="confirm_tour" states="draft" type="object" class="oe_highlight"/>
+                    <button string="Close" name="open_tour" states="available" type="object" class="btn-danger"/>
+                    <button string="Re-Open" name="reopen_tour" states="closed" type="object"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="tour_id" string="Tour Name"/>
+                            <field name="tour_code"/>
+                            <field name="total_seat"/>
+                            <field name="adult"/>
+                            <field name="child"/>
+                            <field name="booked_quantity"/>
+                        </group>
+                        <group>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="amount_booking"/>
+                            <field name="child_cost_price"/>
+                            <field name="adult_cost_price"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Destination">
+                            <field name="destination_lines"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="ace_tour_date_report_search" model="ir.ui.view">
+        <field name="name">Tour Date Report Search</field>
+        <field name="model">tour.dates</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="tour_name"/>
+                <field name="tour_code"/>
+                <field name="tour_type"/>
+                <field name="start_date"/>
+                <field name="adult_cost_price"/>
+                <field name="total_seat"/>
+                <field name="adult"/>
+                <field name="booked_quantity"/>
+                <field name="amount_booking"/>
+                <field name="child_cost_price"/>
+                <field name="child"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="ace_tour_date_report_search_inherit" model="ir.ui.view">
+        <field name="name">ace_tour_date_report_search_inherit</field>
+        <field name="model">tour.dates</field>
+        <field name="inherit_id" ref="ace_tour_date_report_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search">
+                <superbar position="left" view_mode="tree">
+                    <field name="tour_type"/>
+                    <field name="destination_lines" parent_key="parent_id"/>
+                </superbar>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_ace_tour_dates_report_tree">
+        <field name="name">Tour Dashboard</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">tour.dates</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="ace_tour_date_report_search"/>
+    </record>
+
+    <record id="action_ace_tour_dates_report_tree_tree" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="ace_tour_date_report_tree"/>
+        <field name="act_window_id" ref="action_ace_tour_dates_report_tree"/>
+    </record>
+    <record id="action_ace_tour_dates_report_tree_form" model="ir.actions.act_window.view">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="ace_tour_date_report_form"/>
+        <field name="act_window_id" ref="action_ace_tour_dates_report_tree"/>
+    </record>
+
+    <menuitem name="Tour Dashboard" action="action_ace_tour_dates_report_tree" sequence="0"
+                  id="menu_action_ace_tour_dates_report_tree" parent="menu_tour_travel"/>
+</odoo>

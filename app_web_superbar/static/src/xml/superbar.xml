@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <div t-name="App.Superbar" class="a-superbar">
+        <div class="bar-header">
+            <div class="btn-group o_hidden">
+                <button name="app_search_advance_reset" class="btn btn-sm btn-default"><span>Clear</span></button>
+                <button name="app_search_advance_submit" class="btn btn-sm btn-primary" title="Click to Search"><span>Search</span></button>
+            </div>
+        </div>
+        <div class="bar-content wrap">
+            <t t-if="widget.bar_data">
+                <t t-foreach="widget.bar_data.children" t-as="child">
+                    <div t-if="child.tag=='field'" class="panel">
+                        <div class="panel-title active" title="Press Ctrl(Windows) / Cmd(Mac) to Select Multi Nodes">
+                            <a data-toggle="collapse" data-parent=".bar-content">
+                                <t t-esc="child.attrs.string"/>
+                                <button class="a_clear_ztree btn btn-default pull-right fa fa-lg fa-times-circle o_hidden" type="button"
+                                        t-att-data-ztree_index="child.ztree_index"
+                                title="Show All Data"/>
+                            </a>
+                        </div>
+                        <div class="panel-body panel-collapse a_field_selector">
+                            <div t-if="child.attrs.widget=='ztree_search'"
+                                 class="ztree_search" t-att-data-ztree_index="child.ztree_index">
+                                <div t-if="child.attrs.parent_key" class="o_checkbox" t-att-data-ztree_index="child.ztree_index">
+                                    <span class="pull-left">
+                                        <input type="checkbox" name="ztree_with_sub_node" class="ztree_with_sub_node ml8 mt8"
+                                            t-att-data-ztree_index="child.ztree_index"
+                                            t-att-checked="child.attrs.ztree_with_sub_node"/>
+                                        Show Child Nodes Data
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </div>
+        <div class="bar-footer">
+        </div>
+    </div>
+    <!--search 中的ztree field,暂时不用-->
+    <div t-name="App.SearchZtree" class="ztree_search" t-att-data-ztree_index="child.ztree_index">
+        <div class="o_checkbox" t-att-data-ztree_index="child.ztree_index">
+            <span class="pull-left">
+                <input type="checkbox" name="ztree_with_sub_node" class="ztree_with_sub_node ml8 mt8"
+                    t-att-data-ztree_index="child.ztree_index"
+                    checked="child.attrs.ztree_with_sub_node"/>
+                Show Child Nodes Data
+            </span>
+        </div>
+    </div>
+    <!--widget来toggle显示与否-->
+    <t t-extend="ControlPanel">
+        <t t-jquery=".breadcrumb" t-operation="before">
+            <em class="a-superbar-toggle btn-group ml8"/>
+        </t>
+    </t>
+
+    <div t-name="App.SuperbarToggle">
+        <button aria-expanded="false" class="btn-super-toggle btn btn-sm btn-icon fa fa-lg fa-chevron-down active"/>
+    </div>
+</templates>

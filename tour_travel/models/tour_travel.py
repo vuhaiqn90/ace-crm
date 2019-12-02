@@ -193,6 +193,7 @@ class tour_destinations(models.Model):
     name = fields.Char('Destination Name', size=164, required=True)
     country_id = fields.Many2one('res.country', string='Country')
     code = fields.Char('Code', size=164, required=True)
+    parent_id = fields.Many2one('tour.destinations', string='Tour Destinations')
 
 
 class tour_facility(models.Model):
@@ -477,6 +478,7 @@ class tour_package(models.Model):
     tax_amt = fields.Float(string='Total Taxed Amount', multi='sums', help="Total Taxed Amount")
 
     total_amt = fields.Float(string='Total Amount', multi='sums', help="Total Amount Including Tax")
+    product_code = fields.Char(string='Tour Code', related='product_id.default_code')
 
     #     _defaults = {
     #                  'state': lambda *a: 'draft',
@@ -515,6 +517,29 @@ class tour_package(models.Model):
 
 
 class tour_dates(models.Model):
+    def amount_no_store(self):
+        for record in self:
+            amount_booked = 0.0
+            qty_booked = 0
+            adult = 0
+            child = 0
+            for line in record.booking_lines:
+                amount_booked += line.total_amt
+                qty_booked += line.adult+ line.child
+                adult += line.adult
+                child += line.child
+            record.update({'amount_booking': amount_booked,
+                           'booked_quantity': qty_booked,
+                           'adult': adult,
+                           'child': child,
+                           })
+
+    @api.depends('tour_id', 'tour_id.tour_destination_lines', 'tour_id.tour_destination_lines.destination_id', 'tour_id.days',
+                 'start_date')
+    def amount_store(self):
+        for record in self:
+            record.update({'destination_lines': [(6, 0, [line.destination_id.id for line in record.tour_id.tour_destination_lines])],
+                           'end_date': record.start_date + timedelta(days=int(record.tour_id.days)-1)})
     _name = "tour.dates"
     _description = "Tour dates"
 
@@ -522,6 +547,7 @@ class tour_dates(models.Model):
     season_id = fields.Many2one('tour.season', "Season", required=True, readonly=True,
                                 states={'draft': [('readonly', False)]})
     start_date = fields.Date("Start Date", required=True, readonly=True, states={'draft': [('readonly', False)]})
+    end_date = fields.Date(string='End Date', compute='amount_store', store=True)
     book_date = fields.Date("Last Date of Booking", required=True, readonly=True,
                             states={'draft': [('readonly', False)]})
     due_date = fields.Date("Payment Due Date", required=True, readonly=True, states={'draft': [('readonly', False)]})
@@ -533,6 +559,21 @@ class tour_dates(models.Model):
     child_cost_price = fields.Float('Child Cost Per Person', required=True, readonly=True,
                                     states={'draft': [('readonly', False)]})
     tour_id = fields.Many2one('tour.package', 'Tour ID', readonly=True, states={'draft': [('readonly', False)]})
+    tour_code = fields.Char(string='Tour Code', related='tour_id.product_id.default_code')
+    tour_name = fields.Char(string='Tour Name', related='tour_id.product_id.name')
+    booking_lines = fields.One2many('tour.booking', 'tour_dates_id', string='Tour Booking')
+    amount_booking = fields.Float(string='Amount Booking', compute="amount_no_store")
+    booked_quantity = fields.Integer(string='Booked Quantity', compute="amount_no_store")
+    adult = fields.Integer(string='Adult', compute="amount_no_store")
+    child = fields.Integer(string='Child', compute="amount_no_store")
+    tour_type = fields.Selection([
+        ('international', 'International'),
+        ('domestic', 'Domestic')
+    ], "Tour Type", related="tour_id.tour_type")
+    destination = fields.Many2many('tour.destination.line',
+                                  compute="amount_no_store")
+    destination_id = fields.Many2one('tour.destination.line', string='Destionation ID', compute="amount_no_store")
+    destination_lines = fields.Many2many('tour.destinations', compute="amount_store", store=True)
     state = fields.Selection([
         ('draft', 'Draft'),
         ('available', 'Available'),
@@ -1451,7 +1492,12 @@ class tour_booking2(models.Model):
     agent_id = fields.Many2one('res.partner', 'Agent', readonly=True, states={'draft': [('readonly', False)]})
     tour_id = fields.Many2one('tour.package', "Tour", required=True, readonly=True,
                               states={'draft': [('readonly', False)]})
+
     tour_dates_id = fields.Many2one('tour.dates', string="Tour Dates", required=False, readonly=False)
+    # tour_date_total_seats = fields.Integer(string='Total Seat', related='tour_dates_id.total_seat')
+    # adult_cost_price = fields.Float(string='Adult Cost Price', related='tour_dates_id.adult_cost_price')
+    # child_cost_price = fields.Float(string='Child Cost Price', related='tour_dates_id.child_cost_price')
+    # start_date = fields.Date(string='Start Date', related='tour_dates_id.start_date')
     payment_policy_id = fields.Many2one('tour.payment.policy', "Payment Policy", required=True, readonly=True,
                                         states={'draft': [('readonly', False)]})
     adult_coverage = fields.Integer("Number of Adult Persons Policy Coverage", readonly=True,

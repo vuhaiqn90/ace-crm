@@ -1,8 +1,15 @@
 <odoo>
     <data>
-<template   id="assets_frontend" name="crm assets" inherit_id="website.assets_frontend">
+        <!--<template   id="assets_frontend" name="crm assets" inherit_id="website.assets_frontend">-->
+        <!--            <xpath expr="." position="inside">-->
+        <!--                <link rel="stylesheet" href="/tour_travel/static/src/css/hotel.css"/>-->
+        <!--               -->
+        <!--            </xpath>-->
+        <!--        </template>-->
+
+        <template id="assets_backend" name="app_web_superbar assets" inherit_id="web.assets_backend">
             <xpath expr="." position="inside">
-                <link rel="stylesheet" href="/tour_travel/static/src/css/hotel.css"/>
+                <script type="text/javascript" src="/tour_travel/static/src/js/superbar.js"/>
             </xpath>
         </template>
     </data>

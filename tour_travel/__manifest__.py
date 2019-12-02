@@ -4,7 +4,7 @@
     'author': 'Pragmatic Techsoft Pvt. Ltd.',
     "website": "http://www.pragtech.co.in",
     "description": """Tours And Travel Management""",
-    "depends": ["sale_management", 'account', 'passport_visa', 'account_voucher'],
+    "depends": ["sale_management", 'account', 'passport_visa', 'account_voucher', 'app_web_superbar', 'web_tree_dynamic_colored_field'],
     "category": "Generic Modules",
     "demo_xml": [],
     "data": [
@@ -12,7 +12,7 @@
 
         'security/tour_travel_security.xml',
         "security/ir.model.access.csv",
-
+        'views/assets.xml',
         "views/tour_travel_view.xml",
         "wizard/checkout_detail_view.xml",
         "views/hotel_reservation_view.xml",
@@ -23,7 +23,7 @@
         "views/passport_visa_view.xml",
         'views/tour_travel_sequence_view.xml',
         "views/product.xml",
-
+        "views/tour_date_report.xml",
         "wizard/checkout_details_transport_view.xml",
         "wizard/tour_information_wizard.xml",
         "wizard/lead_to_opportunity_view.xml",

@@ -1,0 +1,179 @@
+//superbar一般不显示
+//向导全屏，因为调整位置后要有变化
+$superbar-width: 220px;
+
+.o_control_panel {
+  .a-superbar-toggle {
+    display: none;
+  }
+}
+
+.o_content, .modal-content {
+  .o_view_controller {
+    .o_onboarding_container {
+      width: 100%;
+    }
+    .a-superbar {
+      display: none;
+    }
+  }
+}
+//只有大屏，>992px时才显示
+@media (min-width: 992px) {
+  .o_control_panel {
+    .a-superbar-toggle {
+      display: block;
+      position: fixed;
+      left: 2px;
+      .btn-super-toggle {
+        background-color: $o-list-footer-bg-color;;
+      }
+    }
+    .breadcrumb {
+     > li:first-child {
+        margin-left: 25px;
+      }
+    }
+  }
+  .o_content, .modal-content {
+    .o_view_controller {
+      .a-superbar {
+      height: auto;
+      overflow: auto;
+      padding: 2px;
+      background-color: $o-list-footer-bg-color;
+      border-left: 1px solid $o-brand-lightsecondary;
+      border-right: 1px solid $o-brand-lightsecondary;
+
+      display: flex;
+      flex-flow: column wrap;
+      flex: 0 1 auto;
+      .bar-header {
+        display: flex;
+        flex: 0 1 auto;
+        .btn-group {
+          display: flex;
+          justify-content: center;
+        }
+      }
+      .bar-content {
+        display: flex;
+        flex-flow: column wrap;
+        flex: 1 0 auto;
+        padding: 0px;
+        width: 100%;
+        .panel {
+          border-width: 0 0 1px 0;
+          border-style: solid;
+          border-color: $o-form-lightsecondary;
+          margin-bottom: 1px;
+          max-width: $superbar-width - 2px;
+          + .panel {
+            margin-top: 0;
+          }
+          .panel-title {
+            padding: 4px;
+            background-color: $o-form-lightsecondary;
+            font-weight: $o-list-footer-font-weight;
+            cursor: pointer;
+            .a_clear_ztree {
+              font-size: 16px;
+              padding: 0 6px;
+              background-color: transparent;
+              float: right;
+            }
+            a {
+              padding: 0px 4px 4px 24px;
+              color: inherit;
+              font-size: 14px;
+              display: block;
+              position: relative;
+            }
+            a::before {
+              content: '\f067';
+              position: absolute;
+              font-family: FontAwesome;
+              font-size: 1.2em;
+              left: 5px;
+              top: 0px;
+              -webkit-transition: all 0.5s;
+              transition: all 0.5s;
+              -webkit-transform: scaleY(1);
+              transform: scaleY(1);
+            }
+            a::after {
+              content: ' ';
+              position: absolute;
+              font-family: FontAwesome;
+              font-size: 1.2em;
+              left: 5px;
+              top: 0px;
+              -webkit-transform: scaleY(0);
+              transform: scaleY(0);
+              -webkit-transition: all 0.5s;
+              transition: all 0.5s;
+            }
+          }
+          .panel-title.active {
+            a::before {
+              content: ' ';
+              -webkit-transition: all 0.5s;
+              transition: all 0.5s;
+              -webkit-transform: scaleY(0);
+              transform: scaleY(0);
+            }
+            a::after {
+              content: '\f068';
+              -webkit-transform: scaleY(1);
+              transform: scaleY(1);
+              -webkit-transition: all 0.5s;
+              transition: all 0.5s;
+            }
+          }
+          .panel-body {
+            padding: 0px;
+            background-color: white;
+          }
+        }
+        .ztree_search {
+          .o_checkbox {
+            width: 95%;
+            padding: 4px;
+            margin-top: -4px;
+            border-bottom: 1px dashed $o-form-lightsecondary;
+            display: inline-block;
+          }
+          .a_clear_ztree  {
+
+          }
+          .ztree {
+            border: 0px;
+            font-size: $font-size-base;
+          }
+        }
+      }
+      .panel_field {
+        display: flex;
+        flex-flow: column wrap;
+        flex: 1 1 auto;
+      }
+    }
+      .a-superbar {
+        display: flex;
+        flex: 0 1 auto;
+        width: $superbar-width;
+        min-width: $superbar-width;
+        height: 100%;
+        .btn-group {
+          width: 290px;
+        }
+      }
+      & > div {
+        //flex 样式要在 js里处理，避免影响别的界面
+        //display: flex;
+        flex-direction: row;
+        overflow: auto;
+      }
+    }
+  }
+}

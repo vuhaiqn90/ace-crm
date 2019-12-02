@@ -7,7 +7,7 @@
         <menuitem name="Tours And Travel" id="menu_tour_travel"/>
 
         <menuitem name="Tour" id="menu_tour_booking" parent="menu_tour_travel" sequence="2"/>
-        <menuitem name="Configuration" id="tour_conf" parent="menu_tour_booking" sequence="1"/>
+        <menuitem name="Configuration" id="tour_conf" parent="menu_tour_booking" sequence="10"/>
         <menuitem name="Transport" id="menu_transport" parent="menu_tour_travel" sequence="3"/>
 
         <!--
@@ -170,6 +170,7 @@
                         <field name="name" invisible="1"/>
                         <field name="season_id"/>
                         <field name="start_date"/>
+                        <field name="end_date"/>
                         <field name="book_date"/>
                         <field name="due_date"/>
                         <field name="total_seat"/>
@@ -194,6 +195,7 @@
                     <field name="name" invisible="1"/>
                     <field name="season_id"/>
                     <field name="start_date"/>
+                    <field name="end_date"/>
                     <field name="book_date"/>
                     <field name="due_date"/>
                     <field name="total_seat"/>
@@ -254,7 +256,8 @@
                     <group>
                         <field name="name"/>
                         <field name="code"/>
-                        <field name="country_id"/>
+                        <field name="country_id" invisible="1"/>
+                        <field name="parent_id"/>
                     </group>
                 </form>
             </field>
@@ -273,7 +276,8 @@
                 <tree string="Tour Destinations" editable="bottom">
                     <field name="name"/>
                     <field name="code"/>
-                    <field name="country_id"/>
+                    <field name="country_id" invisible="1"/>
+                    <field name="parent_id"/>
                 </tree>
             </field>
         </record>
@@ -834,7 +838,9 @@
                     <notebook colspan="8">
                         <page string="Tour Dates">
                             <group col="7" colspan="3">
-                                <field name="tour_date_lines" nolabel="1"/>
+                                <field name="tour_date_lines" nolabel="1"
+                                context="{'tree_view_ref': 'tour_travel.tour_dates_tree_view',
+                                'form_view_ref': 'tour_travel.tour_dates_form_view123'}"/>
                             </group>
                         </page>
                         <page string="Tour Programme">
@@ -917,7 +923,7 @@
             <field name="view_mode">tree,form</field>
         </record>
 
-        <menuitem name="New Tour Creation" action="action_tour_package_form_view" sequence="2"
+        <menuitem name="New Tour Creation" action="action_tour_package_form_view" sequence="0"
                   id="menu_tour_package" parent="menu_tour_booking"/>
 
 
