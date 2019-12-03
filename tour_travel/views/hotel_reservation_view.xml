@@ -4,7 +4,7 @@
     <data>
 		
 		
-		<menuitem name="Hotel" id="menu_hotel" parent="menu_tour_travel" sequence="2" />	  
+		<menuitem name="Hotel" id="menu_hotel" sequence="3" web_icon="tour_travel,static/src/img/hotel.png"/>
 			 
 		
         <!--

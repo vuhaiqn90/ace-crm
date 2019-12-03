@@ -2,7 +2,7 @@
 <odoo>
     <data>
 
-		 <menuitem name="Reports" parent="menu_tour_travel" id="menu_tour_report" sequence="10"/>
+		 <menuitem name="Reports" parent="menu_tour_booking" id="menu_tour_report" sequence="10"/>
 
 		<!--agent wize lead wizard form view  -->
 		<record model="ir.ui.view" id="leads_group_by_agent_detail">

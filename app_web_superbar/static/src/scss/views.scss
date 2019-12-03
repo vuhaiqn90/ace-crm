@@ -24,7 +24,9 @@ $superbar-width: 220px;
     .a-superbar-toggle {
       display: block;
       position: fixed;
-      left: 2px;
+      //left: 2px;
+      left: 7.3%;
+      top: 17.5%;
       .btn-super-toggle {
         background-color: $o-list-footer-bg-color;;
       }

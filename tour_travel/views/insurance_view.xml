@@ -3,7 +3,8 @@
 <odoo>
     <data>
 		
-		<menuitem name="Insurance" id="menu_insurance" parent="menu_tour_travel" sequence="5"/>
+<!--		<menuitem name="Insurance" id="menu_insurance" parent="menu_tour_travel" sequence="5"/>-->
+		<menuitem name="Insurance" id="menu_insurance" sequence="3" web_icon="tour_travel,static/src/img/insurrance.png"/>
 		
 	<!--		
 		========================================================================

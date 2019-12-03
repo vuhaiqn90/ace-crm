@@ -4,11 +4,11 @@
     <data>
 
         <!-- <menuitem name="Tours And Travel" id="menu_tour_travel" web_icon="images/tours.png" web_icon_hover="images/tours_hang.png"/> -->
-        <menuitem name="Tours And Travel" id="menu_tour_travel"/>
+<!--        <menuitem name="Tours And Travel" id="menu_tour_travel"/>-->
 
-        <menuitem name="Tour" id="menu_tour_booking" parent="menu_tour_travel" sequence="2"/>
-        <menuitem name="Configuration" id="tour_conf" parent="menu_tour_booking" sequence="10"/>
-        <menuitem name="Transport" id="menu_transport" parent="menu_tour_travel" sequence="3"/>
+        <menuitem name="Tour" id="menu_tour_booking" sequence="2" web_icon="tour_travel,static/src/img/tour.png"/>
+        <menuitem name="Configuration" id="tour_conf" parent="menu_tour_booking" sequence="20"/>
+        <menuitem name="Transport" id="menu_transport" sequence="3" web_icon="tour_travel,static/src/img/transport.png"/>
 
         <!--
        =========================================================
@@ -923,7 +923,7 @@
             <field name="view_mode">tree,form</field>
         </record>
 
-        <menuitem name="New Tour Creation" action="action_tour_package_form_view" sequence="0"
+        <menuitem name="New Tour Creation" action="action_tour_package_form_view" sequence="1"
                   id="menu_tour_package" parent="menu_tour_booking"/>
 
 

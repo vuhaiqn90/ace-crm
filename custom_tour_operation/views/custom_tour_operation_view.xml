@@ -1,7 +1,8 @@
 <?xml version="1.0" ?>
 <odoo>
     <data>
-	<menuitem name="Custom Tour" id="menu_custom_tour" parent="tour_travel.menu_tour_travel" sequence="2"/>
+<!--	<menuitem name="Custom Tour" id="menu_custom_tour" parent="tour_travel.menu_tour_travel" sequence="2"/>-->
+		<menuitem name="Custom Tour" id="menu_custom_tour" sequence="3" web_icon="tour_travel,static/src/img/tour_multi.png"/>
 
 	<record id="tour_preference_form_view" model="ir.ui.view">
             <field name="name">tour.preference.form</field>

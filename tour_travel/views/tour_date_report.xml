@@ -118,5 +118,5 @@
     </record>
 
     <menuitem name="Tour Dashboard" action="action_ace_tour_dates_report_tree" sequence="0"
-                  id="menu_action_ace_tour_dates_report_tree" parent="menu_tour_travel"/>
+                  id="menu_action_ace_tour_dates_report_tree" parent="menu_tour_booking"/>
 </odoo>

@@ -3,7 +3,7 @@
 <odoo>
     <data>
 		
-		<menuitem name="Agent Commission" id="menu_agent_commission" parent="menu_tour_travel" sequence="6"/>
+		<menuitem name="Agent Commission" id="menu_agent_commission" parent="menu_tour_booking" sequence="6"/>
 		
 	<!--
 		========================================================= 
