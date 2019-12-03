@@ -1977,8 +1977,8 @@ class tour_booking(models.Model):
                                 person = seats - tot_person
                                 line.write({'available_seat':person})
                                 tour_booking_flag = True
-                            else:
-                                raise UserError('Tour Booking Is Closed')
+                            # else:
+                            #     raise UserError('Tour Booking Is Closed')
                 self._cr.execute('insert into tour_booking_customer_rel(tour_booking_customer_id,tour_id) values (%s,%s)'%(obj.tour_id.id, obj.id))
                 invoice_addr_id = False
                 self._cr.execute("""select id from product_template where name='Passport'""")                        

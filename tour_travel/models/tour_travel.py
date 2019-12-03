@@ -1785,9 +1785,9 @@ class tour_booking2(models.Model):
                 raise UserError('TOUR IS NOT AVAILABLE FOR THIS SEASON')
             date=time.strftime('%Y-%m-%d')
             date=datetime.strptime(date,'%Y-%m-%d').date()
-            if not (obj.tour_dates_id.book_date >= date):
-#                 datetime.strptime(date_str, '%m-%d-%Y').date()
-                raise UserError('Tour Booking Is Closed')
+#             if not (obj.tour_dates_id.book_date >= date):
+# #                 datetime.strptime(date_str, '%m-%d-%Y').date()
+#                 raise UserError('Tour Booking Is Closed')
             visa = False
             for visa_line in obj.tour_id.tour_destination_lines:
                 if visa_line.is_visa == True:
@@ -2082,9 +2082,9 @@ class tour_booking2(models.Model):
                         raise Warning(' No Seats Available')
                     person = seats - tot_person
                     obj.tour_dates_id.write({'available_seat': person})
-                else:
-
-                    raise Warning('Tour Booking Is Closed')
+                # else:
+                #
+                #     raise Warning('Tour Booking Is Closed')
 
             self._cr.execute('insert into tour_booking_customer_rel(tour_booking_customer_id,tour_id) values (%s,%s)',
                              (obj.tour_id.id, obj.id))
@@ -2830,6 +2830,10 @@ class sale_order(models.Model):
                        states={'draft': [('readonly', False)]}, select=True)
     tour_id = fields.Many2one('tour.package', 'Tour', required=False)
     order_type = fields.Selection([('normal', 'Normal'), ('tour', 'Tour')], string='Order Type')
+    adult = fields.Integer(string='Adult')
+    child = fields.Integer(string='Child')
+    join_people = fields.Text(string='Join People')
+    tour_date_id =fields.Many2one('tour.dates', string='Tour Date')
 
     @api.multi
     def action_invoice_create(self, grouped=False, final=False):
