@@ -15,7 +15,7 @@
                 <field name="total_seat"/>
                 <field name="adult" invisible="1"/>
                 <field name="booked_quantity" options='{"fg_color": "red: booked_quantity&gt;0"}'/>
-                <field name="amount_booking"/>
+                <field name="amount_booking" invisible="1"/>
                 <field name="child" invisible="1"/>
                 <field name="state" options='{"bg_color": "green: state==&apos;available&apos;;red: state==&apos;closed&apos;",
                 "fg_color": "white: state==&apos;available&apos;;white: state==&apos;closed&apos;"}'/>
