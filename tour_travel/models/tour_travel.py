@@ -2828,7 +2828,8 @@ class sale_order(models.Model):
     tour_book_id = fields.Many2one("tour.booking", "Ref Tour Book Id ")
     name = fields.Char('Order Reference', size=64, required=True, readonly=True,
                        states={'draft': [('readonly', False)]}, select=True)
-    tour_id = fields.Many2one('tour.package', 'Tour', required=True)
+    tour_id = fields.Many2one('tour.package', 'Tour', required=False)
+    order_type = fields.Selection([('normal', 'Normal'), ('tour', 'Tour')], string='Order Type')
 
     @api.multi
     def action_invoice_create(self, grouped=False, final=False):

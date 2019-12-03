@@ -32,63 +32,67 @@ SearchView.include({
 var SearchTimeRange = {
 
     RenderDateRangePicker: function(this2, node) {
-        var self = this2;
-        var range_field  = self.$tm723_time_range.find('.tm723_select_field').val();
-        var tm723_is_datetime_field = self.tm723_fields[range_field] == 'datetime' ? true : false;
-        var l10n                = _t.database.parameters,
-        searchview              = self.searchView,
-        datetime_format         = time.getLangDatetimeFormat(),
-        server_datetime_format  = tm723_is_datetime_field ? 'YYYY-MM-DD HH:mm:ss' : 'YYYY-MM-DD';
+        try {
+            var self = this2;
+            var range_field = self.$tm723_time_range.find('.tm723_select_field').val();
+            var tm723_is_datetime_field = self.tm723_fields[range_field] == 'datetime' ? true : false;
+            var l10n = _t.database.parameters,
+                searchview = self.searchView,
+                datetime_format = time.getLangDatetimeFormat(),
+                server_datetime_format = tm723_is_datetime_field ? 'YYYY-MM-DD HH:mm:ss' : 'YYYY-MM-DD';
 
-        searchview.tm723_domain = [];
-        // searchview.query.trigger('reset');
-
-        self.$tm723_time_range.find('.tm723_time_field').css('width', tm723_is_datetime_field ? 225 : 150);
-        self.$tm723_time_range.find('.tm723_time_field').daterangepicker({
-            showDropdowns: true,
-            timePicker: tm723_is_datetime_field,
-            timePickerIncrement: 5,
-            timePicker24Hour: true,
-            startDate: moment().startOf('day'),
-            endDate: moment().startOf('day'),
-            locale : {
-                format: tm723_is_datetime_field ? datetime_format.substring(0, 16): datetime_format.substring(0, 10),
-                applyLabel: _t('Apply'),
-                cancelLabel: _t('Cancel'),
-                customRangeLabel: _t('Custom Range'),
-            },
-            // .set({hour:0,minute:0,second:0,millisecond:0})
-            ranges: {
-                'Today': [moment().startOf('day'), moment().endOf('day')],
-                'Yesterday': [moment().startOf('day').subtract(1, 'days'), moment().endOf('day').subtract(1, 'days')],
-                'Last 7 Days': [moment().startOf('day').subtract(6, 'days'), moment().endOf('day')],
-                'Last 30 Days': [moment().startOf('day').subtract(29, 'days'), moment().endOf('day')],
-                'This Month': [moment().startOf('month'), moment().endOf('month')],
-                'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-            }
-        });
-        var tm723_time_field = self.$tm723_time_range.find('.tm723_time_field')
-        tm723_time_field.val('');
-        tm723_time_field.on('cancel.daterangepicker', function(ev, picker) {
-            tm723_time_field.val('');
             searchview.tm723_domain = [];
-            if (self.searchView)
-                return self.searchView.do_search();
-        });
-        tm723_time_field.on('apply.daterangepicker', function(ev, picker) {
-            var start = moment(picker.startDate),
-                end = moment(picker.endDate);
-            if (self.tm723_fields[range_field] == 'datetime') {
-                start.subtract(session.getTZOffset(start.format(server_datetime_format)), 'minutes');
-                end.subtract(session.getTZOffset(end.format(server_datetime_format)), 'minutes');
-            }
-            var domain_field = self.tm723_domain_field[range_field];
-            // console.log(start.format(server_datetime_format), end.format(server_datetime_format))
-            searchview.tm723_domain = [[domain_field,'>=',start.format(server_datetime_format)], [domain_field,'<=',end.format(server_datetime_format)]]
-            if (self.searchView)
-                return self.searchView.do_search();
-        });
-        self.$tm723_time_range.appendTo(node);
+            // searchview.query.trigger('reset');
+
+            self.$tm723_time_range.find('.tm723_time_field').css('width', tm723_is_datetime_field ? 225 : 150);
+            self.$tm723_time_range.find('.tm723_time_field').daterangepicker({
+                showDropdowns: true,
+                timePicker: tm723_is_datetime_field,
+                timePickerIncrement: 5,
+                timePicker24Hour: true,
+                startDate: moment().startOf('day'),
+                endDate: moment().startOf('day'),
+                locale: {
+                    format: tm723_is_datetime_field ? datetime_format.substring(0, 16) : datetime_format.substring(0, 10),
+                    applyLabel: _t('Apply'),
+                    cancelLabel: _t('Cancel'),
+                    customRangeLabel: _t('Custom Range'),
+                },
+                // .set({hour:0,minute:0,second:0,millisecond:0})
+                ranges: {
+                    'Today': [moment().startOf('day'), moment().endOf('day')],
+                    'Yesterday': [moment().startOf('day').subtract(1, 'days'), moment().endOf('day').subtract(1, 'days')],
+                    'Last 7 Days': [moment().startOf('day').subtract(6, 'days'), moment().endOf('day')],
+                    'Last 30 Days': [moment().startOf('day').subtract(29, 'days'), moment().endOf('day')],
+                    'This Month': [moment().startOf('month'), moment().endOf('month')],
+                    'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                }
+            });
+            var tm723_time_field = self.$tm723_time_range.find('.tm723_time_field')
+            tm723_time_field.val('');
+            tm723_time_field.on('cancel.daterangepicker', function (ev, picker) {
+                tm723_time_field.val('');
+                searchview.tm723_domain = [];
+                if (self.searchView)
+                    return self.searchView.do_search();
+            });
+            tm723_time_field.on('apply.daterangepicker', function (ev, picker) {
+                var start = moment(picker.startDate),
+                    end = moment(picker.endDate);
+                if (self.tm723_fields[range_field] == 'datetime') {
+                    start.subtract(session.getTZOffset(start.format(server_datetime_format)), 'minutes');
+                    end.subtract(session.getTZOffset(end.format(server_datetime_format)), 'minutes');
+                }
+                var domain_field = self.tm723_domain_field[range_field];
+                // console.log(start.format(server_datetime_format), end.format(server_datetime_format))
+                searchview.tm723_domain = [[domain_field, '>=', start.format(server_datetime_format)], [domain_field, '<=', end.format(server_datetime_format)]]
+                if (self.searchView)
+                    return self.searchView.do_search();
+            });
+            self.$tm723_time_range.appendTo(node);
+        }catch (e) {
+            console.log('Bug nhẹ');
+        }
     },
 
 }

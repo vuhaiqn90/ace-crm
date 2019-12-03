@@ -6,3 +6,4 @@ from . import passport_visa
 from . import tour_travel
 from . import tour_hotel_reservation
 from . import transport_book
+from . import product_product
