@@ -170,7 +170,6 @@
                         <field name="name" invisible="1"/>
                         <field name="season_id"/>
                         <field name="start_date"/>
-                        <field name="end_date"/>
                         <field name="book_date"/>
                         <field name="due_date"/>
                         <field name="total_seat"/>
@@ -195,7 +194,6 @@
                     <field name="name" invisible="1"/>
                     <field name="season_id"/>
                     <field name="start_date"/>
-                    <field name="end_date"/>
                     <field name="book_date"/>
                     <field name="due_date"/>
                     <field name="total_seat"/>

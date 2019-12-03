@@ -5,17 +5,18 @@
         <field name="model">tour.dates</field>
         <field name="arch" type="xml">
             <tree string="Tour Dates">
-                <field name="tour_name"/>
                 <field name="tour_code"/>
+                <field name="tour_name"/>
                 <field name="start_date"/>
-                <field name="end_date"/>
+                <field name="book_date"/>
+<!--                <field name="end_date"/>-->
                 <field name="adult_cost_price"/>
+                <field name="child_cost_price"/>
                 <field name="total_seat"/>
-                <field name="adult"/>
+                <field name="adult" invisible="1"/>
                 <field name="booked_quantity" options='{"fg_color": "red: booked_quantity&gt;0"}'/>
                 <field name="amount_booking"/>
-                <field name="child_cost_price"/>
-                <field name="child"/>
+                <field name="child" invisible="1"/>
                 <field name="state" options='{"bg_color": "green: state==&apos;available&apos;;red: state==&apos;closed&apos;",
                 "fg_color": "white: state==&apos;available&apos;;white: state==&apos;closed&apos;"}'/>
                 <field name="destination_lines" invisible="1"/>
@@ -46,7 +47,7 @@
                         </group>
                         <group>
                             <field name="start_date"/>
-                            <field name="end_date"/>
+                            <field name="book_date"/>
                             <field name="amount_booking"/>
                             <field name="child_cost_price"/>
                             <field name="adult_cost_price"/>
