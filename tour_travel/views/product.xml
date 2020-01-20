@@ -8,7 +8,6 @@
             <field name="model">product.product</field>
             <field eval="7" name="priority"/>
             <field name="arch" type="xml">
-
                 <tree string="Product Variants">
                     <!-- <field name="default_code"/> -->
                     <field name="type" invisible="1"/>
@@ -20,6 +19,7 @@
                     <!-- <field name="barcode"/> -->
                     <field name="product_tmpl_id" invisible="1"/>
                     <field name="active" invisible="1"/>
+                    <field name="virtual_available" invisible="1"/>
                 </tree>
             </field>
         </record>
