@@ -1,15 +1,27 @@
 "id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
 "access_sms_brand_user","access_sms_brand_user","model_sms_brand","base.group_user",1,0,0,0
+"access_sms_brand_manager","access_sms_brand_manager","model_sms_brand","group_ace_sms",1,1,1,0
 "access_sms_brand_system","access_sms_brand_systen","model_sms_brand","base.group_system",1,1,1,1
+
 "access_sms_message_user","access_sms_message_user","model_sms_message","base.group_user",1,0,1,0
-"access_sms_message_status_user","access_sms_message_status_user","model_sms_message_status","base.group_user",1,0,1,0
+"access_sms_message_manager","access_sms_message_manager","model_sms_message","group_ace_sms",1,1,1,0
 "access_sms_message_system","access_sms_message_system","model_sms_message","base.group_system",1,1,1,1
+
+"access_sms_message_status_user","access_sms_message_status_user","model_sms_message_status","base.group_user",1,0,0,0
+"access_sms_message_status_manager","access_sms_message_status_manager","model_sms_message_status","group_ace_sms",1,1,1,0
 "access_sms_message_status_system","access_sms_message_status_system","model_sms_message_status","base.group_system",1,1,1,1
+
+"access_sms_gateway_manager","access_sms_gateway_manager","model_sms_gateway","group_ace_sms",1,1,1,0
 "access_sms_gateway_system","access_sms_gateway_system","model_sms_gateway","base.group_system",1,1,1,1
+
 "access_sms_template","access_sms_template","model_sms_template",,1,1,1,1
+
 "access_sms_compose","access_sms_compose","model_sms_compose",,1,1,1,1
 
 "access_sms_marketing_group_user","access_sms_marketing_group user","model_sms_marketing_group","base.group_user",1,0,0,0
+"access_sms_marketing_group_sms","access_sms_marketing_group sms","model_sms_marketing_group","group_ace_sms",1,1,1,0
 "access_sms_marketing_group_manager","access_sms_marketing_group manager","model_sms_marketing_group","base.group_system",1,1,1,1
+
 "access_sms_marketing_user","access_sms_marketing user","model_sms_marketing","base.group_user",1,0,0,0
+"access_sms_marketing_sms","access_sms_marketing sms","model_sms_marketing","group_ace_sms",1,1,1,0
 "access_sms_marketing_manager","access_sms_marketing manager","model_sms_marketing","base.group_system",1,1,1,1
