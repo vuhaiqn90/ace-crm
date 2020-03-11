@@ -23,6 +23,7 @@
 from odoo import api, fields, models, _
 import logging
 from lxml import etree
+import html2text
 
 _logger = logging.getLogger(__name__)
 
@@ -31,6 +32,7 @@ class CrmLead(models.Model):
     _inherit = 'crm.lead'
 
     log_last_updated = fields.Datetime(string="Log Last Updated On", compute='get_log_last_updated', store=True)
+    log_note_latest = fields.Text(string="Log Note Latest", compute='get_log_last_updated', store=True)
 
     @api.model
     def fields_view_get(self, view_id=None, view_type='form', toolbar=False, submenu=False):
@@ -59,3 +61,7 @@ class CrmLead(models.Model):
     def get_log_last_updated(self):
         for lead in self:
             lead.log_last_updated = lead.message_ids and lead.message_ids[0].date or False
+            note_latest = lead.message_ids.filtered(lambda mes: mes.message_type in ['comment', 'mail'])
+            h = html2text.HTML2Text()
+            h.ignore_links = True
+            lead.log_note_latest = note_latest and h.handle(note_latest[0].body) or ''
