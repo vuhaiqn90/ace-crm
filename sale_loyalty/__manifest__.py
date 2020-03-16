@@ -13,7 +13,7 @@
     'author': 'Kanak Infosystems',
     'website': 'www.kanakinfosystems.com',
     'images': ['static/description/banner.jpg'],
-    'depends': ['base', 'sale_management', 'point_of_sale', 'membership'],
+    'depends': ['base', 'sale_management', 'membership'],
     'data': [
         'security/ir.model.access.csv',
         'views/res_config_view.xml',
