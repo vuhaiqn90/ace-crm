@@ -19,7 +19,7 @@
         'views/res_users.xml',
         'views/menu.xml',
         'views/crm_lead_view.xml',
-        'views/mail_mass_mailing.xml'
+        # 'views/mail_mass_mailing.xml'
     ],
     'installable': True,
     'application': False,
