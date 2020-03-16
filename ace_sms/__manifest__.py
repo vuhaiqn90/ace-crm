@@ -30,6 +30,7 @@
         'views/sms_marketing_view.xml',
 
         # security
+        'security/res_groups.xml',
         'security/ir.model.access.csv',
 
         # menu
