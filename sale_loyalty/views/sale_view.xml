@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_order_form_inherit" model="ir.ui.view">
+        <field name="name">sale.order.form.loyalty</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='sale_total']" position="before">
+                <group>
+                    <group>
+                        <field name='points_won' readonly="1"/>
+                        <field name='points_spent' readonly="1"/>
+                        <field name='points_total' readonly="1"/>
+                        <field name='temp_points_won' invisible="1"/>
+                        <field name='temp_points_total' invisible="1"/>
+                    </group>
+                    <button name="button_reward" type="object" class="btn btn-md oe_button btn-primary">
+                        <i class="fa fa-star"></i>
+                        <span>Rewards</span>
+                    </button>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>
