@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_mail_mass_mailing_list_form_inherit" model="ir.ui.view">
+        <field name="name">view_mail_mass_mailing_list_form_inherit</field>
+        <field name="model">mail.mass_mailing.list</field>
+        <field name="inherit_id" ref="mass_mailing.view_mail_mass_mailing_list_form"/>
+        <field name="arch" type="xml">
+            <field name="is_public" position="before">
+                <field name="parent_id"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_mail_mass_mailing_list_tree_inherit" model="ir.ui.view">
+        <field name="name">view_mail_mass_mailing_list_tree_inherit</field>
+        <field name="model">mail.mass_mailing.list</field>
+        <field name="inherit_id" ref="mass_mailing.view_mail_mass_mailing_list_tree"/>
+        <field name="arch" type="xml">
+            <field name="create_date" position="after">
+                <field name="parent_id"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_mail_mass_mailing_list_search_inherit" model="ir.ui.view">
+        <field name="name">view_mail_mass_mailing_list_search</field>
+        <field name="model">mail.mass_mailing.list</field>
+        <field name="inherit_id" ref="mass_mailing.view_mail_mass_mailing_list_search"/>
+        <field name="arch" type="xml">
+            <filter name="group_create_date" position="after">
+                <filter string="Parent" name="group_parent_id" context="{'group_by': 'parent_id'}"/>
+            </filter>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="mass_mailing.action_view_mass_mailing_lists">
+        <field name="name">Mailing Lists</field>
+        <field name="res_model">mail.mass_mailing.list</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new mailing list
+            </p><p>
+            No need of importing your mailing lists, you can easily
+            send emails to any contact saved in other Odoo apps.
+        </p>
+        </field>
+    </record>
+</odoo>

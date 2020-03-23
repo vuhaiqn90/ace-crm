@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="">
+        <!-- Delete old menu commission -->
+        <delete model="ir.ui.menu" id="sale_commission.menu_sale_commissions_management" />
+    </data>
+    <data>
+        <menuitem name="Commissions Management"
+                  id="menu_sale_commissions_management"
+                  parent="sale.sale_menu_root"
+                  groups="sales_team.group_sale_manager"
+                  sequence="4"
+        />
+        <menuitem name="Challenges"
+                  id="menu_sale_commissions_challenge"
+                  action="challenge_list_action"
+                  parent="menu_sale_commissions_management"
+                  sequence="1"
+        />
+        <menuitem name="Goals"
+                  id="menu_sale_commissions_goal"
+                  action="gamification.goal_list_action"
+                  parent="menu_sale_commissions_management"
+                  sequence="2"
+        />
+        <menuitem name="Commission Calculations"
+                  id="menu_sale_commissions_goal"
+                  action="gamification.goal_list_action"
+                  parent="menu_sale_commissions_management"
+                  sequence="2"
+        />
+        <menuitem name="Configuration"
+                  id="menu_sale_commissions_configuration"
+                  parent="menu_sale_commissions_management"
+                  sequence="100"
+        />
+        <menuitem name="Badges"
+                  id="menu_sale_commissions_badge"
+                  action="gamification.badge_list_action"
+                  parent="menu_sale_commissions_configuration"
+                  sequence="1"
+        />
+        <menuitem name="Goal Definitions"
+                  id="menu_sale_commissions_goal_definition"
+                  action="gamification.goal_definition_list_action"
+                  parent="menu_sale_commissions_configuration"
+                  sequence="2"
+        />
+    </data>
+</odoo>
