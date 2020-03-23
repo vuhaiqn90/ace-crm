@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="ace_sale_view_inherit123" model="ir.ui.view">
+        <field name="name">ace.sale.order.form.inherit.sale</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale_crm.sale_view_inherit123"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='source_id']" position="after">
+                <field name="term_id"/>
+                <field name="content_id"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

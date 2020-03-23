@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="ace_crm_case_form_view_oppor" model="ir.ui.view">
+        <field name="name">ace.crm.lead.form.opportunity</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_case_form_view_oppor"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='source_id']" position="after">
+                <field name="term_id"/>
+                <field name="content_id"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

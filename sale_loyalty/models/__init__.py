@@ -4,3 +4,4 @@ from . import res_config
 from . import membership_level
 from . import res_partner
 from . import sale
+from . import account_invoice

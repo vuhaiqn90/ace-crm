@@ -5,6 +5,10 @@
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_order_form"/>
         <field name="arch" type="xml">
+            <xpath expr="//field[@name='payment_term_id']" position="after">
+                <field name="membership_id"/>
+                <field name="loyalty_points"/>
+            </xpath>
             <xpath expr="//group[@name='sale_total']" position="before">
                 <group>
                     <group>

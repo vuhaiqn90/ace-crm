@@ -3,8 +3,13 @@ from odoo import models, fields, api, _
 class ResPartner(models.Model):
     _inherit = 'res.partner'
 
+    def _get_default_membership(self):
+        membership_id = self.env['membership.level'].search([('point', '<=', 0)], order='point desc', limit=1)
+        return membership_id and membership_id.id or False
+
     loyalty_points = fields.Float(help='The loyalty points the user won as part of a Loyalty Program')
-    membership_id = fields.Many2one('membership.level', string="Membership")
+    membership_id = fields.Many2one('membership.level', string="Membership",
+                                    default=lambda self: self._get_default_membership())
 
     @api.multi
     def write(self, vals):

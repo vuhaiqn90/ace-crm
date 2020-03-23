@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="ir.ui.view" id="utm_term_tree">
+        <field name="name">utm.term.tree</field>
+        <field name="model">utm.term</field>
+        <field name="arch" type="xml">
+            <tree string="Term">
+                <field name="name"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="utm_term_form">
+        <field name="name">utm.term.form</field>
+        <field name="model">utm.term</field>
+        <field name="arch" type="xml">
+            <form string="Term">
+                <group>
+                    <field name="name"/>
+                    <field name="active"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="utm_term_act" model="ir.actions.act_window">
+        <field name="name">Term</field>
+        <field name="res_model">utm.term</field>
+        <field name="view_type">form</field>
+        <field name="view_id" ref="utm_term_tree"/>
+    </record>
+
+    <record model="ir.ui.view" id="utm_content_tree">
+        <field name="name">utm.content.tree</field>
+        <field name="model">utm.content</field>
+        <field name="arch" type="xml">
+            <tree string="Content">
+                <field name="name"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="utm_content_form">
+        <field name="name">utm.content.form</field>
+        <field name="model">utm.content</field>
+        <field name="arch" type="xml">
+            <form string="Content">
+                <group>
+                    <field name="name"/>
+                    <field name="active"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="utm_content_act" model="ir.actions.act_window">
+        <field name="name">Content</field>
+        <field name="res_model">utm.content</field>
+        <field name="view_type">form</field>
+        <field name="view_id" ref="utm_content_tree"/>
+    </record>
+</odoo>
