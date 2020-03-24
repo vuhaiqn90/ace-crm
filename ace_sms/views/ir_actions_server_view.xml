@@ -14,7 +14,8 @@
                             Please set the Base Model before setting the action details.
                         </p>
                         <group attrs="{'invisible': [('model_id', '=', False)]}">
-                            <field name="sms_template_id" attrs="{'required': [('state', '=', 'sms')]}"/>
+                            <field name="sms_template_id" attrs="{'required': [('state', '=', 'sms')]}"
+                                   domain="[('model_id', '=', model_id)]"/>
                             <p colspan="2" attrs="{'invisible': [('sms_template_id', '!=', False)]}">
                                 Choose a SMS template.
                             </p>

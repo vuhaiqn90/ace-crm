@@ -89,14 +89,28 @@ class SmsTemplate(models.Model):
         if self.sub_model_object_field_id:
             self.copyvalue = self.build_expression(self.model_object_field_id.name, self.sub_model_object_field_id.name, self.null_value)
     
-    @api.model
+    @api.multi
     def send_sms(self, record_id):
         """Send the sms using all the details in this sms template, using the specified record ID""" 
         # my_template = self.env['sms.template'].browse( int(template_id) )
         
         sms_rendered_content = self.env['sms.template'].render_template(self.template_body, self.model_id.model, record_id)
         
-        return self.brand_id.send_message(self.sms_to, sms_rendered_content, self.model_id.model, record_id)
+        sms = self.brand_id.send_message(self.sms_to, sms_rendered_content, self.model_id.model, record_id)
+
+        status = self.env['sms.message.status'].get_status(self.brand_id.gateway_id.id)
+        self.env['sms.message'].create({
+            'record_id': record_id,
+            'model_id': self.model_id.id,
+            'brand_id': self.brand_id.id,
+            'to_mobile': self.sms_to,
+            'sms_content': self.template_body,
+            'message_date': datetime.utcnow(),
+            'status_id': status.get(sms.get('CodeResponse', False) or sms.get('CodeResult', False), False),
+            'sms_gateway_message_id': sms.get('SMSID', sms.get('Exception', '')),
+            'by_partner_id': self.env.user.partner_id.id
+        })
+        return sms
 	
     def render_template(self, template, model, res_id):
         """Render the given template text, replace mako expressions ``${expr}``
