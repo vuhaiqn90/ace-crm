@@ -22,10 +22,12 @@ class AccountInvoice(models.Model):
     @api.multi
     def action_invoice_cancel(self):
         for inv in self:
-            order_id = inv.mapped('invoice_line_ids.sale_line_ids.order_id')
-            if order_id:
-                if inv.type == 'out_invoice':
+            if inv.type == 'out_invoice':
+                order_id = inv.mapped('invoice_line_ids.sale_line_ids.order_id')
+                if order_id:
                     inv.partner_id.loyalty_points -= order_id.points_won
-                elif inv.type == 'out_refund':
+            elif inv.type == 'out_refund' and inv.refund_invoice_id:
+                order_id = inv.refund_invoice_id.mapped('invoice_line_ids.sale_line_ids.order_id')
+                if order_id:
                     inv.partner_id.loyalty_points += order_id.points_won
         return super(AccountInvoice, self).action_invoice_cancel()
