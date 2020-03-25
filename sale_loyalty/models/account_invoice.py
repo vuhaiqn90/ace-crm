@@ -10,10 +10,13 @@ class AccountInvoice(models.Model):
     def action_invoice_open(self):
         for invoice in self:
             order_id = invoice.mapped('invoice_line_ids.sale_line_ids.order_id')
-            if order_id:
-                if invoice.type == 'out_invoice':
+            if invoice.type == 'out_invoice':
+                if order_id:
                     invoice.partner_id.loyalty_points += order_id.points_won
-                elif invoice.type == 'out_refund':
+            elif invoice.type == 'out_refund':
+                if not order_id and invoice.refund_invoice_id:
+                    order_id = invoice.refund_invoice_id.mapped('invoice_line_ids.sale_line_ids.order_id')
+                if order_id:
                     invoice.partner_id.loyalty_points -= order_id.points_won
         return super(AccountInvoice, self).action_invoice_open()
 
