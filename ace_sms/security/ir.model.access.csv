@@ -1,7 +1,11 @@
 "id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
 "access_sms_brand_user","access_sms_brand_user","model_sms_brand","base.group_user",1,0,0,0
 "access_sms_brand_manager","access_sms_brand_manager","model_sms_brand","group_ace_sms",1,1,1,0
-"access_sms_brand_system","access_sms_brand_systen","model_sms_brand","base.group_system",1,1,1,1
+"access_sms_brand_system","access_sms_brand_system","model_sms_brand","base.group_system",1,1,1,1
+
+"access_sms_gateway_user","access_sms_gateway_user","model_sms_gateway","base.group_user",1,0,0,0
+"access_sms_gateway_manager","access_sms_gateway_manager","model_sms_gateway","group_ace_sms",1,1,1,0
+"access_sms_gateway_system","access_sms_gateway_system","model_sms_gateway","base.group_system",1,1,1,1
 
 "access_sms_message_user","access_sms_message_user","model_sms_message","base.group_user",1,0,1,0
 "access_sms_message_manager","access_sms_message_manager","model_sms_message","group_ace_sms",1,1,1,0
