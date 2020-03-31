@@ -9,6 +9,7 @@
                 <field name="name" required="1"/>
                 <field name="code" required="1"/>
                 <field name="point" required="1"/>
+                <field name="referring_percent"/>
             </tree>
         </field>
     </record>

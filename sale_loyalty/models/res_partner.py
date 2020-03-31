@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from odoo import models, fields, api, _
 
 class ResPartner(models.Model):
@@ -10,6 +11,7 @@ class ResPartner(models.Model):
     loyalty_points = fields.Float(help='The loyalty points the user won as part of a Loyalty Program')
     membership_id = fields.Many2one('membership.level', string="Membership",
                                     default=lambda self: self._get_default_membership())
+    presenter = fields.Many2one('res.partner')
 
     @api.multi
     def write(self, vals):

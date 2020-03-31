@@ -10,3 +10,4 @@ class MembershipLevel(models.Model):
     name = fields.Char()
     code = fields.Char()
     point = fields.Float()
+    referring_percent = fields.Float('Referring Percent', help='Percentage of points earned for referrals')
