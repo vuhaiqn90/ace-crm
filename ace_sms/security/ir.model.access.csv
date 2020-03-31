@@ -15,9 +15,6 @@
 "access_sms_message_status_manager","access_sms_message_status_manager","model_sms_message_status","group_ace_sms",1,1,1,0
 "access_sms_message_status_system","access_sms_message_status_system","model_sms_message_status","base.group_system",1,1,1,1
 
-"access_sms_gateway_manager","access_sms_gateway_manager","model_sms_gateway","group_ace_sms",1,1,1,0
-"access_sms_gateway_system","access_sms_gateway_system","model_sms_gateway","base.group_system",1,1,1,1
-
 "access_sms_template","access_sms_template","model_sms_template",,1,1,1,1
 
 "access_sms_compose","access_sms_compose","model_sms_compose",,1,1,1,1
