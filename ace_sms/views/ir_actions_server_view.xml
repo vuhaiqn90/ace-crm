@@ -9,7 +9,7 @@
             <field name="arch" type="xml">
                 <xpath expr="//page[@name='code']" position="after">
                     <page string="SMS" autofocus="autofocus"
-                            attrs="{'invisible': [('state', '!=', 'sms')]}">
+                            attrs="{'invisible': [('state', 'not in', ['sms', 'code'])]}">
                         <p attrs="{'invisible': [('model_id', '!=', False)]}">
                             Please set the Base Model before setting the action details.
                         </p>
