@@ -8,7 +8,9 @@
     """,
     'depends': ['sale_coupon'],
     'data': [
+        # Views
         'views/partner_views.xml',
+        'views/sale_order_view.xml',
     ],
     'demo': [],
     'installable': True,
