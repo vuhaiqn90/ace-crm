@@ -6,7 +6,7 @@
         <field name="inherit_id" ref="sale.view_order_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='user_id']" position="before">
-                <field name="telesales"/>
+                <field name="telesales" domain="[('job_position', '=', 'tels')]"/>
             </xpath>
         </field>
     </record>

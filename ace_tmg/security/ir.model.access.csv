@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ace_commission_config_user,access_ace_commission_config user,model_ace_commission_config,base.group_user,1,0,0,0
+access_ace_commission_config_manager,access_ace_commission_config manager,model_ace_commission_config,sales_team.group_sale_manager,1,1,1,1
+
+access_ace_commission_user,access_ace_commission user,model_ace_commission,sales_team.group_sale_salesman,1,0,0,0
+access_ace_commission_manager,access_ace_commission manager,model_ace_commission,sales_team.group_sale_manager,1,1,1,1
+
+access_ace_commission_line_user,access_ace_commission_line user,model_ace_commission_line,sales_team.group_sale_salesman,1,0,0,0
+access_ace_commission_line_manager,access_ace_commission_line manager,model_ace_commission_line,sales_team.group_sale_manager,1,1,1,1

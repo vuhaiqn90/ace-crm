@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_ace_commission_config_tree" model="ir.ui.view">
+        <field name="name">ace.commission.config.form</field>
+        <field name="model">ace.commission.config</field>
+        <field name="arch" type="xml">
+            <tree string="Commission Config" editable="bottom">
+                <field name="sequence" widget="handle"/>
+                <field name="name" required="1"/>
+                <field name="type" required="1"/>
+                <field name="trial" required="1"/>
+                <field name="total"/>
+                <field name="rate"/>
+                <field name="delta_method"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_ace_commission_config_form" model="ir.actions.act_window">
+        <field name="name">Commission Config</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ace.commission.config</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click to create a Commission Config.
+            </p>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="ace_commission_tree_view" model="ir.ui.view">
+		<field name="name">Commission</field>
+		<field name="model">ace.commission</field>
+		<field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="date_from"/>
+                <field name="date_to"/>
+                <field name="job_position"/>
+                <field name="trial"/>
+                <field name="user_ids" widget="many2many_tags"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="ace_commission_form_view" model="ir.ui.view">
+		<field name="name">Commission</field>
+		<field name="model">ace.commission</field>
+		<field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="compute_commission" string="Compute" type="object" class="btn-primary"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" required="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="date_from" required="1"/>
+                            <field name="job_position"/>
+                            <field name="user_ids" widget="many2many_tags" options="{'no_create': True}"/>
+                        </group>
+                        <group>
+                            <field name="date_to" required="1"/>
+                            <field name="trial"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Detail">
+                            <field name="line_ids" nolabel="1" readonly="1">
+                                <tree>
+                                    <field name="user_id"/>
+                                    <field name="job_position"/>
+                                    <field name="trial"/>
+                                    <field name="total" sum="Total"/>
+                                    <!--<field name="amount" sum="Amount"/>-->
+                                    <field name="rate"/>
+                                    <field name="commission" sum="Commission"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+		</field>
+	</record>
+
+    <record id="action_ace_commission" model="ir.actions.act_window">
+        <field name="name">Commission</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ace.commission</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a commission!
+            </p>
+        </field>
+    </record>
+</odoo>
