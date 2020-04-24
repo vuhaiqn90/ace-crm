@@ -11,3 +11,4 @@ class AccountMoveLine(models.Model):
         if move_line.move_id and move_line.move_id.stock_move_id and \
             move_line.move_id.stock_move_id.product_id.analytic_tag_ids:
             move_line.analytic_tag_ids = [(4, tag.id) for tag in move_line.move_id.stock_move_id.product_id.analytic_tag_ids]
+        return move_line
