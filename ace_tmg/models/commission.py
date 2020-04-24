@@ -134,3 +134,39 @@ class ACECommissionLine(models.Model):
     rate = fields.Float('Rate(%)')
     commission = fields.Float()
     commission_id = fields.Many2one('ace.commission')
+
+    @api.multi
+    def view_invoice(self):
+        job = self.job_position == 'tels' and """AND ai.telesales IS NOT NULL""" or \
+              (self.job_position == 'ctv' and """AND rsp.job_position = 'ctv'""" or
+               """AND COALESCE(rsp.job_position, 'sale') = 'sale'""")
+        trial = """AND (rsp.trial = TRUE OR pls.trial = TRUE)"""
+        self._cr.execute("""
+            SELECT ai.id
+            FROM account_invoice ai
+                LEFT JOIN res_users sp ON sp.id = ai.user_id
+                LEFT JOIN res_partner rsp ON rsp.id = sp.partner_id
+                LEFT JOIN res_users tls ON tls.id = ai.telesales
+                LEFT JOIN res_partner pls ON pls.id = tls.partner_id
+            WHERE ai.state IN ('open', 'in_payment', 'paid')
+                  AND ai.type IN ('out_invoice', 'out_refund')
+                  AND ai.date_invoice BETWEEN '%s' AND '%s'
+                  AND (ai.user_id = %s OR ai.telesales = %s)
+                  %s %s
+        """ % (self.commission_id.date_from, self.commission_id.date_to, self.user_id.id, self.user_id.id,
+               """""" if not self.commission_id.job_position else job, self.commission_id.trial and trial or """"""))
+        invoices = self._cr.fetchall()
+        invoices = [inv[0] for inv in invoices]
+        return {
+            'name': _('Invoices'),
+            'view_type': 'form',
+            'view_mode': 'tree,form',
+            'view_id': False,
+            'views': [(self.env.ref('account.invoice_tree').id, 'tree'),
+                      (self.env.ref('account.invoice_form').id, 'form')],
+            'res_model': 'account.invoice',
+            'type': 'ir.actions.act_window',
+            'domain': [('id', 'in', invoices or [])],
+            'context': "{'type':'out_invoice'}",
+            'target': 'target'
+        }

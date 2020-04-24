@@ -10,4 +10,26 @@
             </xpath>
         </field>
     </record>
+
+    <record id="ace_view_quotation_tree" model="ir.ui.view">
+        <field name="name">ace.sale.order.tree</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_quotation_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='user_id']" position="before">
+                <field name="telesales"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="ace_view_order_tree" model="ir.ui.view">
+        <field name="name">ace.sale.order.tree</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='user_id']" position="before">
+                <field name="telesales"/>
+            </xpath>
+        </field>
+    </record>
 </odoo>

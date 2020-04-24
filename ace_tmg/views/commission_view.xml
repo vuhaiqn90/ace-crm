@@ -51,6 +51,7 @@
                                     <!--<field name="amount" sum="Amount"/>-->
                                     <field name="rate"/>
                                     <field name="commission" sum="Commission"/>
+                                    <button name="view_invoice" string="View" type="object" class="btn btn-info" style="padding: 3px 9px;"/>
                                 </tree>
                             </field>
                         </page>
