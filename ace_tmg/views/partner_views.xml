@@ -10,4 +10,15 @@
             </xpath>
         </field>
     </record>
+
+    <record id="ace_view_category_property_form" model="ir.ui.view">
+        <field name="name">ace.partner.over.credit.limit.form.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="partner_credit_limit.view_category_property_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='over_credit']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
 </odoo>

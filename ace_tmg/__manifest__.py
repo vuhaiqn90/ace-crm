@@ -6,7 +6,11 @@
     'description':"""
         Customize function
     """,
-    'depends': ['sale_coupon', 'account'],
+    'depends': [
+        'sale_coupon',
+        'account',
+        'partner_credit_limit',
+    ],
     'data': [
         # Security
         'security/ir.model.access.csv',
