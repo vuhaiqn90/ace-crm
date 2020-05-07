@@ -37,9 +37,9 @@ class SaleOrder(models.Model):
 
             if not loyalty.rule_ids:
                 if loyalty.pp_currency:
-                    points += round(order.amount_total) * loyalty.pp_currency
+                    points += round(order.amount_total) / loyalty.pp_currency
                 if loyalty.pp_product:
-                    total_point = sum(order.mapped('order_line').mapped('product_uom_qty')) * loyalty.pp_product
+                    total_point = sum(order.mapped('order_line').mapped('product_uom_qty')) / loyalty.pp_product
                     points += total_point
                 order.points_won = points
             else:
@@ -52,20 +52,20 @@ class SaleOrder(models.Model):
                         lines = order.mapped('order_line').filtered(lambda l: l.product_id.categ_id in category_ids)
                     if rule.pp_product and not rule.cumulative:
                         total_qty = sum(lines.mapped('product_uom_qty'))
-                        points += (total_qty * rule.pp_product)
+                        points += (total_qty / rule.pp_product)
                     if rule.pp_currency and not rule.cumulative:
                         total_price = sum(lines.mapped('price_subtotal'))
-                        points += (total_price * rule.pp_currency)
+                        points += (total_price / rule.pp_currency)
                     if rule.cumulative:
                         total_qty = sum(lines.mapped('product_uom_qty'))
                         total_price = sum(lines.mapped('price_subtotal'))
 
-                        pp_product_point = total_qty * rule.pp_product
+                        pp_product_point = total_qty / rule.pp_product
 
                         if rule.pp_currency:
-                            pp_currency_point = total_price * rule.pp_currency
+                            pp_currency_point = total_price / rule.pp_currency
                         else:
-                            pp_currency_point = total_price * loyalty.pp_currency
+                            pp_currency_point = total_price / loyalty.pp_currency
                         points += (pp_currency_point + pp_product_point)
                     order.points_won = points
 
