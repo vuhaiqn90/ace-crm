@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <menuitem action="utm_term_act" id="menu_utm_term" parent="utm.marketing_utm" sequence="5" groups="base.group_no_one"/>
-    <menuitem action="utm_content_act" id="menu_content_term" parent="utm.marketing_utm" sequence="6" groups="base.group_no_one"/>
+    <menuitem action="utm_term_act" id="menu_utm_term" parent="utm.marketing_utm" sequence="5"/>
+    <menuitem action="utm_content_act" id="menu_content_term" parent="utm.marketing_utm" sequence="6"/>
 </odoo>
