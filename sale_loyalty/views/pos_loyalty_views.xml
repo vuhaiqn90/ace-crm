@@ -54,7 +54,7 @@
                         <field name="pp_currency"/>
                         <field name="pp_product"/>
                         <field name="pp_order"/>
-                        <field name="rounding" />
+                        <field name="rounding" invisible="1"/>
                     </group>
 
                     <separator string="Rules" colspan="4"/>
