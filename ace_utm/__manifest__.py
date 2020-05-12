@@ -8,6 +8,8 @@
         'sale_crm',
     ],
     'data': [
+        # Security
+        'security/ir.model.access.csv',
         # Wizard
         # View
         'views/utm_view.xml',
