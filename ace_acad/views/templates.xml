@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="products_request_cost" inherit_id="website_sale.product">
+        <xpath expr="//t[@t-call='website_sale.product_price']" position="attributes">
+            <attribute name="t-if">not product.request_cost</attribute>
+        </xpath>
+        <xpath expr="//p[@t-if='True']" position="attributes">
+            <attribute name="t-if">True and not product.request_cost</attribute>
+        </xpath>
+        <xpath expr="//a[@id='add_to_cart']" position="attributes">
+            <attribute name="t-if">not product.request_cost</attribute>
+        </xpath>
+        <xpath expr="//a[@id='add_to_cart']" position="before">
+            <a t-if="product.request_cost" role="button" id="ace_request_form" class="btn btn-primary btn-lg mt8 js_check_product" t-att-href="'%s' % (product.request_url or '/get-quote')">Request for Cost</a>
+        </xpath>
+    </template>
+
+    <template id="product_quantity_request_cost" inherit_id="website_sale.product_quantity">
+        <xpath expr="//div[hasclass('ks_quantity_panel')]" position="attributes">
+            <attribute name="t-if">not product.request_cost</attribute>
+        </xpath>
+    </template>
+</odoo>
