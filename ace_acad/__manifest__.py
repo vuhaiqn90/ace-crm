@@ -16,6 +16,7 @@
         # Views
         'views/product_view.xml',
         'views/templates.xml',
+        'views/web_assets.xml',
         # Menu
     ],
     'demo': [],

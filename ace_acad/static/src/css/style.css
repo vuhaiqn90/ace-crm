@@ -1,0 +1,10 @@
+.request_quote {
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 500 !important;
+    background: #ad400b !important;
+    border-color: #ad400b !important;
+    color: #ffffff !important;
+    transition: 0.3s ease-in-out;
+    border-radius: 4px;
+}

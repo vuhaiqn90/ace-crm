@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template priority="100" id="assets_backend" name="theme_assets" inherit_id="web.assets_frontend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" type="text/css" href="/ace_acad/static/src/css/style.css"/>
+        </xpath>
+    </template>
+</odoo>
