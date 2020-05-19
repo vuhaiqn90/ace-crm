@@ -7,7 +7,7 @@
         <field name="arch" type="xml">
             <xpath expr="//group[@name='group_general']" position="inside">
                 <field name="request_cost"/>
-                <field name="request_url"/>
+                <field name="request_url" attrs="{'invisible': [('request_cost', '=', False)]}"/>
             </xpath>
         </field>
     </record>
