@@ -11,7 +11,7 @@
             <attribute name="t-if">not product.request_quote</attribute>
         </xpath>
         <xpath expr="//a[@id='add_to_cart']" position="before">
-            <a t-if="product.request_quote" role="button" id="ace_request_form" class="btn btn-primary btn-lg mt8 js_check_product" t-att-href="'%s' % (product.request_url or '/get-quote')">Request for Cost</a>
+            <a t-if="product.request_quote" role="button" id="ace_request_form" class="btn btn-primary btn-lg mt8 js_check_product" t-att-href="'%s' % (product.request_url or '/get-quote')">Request for quote</a>
         </xpath>
     </template>
 
