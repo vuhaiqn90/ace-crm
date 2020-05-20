@@ -22,7 +22,7 @@
         <field name="inherit_id" ref="membership.view_partner_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='free_member']/.." position="inside">
-                <field name="loyalty_points"/>
+                <field name="loyalty_points" readonly="1"/>
                 <field name="membership_id" readonly="1"/>
             </xpath>
         </field>
