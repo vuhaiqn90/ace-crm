@@ -146,7 +146,7 @@
                     <field name="point_product_id" options="{'no_create': True, 'no_open': True}"
                            attrs="{'invisible':[('reward_type','!=','resale')], 'required':[('reward_type','==','resale')]}"/>
                 </group>
-                <group>
+                <group invisible="1">
                     <field name="point_cost" attrs="{'invisible':[('reward_type','=','resale')] }" />
                     <field name="minimum_points" />
                 </group>
