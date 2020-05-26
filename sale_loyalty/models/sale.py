@@ -20,7 +20,7 @@ class SaleOrder(models.Model):
     #     res = super(SaleOrder, self).action_confirm()
     #     return res
 
-    @api.depends('order_line')
+    @api.depends('order_line', 'order_line.price_subtotal')
     def _get_point_won(self):
         loyalty_id = self.env['ir.default'].sudo().get('res.config.settings', "loyalty_id")
         loyalty = self.env['sale.loyalty.program'].browse(loyalty_id)
@@ -78,6 +78,13 @@ class SaleOrder(models.Model):
             values['temp_points_total'] = self.partner_id.loyalty_points
             self.update(values)
 
+    @api.depends('run_loyalty_reward', 'order_line.discount')
+    def check_hide_button_reward(self):
+        for order in self:
+            order.hide_button_reward = False
+            if order.run_loyalty_reward and any(line.discount > 0 for line in order.order_line):
+                order.hide_button_reward = True
+
     # Fields
     temp_points_won = fields.Float(string="Temp Won Points", digits=dp.get_precision('Product Price'), store=True)
     temp_points_total = fields.Float(string="Temp Total Points", digits=dp.get_precision('Product Price'), store=True)
@@ -86,17 +93,19 @@ class SaleOrder(models.Model):
     points_total = fields.Float(string="Total Points", compute='_get_points_total', digits=dp.get_precision('Product Price'), store=True)
     membership_id = fields.Many2one('membership.level', string="Membership", related='partner_id.membership_id')
     loyalty_points = fields.Float('Loyalty Points', related='partner_id.loyalty_points')
+    run_loyalty_reward = fields.Boolean('Run Loyalty Reward')
+    hide_button_reward = fields.Boolean(compute='check_hide_button_reward')
 
     @api.multi
     def button_reward(self):
         loyalty_id = self.env['ir.default'].sudo().get('res.config.settings', "loyalty_id")
         loyalty = self.env['sale.loyalty.program'].browse(loyalty_id)
         SoLine = self.env['sale.order.line']
-        temp_points_won = self.points_won
+        # temp_points_won = self.points_won
         start_membership = self.env['membership.level'].search([('point', '<=', 0)], order='point desc', limit=1)
         for reward in loyalty.reward_ids:
-            self.points_spent = self.points_spent * -1
-            if self.points_total >= reward.minimum_points:
+            # self.points_spent = self.points_spent * -1
+            # if self.points_total >= reward.minimum_points:
                 if reward.reward_type == 'gift':
                     SoLine.create({
                         'product_id': reward.gift_product_id.id,
@@ -104,9 +113,10 @@ class SaleOrder(models.Model):
                         'price_unit': 0.0,
                         'order_id': self.id
                     })
-                    self.points_total = self.points_total - reward.point_cost
-                    self.partner_id.loyalty_points = self.partner_id.loyalty_points - reward.point_cost
-                    self.points_spent += reward.point_cost
+                    self.run_loyalty_reward = True
+                    # self.points_total = self.points_total - reward.point_cost
+                    # self.partner_id.loyalty_points = self.partner_id.loyalty_points - reward.point_cost
+                    # self.points_spent += reward.point_cost
                 elif reward.reward_type == 'discount':
                     # total_price = self.amount_untaxed
                     # discount = -(total_price * (reward.discount / 100))
@@ -122,35 +132,41 @@ class SaleOrder(models.Model):
                         order_line_ids = self.order_line.filtered(
                             lambda l: (not reward.discount_category_id or l.product_id.categ_id in category_ids) and
                                       (not reward.membership_id or (l.order_id.partner_id.membership_id or start_membership) == reward.membership_id))
-                    order_line_ids.write({'discount': reward.discount})
-                    self.points_total -= reward.point_cost
-                    self.partner_id.loyalty_points -= reward.point_cost
-                    self.points_spent -= reward.point_cost
-                elif reward.reward_type == 'resale':
-                    total_qty = sum(self.mapped('order_line').filtered(lambda l: l.product_id == reward.point_product_id).mapped('product_uom_qty'))
-                    if total_qty <= self.points_total:
-                        price = -reward.point_product_id.lst_price
-                        SoLine.create({
-                            'product_id': reward.discount_product_id.id,
-                            'product_uom_qty': total_qty,
-                            'price_unit': price,
-                            'order_id': self.id
-                        })
-                        self.points_total = self.points_total - total_qty
-                        self.partner_id.loyalty_points = self.partner_id.loyalty_points - total_qty
-                        self.points_spent += reward.point_product_id.lst_price
-                    else:
-                        price = -reward.point_product_id.lst_price
-                        SoLine.create({
-                            'product_id': reward.discount_product_id.id,
-                            'product_uom_qty': self.points_total,
-                            'price_unit': price,
-                            'order_id': self.id
-                        })
-                        self.points_total = self.partner_id.loyalty_points = 0.00
-                        self.points_spent += reward.point_product_id.lst_price
-            else:
-                raise UserError(_('There are no rewards available for this customer as part of the loyalty program'))
-        self.temp_points_total = self.points_total
-        self.points_spent = self.points_spent * -1
-        self.points_won = temp_points_won
+                    # order_line_ids.write({'discount': reward.discount})
+                    for line in order_line_ids:
+                        line.discount = line.discount + reward.discount
+                        if reward.analytic_tag_ids:
+                            line.analytic_tag_ids = [(4, tag.id) for tag in reward.analytic_tag_ids]
+                    if order_line_ids:
+                        self.run_loyalty_reward = True
+                    # self.points_total -= reward.point_cost
+                    # self.partner_id.loyalty_points -= reward.point_cost
+                    # self.points_spent -= reward.point_cost
+                # elif reward.reward_type == 'resale':
+                #     total_qty = sum(self.mapped('order_line').filtered(lambda l: l.product_id == reward.point_product_id).mapped('product_uom_qty'))
+                #     if total_qty <= self.points_total:
+                #         price = -reward.point_product_id.lst_price
+                #         SoLine.create({
+                #             'product_id': reward.discount_product_id.id,
+                #             'product_uom_qty': total_qty,
+                #             'price_unit': price,
+                #             'order_id': self.id
+                #         })
+                #         # self.points_total = self.points_total - total_qty
+                #         # self.partner_id.loyalty_points = self.partner_id.loyalty_points - total_qty
+                #         # self.points_spent += reward.point_product_id.lst_price
+                #     else:
+                #         price = -reward.point_product_id.lst_price
+                #         SoLine.create({
+                #             'product_id': reward.discount_product_id.id,
+                #             'product_uom_qty': self.points_total,
+                #             'price_unit': price,
+                #             'order_id': self.id
+                #         })
+                #         # self.points_total = self.partner_id.loyalty_points = 0.00
+                #         # self.points_spent += reward.point_product_id.lst_price
+            # else:
+            #     raise UserError(_('There are no rewards available for this customer as part of the loyalty program'))
+        # self.temp_points_total = self.points_total
+        # self.points_spent = self.points_spent * -1
+        # self.points_won = temp_points_won

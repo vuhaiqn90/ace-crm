@@ -54,6 +54,8 @@ class LoyaltyReward(models.Model):
                                            help='The category used to apply discounts')
     type = fields.Selection([('product', 'Product'), ('category', 'Category')])
     membership_id = fields.Many2one('membership.level', 'Membership')
+    analytic_tag_ids = fields.Many2many('account.analytic.tag', 'loyalty_reward_analytic_tag_rel',
+                                        'reward_id', 'tag_id', string='Analytic Tags')
 
     @api.constrains('reward_type', 'gift_product_id')
     def _check_gift_product(self):

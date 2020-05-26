@@ -9,6 +9,10 @@
                 <field name="membership_id"/>
                 <field name="loyalty_points"/>
             </xpath>
+            <xpath expr="//field[@name='analytic_account_id']" position="after">
+                <field name="run_loyalty_reward" groups="sales_team.group_sale_manager"
+                       attrs="{'invisible': [('run_loyalty_reward', '=', False)], 'readonly': [('state', '!=', 'draft')]}"/>
+            </xpath>
             <xpath expr="//group[@name='sale_total']" position="before">
                 <group>
                     <group>
@@ -17,10 +21,12 @@
                         <field name='points_total' readonly="1"/>
                         <field name='temp_points_won' invisible="1"/>
                         <field name='temp_points_total' invisible="1"/>
+                        <field name="hide_button_reward" invisible="1"/>
                     </group>
-                    <button name="button_reward" type="object" class="btn btn-md oe_button btn-primary">
-                        <i class="fa fa-star"></i>
-                        <span>Rewards</span>
+                    <button name="button_reward" type="object" class="btn btn-md oe_button btn-primary"
+                            attrs="{'invisible': ['|', ('state', '!=', 'draft'), ('hide_button_reward', '=', True)]}">
+                        <i class="fa fa-star"/>
+                        <span>&amp;nbsp;Rewards</span>
                     </button>
                 </group>
             </xpath>
