@@ -21,6 +21,7 @@
         'views/commission_config_view.xml',
         'views/commission_view.xml',
         'views/account_invoice_view.xml',
+        'views/stock_picking_view.xml',
         # Menu
         'menu/menu.xml',
     ],
