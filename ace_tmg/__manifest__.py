@@ -7,8 +7,10 @@
         Customize function
     """,
     'depends': [
+        'purchase',
         'sale_coupon',
-        'account',
+        'stock_account',
+        'ace_accounting_core',
         'partner_credit_limit',
     ],
     'data': [
@@ -22,6 +24,8 @@
         'views/commission_view.xml',
         'views/account_invoice_view.xml',
         'views/stock_picking_view.xml',
+        'views/purchase_order_view.xml',
+        'views/product_view.xml',
         # Menu
         'menu/menu.xml',
     ],
