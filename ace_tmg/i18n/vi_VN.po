@@ -1,0 +1,293 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* ace_tmg
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-05-29 02:10+0000\n"
+"PO-Revision-Date: 2020-05-29 02:10+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: ace_tmg
+#: model:ir.model,name:ace_tmg.model_account_aged_partner
+msgid "Aged Partner Balances"
+msgstr "Số dư đối tác theo tuổi"
+
+#. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_res_partner__agent_level
+#: model:ir.model.fields,field_description:ace_tmg.field_res_users__agent_level
+msgid "Agent Level"
+msgstr "Kênh đại lý"
+
+#. module: ace_tmg
+#: selection:ace.commission,job_position:0
+#: selection:ace.commission.config,type:0
+#: selection:ace.commission.line,job_position:0
+#: selection:res.partner,job_position:0
+msgid "CTV"
+msgstr ""
+
+#. module: ace_tmg
+#: model_terms:ir.actions.act_window,help:ace_tmg.action_ace_commission_config_form
+msgid "Click to create a Commission Config."
+msgstr ""
+
+#. module: ace_tmg
+#: model:ir.actions.act_window,name:ace_tmg.action_ace_commission
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_line__commission
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_line__commission_id
+#: model:ir.ui.menu,name:ace_tmg.menu_ace_commission
+#: model:ir.ui.menu,name:ace_tmg.menu_commission_root
+#: model_terms:ir.ui.view,arch_db:ace_tmg.ace_commission_form_view
+msgid "Commission"
+msgstr "Hoa hồng"
+
+#. module: ace_tmg
+#: code:addons/ace_tmg/models/commission_config.py:6
+#: model:ir.actions.act_window,name:ace_tmg.action_ace_commission_config_form
+#: model:ir.model,name:ace_tmg.model_ace_commission_config
+#: model:ir.ui.menu,name:ace_tmg.menu_ace_commission_config
+#: model_terms:ir.ui.view,arch_db:ace_tmg.view_ace_commission_config_tree
+#, python-format
+msgid "Commission Config"
+msgstr "Hoa hồng"
+
+#. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_line__amount
+msgid "Commission on Amount"
+msgstr "Doanh số tính hoa hồng"
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.ace_commission_form_view
+msgid "Compute"
+msgstr "Tính toán"
+
+#. module: ace_tmg
+#: model:ir.ui.menu,name:ace_tmg.menu_commission_config_main
+msgid "Configuration"
+msgstr "Cấu hình"
+
+#. module: ace_tmg
+#: model:ir.model,name:ace_tmg.model_res_partner
+msgid "Contact"
+msgstr "Liên hệ"
+
+#. module: ace_tmg
+#: model_terms:ir.actions.act_window,help:ace_tmg.action_ace_commission
+msgid "Create a commission!"
+msgstr ""
+
+#. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_commission__create_uid
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_config__create_uid
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_line__create_uid
+msgid "Created by"
+msgstr "Được tạo bởi"
+
+#. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_commission__create_date
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_config__create_date
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_line__create_date
+msgid "Created on"
+msgstr "Thời điểm tạo"
+
+#. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_config__delta_method
+msgid "Delta Method"
+msgstr ""
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.ace_commission_form_view
+msgid "Detail"
+msgstr ""
+
+#. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_commission__display_name
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_config__display_name
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_line__display_name
+msgid "Display Name"
+msgstr "Tên hiển thị"
+
+#. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_commission__date_from
+msgid "From"
+msgstr "Từ"
+
+#. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_commission__id
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_config__id
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_line__id
+msgid "ID"
+msgstr ""
+
+#. module: ace_tmg
+#: model:ir.model.fields,help:ace_tmg.field_ace_commission_config__delta_method
+msgid "If Delta Method is True, amount to compute commission = (total revenue of staff - Total) * rate / 100.Otherwise, amount to compute commission = total revenue of staff * rate / 100"
+msgstr ""
+
+#. module: ace_tmg
+#: model:ir.model,name:ace_tmg.model_account_invoice
+msgid "Invoice"
+msgstr "Hóa đơn"
+
+#. module: ace_tmg
+#: code:addons/ace_tmg/models/commission.py:161
+#, python-format
+msgid "Invoices"
+msgstr ""
+
+#. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_commission__job_position
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_line__job_position
+#: model:ir.model.fields,field_description:ace_tmg.field_res_partner__job_position
+#: model:ir.model.fields,field_description:ace_tmg.field_res_users__job_position
+#: model_terms:ir.ui.view,arch_db:ace_tmg.ace_view_users_form
+msgid "Job Position"
+msgstr "Chức vụ"
+
+#. module: ace_tmg
+#: selection:res.partner,agent_level:0
+msgid "Kênh đại lý cấp 1"
+msgstr ""
+
+#. module: ace_tmg
+#: selection:res.partner,agent_level:0
+msgid "Kênh đại lý cấp 2"
+msgstr ""
+
+#. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_commission____last_update
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_config____last_update
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_line____last_update
+msgid "Last Modified on"
+msgstr "Sửa lần cuối vào"
+
+#. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_commission__write_uid
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_config__write_uid
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_line__write_uid
+msgid "Last Updated by"
+msgstr "Cập nhật lần cuối bởi"
+
+#. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_commission__write_date
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_config__write_date
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_line__write_date
+msgid "Last Updated on"
+msgstr "Cập nhật lần cuối vào"
+
+#. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_commission__line_ids
+msgid "Line"
+msgstr "Dòng"
+
+#. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_commission__name
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_config__name
+msgid "Name"
+msgstr "Tên"
+
+#. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_config__rate
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_line__rate
+msgid "Rate(%)"
+msgstr ""
+
+#. module: ace_tmg
+#: model:ir.model,name:ace_tmg.model_sale_order
+msgid "Sale Order"
+msgstr "Đơn hàng Bán"
+
+#. module: ace_tmg
+#: selection:ace.commission,job_position:0
+#: selection:ace.commission.config,type:0
+#: selection:ace.commission.line,job_position:0
+#: selection:res.partner,job_position:0
+msgid "Salesperson"
+msgstr ""
+
+#. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_commission__user_ids
+msgid "Salesperson/Telesales"
+msgstr ""
+
+#. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_config__sequence
+msgid "Sequence"
+msgstr "Trình tự"
+
+#. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_line__user_id
+msgid "Staff"
+msgstr ""
+
+#. module: ace_tmg
+#: selection:ace.commission,job_position:0
+#: selection:ace.commission.config,type:0
+#: selection:ace.commission.line,job_position:0
+#: model:ir.model.fields,field_description:ace_tmg.field_account_invoice__telesales
+#: model:ir.model.fields,field_description:ace_tmg.field_sale_order__telesales
+#: selection:res.partner,job_position:0
+msgid "Telesales"
+msgstr ""
+
+#. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_commission__date_to
+msgid "To"
+msgstr "Đến"
+
+#. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_config__total
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_line__total
+#: model_terms:ir.ui.view,arch_db:ace_tmg.ace_commission_form_view
+msgid "Total"
+msgstr "Tổng"
+
+#. module: ace_tmg
+#: model:ir.model,name:ace_tmg.model_stock_picking
+msgid "Transfer"
+msgstr "Dịch chuyển"
+
+#. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_commission__trial
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_config__trial
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_line__trial
+#: model:ir.model.fields,field_description:ace_tmg.field_res_partner__trial
+#: model:ir.model.fields,field_description:ace_tmg.field_res_users__trial
+msgid "Trial Work"
+msgstr ""
+
+#. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_config__type
+msgid "Type"
+msgstr "Loại"
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.ace_commission_form_view
+msgid "View"
+msgstr "Xem"
+
+#. module: ace_tmg
+#: code:addons/ace_tmg/models/sale_order.py:41
+#, python-format
+msgid "You can not confirm Sale Order. \n"
+""
+msgstr ""
+
+#. module: ace_tmg
+#: model:ir.model,name:ace_tmg.model_ace_commission
+msgid "ace.commission"
+msgstr ""
+
+#. module: ace_tmg
+#: model:ir.model,name:ace_tmg.model_ace_commission_line
+msgid "ace.commission.line"
+msgstr ""
+
