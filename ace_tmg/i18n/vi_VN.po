@@ -248,7 +248,7 @@ msgstr "Đến"
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_line__total
 #: model_terms:ir.ui.view,arch_db:ace_tmg.ace_commission_form_view
 msgid "Total"
-msgstr "Tổng"
+msgstr "Doanh số tính hoa hồng"
 
 #. module: ace_tmg
 #: model:ir.model,name:ace_tmg.model_stock_picking
