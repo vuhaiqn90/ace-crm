@@ -30,25 +30,26 @@ class ResPartner(models.Model):
         partner = self
         name = partner.ref and '[%s] %s' % (partner.ref, partner.name) or partner.name
 
-        if partner.company_name or partner.parent_id:
-            if not name and partner.type in ['invoice', 'delivery', 'other']:
-                name = dict(self.fields_get(['type'])['type']['selection'])[partner.type]
-            if not partner.is_company:
-                name = self._get_contact_name(partner, name)
+        # if partner.company_name or partner.parent_id:
+        #     if not name and partner.type in ['invoice', 'delivery', 'other']:
+        #         name = dict(self.fields_get(['type'])['type']['selection'])[partner.type]
+        #     if not partner.is_company:
+        #         name = self._get_contact_name(partner, name)
         if self._context.get('show_address_only'):
             name = partner.get_vietnam_full_address()
         if self._context.get('show_address'):
             name = name + "\n" + partner.get_vietnam_full_address()
-        name = name.replace('\n\n', '\n')
-        name = name.replace('\n\n', '\n')
+        if name:
+            name = name.replace('\n\n', '\n')
+            name = name.replace('\n\n', '\n')
         if self._context.get('address_inline'):
             name = name.replace('\n', ', ')
         if self._context.get('show_email') and partner.email:
             name = "%s <%s>" % (name, partner.email)
         if self._context.get('html_format'):
             name = name.replace('\n', '<br/>')
-        if self._context.get('show_vat') and partner.vat:
-            name = "%s ‒ %s" % (name, partner.vat)
+        # if self._context.get('show_vat') and partner.vat:
+        #     name = "%s ‒ %s" % (name, partner.vat)
         return name
 
     @api.multi

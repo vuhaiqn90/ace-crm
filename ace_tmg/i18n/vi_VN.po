@@ -101,12 +101,12 @@ msgstr "Thời điểm tạo"
 #. module: ace_tmg
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_config__delta_method
 msgid "Delta Method"
-msgstr ""
+msgstr "Phương thức Delta"
 
 #. module: ace_tmg
 #: model_terms:ir.ui.view,arch_db:ace_tmg.ace_commission_form_view
 msgid "Detail"
-msgstr ""
+msgstr "Chi tiết"
 
 #. module: ace_tmg
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission__display_name
@@ -130,7 +130,7 @@ msgstr ""
 #. module: ace_tmg
 #: model:ir.model.fields,help:ace_tmg.field_ace_commission_config__delta_method
 msgid "If Delta Method is True, amount to compute commission = (total revenue of staff - Total) * rate / 100.Otherwise, amount to compute commission = total revenue of staff * rate / 100"
-msgstr ""
+msgstr "Nếu chọn phương thức Delta, doanh số để tính hoa hồng = (tổng doanh số của nhân viên - số tiền hạn mức) * phần trăm hoa hồng / 100. Ngược lại, doanh số tính hoa hồng = tổng doanh số nhân viên * phần trăm hoa hồng / 100"
 
 #. module: ace_tmg
 #: model:ir.model,name:ace_tmg.model_account_invoice
@@ -141,7 +141,7 @@ msgstr "Hóa đơn"
 #: code:addons/ace_tmg/models/commission.py:161
 #, python-format
 msgid "Invoices"
-msgstr ""
+msgstr "Hóa đơn"
 
 #. module: ace_tmg
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission__job_position
@@ -198,7 +198,7 @@ msgstr "Tên"
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_config__rate
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_line__rate
 msgid "Rate(%)"
-msgstr ""
+msgstr "Phần trăm hoa hồng"
 
 #. module: ace_tmg
 #: model:ir.model,name:ace_tmg.model_sale_order
@@ -211,12 +211,12 @@ msgstr "Đơn hàng Bán"
 #: selection:ace.commission.line,job_position:0
 #: selection:res.partner,job_position:0
 msgid "Salesperson"
-msgstr ""
+msgstr "Nhân viên kinh doanh"
 
 #. module: ace_tmg
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission__user_ids
 msgid "Salesperson/Telesales"
-msgstr ""
+msgstr "NVKD/Telesales"
 
 #. module: ace_tmg
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_config__sequence
@@ -226,7 +226,7 @@ msgstr "Trình tự"
 #. module: ace_tmg
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_line__user_id
 msgid "Staff"
-msgstr ""
+msgstr "Nhân viên kinh doanh"
 
 #. module: ace_tmg
 #: selection:ace.commission,job_position:0
@@ -262,7 +262,7 @@ msgstr "Dịch chuyển"
 #: model:ir.model.fields,field_description:ace_tmg.field_res_partner__trial
 #: model:ir.model.fields,field_description:ace_tmg.field_res_users__trial
 msgid "Trial Work"
-msgstr ""
+msgstr "Thử việc"
 
 #. module: ace_tmg
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_config__type
@@ -279,7 +279,8 @@ msgstr "Xem"
 #, python-format
 msgid "You can not confirm Sale Order. \n"
 ""
-msgstr ""
+msgstr "Bạn không thể xác nhận đơn hàng. \n"
+""
 
 #. module: ace_tmg
 #: model:ir.model,name:ace_tmg.model_ace_commission
