@@ -10,6 +10,21 @@ class ResPartner(models.Model):
     job_position = fields.Selection([('sale', 'Salesperson'), ('tels', 'Telesales'), ('ctv', 'CTV')],
                                     string='Job Position')
 
+    @api.multi
+    def get_vietnam_full_address(self):
+        address = ''
+        if self.street:
+            address += self.street + ', '
+        if self.ward_id and self.ward_id.name:
+            address += self.ward_id.name + ', '
+        if self.district_id and self.district_id.name:
+            address += self.district_id.name + ', '
+        if self.state_id and self.state_id.name:
+            address += self.state_id.name + ', '
+        if self.country_id and self.country_id.name:
+            address += self.country_id.name + ', '
+        return address.strip(', ')
+
     def _get_name(self):
         """ Utility method to allow name_get to be overrided without re-browse the partner """
         partner = self
@@ -21,9 +36,9 @@ class ResPartner(models.Model):
             if not partner.is_company:
                 name = self._get_contact_name(partner, name)
         if self._context.get('show_address_only'):
-            name = partner._display_address(without_company=True)
+            name = partner.get_vietnam_full_address()
         if self._context.get('show_address'):
-            name = name + "\n" + partner._display_address(without_company=True)
+            name = name + "\n" + partner.get_vietnam_full_address()
         name = name.replace('\n\n', '\n')
         name = name.replace('\n\n', '\n')
         if self._context.get('address_inline'):
