@@ -7,5 +7,5 @@ class CommissionConfig(models.Model):
     _order = 'sequence'
 
     sequence = fields.Integer(default=10)
-    name = fields.Char()
+    name = fields.Char(required=True)
     active = fields.Boolean(default=True)
