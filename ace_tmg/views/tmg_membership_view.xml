@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_tmg_membership_level_tree" model="ir.ui.view">
+        <field name="name">tmg.membership.level.form</field>
+        <field name="model">tmg.membership.level</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="sequence" widget="handle"/>
+                <field name="name" required="1"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+    
+    <record id="action_tmg_membership_level" model="ir.actions.act_window">
+        <field name="name">TMG Membership Level</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">tmg.membership.level</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click to create a tmg membership level.
+            </p>
+        </field>
+    </record>
+</odoo>

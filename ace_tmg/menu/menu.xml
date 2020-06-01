@@ -20,4 +20,9 @@
               parent="menu_commission_config_main"
               action="action_ace_commission_config_form"
               sequence="5"/>
+
+    <menuitem id="menu_tmg_membership_level"
+              parent="contacts.res_partner_menu_config"
+              action="action_tmg_membership_level"
+              sequence="5"/>
 </odoo>

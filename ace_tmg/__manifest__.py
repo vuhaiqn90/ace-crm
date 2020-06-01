@@ -26,6 +26,7 @@
         'views/stock_picking_view.xml',
         'views/purchase_order_view.xml',
         'views/product_view.xml',
+        'views/tmg_membership_view.xml',
         # Menu
         'menu/menu.xml',
     ],

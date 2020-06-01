@@ -7,3 +7,6 @@ access_ace_commission_manager,access_ace_commission manager,model_ace_commission
 
 access_ace_commission_line_user,access_ace_commission_line user,model_ace_commission_line,sales_team.group_sale_salesman,1,0,0,0
 access_ace_commission_line_manager,access_ace_commission_line manager,model_ace_commission_line,sales_team.group_sale_manager,1,1,1,1
+
+access_tmg_membership_level_user,access_tmg_membership_level user,model_tmg_membership_level,base.group_user,1,0,0,0
+access_tmg_membership_level_manager,access_tmg_membership_level manager,model_tmg_membership_level,sales_team.group_sale_manager,1,1,1,1

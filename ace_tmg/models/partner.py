@@ -9,6 +9,7 @@ class ResPartner(models.Model):
     trial = fields.Boolean('Trial Work')
     job_position = fields.Selection([('sale', 'Salesperson'), ('tels', 'Telesales'), ('ctv', 'CTV')],
                                     string='Job Position')
+    tmg_membership_id = fields.Many2one('tmg.membership.level', 'Membership')
 
     @api.multi
     def get_vietnam_full_address(self):
