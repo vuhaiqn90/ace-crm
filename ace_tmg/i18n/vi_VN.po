@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-29 02:10+0000\n"
-"PO-Revision-Date: 2020-05-29 02:10+0000\n"
+"POT-Creation-Date: 2020-06-01 06:23+0000\n"
+"PO-Revision-Date: 2020-06-01 06:23+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,9 +16,9 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: ace_tmg
-#: model:ir.model,name:ace_tmg.model_account_aged_partner
-msgid "Aged Partner Balances"
-msgstr "Số dư đối tác theo tuổi"
+#: model:ir.model.fields,field_description:ace_tmg.field_tmg_membership_level__active
+msgid "Active"
+msgstr "Có hiệu lực"
 
 #. module: ace_tmg
 #: model:ir.model.fields,field_description:ace_tmg.field_res_partner__agent_level
@@ -38,6 +38,11 @@ msgstr ""
 #: model_terms:ir.actions.act_window,help:ace_tmg.action_ace_commission_config_form
 msgid "Click to create a Commission Config."
 msgstr ""
+
+#. module: ace_tmg
+#: model_terms:ir.actions.act_window,help:ace_tmg.action_tmg_membership_level
+msgid "Click to create a tmg membership level."
+msgstr "Tạo mới hạng thẻ thành viên"
 
 #. module: ace_tmg
 #: model:ir.actions.act_window,name:ace_tmg.action_ace_commission
@@ -88,6 +93,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission__create_uid
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_config__create_uid
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_line__create_uid
+#: model:ir.model.fields,field_description:ace_tmg.field_tmg_membership_level__create_uid
 msgid "Created by"
 msgstr "Được tạo bởi"
 
@@ -95,6 +101,7 @@ msgstr "Được tạo bởi"
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission__create_date
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_config__create_date
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_line__create_date
+#: model:ir.model.fields,field_description:ace_tmg.field_tmg_membership_level__create_date
 msgid "Created on"
 msgstr "Thời điểm tạo"
 
@@ -112,6 +119,7 @@ msgstr "Chi tiết"
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission__display_name
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_config__display_name
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_line__display_name
+#: model:ir.model.fields,field_description:ace_tmg.field_tmg_membership_level__display_name
 msgid "Display Name"
 msgstr "Tên hiển thị"
 
@@ -124,6 +132,7 @@ msgstr "Từ"
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission__id
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_config__id
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_line__id
+#: model:ir.model.fields,field_description:ace_tmg.field_tmg_membership_level__id
 msgid "ID"
 msgstr ""
 
@@ -166,6 +175,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission____last_update
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_config____last_update
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_line____last_update
+#: model:ir.model.fields,field_description:ace_tmg.field_tmg_membership_level____last_update
 msgid "Last Modified on"
 msgstr "Sửa lần cuối vào"
 
@@ -173,6 +183,7 @@ msgstr "Sửa lần cuối vào"
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission__write_uid
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_config__write_uid
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_line__write_uid
+#: model:ir.model.fields,field_description:ace_tmg.field_tmg_membership_level__write_uid
 msgid "Last Updated by"
 msgstr "Cập nhật lần cuối bởi"
 
@@ -180,6 +191,7 @@ msgstr "Cập nhật lần cuối bởi"
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission__write_date
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_config__write_date
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_line__write_date
+#: model:ir.model.fields,field_description:ace_tmg.field_tmg_membership_level__write_date
 msgid "Last Updated on"
 msgstr "Cập nhật lần cuối vào"
 
@@ -189,8 +201,15 @@ msgid "Line"
 msgstr "Dòng"
 
 #. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_res_partner__tmg_membership_id
+#: model:ir.model.fields,field_description:ace_tmg.field_res_users__tmg_membership_id
+msgid "Membership"
+msgstr "Quản lý thành viên"
+
+#. module: ace_tmg
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission__name
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_config__name
+#: model:ir.model.fields,field_description:ace_tmg.field_tmg_membership_level__name
 msgid "Name"
 msgstr "Tên"
 
@@ -220,6 +239,7 @@ msgstr "NVKD/Telesales"
 
 #. module: ace_tmg
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_config__sequence
+#: model:ir.model.fields,field_description:ace_tmg.field_tmg_membership_level__sequence
 msgid "Sequence"
 msgstr "Trình tự"
 
@@ -227,6 +247,19 @@ msgstr "Trình tự"
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_line__user_id
 msgid "Staff"
 msgstr "Nhân viên kinh doanh"
+
+#. module: ace_tmg
+#: code:addons/ace_tmg/models/tmg_membership.py:6
+#: model:ir.model,name:ace_tmg.model_tmg_membership_level
+#, python-format
+msgid "TMG Customer Membership Level"
+msgstr "TMG Hạng thẻ thành viên"
+
+#. module: ace_tmg
+#: model:ir.actions.act_window,name:ace_tmg.action_tmg_membership_level
+#: model:ir.ui.menu,name:ace_tmg.menu_tmg_membership_level
+msgid "TMG Membership Level"
+msgstr "TMG Hạng thẻ thành viên"
 
 #. module: ace_tmg
 #: selection:ace.commission,job_position:0
