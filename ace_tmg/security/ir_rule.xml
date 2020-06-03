@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="contact_salesman_rule_others" model="ir.rule">
+        <field name="name">Users see own customer</field>
+        <field ref="base.model_res_partner" name="model_id"/>
+        <field name="domain_force">['|', '|', '|', ('user_id','=',user.id), ('parent_id.user_id','=',user.id), ('user_ids','in',[user.id]), ('parent_id.user_ids','in',[user.id])]</field>
+        <field name="groups" eval="[(4, ref('sales_team.group_sale_salesman'))]"/>
+        <field name="perm_unlink" eval="0"/>
+        <field name="perm_write" eval="0"/>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_create" eval="0"/>
+    </record>
+
+    <record id="base.res_partner_rule_private_employee" model="ir.ui.menu">
+        <field name="active" eval="0"/>
+    </record>
+
+    <record id="all_contact_rule_others" model="ir.rule">
+        <field name="name">Users see all customer</field>
+        <field ref="base.model_res_partner" name="model_id"/>
+        <field name="domain_force">['|', ('type', '!=', 'private'), ('type', '=', False)]</field>
+        <field name="groups" eval="[(4, ref('sales_team.group_sale_salesman_all_leads')),
+                                    (4, ref('account.group_account_invoice')),
+                                    (4, ref('purchase.group_purchase_user')),
+                                    (4, ref('stock.group_stock_user'))]"/>
+        <field name="perm_unlink" eval="0"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_create" eval="1"/>
+    </record>
+</odoo>

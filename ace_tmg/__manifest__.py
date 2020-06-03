@@ -16,6 +16,7 @@
     'data': [
         # Security
         'security/ir.model.access.csv',
+        'security/ir_rule.xml',
         # Views
         'views/partner_views.xml',
         'views/sale_order_view.xml',
