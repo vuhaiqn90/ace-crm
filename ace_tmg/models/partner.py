@@ -29,13 +29,13 @@ class ResPartner(models.Model):
     def _get_name(self):
         """ Utility method to allow name_get to be overrided without re-browse the partner """
         partner = self
-        name = partner.ref and '[%s] %s' % (partner.ref, partner.name) or partner.name
+        name = partner.ref and '[%s] %s' % (partner.ref, partner.name) or partner.name or ''
 
-        # if partner.company_name or partner.parent_id:
-        #     if not name and partner.type in ['invoice', 'delivery', 'other']:
-        #         name = dict(self.fields_get(['type'])['type']['selection'])[partner.type]
-        #     if not partner.is_company:
-        #         name = self._get_contact_name(partner, name)
+        if not name and partner.parent_id:
+            if partner.type in ['invoice', 'delivery', 'other']:
+                name = dict(self.fields_get(['type'])['type']['selection'])[partner.type]
+            if not partner.is_company:
+                name = self._get_contact_name(partner, name)
         if self._context.get('show_address_only'):
             name = partner.get_vietnam_full_address()
         if self._context.get('show_address'):
