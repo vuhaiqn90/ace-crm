@@ -7,7 +7,7 @@ class StockPicking(models.Model):
     _inherit = "stock.picking"
 
     @api.onchange('picking_type_id')
-    def onchange_picking_type(self):
+    def onchange_picking_type_id(self):
         if self.picking_type_id and self.state in ['confirmed', 'waiting']:
             if self.picking_type_id.default_location_src_id:
                 location_id = self.picking_type_id.default_location_src_id.id
