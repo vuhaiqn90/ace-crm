@@ -12,12 +12,12 @@ class StockPicking(models.Model):
             if self.picking_type_id.default_location_src_id:
                 location_id = self.picking_type_id.default_location_src_id.id
             else:
-                location_id = self.env['stock.warehouse']._get_partner_locations()
+                customerloc, location_id = self.env['stock.warehouse']._get_partner_locations()
 
             if self.picking_type_id.default_location_dest_id:
                 location_dest_id = self.picking_type_id.default_location_dest_id.id
             else:
-                location_dest_id = self.env['stock.warehouse']._get_partner_locations()
+                location_dest_id, supplierloc = self.env['stock.warehouse']._get_partner_locations()
 
             if location_id:
                 self.location_id = location_id
