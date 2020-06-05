@@ -10,7 +10,7 @@
         'purchase',
         'sale_coupon',
         'stock_account',
-        'ace_accounting_core',
+        'ace_accounting_vietnam_report',
         'partner_credit_limit',
     ],
     'data': [
