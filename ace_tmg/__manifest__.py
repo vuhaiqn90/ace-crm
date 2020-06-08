@@ -28,6 +28,9 @@
         'views/purchase_order_view.xml',
         'views/product_view.xml',
         'views/tmg_membership_view.xml',
+        # Reports
+        'reports/print_receipt.xml',
+        'reports/print_voucher.xml',
         # Menu
         'menu/menu.xml',
     ],

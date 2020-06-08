@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="tmg_ace_voucher_template_body" inherit_id="ace_accounting_vietnam_report.ace_voucher_template_body">
+        <xpath expr="//div[hasclass('body')]" position="replace">
+            <div class="body" style="width: 90%">
+                <div class="row" style="margin:0 0 0 0;">
+                    <div class="col-6 text-left">
+                        <p style="font-weight: bold; margin-bottom: 0;"><t t-esc="o.company_id.name"/></p>
+                        <p style="margin-bottom: 0;"><t t-esc="o.company_id.street"/>, <t t-esc="o.company_id.city"/><t t-if="o.company_id.state_id">, <t t-esc="o.company_id.state_id.name"/></t>, <t t-esc="o.company_id.country_id and o.company_id.country_id.name or ''"/></p>
+                    </div>
+                    <div class="col-6 text-center">
+                        <p style="font-weight: bold; margin-bottom: 0;"><t t-esc="o.get_text('ace_accounting_vietnam_report.ace_voucher_report', 'mauso')"/></p>
+                        <p style="margin-bottom: 0;"><t t-esc="o.get_text('ace_accounting_vietnam_report.ace_voucher_report', 'banhanh_line1')"/></p>
+                        <p style="margin-bottom: 10px;"><t t-esc="o.get_text('ace_accounting_vietnam_report.ace_voucher_report', 'banhanh_line2')"/></p>
+                    </div>
+                </div>
+                <div class="row text-center" style="margin:0 0 0 0;">
+                    <div class="col-3 text-center"/>
+                    <div class="col-6 text-center">
+                        <h3 style="margin-bottom: 0;">
+                            <strong>
+                                PHIẾU CHI
+                            </strong>
+                        </h3>
+                        <p>Ngày <span t-field="o.payment_date" t-options='{"format": "d"}'/> tháng <span t-field="o.payment_date" t-options='{"format": "MMM"}'/> năm <span t-field="o.payment_date" t-options='{"format": "y"}'/></p>
+                    </div>
+                    <div class="col-3 text-left">
+                        <p style="margin-bottom: 0;">Quyển số: </p>
+                        <p style="margin-bottom: 0;">Số: <span t-esc="o.move_name or ''"/></p>
+                        <t t-set="debit_lines" t-value="o.get_credit_debit_account('debit')"/>
+                        <t t-set="flag" t-value="0"/>
+                        <t t-foreach="debit_lines" t-as="debit">
+                            <div>
+                                <div style="display: inline;"><t t-if="flag == 0"><span>Nợ: </span></t><t t-if="flag == 1"><span style="opacity:0">Nợ: </span></t><span t-esc="debit[0]"/></div>
+                                <div style="display: inline; float:right"><span t-esc="o.convert_type(debit[1])"/></div>
+                            </div>
+                            <t t-set="flag" t-value="1"/>
+                        </t>
+                        <t t-set="credit_lines" t-value="o.get_credit_debit_account('credit')"/>
+                        <t t-set="flag" t-value="0"/>
+                        <t t-foreach="credit_lines" t-as="credit">
+                            <div>
+                                <div style="display: inline;"><t t-if="flag == 0"><span>Có: </span></t><t t-if="flag == 1"><span style="opacity:0">Có: </span></t><span t-esc="credit[0]"/></div>
+                                <div style="display: inline; float:right"><span t-esc="o.convert_type(credit[1])"/></div>
+                            </div>
+                            <t t-set="flag" t-value="1"/>
+                        </t>
+                    </div>
+                </div>
+                <div class="text-left" style="margin:0 0 0 0;">
+                    <p style="margin-bottom: 0; padding-left: 15px">Họ và tên người nhận tiền: <t t-esc="o.partner_id.name or ''"/></p>
+                    <p style="margin-bottom: 0; padding-left: 15px">Địa chỉ: <t t-if="o.address"><span t-esc="o.address"/></t><t t-if="not o.address"><t t-if="o.partner_id.street" t-esc="o.partner_id.street"/>,
+                        <t t-if="o.partner_id.street2"><span t-esc="o.partner_id.street2" />,</t>
+                        <t t-if="o.partner_id.city" ><span t-esc="o.partner_id.city" />,</t>
+                        <t t-if="o.partner_id.state_id" t-esc="o.partner_id.state_id.name" /></t></p>
+                    <p style="margin-bottom: 0; padding-left: 15px">Lý do chi: <span t-field="o.communication"/></p>
+                    <p style="margin-bottom: 0; padding-left: 15px">Số tiền: <t t-esc="o.convert_type(o.amount)"/><span style="margin-left: 80px;">(Viết bằng chữ): <t t-esc="o.convert_vnd(o.amount)"/></span></p>
+                    <p style="margin-bottom: 0; padding-left: 15px">Kèm theo: <span t-field="o.attached"/> <span style="display: inline-block; margin-left: 200px;">Chứng từ gốc: <span t-field="o.origin"/></span></p>
+                </div>
+                <br/>
+                <!--<p align="right" style="font-style: italic;" t-esc="time.strftime('Ngày %d tháng %m năm %Y')"/>-->
+                <div class="row text-center">
+                    <div class="col-3">
+                        <p style="font-weight: bold; margin-bottom: 0;"><t t-esc="o.get_text('ace_accounting_vietnam_report.ace_voucher_report', 'kyten_column1')"/></p>
+                        <p style="font-style:italic;">(Ký, họ tên, đóng dấu)</p>
+                        <t t-set="value1" t-value="o.get_text('ace_accounting_vietnam_report.ace_voucher_report', 'kyten_column1_value')"/>
+                        <t t-if="value1">
+                            <br/><br/><br/>
+                            <p style="font-weight: bold;"><t t-esc="value1"/></p>
+                        </t>
+                    </div>
+                    <div class="col-3">
+                        <p style="font-weight: bold; margin-bottom: 0;"><t t-esc="o.get_text('ace_accounting_vietnam_report.ace_voucher_report', 'kyten_column2')"/></p>
+                        <p style="font-style:italic;">(Ký, họ tên)</p>
+                        <t t-set="value2" t-value="o.get_text('ace_accounting_vietnam_report.ace_voucher_report', 'kyten_column2_value')"/>
+                        <t t-if="value2">
+                            <br/><br/><br/>
+                            <p style="font-weight: bold;"><t t-esc="value2"/></p>
+                        </t>
+                    </div>
+                    <div class="col-2">
+                        <p style="font-weight: bold; margin-bottom: 0;"><t t-esc="o.get_text('ace_accounting_vietnam_report.ace_voucher_report', 'kyten_column3')"/></p>
+                        <p style="font-style:italic;">(Ký, họ tên)</p>
+                        <t t-set="value3" t-value="o.get_text('ace_accounting_vietnam_report.ace_voucher_report', 'kyten_column3_value')"/>
+                        <t t-if="value3">
+                            <br/><br/><br/>
+                            <p style="font-weight: bold;"><t t-esc="value3"/></p>
+                        </t>
+                    </div>
+                    <div class="col-2">
+                        <p style="font-weight: bold; margin-bottom: 0;"><t t-esc="o.get_text('ace_accounting_vietnam_report.ace_voucher_report', 'kyten_column4')"/></p>
+                        <p style="font-style:italic;">(Ký, họ tên)</p>
+                        <t t-set="value4" t-value="o.get_text('ace_accounting_vietnam_report.ace_voucher_report', 'kyten_column4_value')"/>
+                        <t t-if="value4">
+                            <br/><br/><br/>
+                            <p style="font-weight: bold;"><t t-esc="value4"/></p>
+                        </t>
+                    </div>
+                    <div class="col-2">
+                        <p style="font-weight: bold; margin-bottom: 0;"><t t-esc="o.get_text('ace_accounting_vietnam_report.ace_voucher_report', 'kyten_column5')"/></p>
+                        <p style="font-style:italic;">(Ký, họ tên)</p>
+                        <t t-set="value5" t-value="o.get_text('ace_accounting_vietnam_report.ace_voucher_report', 'kyten_column5_value')"/>
+                        <t t-if="value5">
+                            <br/><br/><br/>
+                            <p style="font-weight: bold;"><t t-esc="value5"/></p>
+                        </t>
+                    </div>
+                </div>
+                <!--<br/>-->
+                <p class="text-left" style="margin-bottom: 0;">Đã nhận đủ số tiền (viết bằng chữ): <t t-esc="o.convert_vnd(o.amount)"/></p>
+                <p class="text-left" style="margin-bottom: 0;">+ Tỷ giá ngoại tệ (vàng bạc, đá quý): </p>
+                <p class="text-left" style="margin-bottom: 0;">+ Số tiền quy đổi: </p>
+                <p class="text-left" style="margin-bottom: 0;">(Liên gửi ra ngoài phải đóng dấu)</p>
+            </div>
+        </xpath>
+    </template>
+</odoo>
