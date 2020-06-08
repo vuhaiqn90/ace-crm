@@ -2,7 +2,7 @@
 <odoo>
     <template id="tmg_ace_voucher_template_body" inherit_id="ace_accounting_vietnam_report.ace_voucher_template_body">
         <xpath expr="//div[hasclass('body')]" position="replace">
-            <div class="body" style="width: 90%">
+            <div class="body">
                 <div class="row" style="margin:0 0 0 0;">
                     <div class="col-6 text-left">
                         <p style="font-weight: bold; margin-bottom: 0;"><t t-esc="o.company_id.name"/></p>
