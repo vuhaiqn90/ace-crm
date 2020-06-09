@@ -69,7 +69,7 @@
                             <p style="font-weight: bold;"><t t-esc="value1"/></p>
                         </t>
                     </div>
-                    <div class="col-3">
+                    <div class="col-2">
                         <p style="font-weight: bold; margin-bottom: 0;"><t t-esc="o.get_text('ace_accounting_vietnam_report.ace_voucher_report', 'kyten_column2')"/></p>
                         <p style="font-style:italic;">(Ký, họ tên)</p>
                         <t t-set="value2" t-value="o.get_text('ace_accounting_vietnam_report.ace_voucher_report', 'kyten_column2_value')"/>
@@ -87,7 +87,7 @@
                             <p style="font-weight: bold;"><t t-esc="value3"/></p>
                         </t>
                     </div>
-                    <div class="col-2">
+                    <div class="col-3">
                         <p style="font-weight: bold; margin-bottom: 0;"><t t-esc="o.get_text('ace_accounting_vietnam_report.ace_voucher_report', 'kyten_column4')"/></p>
                         <p style="font-style:italic;">(Ký, họ tên)</p>
                         <t t-set="value4" t-value="o.get_text('ace_accounting_vietnam_report.ace_voucher_report', 'kyten_column4_value')"/>
@@ -96,7 +96,7 @@
                             <p style="font-weight: bold;"><t t-esc="value4"/></p>
                         </t>
                     </div>
-                    <div class="col-2">
+                    <div class="col-3">
                         <p style="font-weight: bold; margin-bottom: 0;"><t t-esc="o.get_text('ace_accounting_vietnam_report.ace_voucher_report', 'kyten_column5')"/></p>
                         <p style="font-style:italic;">(Ký, họ tên)</p>
                         <t t-set="value5" t-value="o.get_text('ace_accounting_vietnam_report.ace_voucher_report', 'kyten_column5_value')"/>
