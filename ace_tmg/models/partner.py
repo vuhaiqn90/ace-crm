@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
-from odoo import api, fields, models
+from odoo import api, fields, models, _
+from odoo.exceptions import UserError, ValidationError
+
 
 class ResPartner(models.Model):
     _inherit = "res.partner"
@@ -60,3 +62,20 @@ class ResPartner(models.Model):
             name = partner._get_name()
             result.append((partner.id, name))
         return result
+
+    @api.constrains('mobile', 'phone')
+    def _check_constrains_mobile(self):
+        for partner in self.filtered(lambda p: p.mobile or p.phone):
+            mobile = []
+            if partner.mobile:
+                mobile.append(partner.mobile.replace(' ', ''))
+            if partner.phone:
+                mobile.append(partner.phone.replace(' ', ''))
+            self._cr.execute("""
+                SELECT COUNT(id) AS ct
+                FROM res_partner
+                WHERE id != %s AND (REPLACE(mobile, ' ', '') IN %s OR REPLACE(phone, ' ', '') IN %s)
+            """, (partner.id, tuple(mobile), tuple(mobile)))
+            count = self._cr.fetchone()
+            if count[0] > 0:
+                raise ValidationError(_("Mobile or phone already exists in system!"))
