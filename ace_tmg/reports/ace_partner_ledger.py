@@ -8,6 +8,16 @@ class ACEPartnerLedgerReport(models.TransientModel):
     _inherit = 'ace.partner.ledger.report'
 
     user_id = fields.Many2one('res.users', 'Salesperson')
+    type = fields.Selection([('customer', 'Customer'), ('supplier', 'Vendor')])
+
+    @api.model
+    def default_get(self, fields):
+        res = super(ACEPartnerLedgerReport, self).default_get(fields)
+        if self._context.get('customer'):
+            res.update({'type': 'customer'})
+        if self._context.get('supplier'):
+            res.update({'type': 'supplier'})
+        return res
 
     def get_report(self):
         journal = self.journal_ids and (len(self.journal_ids) > 1 and

@@ -6,14 +6,90 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-01 06:23+0000\n"
-"PO-Revision-Date: 2020-06-01 06:23+0000\n"
+"POT-Creation-Date: 2020-06-15 09:49+0000\n"
+"PO-Revision-Date: 2020-06-15 09:49+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_ace_voucher_template_body
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_receipt_template_body
+msgid "(Ký, họ tên)"
+msgstr ""
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_ace_voucher_template_body
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_receipt_template_body
+msgid "(Ký, họ tên, đóng dấu)"
+msgstr ""
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_ace_voucher_template_body
+msgid "(Liên gửi ra ngoài phải đóng dấu)"
+msgstr ""
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_ace_voucher_template_body
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_receipt_template_body
+msgid "(Viết bằng chữ):"
+msgstr ""
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_ace_voucher_template_body
+msgid "+ Số tiền quy đổi:"
+msgstr ""
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_ace_voucher_template_body
+msgid "+ Tỷ giá ngoại tệ (vàng bạc, đá quý):"
+msgstr ""
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_ace_voucher_template_body
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_receipt_template_body
+msgid "<span style=\"opacity:0\">Có: </span>"
+msgstr ""
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_ace_voucher_template_body
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_receipt_template_body
+msgid "<span style=\"opacity:0\">Nợ: </span>"
+msgstr ""
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_ace_voucher_template_body
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_receipt_template_body
+msgid "<span>Có: </span>"
+msgstr ""
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_ace_voucher_template_body
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_receipt_template_body
+msgid "<span>Nợ: </span>"
+msgstr ""
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_ace_voucher_template_body
+msgid "<strong>\n"
+"                                PHIẾU CHI\n"
+"                            </strong>"
+msgstr ""
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_receipt_template_body
+msgid "<strong>\n"
+"                                PHIẾU THU\n"
+"                            </strong>"
+msgstr ""
+
+#. module: ace_tmg
+#: model:ir.model,name:ace_tmg.model_ace_partner_ledger_report
+msgid "ACE Partner Ledger Report"
+msgstr ""
 
 #. module: ace_tmg
 #: model:ir.model.fields,field_description:ace_tmg.field_tmg_membership_level__active
@@ -32,6 +108,12 @@ msgstr "Kênh đại lý"
 #: selection:ace.commission.line,job_position:0
 #: selection:res.partner,job_position:0
 msgid "CTV"
+msgstr ""
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_ace_voucher_template_body
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_receipt_template_body
+msgid "Chứng từ gốc:"
 msgstr ""
 
 #. module: ace_tmg
@@ -106,6 +188,12 @@ msgid "Created on"
 msgstr "Thời điểm tạo"
 
 #. module: ace_tmg
+#: code:addons/ace_tmg/models/partner.py:93
+#, python-format
+msgid "Customer code already exists in system!"
+msgstr "Mã KH đã tồn tại trong hệ thống!"
+
+#. module: ace_tmg
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_config__delta_method
 msgid "Delta Method"
 msgstr "Phương thức Delta"
@@ -127,6 +215,16 @@ msgstr "Tên hiển thị"
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission__date_from
 msgid "From"
 msgstr "Từ"
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_ace_voucher_template_body
+msgid "Họ và tên người nhận tiền:"
+msgstr ""
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_receipt_template_body
+msgid "Họ và tên người nộp tiền:"
+msgstr ""
 
 #. module: ace_tmg
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission__id
@@ -160,6 +258,12 @@ msgstr "Hóa đơn"
 #: model_terms:ir.ui.view,arch_db:ace_tmg.ace_view_users_form
 msgid "Job Position"
 msgstr "Chức vụ"
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_ace_voucher_template_body
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_receipt_template_body
+msgid "Kèm theo:"
+msgstr ""
 
 #. module: ace_tmg
 #: selection:res.partner,agent_level:0
@@ -201,10 +305,26 @@ msgid "Line"
 msgstr "Dòng"
 
 #. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_ace_voucher_template_body
+msgid "Lý do chi:"
+msgstr ""
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_receipt_template_body
+msgid "Lý do nộp:"
+msgstr ""
+
+#. module: ace_tmg
 #: model:ir.model.fields,field_description:ace_tmg.field_res_partner__tmg_membership_id
 #: model:ir.model.fields,field_description:ace_tmg.field_res_users__tmg_membership_id
 msgid "Membership"
 msgstr "Quản lý thành viên"
+
+#. module: ace_tmg
+#: code:addons/ace_tmg/models/partner.py:81
+#, python-format
+msgid "Mobile or phone already exists in system!"
+msgstr "Số điện thoại hoặc Di động đã tồn tại trong hệ thống!"
 
 #. module: ace_tmg
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission__name
@@ -212,6 +332,18 @@ msgstr "Quản lý thành viên"
 #: model:ir.model.fields,field_description:ace_tmg.field_tmg_membership_level__name
 msgid "Name"
 msgstr "Tên"
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_ace_voucher_template_body
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_receipt_template_body
+msgid "Ngày"
+msgstr ""
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_ace_voucher_template_body
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_receipt_template_body
+msgid "Quyển số:"
+msgstr ""
 
 #. module: ace_tmg
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_config__rate
@@ -228,6 +360,8 @@ msgstr "Đơn hàng Bán"
 #: selection:ace.commission,job_position:0
 #: selection:ace.commission.config,type:0
 #: selection:ace.commission.line,job_position:0
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_partner_ledger_line__user_id
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_partner_ledger_report__user_id
 #: selection:res.partner,job_position:0
 msgid "Salesperson"
 msgstr "Nhân viên kinh doanh"
@@ -247,6 +381,18 @@ msgstr "Trình tự"
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_line__user_id
 msgid "Staff"
 msgstr "Nhân viên kinh doanh"
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_ace_voucher_template_body
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_receipt_template_body
+msgid "Số tiền:"
+msgstr ""
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_ace_voucher_template_body
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_receipt_template_body
+msgid "Số:"
+msgstr ""
 
 #. module: ace_tmg
 #: code:addons/ace_tmg/models/tmg_membership.py:6
@@ -323,5 +469,39 @@ msgstr ""
 #. module: ace_tmg
 #: model:ir.model,name:ace_tmg.model_ace_commission_line
 msgid "ace.commission.line"
+msgstr ""
+
+#. module: ace_tmg
+#: model:ir.model,name:ace_tmg.model_ace_partner_ledger_line
+msgid "ace.partner.ledger.line"
+msgstr ""
+
+#. module: ace_tmg
+#: model:ir.model,name:ace_tmg.model_ace_stock_report
+msgid "ace.stock.report"
+msgstr ""
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_ace_voucher_template_body
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_receipt_template_body
+msgid "năm"
+msgstr ""
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_ace_voucher_template_body
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_receipt_template_body
+msgid "tháng"
+msgstr ""
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_ace_voucher_template_body
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_receipt_template_body
+msgid "Đã nhận đủ số tiền (viết bằng chữ):"
+msgstr ""
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_ace_voucher_template_body
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_receipt_template_body
+msgid "Địa chỉ:"
 msgstr ""
 
