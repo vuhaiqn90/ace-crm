@@ -33,6 +33,7 @@
         # Reports
         'reports/print_receipt.xml',
         'reports/print_voucher.xml',
+        'reports/ace_partner_ledger_report.xml',
         # Menu
         'menu/menu.xml',
     ],

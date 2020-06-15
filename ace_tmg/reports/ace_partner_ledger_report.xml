@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="tmg_ace_partner_ledger_report_view" model="ir.ui.view">
+		<field name="name">tmg.ace.partner.ledger.report.view</field>
+		<field name="model">ace.partner.ledger.report</field>
+        <field name="inherit_id" ref="ace_accounting_vietnam_report.ace_partner_ledger_report_view"/>
+		<field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_ids']" position="after">
+                <field name="user_id" widget="selection" invisible="not context.get('customer', False)"/>
+            </xpath>
+            <xpath expr="//field[@name='line_ids']/tree/field[@name='partner_code']" position="before">
+                <field name="user_id"/>
+            </xpath>
+		</field>
+	</record>
+</odoo>
