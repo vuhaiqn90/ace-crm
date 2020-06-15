@@ -83,6 +83,9 @@
                         <p style="font-weight: bold; margin-bottom: 0;"><t t-esc="o.get_text('ace_accounting_vietnam_report.ace_receipt_report', 'kyten_column3')"/></p>
                         <p style="font-style:italic;">(Ký, họ tên)</p>
                         <t t-set="value3" t-value="o.get_text('ace_accounting_vietnam_report.ace_receipt_report', 'kyten_column3_value')"/>
+                        <t t-if="not value3">
+                            <t t-set="value3" t-value="o.payer_receiver or ''"/>
+                        </t>
                         <t t-if="value3">
                             <br/><br/><br/>
                             <p style="font-weight: bold;"><t t-esc="value3"/></p>
