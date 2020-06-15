@@ -201,7 +201,7 @@ class PartnerLedgerReportXlsx(models.AbstractModel):
                                                                                          datetime.now().year),
                           workbook.add_format({
                               'italic': 1,
-                              'align': 'right',
+                              'align': 'center',
                               'valign': 'vcenter',
                               'font_name': 'Times New Roman', 'font_size': 10,
                           }))
