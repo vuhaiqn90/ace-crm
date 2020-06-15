@@ -14,6 +14,8 @@
         'partner_credit_limit',
     ],
     'data': [
+        # Data
+        'data/sequence.xml',
         # Security
         'security/ir.model.access.csv',
         'security/ir_rule.xml',

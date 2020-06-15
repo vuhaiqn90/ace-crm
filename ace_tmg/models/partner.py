@@ -79,3 +79,35 @@ class ResPartner(models.Model):
             count = self._cr.fetchone()
             if count[0] > 0:
                 raise ValidationError(_("Mobile or phone already exists in system!"))
+
+    @api.constrains('ref')
+    def _check_constrains_code(self):
+        for partner in self.filtered(lambda p: p.ref):
+            self._cr.execute("""
+                SELECT COUNT(id) AS ct
+                FROM res_partner
+                WHERE id != %s AND (REPLACE(ref, ' ', '') = %s)
+            """, (partner.id, partner.ref.replace(' ', '')))
+            count = self._cr.fetchone()
+            if count[0] > 0:
+                raise ValidationError(_("Customer code already exists in system!"))
+
+    def generate_ref(self, ref=''):
+        self.ensure_one()
+        if self.customer:
+            ref = self.env['ir.sequence'].sudo().next_by_code('res.partner.customer')
+        elif self.supplier:
+            ref = self.env['ir.sequence'].sudo().next_by_code('res.partner.supplier')
+        partner = self.sudo().search_count([('ref', '=', ref)])
+        if partner:
+            return self.generate_ref()
+        return ref
+
+    @api.model
+    def create(self, vals):
+        partner = super(ResPartner, self).create(vals)
+        if not partner.ref and not partner.parent_id:
+            ref = partner.generate_ref()
+            if ref:
+                partner.ref = ref
+        return partner
