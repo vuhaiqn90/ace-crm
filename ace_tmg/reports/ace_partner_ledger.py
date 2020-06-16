@@ -7,7 +7,8 @@ from dateutil.relativedelta import relativedelta
 class ACEPartnerLedgerReport(models.TransientModel):
     _inherit = 'ace.partner.ledger.report'
 
-    user_id = fields.Many2one('res.users', 'Salesperson')
+    # user_id = fields.Many2one('res.users', 'Salesperson')
+    user_ids = fields.Many2many('res.users', string='Salesperson')
     type = fields.Selection([('customer', 'Customer'), ('supplier', 'Vendor')])
 
     @api.model
@@ -36,8 +37,9 @@ class ACEPartnerLedgerReport(models.TransientModel):
         partner = self.partner_ids and (len(self.partner_ids) > 1 and
                                         """ AND rp.id IN {}""".format(tuple(self.partner_ids.ids)) or
                                         """ AND rp.id = {}""".format(self.partner_ids.id)) or """"""
-        if self.user_id:
-            salesperson = """ AND rp.user_id = {}""".format(self.user_id.id)
+        if self.user_ids:
+            salesperson = len(self.user_ids) > 1 and """ AND rp.user_id = {}""".format(self.user_ids.id) or \
+            """ AND rp.user_id IN {}""".format(tuple(self.user_ids.ids))
         sql = """
             DELETE FROM ace_partner_ledger_line WHERE report_id = {};
             INSERT INTO ace_partner_ledger_line (create_uid, create_date, write_uid, write_date, report_id,

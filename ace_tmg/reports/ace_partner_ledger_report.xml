@@ -10,7 +10,7 @@
                 <field name="type" invisible="1"/>
             </xpath>
             <xpath expr="//field[@name='line_ids']/tree/field[@name='partner_code']" position="before">
-                <field name="user_id" attrs="{'column_invisible': [('parent.type', '!=', 'customer')]}"/>
+                <field name="user_ids" widget="many2many_tags" attrs="{'column_invisible': [('parent.type', '!=', 'customer')]}"/>
             </xpath>
 		</field>
 	</record>
