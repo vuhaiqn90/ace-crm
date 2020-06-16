@@ -124,8 +124,8 @@ class PartnerLedgerReportXlsx(models.AbstractModel):
         sheet.freeze_panes(last_row, 0)
         for row, line in enumerate(objs.line_ids):
             sheet.write(row+i+1, 0, line.user_id and line.user_id.name or '', line_format) # NHân viên KD
-            sheet.write(row+i+1, 1, line.partner_code, line_center_format) # Mã KH
-            sheet.write(row+i+1, 2, line.partner_name, line_format) # Tên KH
+            sheet.write(row+i+1, 1, line.partner_code or '', line_center_format) # Mã KH
+            sheet.write(row+i+1, 2, line.partner_name or '', line_format) # Tên KH
             sheet.write(row+i+1, 3, line.debit_start_balance or '', money_format) # Dư nợ đầu kỳ
             sheet.write(row+i+1, 4, line.credit_start_balance or '', money_format) # Dư có đầu kỳ
             sheet.write(row+i+1, 5, line.debit or '', money_format) # Phát sinh nợ
