@@ -38,8 +38,8 @@ class ACEPartnerLedgerReport(models.TransientModel):
                                         """ AND rp.id IN {}""".format(tuple(self.partner_ids.ids)) or
                                         """ AND rp.id = {}""".format(self.partner_ids.id)) or """"""
         if self.user_ids:
-            salesperson = len(self.user_ids) > 1 and """ AND rp.user_id = {}""".format(self.user_ids.id) or \
-            """ AND rp.user_id IN {}""".format(tuple(self.user_ids.ids))
+            salesperson = len(self.user_ids) > 1 and """ AND rp.user_id IN {}""".format(tuple(self.user_ids.ids)) or \
+                          """ AND rp.user_id = {}""".format(self.user_ids.id)
         sql = """
             DELETE FROM ace_partner_ledger_line WHERE report_id = {};
             INSERT INTO ace_partner_ledger_line (create_uid, create_date, write_uid, write_date, report_id,
