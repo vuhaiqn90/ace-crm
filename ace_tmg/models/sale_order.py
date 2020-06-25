@@ -40,3 +40,23 @@ class SaleOrder(models.Model):
                                    self.partner_id.name)
                 raise UserError(_('You can not confirm Sale Order. \n' + msg))
             return True
+
+    @api.multi
+    def action_cancel(self):
+        if any(order.invoice_ids.filtered(lambda i: i.state != 'cancel') for order in self):
+            raise UserError(_("Pls cancel invoice first."))
+        return super(SaleOrder, self).action_cancel()
+
+    @api.multi
+    def unlink(self):
+        if any(order.picking_ids or order.invoice_ids for order in self):
+            raise UserError(_("Unable to delete sale order as some deliveries or invoices have related."))
+        return super(SaleOrder, self).unlink()
+
+    @api.onchange('user_id')
+    def change_user_and_get_sales_teams(self):
+        self.team_id = False
+        if self.user_id:
+            team_id = self.env['crm.team']._get_default_team_id(self.user_id.id)
+            if team_id:
+                self.team_id = team_id.id
