@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+        <!--Phieu nhap kho-->
+        <record id="shipment_kyten_column1_value" model="report.text.config">
+            <field name="name"/>
+            <field name="report" ref="ace_stock_report.ace_phieu_nhap_kho_py3o"/>
+            <field name="code">kyten_column1_value</field>
+        </record>
+        <record id="shipment_kyten_column2_value" model="report.text.config">
+            <field name="name"/>
+            <field name="report" ref="ace_stock_report.ace_phieu_nhap_kho_py3o"/>
+            <field name="code">kyten_column2_value</field>
+        </record>
+        <record id="shipment_kyten_column3_value" model="report.text.config">
+            <field name="name"/>
+            <field name="report" ref="ace_stock_report.ace_phieu_nhap_kho_py3o"/>
+            <field name="code">kyten_column3_value</field>
+        </record>
+        <record id="shipment_kyten_column4_value" model="report.text.config">
+            <field name="name"/>
+            <field name="report" ref="ace_stock_report.ace_phieu_nhap_kho_py3o"/>
+            <field name="code">kyten_column4_value</field>
+        </record>
+
+        <!--Phieu xuat kho-->
+        <record id="delivery_kyten_column1_value" model="report.text.config">
+            <field name="name"/>
+            <field name="report" ref="ace_stock_report.ace_phieu_xuat_kho_py3o"/>
+            <field name="code">kyten_column1_value</field>
+        </record>
+        <record id="delivery_kyten_column2_value" model="report.text.config">
+            <field name="name"/>
+            <field name="report" ref="ace_stock_report.ace_phieu_xuat_kho_py3o"/>
+            <field name="code">kyten_column2_value</field>
+        </record>
+        <record id="delivery_kyten_column3_value" model="report.text.config">
+            <field name="name"/>
+            <field name="report" ref="ace_stock_report.ace_phieu_xuat_kho_py3o"/>
+            <field name="code">kyten_column3_value</field>
+        </record>
+        <record id="delivery_kyten_column4_value" model="report.text.config">
+            <field name="name"/>
+            <field name="report" ref="ace_stock_report.ace_phieu_xuat_kho_py3o"/>
+            <field name="code">kyten_column4_value</field>
+        </record>
+    </data>
+</odoo>

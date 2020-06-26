@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="ace_stock_report.ace_phieu_nhap_kho_py3o" model="ir.actions.report">
+      <field name="name">Phiếu Nhập Kho</field>
+      <field name="type">ir.actions.report</field>
+      <field name="model">stock.picking</field>
+      <field name="report_name">ace_phieu_nhap_kho</field>
+      <field name="report_type">py3o</field>
+      <field name="py3o_filetype">ods</field>
+      <field name="module">ace_tmg</field>
+      <field name="py3o_template_fallback">reports/files/PHIEU_NHAP_KHO.ods</field>
+      <field name="binding_model_id" ref="stock.model_stock_picking"/>
+      <field name="binding_type">report</field>
+    </record>
+
+    <record id="ace_stock_report.ace_phieu_xuat_kho_py3o" model="ir.actions.report">
+      <field name="name">Phiếu Xuất Kho</field>
+      <field name="type">ir.actions.report</field>
+      <field name="model">stock.picking</field>
+      <field name="report_name">ace_phieu_xuat_kho</field>
+      <field name="report_type">py3o</field>
+      <field name="py3o_filetype">ods</field>
+      <field name="module">ace_tmg</field>
+      <field name="py3o_template_fallback">reports/files/PHIEU_XUAT_KHO.ods</field>
+      <field name="binding_model_id" ref="stock.model_stock_picking"/>
+      <field name="binding_type">report</field>
+    </record>
+</odoo>

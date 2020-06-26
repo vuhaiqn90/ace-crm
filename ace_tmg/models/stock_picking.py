@@ -6,6 +6,23 @@ from odoo.exceptions import UserError
 class StockPicking(models.Model):
     _inherit = "stock.picking"
 
+    receiver_deliver = fields.Char('Receiver/Deliver')
+    mobile = fields.Char('Receiver/Deliver Mobile')
+    address = fields.Char('Receiver/Deliver Address')
+
+    @api.model
+    def default_get(self, fields):
+        res = super(StockPicking, self).default_get(fields)
+        if res.get('partner_id'):
+            parter_id = self.env['res.partner'].browse(res.get('partner_id'))
+            res.update({'address': parter_id.vietnam_full_address or ''})
+        return res
+
+    @api.onchange('partner_id')
+    def get_default_address(self):
+        if self.partner_id:
+            self.address = self.partner_id.vietnam_full_address or ''
+
     @api.onchange('picking_type_id')
     def onchange_picking_type_id(self):
         if self.picking_type_id and self.state in ['confirmed', 'waiting']:
@@ -34,3 +51,12 @@ class StockPicking(models.Model):
         if after_vals:
             self.mapped('move_lines').filtered(lambda move: not move.scrapped).write(after_vals)
         return res
+
+    @api.model
+    def get_text(self, report, code):
+        report_id = self.env.ref(report)
+        text_id = report_id and self.env['report.text.config'].search([
+            ('report', '=', report_id.id),
+            ('code', '=', code)
+        ], limit=1) or False
+        return text_id and text_id.name or ''

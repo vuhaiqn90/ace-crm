@@ -18,4 +18,17 @@
             </xpath>
         </field>
     </record>
+
+    <record id="tmg_view_picking_withcarrier_out_form" model="ir.ui.view">
+        <field name="name">tmg.delivery.stock.picking_withcarrier.form.view</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="delivery.view_picking_withcarrier_out_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='carrier_id']" position="before">
+                <field name="receiver_deliver" attrs="{'invisible': [('picking_type_code', 'not in', ['incoming', 'outgoing'])]}"/>
+                <field name="mobile" attrs="{'invisible': [('picking_type_code', 'not in', ['incoming', 'outgoing'])]}"/>
+                <field name="address" attrs="{'invisible': [('picking_type_code', 'not in', ['incoming', 'outgoing'])]}"/>
+            </xpath>
+        </field>
+    </record>
 </odoo>

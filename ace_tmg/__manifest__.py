@@ -12,10 +12,13 @@
         'stock_account',
         'ace_accounting_vietnam_report',
         'partner_credit_limit',
+        'ace_stock_report',
+        'delivery',
     ],
     'data': [
         # Data
         'data/sequence.xml',
+        'data/report_text_data.xml',
         # Security
         'security/ir.model.access.csv',
         'security/ir_rule.xml',
@@ -34,6 +37,7 @@
         'reports/print_receipt.xml',
         'reports/print_voucher.xml',
         'reports/ace_partner_ledger_report.xml',
+        'reports/report.xml',
         # Menu
         'menu/menu.xml',
     ],
