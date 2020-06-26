@@ -17,6 +17,9 @@
             <xpath expr="//field[@name='partner_shipping_id']" position="attributes">
                 <attribute name="context">{'default_type':'delivery', 'show_address': 1}</attribute>
             </xpath>
+            <xpath expr="//field[@name='order_line']//tree//field[@name='product_uom_qty']" position="attributes">
+                <attribute name="attrs">{'readonly': ['|', ('parent.promotion_ids', '!=', []), ('parent.ace_applied_coupon_ids', '!=', [])]}</attribute>
+            </xpath>
         </field>
     </record>
 

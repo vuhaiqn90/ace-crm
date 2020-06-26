@@ -14,6 +14,7 @@
         'partner_credit_limit',
         'ace_stock_report',
         'delivery',
+        'ace_sale_promotion',
     ],
     'data': [
         # Data
