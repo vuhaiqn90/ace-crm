@@ -38,6 +38,7 @@
         'reports/print_receipt.xml',
         'reports/print_voucher.xml',
         'reports/ace_partner_ledger_report.xml',
+        'reports/wine_try_report_view.xml',
         'reports/report.xml',
         # Menu
         'menu/menu.xml',

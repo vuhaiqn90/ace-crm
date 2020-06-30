@@ -25,4 +25,7 @@
               parent="contacts.res_partner_menu_config"
               action="action_tmg_membership_level"
               sequence="5"/>
+
+    <menuitem id="ace_wine_try_report_menu" parent="sale.menu_sale_report"
+              action="action_ace_wine_try_report"/>
 </odoo>
