@@ -287,7 +287,7 @@
                     <p style="margin-left: 50px;">- Tên tài khoản: Phạm Thị Thu</p>
                     <div class="row" style="margin-top: 30px;">
                         <div class="col-7 text-center">
-                            <p style="font-weight: bold"><span t-field="doc.company_id.name"/></p>
+                            <p style="font-weight: bold"><span t-esc="doc.company_id.name.upper()"/></p>
                             <p>(Ký, họ tên)</p>
                         </div>
                         <div class="col-5 text-center">
