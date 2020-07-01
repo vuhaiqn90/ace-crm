@@ -25,4 +25,43 @@
       <field name="binding_model_id" ref="stock.model_stock_picking"/>
       <field name="binding_type">report</field>
     </record>
+
+    <record id="tmg_ruou_thu_py3o" model="ir.actions.report">
+      <field name="name">Rượu thử</field>
+      <field name="type">ir.actions.report</field>
+      <field name="model">ace.wine.try.report</field>
+      <field name="report_name">tmg_ruou_thu</field>
+      <field name="report_type">py3o</field>
+      <field name="py3o_filetype">ods</field>
+      <field name="module">ace_tmg</field>
+      <field name="py3o_template_fallback">reports/files/BAOCAORUOUTHU.ods</field>
+      <field name="binding_model_id" eval="False"/>
+      <field name="binding_type">report</field>
+    </record>
+
+    <record id="tmg_don_xuat_ruou_thu_py3o" model="ir.actions.report">
+      <field name="name">Đơn xuất rượu thử</field>
+      <field name="type">ir.actions.report</field>
+      <field name="model">sale.order</field>
+      <field name="report_name">tmg_don_xuat_ruou_thu</field>
+      <field name="report_type">py3o</field>
+      <field name="py3o_filetype">ods</field>
+      <field name="module">ace_tmg</field>
+      <field name="py3o_template_fallback">reports/files/DONXUATRUOUTHU.ods</field>
+      <field name="binding_model_id" ref="sale.model_sale_order"/>
+      <field name="binding_type">report</field>
+    </record>
+
+    <record id="tmg_giay_muon_hang_mau_py3o" model="ir.actions.report">
+      <field name="name">Giấy mượn hàng mẫu</field>
+      <field name="type">ir.actions.report</field>
+      <field name="model">sale.order</field>
+      <field name="report_name">tmg_giay_muon_hang_mau</field>
+      <field name="report_type">py3o</field>
+      <field name="py3o_filetype">ods</field>
+      <field name="module">ace_tmg</field>
+      <field name="py3o_template_fallback">reports/files/GIAYMUONHANGMAU.ods</field>
+      <field name="binding_model_id" ref="sale.model_sale_order"/>
+      <field name="binding_type">report</field>
+    </record>
 </odoo>
