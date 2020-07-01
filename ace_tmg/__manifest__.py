@@ -35,10 +35,12 @@
         'views/product_view.xml',
         'views/tmg_membership_view.xml',
         # Reports
+        'reports/report_templates.xml',
         'reports/print_receipt.xml',
         'reports/print_voucher.xml',
         'reports/ace_partner_ledger_report.xml',
         'reports/wine_try_report_view.xml',
+        'reports/sale_report_templates.xml',
         'reports/report.xml',
         # Menu
         'menu/menu.xml',

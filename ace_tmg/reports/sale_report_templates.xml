@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="tmg_report_saleorder">
+    <t t-call="web.html_container">
+        <style>
+            body {
+                font-family: "Times New Roman", Times, serif !important;
+                font-size: 10pt;
+            }
+            h2 {
+                color: red !important;
+                margin-top: 30px;
+                text-align: center;
+            }
+            p {
+                margin-bottom: 0;
+            }
+            p.tmg_order_note {
+                margin-left: 30px;
+            }
+            table.tmg_info {
+                border-collapse: collapse !important;
+                border: 1px solid #171414 !important;
+            }
+            table.tmg_info tr td {
+                padding: 5px;
+            }
+            table.tmg_order tr td {
+                vertical-align:middle;
+                border:1px solid #171414;
+            }
+            table.tmg_order tr th {
+                vertical-align:middle;
+                border:1px solid #171414 !important;
+            }
+            table.tmg_order tr.tmg_order_total td {
+                padding: 8px;
+                font-weight: bold;
+            }
+            table.tmg_order tr.tmg_order_total {
+                background: rgb(146,208,80);
+            }
+            table.tmg_info {
+                margin-bottom: 0;
+            }
+        </style>
+        <t t-foreach="docs" t-as="doc">
+            <!--<t t-call="web.external_layout">-->
+            <t t-call="ace_tmg.tmg_external_layout">
+                <t t-set="doc" t-value="doc.with_context(lang=doc.partner_id.lang)" />
+                <div class="page">
+                    <div class="oe_structure"/>
+                    <div class="row">
+                        <div class="col-3">
+                            <img class="float-left" src="/ace_tmg/static/src/img/image003.png" alt="Image 1"/>
+                        </div>
+                        <div class="col-6">
+                            <h2>
+                                <span t-if="doc.state not in ['draft','sent']">ĐƠN HÀNG</span>
+                                <span t-if="doc.state in ['draft','sent']">BẢNG BÁO GIÁ</span>
+                            </h2>
+                            <p style="font-weight: bold; font-style: italic; text-align: center; font-size: 12pt;">Số: <span t-field="doc.name"/></p>
+                        </div>
+                        <div class="col-3">
+                            <img class="float-right" src="/ace_tmg/static/src/img/image004.png" alt="Image 2"/>
+                        </div>
+                    </div>
+                    <table class="tmg_info table">
+                        <tr>
+                            <td style="width: 6%; border-top: 1px solid #171414;">
+                                <p style="margin: 0px;">To:</p>
+                            </td>
+                            <td style="border-top: 1px solid #171414;">
+                                <p style="margin: 0px;"><span t-field="doc.partner_id.name"/></p>
+                            </td>
+                            <td style="width: 15%; border-top: 1px solid #171414;">
+                                <p style="margin: 0px;">Tel:</p>
+                            </td>
+                            <td style="width: 18%; border-top: 1px solid #171414;">
+                                <p style="margin: 0px;"><span t-field="doc.partner_id.phone"/></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p style="margin: 0px;">Add:</p>
+                            </td>
+                            <td style="">
+                                <p style="margin: 0px;"><span t-field="doc.partner_id.vietnam_full_address"/></p>
+                            </td>
+                            <td style="">
+                                <p style="margin: 0px;">Fax:</p>
+                            </td>
+                            <td/>
+                        </tr>
+                        <tr>
+                            <td style="">
+                                <p style="margin: 0px;">P.I.C:</p>
+                            </td>
+                            <td style=""/>
+                            <td style="">
+                                <p style="margin: 0px;">Mobile:</p>
+                            </td>
+                            <td style="">
+                                <p style="margin: 0px;"><span t-field="doc.partner_id.mobile"/></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="">
+                                <p style="margin: 0px; margin-bottom: 20px;">Email:</p>
+                            </td>
+                            <td style="">
+                                <p style="margin: 0px;"><span t-field="doc.partner_id.email"/></p>
+                            </td>
+                            <td style=""/>
+                            <td style=""/>
+                        </tr>
+                        <!--<tr style="height: 20px;"/>-->
+                        <tr>
+                            <td style="">
+                                <p style="margin: 0px;">From:</p>
+                            </td>
+                            <td style="">
+                                <p style="margin: 0px;"><span t-field="doc.company_id.name"/></p>
+                            </td>
+                            <td style="">
+                                <p style="margin: 0px;">Tel:</p>
+                            </td>
+                            <td style="">
+                                <p style="margin: 0px;"><span t-field="doc.company_id.phone"/></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="">
+                                <p style="margin: 0px;">Add:</p>
+                            </td>
+                            <td style="">
+                                <p style="margin: 0px;"><span t-field="doc.company_id.street"/></p>
+                            </td>
+                            <td style="">
+                                <p style="margin: 0px;">Fax:</p>
+                            </td>
+                            <td style="">
+                                <p style="margin: 0px;"><span t-field="doc.company_id.fax"/></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="">
+                                <p style="margin: 0px;">P.I.C:</p>
+                            </td>
+                            <td style="">
+                                <p style="margin: 0px;"><span t-field="doc.user_id.name"/></p>
+                            </td>
+                            <td style="">
+                                <p style="margin: 0px;">Mobile:</p>
+                            </td>
+                            <td style="">
+                                <p style="margin: 0px;"><span t-field="doc.user_id.partner_id.mobile"/></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="">
+                                <p style="margin: 0px;">Email:</p>
+                            </td>
+                            <td style="">
+                                <p style="margin: 0px;"><span t-field="doc.user_id.email"/></p>
+                            </td>
+                            <td style=""/>
+                            <td style=""/>
+                        </tr>
+                    </table>
+                    <div class="row" style="margin: 2px 0 2px 0;">
+                        <div class="col-9" style="padding: 0;">
+                            <p>Cảm ơn Quý Khách hàng đã quan tâm đến dịch vụ và sản phẩm của TM WinePlaza. Chúng tôi xin gửi đến Quý khách báo giá như sau:</p>
+                        </div>
+                        <div class="col-3 text-right" style="padding: 0;">
+                            <p>Ngày <span t-field="doc.date_order" t-options='{"format": "d/MMM/y"}'/></p>
+                        </div>
+                    </div>
+                    <table class="tmg_order table table-bordered table-hover text-center">
+                        <tr class="text-center" style="background: rgb(255,192,0);">
+                            <th style="width:6%;">
+                                STT
+                            </th>
+                            <th>
+                                TÊN HÀNG
+                            </th>
+                            <th style="width:18%;">
+                                HÌNH ẢNH
+                            </th>
+                            <th style="width:7%;">
+                                ĐVT
+                            </th>
+                            <th style="width:7%;">
+                                SL
+                            </th>
+                            <th style="width:15%;">
+                                ĐƠN GIÁ
+                            </th>
+                            <th style="width:18%;">
+                                THÀNH TIỀN
+                            </th>
+                        </tr>
+                        <t t-set="count" t-value="0"/>
+                        <t t-foreach="doc.order_line" t-as="line">
+                            <tr>
+                                <td>
+                                    <!--STT-->
+                                    <t t-set="count" t-value="count + 1"/>
+                                    <span t-esc="count"/>
+                                </td>
+                                <td class="text-left">
+                                    <!--TÊN HÀNG-->
+                                    <span t-esc="line.product_id.name or ''"/>
+                                </td>
+                                <td class="text-left">
+                                    <!--HÌNH ẢNH-->
+                                    <t t-if="line.product_id.image">
+                                        <img t-attf-src="data:image/*;base64,{{line.product_id.image}}" style="width:100%; height:70%;"/>
+                                    </t>
+                                </td>
+                                <td class="text-center">
+                                    <!--DVT-->
+                                    <span t-esc="line.product_uom and line.product_uom.name"/>
+                                </td>
+                                <td class="text-right">
+                                    <!--SL-->
+                                    <span t-field="line.product_uom_qty"/>
+                                </td>
+                                <td class="text-right">
+                                    <!--Đơn giá-->
+                                    <span t-field="line.price_unit"/>
+                                </td>
+                                <td class="text-right">
+                                    <!--Thành tiền-->
+                                    <span t-field="line.price_subtotal"/>
+                                </td>
+                            </tr>
+                        </t>
+                        <tr class="tmg_order_total">
+                            <td class="text-center" colspan="6">
+                                TỔNG
+                            </td>
+                            <td class="text-right">
+                                <!--<span style="font-weight: bold;" t-esc="doc.convert_type(amount_untaxed)"/>-->
+                                <span t-field="doc.amount_untaxed"/>
+                            </td>
+                        </tr>
+                        <tr class="tmg_order_total">
+                            <td class="text-center" colspan="6">
+                                CHIẾT KHẤU
+                            </td>
+                            <td class="text-right">
+                                <span t-field="doc.amount_discount"/>
+                            </td>
+                        </tr>
+                        <tr class="tmg_order_total">
+                            <td class="text-center" colspan="6">
+                                THUẾ GTGT (VAT)
+                            </td>
+                            <td class="text-right">
+                                <span t-field="doc.amount_tax"/>
+                            </td>
+                        </tr>
+                        <tr class="tmg_order_total">
+                            <td class="text-center" colspan="6">
+                                THÀNH TIỀN
+                            </td>
+                            <td class="text-right">
+                                <span t-field="doc.amount_total"/>
+                            </td>
+                        </tr>
+                        <!--<tr>-->
+                            <!--<td class="text-left" style="font-weight: bold; border:1px solid #171414" colspan="10">-->
+                                <!--Số tiền bằng chữ: <t t-esc="doc.convert_vnd(amount_total or 0)"/>-->
+                            <!--</td>-->
+                        <!--</tr>-->
+                    </table>
+                    <p style="font-weight: bold; text-decoration: underline; font-style: italic;">Lưu ý:</p>
+                    <p class="tmg_order_note">1. Đơn giá trên chưa bao gồm VAT</p>
+                    <p class="tmg_order_note">2. Đơn giá đã bao gồm chi phí vận chuyển trong nội thành TP.HCM</p>
+                    <p class="tmg_order_note">3. Sản phẩm mới 100% được đóng gói theo tiêu chuẩn của nhà sản xuất</p>
+                    <p class="tmg_order_note">4. Điều khoản thanh toán : Thanh toán 100% giá trị đơn hàng sau khi đã nhận đủ hàng hóa</p>
+                    <p class="tmg_order_note">5. Báo giá có hiệu lực trong vòng 30 ngày</p>
+                    <p class="tmg_order_note">6. Thông tin số tài khoảng chuyển khoản:</p>
+                    <p style="margin-left: 50px;">- Số tài khoản: 19032015178027</p>
+                    <p style="margin-left: 50px;">- Tại Ngân hàng: TECHCOMBANK chi nhánh Tân Sơn Nhất</p>
+                    <p style="margin-left: 50px;">- Tên tài khoản: Phạm Thị Thu</p>
+                    <div class="row" style="margin-top: 30px;">
+                        <div class="col-7 text-center">
+                            <p style="font-weight: bold"><span t-field="doc.company_id.name"/></p>
+                            <p>(Ký, họ tên)</p>
+                        </div>
+                        <div class="col-5 text-center">
+                            <p style="font-weight: bold">KHÁCH HÀNG</p>
+                            <p>(Ký, họ tên)</p>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </t>
+</template>
+</odoo>
