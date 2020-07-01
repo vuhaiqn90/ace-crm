@@ -12,8 +12,7 @@
                         font-size: 10pt;
                     }
                     h2 {
-                        font-color: red !important;
-                        margin-top: 30px;
+                        color: red !important;
                         text-align: center;
                     }
                     p {
@@ -55,6 +54,7 @@
                             <img class="float-left" src="/ace_tmg/static/src/img/image003.png" alt="Image 1"/>
                         </div>
                         <div class="col-6">
+                            <p style="height: 30px;"/>
                             <h2>
                                 <span t-if="doc.state not in ['draft','sent']">ĐƠN HÀNG</span>
                                 <span t-if="doc.state in ['draft','sent']">BẢNG BÁO GIÁ</span>
@@ -73,7 +73,7 @@
                             <td style="border-top: 1px solid #171414;">
                                 <p style="margin: 0px;"><span t-field="doc.partner_id.name"/></p>
                             </td>
-                            <td style="width: 15%; border-top: 1px solid #171414;">
+                            <td style="width: 12%; border-top: 1px solid #171414;">
                                 <p style="margin: 0px;">Tel:</p>
                             </td>
                             <td style="width: 18%; border-top: 1px solid #171414;">
@@ -164,8 +164,8 @@
                             <td style="">
                                 <p style="margin: 0px;"><span t-field="doc.user_id.email"/></p>
                             </td>
-                            <td style=""/>
-                            <td style=""/>
+                            <td/>
+                            <td/>
                         </tr>
                     </table>
                     <div class="row" style="margin: 2px 0 2px 0;">
@@ -193,7 +193,7 @@
                             <th style="width:7%;">
                                 SL
                             </th>
-                            <th style="width:15%;">
+                            <th style="width:12%;">
                                 ĐƠN GIÁ
                             </th>
                             <th style="width:18%;">

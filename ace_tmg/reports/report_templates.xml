@@ -2,9 +2,9 @@
 <odoo>
     <template id="tmg_external_layout">
         <div class="header">
-            <div class="o_background_header">
-            <div class="clearfix mb8"/>
-            </div>
+            <!--<div class="o_background_header">-->
+                <!--<div class="clearfix mb8"/>-->
+            <!--</div>-->
         </div>
 
         <div class="article o_report_layout_background" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
