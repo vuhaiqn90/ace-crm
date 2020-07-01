@@ -10,11 +10,13 @@
         'website_sale',
         'stock',
         'ks_theme_kinetik',
+        'event',
     ],
     'data': [
         # Security
         # Views
         'views/product_view.xml',
+        'views/event.xml',
         'views/templates.xml',
         'views/web_assets.xml',
         # Menu
