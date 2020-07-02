@@ -52,7 +52,7 @@ class ACEWineTryReport(models.TransientModel):
                 JOIN sale_order so ON so.id = sol.order_id
                 JOIN account_analytic_tag_sale_order_line_rel rel ON rel.sale_order_line_id = sol.id
                 JOIN account_analytic_tag aat ON aat.id = rel.account_analytic_tag_id AND aat.name = 'Rượu thử'
-            WHERE so.user_id IS NOT NULL AND so.date_order >= '%s' AND so.date_order <= '%s' %s %s %s
+            WHERE so.state IN ('sale', 'done') AND so.user_id IS NOT NULL AND so.date_order >= '%s' AND so.date_order <= '%s' %s %s %s
         """ % (self.date_from.strftime('%Y-%m-%d 00:00:00'), self.date_to.strftime('%Y-%m-%d 23:59:59'),
                partner, users, teams)
         cr.execute(sql)
@@ -94,7 +94,7 @@ class ACEWineTryReport(models.TransientModel):
             SELECT SUM(sol.price_subtotal) total
             FROM sale_order_line sol 
                 JOIN sale_order so ON so.id = sol.order_id
-            WHERE so.user_id IS NOT NULL AND so.date_order >= '%s' AND so.date_order <= '%s' %s %s %s %s 
+            WHERE so.state IN ('sale', 'done') AND so.user_id IS NOT NULL AND so.date_order >= '%s' AND so.date_order <= '%s' %s %s %s %s 
         """ % (self.date_from.strftime('%Y-%m-%d 00:00:00'), self.date_to.strftime('%Y-%m-%d 23:59:59'),
                exception, partner, users, teams)
         cr.execute(sql)
@@ -103,7 +103,7 @@ class ACEWineTryReport(models.TransientModel):
             SELECT so.user_id, SUM(sol.price_subtotal) total
             FROM sale_order_line sol 
                 JOIN sale_order so ON so.id = sol.order_id
-            WHERE so.user_id IS NOT NULL AND so.date_order >= '%s' AND so.date_order <= '%s' %s %s %s %s 
+            WHERE so.state IN ('sale', 'done') AND so.user_id IS NOT NULL AND so.date_order >= '%s' AND so.date_order <= '%s' %s %s %s %s 
             GROUP BY so.user_id
         """ % (self.date_from.strftime('%Y-%m-%d 00:00:00'), self.date_to.strftime('%Y-%m-%d 23:59:59'),
                exception, partner, users, teams)
