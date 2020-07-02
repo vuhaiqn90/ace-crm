@@ -201,6 +201,7 @@
                             </th>
                         </tr>
                         <t t-set="count" t-value="0"/>
+                        <t t-set="amount" t-value="0"/>
                         <t t-foreach="doc.order_line" t-as="line">
                             <tr>
                                 <td>
@@ -232,7 +233,9 @@
                                 </td>
                                 <td class="text-right">
                                     <!--Thành tiền-->
-                                    <span t-field="line.price_subtotal"/>
+                                    <t t-set="amount" t-value="amount + line.product_uom_qty * line.price_unit"/>
+                                    <span t-esc="line.product_uom_qty * line.price_unit"
+                                          t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
                                 </td>
                             </tr>
                         </t>
@@ -242,7 +245,7 @@
                             </td>
                             <td class="text-right">
                                 <!--<span style="font-weight: bold;" t-esc="doc.convert_type(amount_untaxed)"/>-->
-                                <span t-field="doc.amount_untaxed"/>
+                                <span t-esc="amount" t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
                             </td>
                         </tr>
                         <tr class="tmg_order_total">
