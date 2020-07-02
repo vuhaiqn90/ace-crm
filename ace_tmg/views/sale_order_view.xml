@@ -20,6 +20,10 @@
             <xpath expr="//field[@name='order_line']//tree//field[@name='product_uom_qty']" position="attributes">
                 <attribute name="attrs">{'readonly': ['|', ('parent.promotion_ids', '!=', []), ('parent.ace_applied_coupon_ids', '!=', [])]}</attribute>
             </xpath>
+            <xpath expr="//field[@name='date_order']" position="replace"/>
+            <xpath expr="//field[@name='validity_date']" position="before">
+                <field name="date_order"/>
+            </xpath>
         </field>
     </record>
 
