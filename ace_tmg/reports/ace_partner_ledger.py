@@ -102,5 +102,6 @@ class ACEPartnerLedgerReport(models.TransientModel):
 
 class ACEPartnerLedgerLine(models.TransientModel):
     _inherit = 'ace.partner.ledger.line'
+    _order = 'user_id'
 
     user_id = fields.Many2one('res.users', 'Salesperson')
