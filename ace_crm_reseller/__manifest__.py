@@ -5,7 +5,7 @@
     'author': 'pcb-graphtech.com.vn',
     'description': '',
     'depends': [
-        'ace_crm_core',
+        'ace_crm_pcb',
     ],
     'data': [
         'security/ir.model.access.csv',
