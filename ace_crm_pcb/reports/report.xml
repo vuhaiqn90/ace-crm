@@ -6,9 +6,35 @@
       <field name="model">sale.order</field>
       <field name="report_name">pcb_quotation_template</field>
       <field name="report_type">py3o</field>
-      <field name="py3o_filetype">odt</field>
+      <field name="py3o_filetype">doc</field>
       <field name="module">ace_crm_pcb</field>
       <field name="py3o_template_fallback">reports/file/Quotation.odt</field>
+      <field name="binding_model_id" ref="sale.model_sale_order"/>
+      <field name="binding_type">report</field>
+    </record>
+
+    <record id="pcb_contract_template_py3o" model="ir.actions.report">
+      <field name="name">Contract</field>
+      <field name="type">ir.actions.report</field>
+      <field name="model">sale.order</field>
+      <field name="report_name">pcb_contract_template</field>
+      <field name="report_type">py3o</field>
+      <field name="py3o_filetype">doc</field>
+      <field name="module">ace_crm_pcb</field>
+      <field name="py3o_template_fallback">reports/file/HD_mau_2020.odt</field>
+      <field name="binding_model_id" ref="sale.model_sale_order"/>
+      <field name="binding_type">report</field>
+    </record>
+
+    <record id="pcb_contract_english_template_py3o" model="ir.actions.report">
+      <field name="name">Contract(English)</field>
+      <field name="type">ir.actions.report</field>
+      <field name="model">sale.order</field>
+      <field name="report_name">pcb_contract_english_template</field>
+      <field name="report_type">py3o</field>
+      <field name="py3o_filetype">doc</field>
+      <field name="module">ace_crm_pcb</field>
+      <field name="py3o_template_fallback">reports/file/HD_mau_2020_Eng.odt</field>
       <field name="binding_model_id" ref="sale.model_sale_order"/>
       <field name="binding_type">report</field>
     </record>
