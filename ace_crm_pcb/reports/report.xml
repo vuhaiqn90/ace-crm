@@ -38,4 +38,17 @@
       <field name="binding_model_id" ref="sale.model_sale_order"/>
       <field name="binding_type">report</field>
     </record>
+
+    <record id="pcb_po_template_py3o" model="ir.actions.report">
+      <field name="name">PO - PCB</field>
+      <field name="type">ir.actions.report</field>
+      <field name="model">purchase.order</field>
+      <field name="report_name">pcb_po_template</field>
+      <field name="report_type">py3o</field>
+      <field name="py3o_filetype">ods</field>
+      <field name="module">ace_crm_pcb</field>
+      <field name="py3o_template_fallback">reports/file/PO.ods</field>
+      <field name="binding_model_id" ref="purchase.model_purchase_order"/>
+      <field name="binding_type">report</field>
+    </record>
 </odoo>
