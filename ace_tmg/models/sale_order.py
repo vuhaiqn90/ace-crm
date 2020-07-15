@@ -19,6 +19,7 @@ class SaleOrder(models.Model):
 
     # @api.multi
     # def check_limit(self):
+    #     super(SaleOrder, self).check_limit()
     #     self.ensure_one()
     #     if self.user_has_groups('sales_team.group_sale_manager'):
     #         return True
@@ -81,6 +82,7 @@ class SaleOrder(models.Model):
             doc = etree.XML(res['fields']['order_line']['views']['tree']['arch'])
             for node in doc.xpath("//field[@name='discount']"):
                 node.set('readonly', '1')
+                node.set('force_save', '1')
                 setup_modifiers(node)
             res['fields']['order_line']['views']['tree']['arch'] = etree.tostring(doc)
         return res
