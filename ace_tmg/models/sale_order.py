@@ -2,6 +2,8 @@
 from odoo import api, fields, models, _
 from odoo.exceptions import UserError
 import odoo.addons.decimal_precision as dp
+from lxml import etree
+from odoo.osv.orm import setup_modifiers
 
 
 class SaleOrder(models.Model):
@@ -61,3 +63,24 @@ class SaleOrder(models.Model):
             team_id = self.env['crm.team']._get_default_team_id(self.user_id.id)
             if team_id:
                 self.team_id = team_id.id
+
+    @api.model
+    def fields_view_get(self, view_id=None, view_type='form', toolbar=False, submenu=False):
+        res = super(SaleOrder, self).fields_view_get(
+            view_id=view_id, view_type=view_type, toolbar=toolbar, submenu=submenu)
+        # if view_type == 'form' and self.user_has_groups('!sales_team.group_sale_manager,!base.group_system'):
+        #     res['fields']['order_line']['views']['tree']['fields']['discount']['readonly'] = True
+            # res['fields']['partner_id']['invisible'] = True
+        # if view_type == 'form' and self.user_has_groups('!sales_team.group_sale_manager,!base.group_system'):
+        #     doc = etree.XML(res['arch'])
+        #     for node in doc.xpath("//field[@name='partner_id']"):
+        #         node.set('readonly', '1')
+        #         setup_modifiers(node)
+        #     res['arch'] = etree.tostring(doc, encoding='unicode')
+        if view_type == 'form' and self.user_has_groups('!sales_team.group_sale_manager,!base.group_system'):
+            doc = etree.XML(res['fields']['order_line']['views']['tree']['arch'])
+            for node in doc.xpath("//field[@name='discount']"):
+                node.set('readonly', '1')
+                setup_modifiers(node)
+            res['fields']['order_line']['views']['tree']['arch'] = etree.tostring(doc)
+        return res

@@ -11,6 +11,12 @@
             <xpath expr="//field[@name='category_id']" position="after">
                 <field name="tmg_membership_id"/>
             </xpath>
+            <xpath expr="//field[@name='mobile']" position="attributes">
+                <attribute name="attrs">{'required': [('mobile', '=', False), ('phone', '=', False)]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='phone']" position="attributes">
+                <attribute name="attrs">{'required': [('mobile', '=', False), ('phone', '=', False)]}</attribute>
+            </xpath>
         </field>
     </record>
 
