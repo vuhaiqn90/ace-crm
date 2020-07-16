@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-15 09:49+0000\n"
-"PO-Revision-Date: 2020-06-15 09:49+0000\n"
+"POT-Creation-Date: 2020-07-16 05:01+0000\n"
+"PO-Revision-Date: 2020-07-16 05:01+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,8 +16,15 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_employee_line__rate
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_report__rate
+msgid "% Rượu thử / Doanh thu"
+msgstr ""
+
+#. module: ace_tmg
 #: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_ace_voucher_template_body
 #: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_receipt_template_body
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_report_saleorder
 msgid "(Ký, họ tên)"
 msgstr ""
 
@@ -46,6 +53,51 @@ msgstr ""
 #. module: ace_tmg
 #: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_ace_voucher_template_body
 msgid "+ Tỷ giá ngoại tệ (vàng bạc, đá quý):"
+msgstr ""
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_report_saleorder
+msgid "- Số tài khoản: 19032015178027"
+msgstr ""
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_report_saleorder
+msgid "- Tên tài khoản: Phạm Thị Thu"
+msgstr ""
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_report_saleorder
+msgid "- Tại Ngân hàng: TECHCOMBANK chi nhánh Tân Sơn Nhất"
+msgstr ""
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_report_saleorder
+msgid "1. Đơn giá trên chưa bao gồm VAT"
+msgstr ""
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_report_saleorder
+msgid "2. Đơn giá đã bao gồm chi phí vận chuyển trong nội thành TP.HCM"
+msgstr ""
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_report_saleorder
+msgid "3. Sản phẩm mới 100% được đóng gói theo tiêu chuẩn của nhà sản xuất"
+msgstr ""
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_report_saleorder
+msgid "4. Điều khoản thanh toán : Thanh toán 100% giá trị đơn hàng sau khi đã nhận đủ hàng hóa"
+msgstr ""
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_report_saleorder
+msgid "5. Báo giá có hiệu lực trong vòng 30 ngày"
+msgstr ""
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_report_saleorder
+msgid "6. Thông tin số tài khoảng chuyển khoản:"
 msgstr ""
 
 #. module: ace_tmg
@@ -97,10 +149,53 @@ msgid "Active"
 msgstr "Có hiệu lực"
 
 #. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_report_saleorder
+msgid "Add:"
+msgstr ""
+
+#. module: ace_tmg
 #: model:ir.model.fields,field_description:ace_tmg.field_res_partner__agent_level
 #: model:ir.model.fields,field_description:ace_tmg.field_res_users__agent_level
 msgid "Agent Level"
 msgstr "Kênh đại lý"
+
+#. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_res_partner__alcohol_norms
+#: model:ir.model.fields,field_description:ace_tmg.field_res_users__alcohol_norms
+msgid "Alcohol Norms"
+msgstr "Hạn mức rượu thử"
+
+#. module: ace_tmg
+#: model:ir.actions.report,name:ace_tmg.tmg_action_report_saleorder
+msgid "Báo Giá / Đơn Hàng (TMG)"
+msgstr ""
+
+#. module: ace_tmg
+#: model:ir.model,name:ace_tmg.model_ace_wine_try_line
+msgid "Báo cáo chi tiết rượu thử"
+msgstr ""
+
+#. module: ace_tmg
+#: model:ir.model,name:ace_tmg.model_ace_wine_try_employee_line
+msgid "Báo cáo chi tiết rượu thử theo nhân viên"
+msgstr ""
+
+#. module: ace_tmg
+#: model:ir.actions.act_window,name:ace_tmg.action_ace_wine_try_report
+#: model:ir.model,name:ace_tmg.model_ace_wine_try_report
+#: model:ir.ui.menu,name:ace_tmg.ace_wine_try_report_menu
+msgid "Báo cáo rượu thử"
+msgstr ""
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_report_saleorder
+msgid "BẢNG BÁO GIÁ"
+msgstr ""
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_report_saleorder
+msgid "CHIẾT KHẤU"
+msgstr ""
 
 #. module: ace_tmg
 #: selection:ace.commission,job_position:0
@@ -108,6 +203,16 @@ msgstr "Kênh đại lý"
 #: selection:ace.commission.line,job_position:0
 #: selection:res.partner,job_position:0
 msgid "CTV"
+msgstr ""
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.ace_wine_try_report_view
+msgid "Chi tiết Rượu thử"
+msgstr ""
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.ace_wine_try_report_view
+msgid "Chi tiết theo NVKD"
 msgstr ""
 
 #. module: ace_tmg
@@ -119,7 +224,7 @@ msgstr ""
 #. module: ace_tmg
 #: model_terms:ir.actions.act_window,help:ace_tmg.action_ace_commission_config_form
 msgid "Click to create a Commission Config."
-msgstr ""
+msgstr "Nhấn để tạo cấu hình hoa hồng."
 
 #. module: ace_tmg
 #: model_terms:ir.actions.act_window,help:ace_tmg.action_tmg_membership_level
@@ -175,6 +280,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission__create_uid
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_config__create_uid
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_line__create_uid
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_employee_line__create_uid
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_line__create_uid
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_report__create_uid
 #: model:ir.model.fields,field_description:ace_tmg.field_tmg_membership_level__create_uid
 msgid "Created by"
 msgstr "Được tạo bởi"
@@ -183,15 +291,28 @@ msgstr "Được tạo bởi"
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission__create_date
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_config__create_date
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_line__create_date
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_employee_line__create_date
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_line__create_date
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_report__create_date
 #: model:ir.model.fields,field_description:ace_tmg.field_tmg_membership_level__create_date
 msgid "Created on"
 msgstr "Thời điểm tạo"
 
 #. module: ace_tmg
-#: code:addons/ace_tmg/models/partner.py:93
+#: selection:ace.partner.ledger.report,type:0
+msgid "Customer"
+msgstr "Khách hàng"
+
+#. module: ace_tmg
+#: code:addons/ace_tmg/models/partner.py:94
 #, python-format
 msgid "Customer code already exists in system!"
 msgstr "Mã KH đã tồn tại trong hệ thống!"
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_report_saleorder
+msgid "Cảm ơn Quý Khách hàng đã quan tâm đến dịch vụ và sản phẩm của TM WinePlaza. Chúng tôi xin gửi đến Quý khách báo giá như sau:"
+msgstr ""
 
 #. module: ace_tmg
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_config__delta_method
@@ -204,17 +325,65 @@ msgid "Detail"
 msgstr "Chi tiết"
 
 #. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_purchase_order_line__tmg_discount
+msgid "Discount"
+msgstr "Chiết khấu"
+
+#. module: ace_tmg
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission__display_name
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_config__display_name
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_line__display_name
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_employee_line__display_name
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_line__display_name
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_report__display_name
 #: model:ir.model.fields,field_description:ace_tmg.field_tmg_membership_level__display_name
 msgid "Display Name"
 msgstr "Tên hiển thị"
 
 #. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_report_saleorder
+msgid "Email:"
+msgstr ""
+
+#. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_report__emp_line_ids
+msgid "Emp Line"
+msgstr ""
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.ace_wine_try_report_view
+msgid "Excel"
+msgstr ""
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_report_saleorder
+msgid "Fax:"
+msgstr ""
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.ace_wine_try_report_view
+msgid "Fine"
+msgstr ""
+
+#. module: ace_tmg
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission__date_from
 msgid "From"
 msgstr "Từ"
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_report_saleorder
+msgid "From:"
+msgstr "Từ:"
+
+#. module: ace_tmg
+#: model:ir.actions.report,name:ace_tmg.tmg_giay_muon_hang_mau_py3o
+msgid "Giấy mượn hàng mẫu"
+msgstr ""
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_report_saleorder
+msgid "HÌNH ẢNH"
+msgstr ""
 
 #. module: ace_tmg
 #: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_ace_voucher_template_body
@@ -230,6 +399,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission__id
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_config__id
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_line__id
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_employee_line__id
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_line__id
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_report__id
 #: model:ir.model.fields,field_description:ace_tmg.field_tmg_membership_level__id
 msgid "ID"
 msgstr ""
@@ -240,6 +412,16 @@ msgid "If Delta Method is True, amount to compute commission = (total revenue of
 msgstr "Nếu chọn phương thức Delta, doanh số để tính hoa hồng = (tổng doanh số của nhân viên - số tiền hạn mức) * phần trăm hoa hồng / 100. Ngược lại, doanh số tính hoa hồng = tổng doanh số nhân viên * phần trăm hoa hồng / 100"
 
 #. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_report_saleorder
+msgid "Image 1"
+msgstr ""
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_report_saleorder
+msgid "Image 2"
+msgstr ""
+
+#. module: ace_tmg
 #: model:ir.model,name:ace_tmg.model_account_invoice
 msgid "Invoice"
 msgstr "Hóa đơn"
@@ -248,7 +430,7 @@ msgstr "Hóa đơn"
 #: code:addons/ace_tmg/models/commission.py:161
 #, python-format
 msgid "Invoices"
-msgstr "Hóa đơn"
+msgstr ""
 
 #. module: ace_tmg
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission__job_position
@@ -258,6 +440,17 @@ msgstr "Hóa đơn"
 #: model_terms:ir.ui.view,arch_db:ace_tmg.ace_view_users_form
 msgid "Job Position"
 msgstr "Chức vụ"
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_report_saleorder
+msgid "KHÁCH HÀNG"
+msgstr ""
+
+#. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_line__partner_id
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_report__partner_id
+msgid "Khách hàng"
+msgstr ""
 
 #. module: ace_tmg
 #: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_ace_voucher_template_body
@@ -279,6 +472,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission____last_update
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_config____last_update
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_line____last_update
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_employee_line____last_update
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_line____last_update
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_report____last_update
 #: model:ir.model.fields,field_description:ace_tmg.field_tmg_membership_level____last_update
 msgid "Last Modified on"
 msgstr "Sửa lần cuối vào"
@@ -287,6 +483,9 @@ msgstr "Sửa lần cuối vào"
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission__write_uid
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_config__write_uid
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_line__write_uid
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_employee_line__write_uid
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_line__write_uid
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_report__write_uid
 #: model:ir.model.fields,field_description:ace_tmg.field_tmg_membership_level__write_uid
 msgid "Last Updated by"
 msgstr "Cập nhật lần cuối bởi"
@@ -295,12 +494,16 @@ msgstr "Cập nhật lần cuối bởi"
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission__write_date
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_config__write_date
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_line__write_date
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_employee_line__write_date
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_line__write_date
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_report__write_date
 #: model:ir.model.fields,field_description:ace_tmg.field_tmg_membership_level__write_date
 msgid "Last Updated on"
 msgstr "Cập nhật lần cuối vào"
 
 #. module: ace_tmg
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission__line_ids
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_report__line_ids
 msgid "Line"
 msgstr "Dòng"
 
@@ -315,20 +518,42 @@ msgid "Lý do nộp:"
 msgstr ""
 
 #. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_report_saleorder
+msgid "Lưu ý:"
+msgstr ""
+
+#. module: ace_tmg
 #: model:ir.model.fields,field_description:ace_tmg.field_res_partner__tmg_membership_id
 #: model:ir.model.fields,field_description:ace_tmg.field_res_users__tmg_membership_id
 msgid "Membership"
 msgstr "Quản lý thành viên"
 
 #. module: ace_tmg
-#: code:addons/ace_tmg/models/partner.py:81
+#: code:addons/ace_tmg/models/partner.py:82
 #, python-format
 msgid "Mobile or phone already exists in system!"
 msgstr "Số điện thoại hoặc Di động đã tồn tại trong hệ thống!"
 
 #. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_report_saleorder
+msgid "Mobile:"
+msgstr "Di động:"
+
+#. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_line__product_code
+msgid "Mã SP"
+msgstr ""
+
+#. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_employee_line__user_id
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_line__user_id
+msgid "NVKD"
+msgstr ""
+
+#. module: ace_tmg
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission__name
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_config__name
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_report__name
 #: model:ir.model.fields,field_description:ace_tmg.field_tmg_membership_level__name
 msgid "Name"
 msgstr "Tên"
@@ -336,8 +561,57 @@ msgstr "Tên"
 #. module: ace_tmg
 #: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_ace_voucher_template_body
 #: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_receipt_template_body
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_report_saleorder
 msgid "Ngày"
 msgstr ""
+
+#. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_report__user_ids
+msgid "Nhân viên KD"
+msgstr ""
+
+#. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_report__team_ids
+msgid "Nhóm KD"
+msgstr ""
+
+#. module: ace_tmg
+#: code:addons/ace_tmg/models/account_invoice.py:26
+#, python-format
+msgid "Outstanding credits"
+msgstr ""
+
+#. module: ace_tmg
+#: code:addons/ace_tmg/models/account_invoice.py:29
+#, python-format
+msgid "Outstanding debits"
+msgstr ""
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.ace_wine_try_report_view
+msgid "Over"
+msgstr ""
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_report_saleorder
+msgid "P.I.C:"
+msgstr ""
+
+#. module: ace_tmg
+#: code:addons/ace_tmg/models/sale_order.py:61
+#, python-format
+msgid "Pls cancel invoice first."
+msgstr "Vui lòng hủy hóa đơn trước"
+
+#. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_purchase_order_line__tmg_price_unit
+msgid "Price without Discount"
+msgstr ""
+
+#. module: ace_tmg
+#: model:ir.model,name:ace_tmg.model_purchase_order_line
+msgid "Purchase Order Line"
+msgstr "Dòng hàng Đơn mua hàng"
 
 #. module: ace_tmg
 #: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_ace_voucher_template_body
@@ -346,10 +620,57 @@ msgid "Quyển số:"
 msgstr ""
 
 #. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.ace_wine_try_report_view
+msgid "Rate"
+msgstr ""
+
+#. module: ace_tmg
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_config__rate
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_line__rate
 msgid "Rate(%)"
 msgstr "Phần trăm hoa hồng"
+
+#. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_stock_picking__receiver_deliver
+msgid "Receiver/Deliver"
+msgstr ""
+
+#. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_stock_picking__address
+msgid "Receiver/Deliver Address"
+msgstr ""
+
+#. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_stock_picking__mobile
+msgid "Receiver/Deliver Mobile"
+msgstr ""
+
+#. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_employee_line__report_id
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_line__report_id
+msgid "Report"
+msgstr ""
+
+#. module: ace_tmg
+#: model:ir.actions.report,name:ace_tmg.tmg_ruou_thu_py3o
+msgid "Rượu thử"
+msgstr ""
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_report_saleorder
+msgid "SL"
+msgstr ""
+
+#. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_employee_line__qty
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_line__qty
+msgid "SL rượu thử"
+msgstr ""
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_report_saleorder
+msgid "STT"
+msgstr ""
 
 #. module: ace_tmg
 #: model:ir.model,name:ace_tmg.model_sale_order
@@ -361,7 +682,7 @@ msgstr "Đơn hàng Bán"
 #: selection:ace.commission.config,type:0
 #: selection:ace.commission.line,job_position:0
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_partner_ledger_line__user_id
-#: model:ir.model.fields,field_description:ace_tmg.field_ace_partner_ledger_report__user_id
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_partner_ledger_report__user_ids
 #: selection:res.partner,job_position:0
 msgid "Salesperson"
 msgstr "Nhân viên kinh doanh"
@@ -383,6 +704,23 @@ msgid "Staff"
 msgstr "Nhân viên kinh doanh"
 
 #. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_line__product_id
+msgid "Sản phẩm"
+msgstr ""
+
+#. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_employee_line__fine
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_report__fine
+msgid "Số tiền NV phải nộp"
+msgstr ""
+
+#. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_employee_line__over_amount
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_report__over_amount
+msgid "Số tiền vượt định mức"
+msgstr ""
+
+#. module: ace_tmg
 #: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_ace_voucher_template_body
 #: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_receipt_template_body
 msgid "Số tiền:"
@@ -391,7 +729,18 @@ msgstr ""
 #. module: ace_tmg
 #: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_ace_voucher_template_body
 #: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_receipt_template_body
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_report_saleorder
 msgid "Số:"
+msgstr ""
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_report_saleorder
+msgid "THUẾ GTGT (VAT)"
+msgstr ""
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_report_saleorder
+msgid "THÀNH TIỀN"
 msgstr ""
 
 #. module: ace_tmg
@@ -406,6 +755,11 @@ msgstr "TMG Hạng thẻ thành viên"
 #: model:ir.ui.menu,name:ace_tmg.menu_tmg_membership_level
 msgid "TMG Membership Level"
 msgstr "TMG Hạng thẻ thành viên"
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_report_saleorder
+msgid "Tel:"
+msgstr "ĐT:"
 
 #. module: ace_tmg
 #: selection:ace.commission,job_position:0
@@ -423,11 +777,17 @@ msgid "To"
 msgstr "Đến"
 
 #. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_report_saleorder
+msgid "To:"
+msgstr ""
+
+#. module: ace_tmg
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_config__total
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_line__total
 #: model_terms:ir.ui.view,arch_db:ace_tmg.ace_commission_form_view
+#: model_terms:ir.ui.view,arch_db:ace_tmg.ace_wine_try_report_view
 msgid "Total"
-msgstr "Doanh số tính hoa hồng"
+msgstr "Tổng"
 
 #. module: ace_tmg
 #: model:ir.model,name:ace_tmg.model_stock_picking
@@ -445,8 +805,52 @@ msgstr "Thử việc"
 
 #. module: ace_tmg
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_config__type
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_partner_ledger_report__type
 msgid "Type"
 msgstr "Loại"
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_report_saleorder
+msgid "TÊN HÀNG"
+msgstr ""
+
+#. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_line__product_name
+msgid "Tên SP"
+msgstr ""
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_report_saleorder
+msgid "TỔNG"
+msgstr ""
+
+#. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_employee_line__total
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_report__total_revenue
+msgid "Tổng doanh thu"
+msgstr ""
+
+#. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_employee_line__amount
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_line__amount
+msgid "Tổng tiền rượu thử"
+msgstr ""
+
+#. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_report__date_from
+msgid "Từ ngày"
+msgstr ""
+
+#. module: ace_tmg
+#: code:addons/ace_tmg/models/sale_order.py:67
+#, python-format
+msgid "Unable to delete sale order as some deliveries or invoices have related."
+msgstr "Không thể xóa đơn hàng bán nếu đã xác nhận phiếu kho hoặc tạo hóa đơn"
+
+#. module: ace_tmg
+#: selection:ace.partner.ledger.report,type:0
+msgid "Vendor"
+msgstr ""
 
 #. module: ace_tmg
 #: model_terms:ir.ui.view,arch_db:ace_tmg.ace_commission_form_view
@@ -454,7 +858,18 @@ msgid "View"
 msgstr "Xem"
 
 #. module: ace_tmg
-#: code:addons/ace_tmg/models/sale_order.py:41
+#: code:addons/ace_tmg/reports/wine_try_report.py:137
+#, python-format
+msgid "Vui lòng chọn Nhân viên KD để in báo cáo!"
+msgstr ""
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.ace_wine_try_report_view
+msgid "Xem báo cáo"
+msgstr ""
+
+#. module: ace_tmg
+#: code:addons/ace_tmg/models/sale_order.py:55
 #, python-format
 msgid "You can not confirm Sale Order. \n"
 ""
@@ -488,15 +903,57 @@ msgid "năm"
 msgstr ""
 
 #. module: ace_tmg
+#: model:ir.model,name:ace_tmg.model_report_ace_account_partner_ledger_report_excel
+msgid "report.ace_account.partner_ledger_report_excel"
+msgstr ""
+
+#. module: ace_tmg
 #: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_ace_voucher_template_body
 #: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_receipt_template_body
 msgid "tháng"
 msgstr ""
 
 #. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_employee_line__uom_id
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_line__uom_id
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_report_saleorder
+msgid "ĐVT"
+msgstr ""
+
+#. module: ace_tmg
 #: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_ace_voucher_template_body
 #: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_receipt_template_body
 msgid "Đã nhận đủ số tiền (viết bằng chữ):"
+msgstr ""
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_report_saleorder
+msgid "ĐƠN GIÁ"
+msgstr ""
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_report_saleorder
+msgid "ĐƠN HÀNG"
+msgstr ""
+
+#. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_line__price_unit
+msgid "Đơn giá"
+msgstr ""
+
+#. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_line__order_id
+msgid "Đơn hàng"
+msgstr ""
+
+#. module: ace_tmg
+#: model:ir.actions.report,name:ace_tmg.tmg_don_xuat_ruou_thu_py3o
+msgid "Đơn xuất rượu thử"
+msgstr ""
+
+#. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_report__date_to
+msgid "Đến ngày"
 msgstr ""
 
 #. module: ace_tmg

@@ -16,3 +16,9 @@ class PurchaseOrderLine(models.Model):
             price_subtotal = self.product_qty * self.tmg_price_unit - \
                              self.product_qty * self.tmg_price_unit * self.tmg_discount / 100
             self.price_unit = price_subtotal / self.product_qty
+
+    @api.onchange('product_qty', 'product_uom')
+    def _onchange_quantity(self):
+        res = super(PurchaseOrderLine, self)._onchange_quantity()
+        self.tmg_price_unit = self.price_unit
+        return res
