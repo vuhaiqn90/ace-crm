@@ -12,6 +12,7 @@ class ResPartner(models.Model):
     job_position = fields.Selection([('sale', 'Salesperson'), ('tels', 'Telesales'), ('ctv', 'CTV')],
                                     string='Job Position')
     tmg_membership_id = fields.Many2one('tmg.membership.level', 'Membership')
+    alcohol_norms = fields.Float('Alcohol Norms')
 
     @api.multi
     def get_vietnam_full_address(self):
