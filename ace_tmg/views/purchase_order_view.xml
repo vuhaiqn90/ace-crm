@@ -8,6 +8,10 @@
             <xpath expr="//field[@name='partner_id']" position="attributes">
                 <attribute name="context">{'search_default_supplier':1, 'default_supplier':1, 'default_customer':0, 'show_vat': True, 'show_address': 1}</attribute>
             </xpath>
+            <xpath expr="//field[@name='order_line']//tree//field[@name='price_unit']" position="before">
+                <field name="tmg_price_unit"/>
+                <field name="tmg_discount"/>
+            </xpath>
         </field>
     </record>
 </odoo>
