@@ -27,6 +27,9 @@
             <xpath expr="//field[@name='validity_date']" position="before">
                 <field name="date_order"/>
             </xpath>
+            <xpath expr="//header" position="inside">
+                <button name="%(action_sale_return_wizard)d" type="action" string="Return" states="sale,done"/>
+            </xpath>
         </field>
     </record>
 

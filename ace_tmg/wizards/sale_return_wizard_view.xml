@@ -5,10 +5,6 @@
         <field name="model">sale.return.wizard</field>
         <field name="arch" type="xml">
             <form>
-                <header>
-                    <button name="action_print" string="Export" type="object" class="btn-primary"/>
-                    <button special="cancel" string="Close" type="object" class="oe_link" />
-                </header>
                 <group>
                     <field name="reason" required="1"/>
                 </group>
@@ -25,6 +21,10 @@
                         </field>
                     </page>
                 </notebook>
+                <footer>
+                    <button name="action_print" string="Export" type="object" class="btn-primary"/>
+                    <button special="cancel" string="Close" type="object" class="oe_link" />
+                </footer>
             </form>
         </field>
     </record>

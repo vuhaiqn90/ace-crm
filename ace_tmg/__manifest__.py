@@ -22,6 +22,8 @@
         # Security
         'security/ir.model.access.csv',
         'security/ir_rule.xml',
+        # Wizards
+        'wizards/sale_return_wizard_view.xml',
         # Views
         'views/partner_views.xml',
         'views/sale_order_view.xml',
