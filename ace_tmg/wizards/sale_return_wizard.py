@@ -48,3 +48,7 @@ class SaleReturnWizardLine(models.TransientModel):
     uom_id = fields.Many2one('uom.uom', string='UOM')
     price_unit = fields.Float(string='Price Unit')
     total = fields.Float()
+
+    @api.onchange('qty', 'price_unit')
+    def compute_total(self):
+        self.total = self.qty * self.price_unit
