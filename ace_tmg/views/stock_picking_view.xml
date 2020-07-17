@@ -16,6 +16,9 @@
                 <attribute name="readonly">0</attribute>
                 <attribute name="attrs">{'readonly': [('state', 'not in', ['draft', 'waiting', 'confirmed'])], 'invisible': [('picking_type_code', '=', 'outgoing')]}</attribute>
             </xpath>
+            <xpath expr="//field[@name='picking_type_id']" position="after">
+                <field name="wine_to_try" attrs="{'invisible': [('wine_to_try', '=', False)]}"/>
+            </xpath>
         </field>
     </record>
 

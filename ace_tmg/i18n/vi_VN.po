@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-16 05:01+0000\n"
-"PO-Revision-Date: 2020-07-16 05:01+0000\n"
+"POT-Creation-Date: 2020-07-17 06:57+0000\n"
+"PO-Revision-Date: 2020-07-17 06:57+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -232,6 +232,11 @@ msgid "Click to create a tmg membership level."
 msgstr "Tạo mới hạng thẻ thành viên"
 
 #. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.sale_return_wizard_form_view
+msgid "Close"
+msgstr "Đóng"
+
+#. module: ace_tmg
 #: model:ir.actions.act_window,name:ace_tmg.action_ace_commission
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_line__commission
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_line__commission_id
@@ -283,6 +288,8 @@ msgstr ""
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_employee_line__create_uid
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_line__create_uid
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_report__create_uid
+#: model:ir.model.fields,field_description:ace_tmg.field_sale_return_wizard__create_uid
+#: model:ir.model.fields,field_description:ace_tmg.field_sale_return_wizard_line__create_uid
 #: model:ir.model.fields,field_description:ace_tmg.field_tmg_membership_level__create_uid
 msgid "Created by"
 msgstr "Được tạo bởi"
@@ -294,6 +301,8 @@ msgstr "Được tạo bởi"
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_employee_line__create_date
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_line__create_date
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_report__create_date
+#: model:ir.model.fields,field_description:ace_tmg.field_sale_return_wizard__create_date
+#: model:ir.model.fields,field_description:ace_tmg.field_sale_return_wizard_line__create_date
 #: model:ir.model.fields,field_description:ace_tmg.field_tmg_membership_level__create_date
 msgid "Created on"
 msgstr "Thời điểm tạo"
@@ -320,7 +329,9 @@ msgid "Delta Method"
 msgstr "Phương thức Delta"
 
 #. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_sale_return_wizard__line_ids
 #: model_terms:ir.ui.view,arch_db:ace_tmg.ace_commission_form_view
+#: model_terms:ir.ui.view,arch_db:ace_tmg.sale_return_wizard_form_view
 msgid "Detail"
 msgstr "Chi tiết"
 
@@ -336,6 +347,8 @@ msgstr "Chiết khấu"
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_employee_line__display_name
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_line__display_name
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_report__display_name
+#: model:ir.model.fields,field_description:ace_tmg.field_sale_return_wizard__display_name
+#: model:ir.model.fields,field_description:ace_tmg.field_sale_return_wizard_line__display_name
 #: model:ir.model.fields,field_description:ace_tmg.field_tmg_membership_level__display_name
 msgid "Display Name"
 msgstr "Tên hiển thị"
@@ -354,6 +367,11 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:ace_tmg.ace_wine_try_report_view
 msgid "Excel"
 msgstr ""
+
+#. module: ace_tmg
+#: model_terms:ir.ui.view,arch_db:ace_tmg.sale_return_wizard_form_view
+msgid "Export"
+msgstr "Xuất"
 
 #. module: ace_tmg
 #: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_report_saleorder
@@ -402,6 +420,8 @@ msgstr ""
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_employee_line__id
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_line__id
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_report__id
+#: model:ir.model.fields,field_description:ace_tmg.field_sale_return_wizard__id
+#: model:ir.model.fields,field_description:ace_tmg.field_sale_return_wizard_line__id
 #: model:ir.model.fields,field_description:ace_tmg.field_tmg_membership_level__id
 msgid "ID"
 msgstr ""
@@ -475,6 +495,8 @@ msgstr ""
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_employee_line____last_update
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_line____last_update
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_report____last_update
+#: model:ir.model.fields,field_description:ace_tmg.field_sale_return_wizard____last_update
+#: model:ir.model.fields,field_description:ace_tmg.field_sale_return_wizard_line____last_update
 #: model:ir.model.fields,field_description:ace_tmg.field_tmg_membership_level____last_update
 msgid "Last Modified on"
 msgstr "Sửa lần cuối vào"
@@ -486,6 +508,8 @@ msgstr "Sửa lần cuối vào"
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_employee_line__write_uid
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_line__write_uid
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_report__write_uid
+#: model:ir.model.fields,field_description:ace_tmg.field_sale_return_wizard__write_uid
+#: model:ir.model.fields,field_description:ace_tmg.field_sale_return_wizard_line__write_uid
 #: model:ir.model.fields,field_description:ace_tmg.field_tmg_membership_level__write_uid
 msgid "Last Updated by"
 msgstr "Cập nhật lần cuối bởi"
@@ -497,6 +521,8 @@ msgstr "Cập nhật lần cuối bởi"
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_employee_line__write_date
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_line__write_date
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_report__write_date
+#: model:ir.model.fields,field_description:ace_tmg.field_sale_return_wizard__write_date
+#: model:ir.model.fields,field_description:ace_tmg.field_sale_return_wizard_line__write_date
 #: model:ir.model.fields,field_description:ace_tmg.field_tmg_membership_level__write_date
 msgid "Last Updated on"
 msgstr "Cập nhật lần cuối vào"
@@ -598,20 +624,41 @@ msgid "P.I.C:"
 msgstr ""
 
 #. module: ace_tmg
+#: model:ir.actions.report,name:ace_tmg.ace_sale_return_template_py3o
+msgid "Phiếu trả hàng"
+msgstr ""
+
+#. module: ace_tmg
 #: code:addons/ace_tmg/models/sale_order.py:61
 #, python-format
 msgid "Pls cancel invoice first."
 msgstr "Vui lòng hủy hóa đơn trước"
 
 #. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_sale_return_wizard_line__price_unit
+msgid "Price Unit"
+msgstr "Đơn giá"
+
+#. module: ace_tmg
 #: model:ir.model.fields,field_description:ace_tmg.field_purchase_order_line__tmg_price_unit
 msgid "Price without Discount"
-msgstr ""
+msgstr "Đơn giá trước CK"
+
+#. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_sale_return_wizard_line__product_id
+msgid "Product"
+msgstr "Sản phẩm"
 
 #. module: ace_tmg
 #: model:ir.model,name:ace_tmg.model_purchase_order_line
 msgid "Purchase Order Line"
 msgstr "Dòng hàng Đơn mua hàng"
+
+#. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_sale_return_wizard_line__qty
+#: model_terms:ir.ui.view,arch_db:ace_tmg.sale_return_wizard_form_view
+msgid "Quantity"
+msgstr "Số lượng"
 
 #. module: ace_tmg
 #: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_ace_voucher_template_body
@@ -631,25 +678,36 @@ msgid "Rate(%)"
 msgstr "Phần trăm hoa hồng"
 
 #. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_sale_return_wizard__reason
+msgid "Reason"
+msgstr "Lý do"
+
+#. module: ace_tmg
 #: model:ir.model.fields,field_description:ace_tmg.field_stock_picking__receiver_deliver
 msgid "Receiver/Deliver"
-msgstr ""
+msgstr "Người nhận/giao"
 
 #. module: ace_tmg
 #: model:ir.model.fields,field_description:ace_tmg.field_stock_picking__address
 msgid "Receiver/Deliver Address"
-msgstr ""
+msgstr "Địa chỉ người nhận/giao"
 
 #. module: ace_tmg
 #: model:ir.model.fields,field_description:ace_tmg.field_stock_picking__mobile
 msgid "Receiver/Deliver Mobile"
-msgstr ""
+msgstr "Số ĐT người nhận/giao"
 
 #. module: ace_tmg
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_employee_line__report_id
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_line__report_id
 msgid "Report"
 msgstr ""
+
+#. module: ace_tmg
+#: model:ir.actions.act_window,name:ace_tmg.action_sale_return_wizard
+#: model_terms:ir.ui.view,arch_db:ace_tmg.ace_view_order_form
+msgid "Return"
+msgstr "Trả hàng"
 
 #. module: ace_tmg
 #: model:ir.actions.report,name:ace_tmg.tmg_ruou_thu_py3o
@@ -784,8 +842,10 @@ msgstr ""
 #. module: ace_tmg
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_config__total
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_commission_line__total
+#: model:ir.model.fields,field_description:ace_tmg.field_sale_return_wizard_line__total
 #: model_terms:ir.ui.view,arch_db:ace_tmg.ace_commission_form_view
 #: model_terms:ir.ui.view,arch_db:ace_tmg.ace_wine_try_report_view
+#: model_terms:ir.ui.view,arch_db:ace_tmg.sale_return_wizard_form_view
 msgid "Total"
 msgstr "Tổng"
 
@@ -842,6 +902,11 @@ msgid "Từ ngày"
 msgstr ""
 
 #. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_sale_return_wizard_line__uom_id
+msgid "UOM"
+msgstr "ĐVT"
+
+#. module: ace_tmg
 #: code:addons/ace_tmg/models/sale_order.py:67
 #, python-format
 msgid "Unable to delete sale order as some deliveries or invoices have related."
@@ -850,7 +915,7 @@ msgstr "Không thể xóa đơn hàng bán nếu đã xác nhận phiếu kho ho
 #. module: ace_tmg
 #: selection:ace.partner.ledger.report,type:0
 msgid "Vendor"
-msgstr ""
+msgstr "Nhà cung cấp"
 
 #. module: ace_tmg
 #: model_terms:ir.ui.view,arch_db:ace_tmg.ace_commission_form_view
@@ -862,6 +927,16 @@ msgstr "Xem"
 #, python-format
 msgid "Vui lòng chọn Nhân viên KD để in báo cáo!"
 msgstr ""
+
+#. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_stock_picking__wine_to_try
+msgid "Wine to try"
+msgstr "Xuất rượu thử"
+
+#. module: ace_tmg
+#: model:ir.model.fields,field_description:ace_tmg.field_sale_return_wizard_line__wizard_id
+msgid "Wizard"
+msgstr "Đồ thuật"
 
 #. module: ace_tmg
 #: model_terms:ir.ui.view,arch_db:ace_tmg.ace_wine_try_report_view
@@ -908,6 +983,16 @@ msgid "report.ace_account.partner_ledger_report_excel"
 msgstr ""
 
 #. module: ace_tmg
+#: model:ir.model,name:ace_tmg.model_sale_return_wizard
+msgid "sale.return.wizard"
+msgstr ""
+
+#. module: ace_tmg
+#: model:ir.model,name:ace_tmg.model_sale_return_wizard_line
+msgid "sale.return.wizard.line"
+msgstr ""
+
+#. module: ace_tmg
 #: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_ace_voucher_template_body
 #: model_terms:ir.ui.view,arch_db:ace_tmg.tmg_receipt_template_body
 msgid "tháng"
@@ -944,6 +1029,12 @@ msgstr ""
 #. module: ace_tmg
 #: model:ir.model.fields,field_description:ace_tmg.field_ace_wine_try_line__order_id
 msgid "Đơn hàng"
+msgstr ""
+
+#. module: ace_tmg
+#: code:addons/ace_tmg/wizards/sale_return_wizard.py:18
+#, python-format
+msgid "Đơn hàng chưa xuất kho. Bạn không thể trả hàng."
 msgstr ""
 
 #. module: ace_tmg
