@@ -7,18 +7,18 @@ class StockPicking(models.Model):
     _inherit = "stock.picking"
 
     # @api.depends('sale_id', 'sale_id.order_line', 'sale_id.order_line.analytic_tag_ids')
-    def check_wine_to_try(self):
-        for pick in self:
-            analytic_tags = pick.mapped('sale_id.order_line.analytic_tag_ids')
-            if analytic_tags and any(tag.name == 'Rượu thử' for tag in analytic_tags):
-                self.wine_to_try = True
-            else:
-                self.wine_to_try = False
+    # def check_wine_to_try(self):
+    #     for pick in self:
+    #         analytic_tags = pick.mapped('sale_id.order_line.analytic_tag_ids')
+    #         if analytic_tags and any(tag.name == 'Rượu thử' for tag in analytic_tags):
+    #             self.wine_to_try = True
+    #         else:
+    #             self.wine_to_try = False
 
     receiver_deliver = fields.Char('Receiver/Deliver')
     mobile = fields.Char('Receiver/Deliver Mobile')
     address = fields.Char('Receiver/Deliver Address')
-    wine_to_try = fields.Boolean(string='Wine to try', compute='check_wine_to_try')
+    # wine_to_try = fields.Boolean(string='Wine to try', compute='check_wine_to_try')
 
     @api.model
     def default_get(self, fields):
