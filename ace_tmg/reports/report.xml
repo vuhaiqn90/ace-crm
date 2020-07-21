@@ -78,6 +78,19 @@
       <field name="binding_type">report</field>
     </record>
 
+    <record id="ace_invoice_template_py3o" model="ir.actions.report">
+      <field name="name">Hóa đơn bán hàng (TMG)</field>
+      <field name="type">ir.actions.report</field>
+      <field name="model">account.invoice</field>
+      <field name="report_name">ace_invoice_template</field>
+      <field name="report_type">py3o</field>
+      <field name="py3o_filetype">odt</field>
+      <field name="module">ace_tmg</field>
+      <field name="py3o_template_fallback">reports/files/HOA_DON_BAN_HANG.odt</field>
+      <field name="binding_model_id" ref="account.model_account_invoice"/>
+      <field name="binding_type">report</field>
+    </record>
+
     <report
         id="tmg_action_report_saleorder"
         string="Báo Giá / Đơn Hàng (TMG)"
