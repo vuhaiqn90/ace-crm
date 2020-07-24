@@ -11,6 +11,12 @@
               parent="menu_commission_root"
               sequence="5"/>
 
+    <menuitem id="menu_tmg_commission"
+              name="Commission (TMG)"
+              action="action_tmg_commission"
+              parent="menu_commission_root"
+              sequence="10"/>
+
     <menuitem id="menu_commission_config_main"
               name="Configuration"
               parent="menu_commission_root"
@@ -19,6 +25,11 @@
     <menuitem id="menu_ace_commission_config"
               parent="menu_commission_config_main"
               action="action_ace_commission_config_form"
+              sequence="5"/>
+
+    <menuitem id="menu_ace_commission_discount_config"
+              parent="menu_commission_config_main"
+              action="action_ace_commission_discount_config_form"
               sequence="5"/>
 
     <menuitem id="menu_tmg_membership_level"
