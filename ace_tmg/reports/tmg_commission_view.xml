@@ -37,8 +37,8 @@
                         <field name="line_ids" nolabel="1" readonly="1">
                             <tree default_order="date, invoice_id">
                                 <field name="date"/>
-                                <field name="invoice_id"/>
-                                <field name="name" invisible="1"/>
+                                <field name="invoice_id" invisible="1"/>
+                                <field name="name"/>
                                 <field name="total" sum="Total"/>
                                 <field name="total_discount" sum="Total Discount"/>
                                 <field name="total_returned" sum="Total Returned"/>

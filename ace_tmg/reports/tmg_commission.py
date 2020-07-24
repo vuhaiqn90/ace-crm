@@ -312,7 +312,7 @@ class TMGCommissionLine(models.TransientModel):
 
     report_id = fields.Many2one('tmg.commission')
     date = fields.Date('Ngày hóa đơn')
-    invoice_id = fields.Many2one('account.invoice', string='Hóa đơn')
+    invoice_id = fields.Integer('Hóa đơn')
     name = fields.Char('Hóa đơn')
     total = fields.Float('Tổng doanh số')
     total_discount = fields.Float('Tổng chiết khấu')
