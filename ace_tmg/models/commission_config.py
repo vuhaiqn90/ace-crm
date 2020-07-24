@@ -20,7 +20,7 @@ class CommissionConfig(models.Model):
 class CommissionDiscountConfig(models.Model):
     _name = "ace.commission.discount.config"
     _description = _("Commission Discount Config")
-    _order = 'sequence'
+    _order = 'sequence, id'
 
     sequence = fields.Integer(default=10)
     name = fields.Char()

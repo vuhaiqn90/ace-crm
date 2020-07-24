@@ -47,6 +47,7 @@ class TMGCommission(models.TransientModel):
 
     @api.multi
     def compute_commission(self):
+        self.line_ids = [(5,)]
         category = ""
         if self.category_ids:
             category_ids = self.env['product.category'].search([('id', 'child_of', self.category_ids.ids)])
@@ -208,6 +209,7 @@ class TMGCommission(models.TransientModel):
         discount_config_ids = self.env['ace.commission.discount.config'].search([
             ('type', '=', 'sale'),
         ])
+        discount_config_ids = sorted(discount_config_ids, key=lambda r: (r.sequence, r.id))
         discount_rate_lst = []
         for cf in discount_config_ids:
             if discount_rate_lst:
@@ -271,7 +273,10 @@ class TMGCommission(models.TransientModel):
             # % Hoa hồng được hưởng
             commission_per = 0
             for rt in discount_rate_lst:
-                if rt[1] <= discount < rt[2]:
+                if not discount:
+                    commission_per = commission_revenue_per
+                    break
+                if rt[1] < discount <= rt[2]:
                     if rt == discount_rate_lst[0]:
                         commission_per = commission_revenue_per
                         break
