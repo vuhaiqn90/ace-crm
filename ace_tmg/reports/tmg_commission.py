@@ -250,11 +250,11 @@ class TMGCommission(models.TransientModel):
             # Lợi nhuận gộp
             gross_profit = net_revenue - total_cost
             # % Lọi nhuận gộp
-            gross_profit_per = gross_profit / total
+            gross_profit_per = gross_profit / total if total != 0 else 0
             # Doanh thu thuần tích lũy
             net_revenue_accrued += net_revenue
             # % Chiết khấu
-            discount = amount_discount / total * 100
+            discount = amount_discount / total * 100 if total != 0 else 0
             # % Hoa hồng theo doanh thu
             commission_revenue_per = 0
             if total_net <= rate_lst[0][2]:
@@ -295,7 +295,7 @@ class TMGCommission(models.TransientModel):
             # Lợi nhuận sau bán hàng
             profit_after_sale = gross_profit - commission
             # % Lợi nhuận sau bán hàng
-            profit_after_sale_per = profit_after_sale / total * 100
+            profit_after_sale_per = profit_after_sale / total * 100 if total != 0 else 0
             params += [self._uid, self._uid, datetime.now(), datetime.now(), self.id,
                        inv.get('date_invoice') or '', inv.get('id') or None, inv.get('number') or '', total, amount_discount, returned,
                        net_revenue, commission_revenue, total_cost, gross_profit, gross_profit_per, net_revenue_accrued,
