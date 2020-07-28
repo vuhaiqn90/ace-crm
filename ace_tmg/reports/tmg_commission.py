@@ -125,13 +125,14 @@ class TMGCommission(models.TransientModel):
             SELECT ai.id,
                    ai.number,
                    ai.date_invoice,
-                   sum(ail.quantity * ail.price_unit) total,
+                   ai.amount_untaxed + ai.amount_discount AS total,
                    ai.amount_discount,
                    0 AS refund,
-                   sum(ail.quantity * ail.price_unit) - ai.amount_discount AS net,
-                   sum(ril.price_total) ruou
+                   ai.amount_untaxed AS net,
+                   sum(ril.price_subtotal) ruou,
+                   0 AS out_range
             FROM account_invoice ai
-                JOIN account_invoice_line ail ON ail.invoice_id = ai.id
+                --JOIN account_invoice_line ail ON ail.invoice_id = ai.id
                 LEFT JOIN account_invoice_line ril ON ril.invoice_id = ai.id
                 LEFT JOIN product_product pp ON pp.id = ril.product_id
                 LEFT JOIN product_template pt ON pt.id = pp.product_tmpl_id
@@ -146,18 +147,19 @@ class TMGCommission(models.TransientModel):
             SELECT ai.id,
                    ai.number,
                    ai.date_invoice,
-                   sum(ail.quantity * ail.price_unit) total,
+                   0 total,
                    ai.amount_discount,
                    0 AS refund,
-                   sum(ail.quantity * ail.price_unit) - ai.amount_discount AS net,
-                   sum(ail.price_total) ruou
+                   sum(aml.credit) AS net,
+                   sum(aml.credit) * sum(COALESCE(ril.price_subtotal, 0)) / COALESCE(ai.amount_untaxed, 1) AS ruou,
+                   1 AS out_range
             FROM account_move_line aml
                 JOIN account_partial_reconcile apr ON apr.credit_move_id = aml.id
                 JOIN account_move_line dml ON dml.id = apr.debit_move_id
                 JOIN account_move dm ON dm.id = dml.move_id
                 JOIN account_invoice ai ON ai.move_id = dm.id
-                LEFT JOIN account_invoice_line ail ON ail.invoice_id = ai.id
-                LEFT JOIN product_product pp ON pp.id = ail.product_id
+                LEFT JOIN account_invoice_line ril ON ril.invoice_id = ai.id
+                LEFT JOIN product_product pp ON pp.id = ril.product_id
                 LEFT JOIN product_template pt ON pt.id = pp.product_tmpl_id
                 LEFT JOIN product_category pc ON pc.id = pt.categ_id %s
             WHERE aml.date BETWEEN '%s' AND '%s'
@@ -165,16 +167,17 @@ class TMGCommission(models.TransientModel):
               AND ai.type = 'out_invoice'
               AND ai.user_id = %s
               AND pc.name IS NOT NULL
-            GROUP BY ai.id, ai.number, ai.date_invoice, ai.amount_discount
+            GROUP BY ai.id, ai.number, ai.date_invoice, ai.amount_discount, ai.amount_untaxed
             UNION ALL
             SELECT ai.id,
                    ai.number,
                    ai.date_invoice,
                    0 total, -ai.amount_discount,
-                   sum(ail.quantity * ail.price_unit) refund,
-                   0 + ai.amount_discount - sum(ail.quantity * ail.price_unit) net, -sum(ril.price_total) ruou
+                   ai.amount_untaxed + ai.amount_discount AS refund,
+                   -ai.amount_untaxed AS net, -sum(ril.price_total) ruou,
+                   0 AS out_range
             FROM account_invoice ai
-                JOIN account_invoice_line ail ON ail.invoice_id = ai.id
+                --JOIN account_invoice_line ail ON ail.invoice_id = ai.id
                 LEFT JOIN account_invoice_line ril ON ril.invoice_id = ai.id
                 LEFT JOIN product_product pp ON pp.id = ril.product_id
                 LEFT JOIN product_template pt ON pt.id = pp.product_tmpl_id
@@ -231,7 +234,7 @@ class TMGCommission(models.TransientModel):
                 query += """, """
             invoice_id = self.env['account.invoice'].browse(inv['id'])
             stock_move_line_ids = invoice_id.mapped(
-                'invoice_line_ids.sale_line_ids.order_id.picking_ids.move_lines').filtered(
+                'invoice_line_ids.sale_line_ids.move_ids').filtered(
                 lambda x: x.state == 'done' and x.location_dest_id.usage == 'customer')
             account_move_line_ids = self.env['account.move'].search(
                 [('stock_move_id', 'in', stock_move_line_ids and stock_move_line_ids.ids or [])])
@@ -254,7 +257,12 @@ class TMGCommission(models.TransientModel):
             # Doanh thu thuần tích lũy
             net_revenue_accrued += net_revenue
             # % Chiết khấu
-            discount = amount_discount / total * 100 if total != 0 else 0
+            if total != 0:
+                discount = amount_discount / total * 100
+            elif inv['out_range'] == 1:
+                discount = amount_discount / sum(l.quantity * l.price_unit for l in invoice_id.invoice_line_ids) * 100
+            else:
+                discount = 0
             # % Hoa hồng theo doanh thu
             commission_revenue_per = 0
             if total_net <= rate_lst[0][2]:
