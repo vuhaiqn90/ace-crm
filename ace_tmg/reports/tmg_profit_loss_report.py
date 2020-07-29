@@ -82,8 +82,16 @@ class TMGProfitLossReport(models.TransientModel):
                     FROM account_move_line aml
                         JOIN account_journal aj ON aj.id = aml.journal_id
                         JOIN account_account aa ON aa.id = aml.account_id
-                    WHERE aj.code = 'STJ' AND aa.code LIKE '%s' AND aml.partner_id = %s AND aml.date BETWEEN '%s' AND '%s'
-                """ % ('632%', line['partner_id'], self.date_from, self.date_to)
+                        JOIN account_move am ON am.id = aml.move_id
+                        JOIN stock_move sm ON sm.id = am.stock_move_id
+                        JOIN sale_order_line sol ON sol.id = sm.sale_line_id
+                        JOIN sale_order so ON so.id = sol.order_id
+                    WHERE aj.code = 'STJ' 
+                        AND aa.code LIKE '%s' 
+                        AND aml.partner_id = %s 
+                        AND so.user_id = %s
+                        AND aml.date BETWEEN '%s' AND '%s'
+                """ % ('632%', line['partner_id'], self.user_id.id, self.date_from, self.date_to)
                 cr.execute(cost_sql)
                 cost = cr.fetchone()
                 cost = cost and cost[0] or 0
