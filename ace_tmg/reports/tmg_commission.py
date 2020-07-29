@@ -233,11 +233,14 @@ class TMGCommission(models.TransientModel):
             if inv != invoices[-1]:
                 query += """, """
             invoice_id = self.env['account.invoice'].browse(inv['id'])
-            stock_move_line_ids = invoice_id.mapped(
-                'invoice_line_ids.sale_line_ids.move_ids').filtered(
-                lambda x: x.state == 'done' and x.location_dest_id.usage == 'customer')
-            account_move_line_ids = self.env['account.move'].search(
-                [('stock_move_id', 'in', stock_move_line_ids and stock_move_line_ids.ids or [])])
+            if inv['out_range'] == 1:
+                account_move_line_ids = False
+            else:
+                stock_move_line_ids = invoice_id.mapped(
+                    'invoice_line_ids.sale_line_ids.move_ids').filtered(
+                    lambda x: x.state == 'done' and x.location_dest_id.usage == 'customer')
+                account_move_line_ids = self.env['account.move'].search(
+                    [('stock_move_id', 'in', stock_move_line_ids and stock_move_line_ids.ids or [])])
             # Tổng doanh số bán rượu và phụ kiện
             total = inv.get('total') or 0
             # Tổng chiết khấu rượu và phụ kiện
