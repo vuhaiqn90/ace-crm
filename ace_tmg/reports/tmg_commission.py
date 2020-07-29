@@ -238,19 +238,20 @@ class TMGCommission(models.TransientModel):
             else:
                 stock_move_line_ids = invoice_id.mapped(
                     'invoice_line_ids.sale_line_ids.move_ids').filtered(
-                    lambda x: x.state == 'done' and x.location_dest_id.usage == 'customer')
+                    lambda x: x.state == 'done' and (x.location_dest_id.usage == 'customer' or x.location_id == 'customer'))
                 account_move_line_ids = self.env['account.move'].search(
                     [('stock_move_id', 'in', stock_move_line_ids and stock_move_line_ids.ids or [])])
             # Tổng doanh số bán rượu và phụ kiện
             total = inv.get('total') or 0
             # Tổng chiết khấu rượu và phụ kiện
-            amount_discount = inv.get('amount_discount') or 0
+            amount_discount = inv.get('amount_discount') if inv['out_range'] != 1 else 0
             # Tổng giá trị trả lại
             returned = inv.get('refund') or 0
             # Tổng giá vốn
-            total_cost = sum(m.amount for m in account_move_line_ids) if account_move_line_ids else 0
+            total_cost = sum(m.amount * (1 if m.stock_move_id.location_dest_id.usage == 'customer' else -1)
+                             for m in account_move_line_ids) if account_move_line_ids else 0
             # Doanh thu thuần
-            net_revenue = inv.get('net') or 0
+            net_revenue = inv.get('net') if inv['out_range'] != 1 else 0
             # Doanh thu tính hoa hồng
             commission_revenue = inv.get('ruou') or 0
             # Lợi nhuận gộp
@@ -263,7 +264,7 @@ class TMGCommission(models.TransientModel):
             if total != 0:
                 discount = amount_discount / total * 100
             elif inv['out_range'] == 1:
-                discount = amount_discount / sum(l.quantity * l.price_unit for l in invoice_id.invoice_line_ids) * 100
+                discount = inv.get('amount_discount') / sum(l.quantity * l.price_unit for l in invoice_id.invoice_line_ids) * 100
             else:
                 discount = 0
             # % Hoa hồng theo doanh thu
@@ -297,7 +298,7 @@ class TMGCommission(models.TransientModel):
                 if rt == discount_rate_lst[-1] and discount >= rt[1]:
                     commission_per = 0
             # Công nợ còn lại
-            receivable = invoice_id.residual if invoice_id == 'out_invoice' else 0
+            receivable = invoice_id.residual if invoice_id.type == 'out_invoice' and inv['out_range'] != 1 else 0
             # Hoa hồng
             if not commission_per:
                 commission = 0

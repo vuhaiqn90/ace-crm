@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <record id="tmg_commission_form_view" model="ir.ui.view">
-		<field name="name">Commission</field>
+		<field name="name">Hoa hồng</field>
 		<field name="model">tmg.commission</field>
 		<field name="arch" type="xml">
             <form>
@@ -64,7 +64,7 @@
 	</record>
 
     <record id="action_tmg_commission" model="ir.actions.act_window">
-        <field name="name">Commission (TMG)</field>
+        <field name="name">Hoa hồng (TMG)</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">tmg.commission</field>
         <field name="view_type">form</field>

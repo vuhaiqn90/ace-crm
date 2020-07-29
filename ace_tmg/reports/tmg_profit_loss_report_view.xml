@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="tmg_profit_loss_report_form_view" model="ir.ui.view">
+		<field name="name">Báo cáo lãi lỗ</field>
+		<field name="model">tmg.profit.loss.report</field>
+		<field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="get_report" string="Xem báo cáo" type="object" class="btn-primary"/>
+                </header>
+                <group>
+                    <group>
+                        <field name="date_from" required="1"/>
+                    </group>
+                    <group>
+                        <field name="date_to" required="1"/>
+                    </group>
+                </group>
+                <group>
+                    <group>
+                        <field name="type" required="1" widget="radio" options="{'horizontal': true}"/>
+                        <field name="total_selling_expense"/>
+                        <field name="total_management_cost"/>
+                    </group>
+                    <group>
+                        <field name="user_id" widget="selection" attrs="{'invisible': [('type', '!=', 'customer')]}"/>
+                        <field name="partner_ids" widget="many2many_tags" options="{'no_create': True, 'no_open': True}"
+                               attrs="{'invisible': [('type', '!=', 'customer')]}"/>
+                        <field name="product_ids" widget="many2many_tags" options="{'no_create': True, 'no_open': True}"
+                               attrs="{'invisible': [('type', '=', 'customer')]}"/>
+                        <field name="category_ids" widget="many2many_tags" options="{'no_create': True, 'no_open': True}"
+                               attrs="{'invisible': [('type', '=', 'customer')]}"/>
+                    </group>
+                </group>
+                <notebook>
+                    <page string="Chi tiết">
+                        <field name="line_ids" nolabel="1" readonly="1">
+                            <tree>
+                                <field name="partner_id" attrs="{'column_invisible': [('parent.type', '!=', 'customer')]}"/>
+                                <field name="product_id" attrs="{'column_invisible': [('parent.type', '=', 'customer')]}"/>
+                                <field name="qty" sum="Quantity"/>
+                                <field name="uom_id" attrs="{'column_invisible': [('parent.type', '=', 'customer')]}"/>
+                                <field name="turnover" sum="Turnover"/>
+                                <field name="discount" sum="Discount"/>
+                                <field name="refund" sum="Refund"/>
+                                <field name="discount_rate" sum="Discount Rate"/>
+                                <field name="net_revenue" sum="Net Revenue"/>
+                                <field name="cost" sum="Cost"/>
+                                <field name="cost_rate" sum="Cost Rate" attrs="{'column_invisible': [('parent.type', '=', 'customer')]}"/>
+                                <field name="gross_profit" sum="Gross Profit"/>
+                                <field name="gross_profit_rate" sum="Gross Profit Rate"/>
+                                <field name="net_revenue_rate" sum="Net Revenue Rate"/>
+                                <field name="selling_expense" sum="Selling Expense"/>
+                                <field name="selling_expense_rate" sum="Selling Expense Rate"/>
+                                <field name="management_cost" sum="Management Cost"/>
+                                <field name="management_cost_rate" sum="Management Cost Rate"/>
+                                <field name="profit_untaxed" sum="Profit Untaxed"/>
+                                <field name="profit_rate" sum="Profit Rate"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page string="Chi tiết theo nhóm sản phẩm" attrs="{'invisible': [('type', '=', 'customer')]}">
+                        <field name="group_line_ids" nolabel="1" readonly="1">
+                            <tree>
+                                <field name="category_id"/>
+                                <field name="turnover" sum="Turnover"/>
+                                <field name="turnover_rate" sum="Turnover Rate"/>
+                                <field name="net_revenue" sum="Net Revenue"/>
+                                <field name="net_revenue_rate" sum="Net Revenue Rate"/>
+                                <field name="cost" sum="Cost"/>
+                                <field name="cost_rate" sum="Cost Rate"/>
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+            </form>
+		</field>
+	</record>
+
+    <record id="action_tmg_profit_loss_report" model="ir.actions.act_window">
+        <field name="name">Báo cáo lãi lỗ</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">tmg.profit.loss.report</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+    </record>
+</odoo>

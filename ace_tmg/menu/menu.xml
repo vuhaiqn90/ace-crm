@@ -12,10 +12,16 @@
               sequence="5"/>
 
     <menuitem id="menu_tmg_commission"
-              name="Commission (TMG)"
+              name="Hoa hồng (TMG)"
               action="action_tmg_commission"
               parent="menu_commission_root"
               sequence="10"/>
+
+    <menuitem id="menu_tmg_profit_loss_report"
+              name="Báo cáo lãi lỗ (TMG)"
+              action="action_tmg_profit_loss_report"
+              parent="ace_accounting_vietnam_report.account_reports_vietnam_menu"
+              sequence="11"/>
 
     <menuitem id="menu_commission_config_main"
               name="Configuration"

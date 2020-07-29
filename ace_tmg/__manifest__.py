@@ -43,6 +43,7 @@
         'reports/wine_try_report_view.xml',
         'reports/sale_report_templates.xml',
         'reports/tmg_commission_view.xml',
+        'reports/tmg_profit_loss_report_view.xml',
         'reports/report.xml',
         # Menu
         'menu/menu.xml',
