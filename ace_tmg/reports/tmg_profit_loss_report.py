@@ -89,9 +89,9 @@ class TMGProfitLossReport(models.TransientModel):
                     WHERE aj.code = 'STJ' 
                         AND aa.code LIKE '%s' 
                         AND aml.partner_id = %s 
-                        AND so.user_id = %s
+                        %s
                         AND aml.date BETWEEN '%s' AND '%s'
-                """ % ('632%', line['partner_id'], self.user_id.id, self.date_from, self.date_to)
+                """ % ('632%', line['partner_id'], self.user_id and """AND so.user_id = {}""".format(self.user_id.id) or "", self.date_from, self.date_to)
                 cr.execute(cost_sql)
                 cost = cr.fetchone()
                 cost = cost and cost[0] or 0
