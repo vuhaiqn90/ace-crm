@@ -298,12 +298,15 @@ class TMGCommission(models.TransientModel):
                 if rt == discount_rate_lst[-1] and discount >= rt[1]:
                     commission_per = 0
             # Công nợ còn lại
-            receivable = invoice_id.residual if invoice_id.type == 'out_invoice' and inv['out_range'] != 1 else 0
+            credit_move_ids = invoice_id.move_id.line_ids.mapped('matched_credit_ids').filtered(lambda r: r.date <= self.date_to)
+            # receivable = invoice_id.residual if invoice_id.type == 'out_invoice' and inv['out_range'] != 1 else 0
+            receivable = sum(l.credit for l in credit_move_ids) if invoice_id.type == 'out_invoice' and inv[
+                'out_range'] != 1 and credit_move_ids else 0
             # Hoa hồng
             if not commission_per:
                 commission = 0
             else:
-                commission = (commission_revenue - receivable) * commission_per / 100
+                commission = (commission_revenue - receivable) * commission_per / 100 if commission_revenue > receivable else 0
             # Lợi nhuận sau bán hàng
             profit_after_sale = gross_profit - commission
             # % Lợi nhuận sau bán hàng
