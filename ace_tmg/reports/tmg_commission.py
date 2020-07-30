@@ -243,7 +243,7 @@ class TMGCommission(models.TransientModel):
                 else:
                     stock_move_line_ids = invoice_id.refund_invoice_id.mapped(
                         'invoice_line_ids.sale_line_ids.move_ids').filtered(
-                        lambda x: x.state == 'done' and x.location_id == 'customer')
+                        lambda x: x.state == 'done' and x.location_id.usage == 'customer')
                 account_move_line_ids = self.env['account.move'].search(
                     [('stock_move_id', 'in', stock_move_line_ids and stock_move_line_ids.ids or [])])
             # Tổng doanh số bán rượu và phụ kiện
