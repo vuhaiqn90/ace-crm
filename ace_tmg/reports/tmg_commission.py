@@ -236,9 +236,14 @@ class TMGCommission(models.TransientModel):
             if inv['out_range'] == 1:
                 account_move_line_ids = False
             else:
-                stock_move_line_ids = invoice_id.mapped(
-                    'invoice_line_ids.sale_line_ids.move_ids').filtered(
-                    lambda x: x.state == 'done' and (x.location_dest_id.usage == 'customer' or x.location_id == 'customer'))
+                if invoice_id.type == 'out_invoice':
+                    stock_move_line_ids = invoice_id.mapped(
+                        'invoice_line_ids.sale_line_ids.move_ids').filtered(
+                        lambda x: x.state == 'done' and x.location_dest_id.usage == 'customer')
+                else:
+                    stock_move_line_ids = invoice_id.refund_invoice_id.mapped(
+                        'invoice_line_ids.sale_line_ids.move_ids').filtered(
+                        lambda x: x.state == 'done' and x.location_id == 'customer')
                 account_move_line_ids = self.env['account.move'].search(
                     [('stock_move_id', 'in', stock_move_line_ids and stock_move_line_ids.ids or [])])
             # Tổng doanh số bán rượu và phụ kiện
@@ -306,7 +311,8 @@ class TMGCommission(models.TransientModel):
             if not commission_per:
                 commission = 0
             else:
-                commission = (commission_revenue - receivable) * commission_per / 100 if commission_revenue > receivable else 0
+                commission = (commission_revenue - receivable) * commission_per / 100 \
+                    if commission_revenue > receivable and invoice_id.type == 'out_invoice' else 0
             # Lợi nhuận sau bán hàng
             profit_after_sale = gross_profit - commission
             # % Lợi nhuận sau bán hàng
