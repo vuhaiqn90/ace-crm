@@ -312,7 +312,7 @@ class TMGCommission(models.TransientModel):
                 commission = 0
             else:
                 commission = (commission_revenue - receivable) * commission_per / 100 \
-                    if commission_revenue > receivable and invoice_id.type == 'out_invoice' else 0
+                    if commission_revenue > receivable or invoice_id.type == 'out_refund' else 0
             # Lợi nhuận sau bán hàng
             profit_after_sale = gross_profit - commission
             # % Lợi nhuận sau bán hàng
