@@ -150,8 +150,8 @@ class TMGCommission(models.TransientModel):
                    0 total,
                    ai.amount_discount,
                    0 AS refund,
-                   sum(aml.credit) AS net,
-                   sum(aml.credit) * sum(COALESCE(ril.price_subtotal, 0)) / COALESCE(ai.amount_untaxed, 1) AS ruou,
+                   sum(apr.amount) AS net,
+                   sum(apr.amount) * sum(COALESCE(ril.price_subtotal, 0)) / COALESCE(ai.amount_untaxed, 1) AS ruou,
                    1 AS out_range
             FROM account_move_line aml
                 JOIN account_partial_reconcile apr ON apr.credit_move_id = aml.id
