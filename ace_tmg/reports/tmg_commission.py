@@ -300,8 +300,8 @@ class TMGCommission(models.TransientModel):
             # Công nợ còn lại
             credit_move_ids = invoice_id.move_id.line_ids.mapped('matched_credit_ids.credit_move_id').filtered(lambda r: r.date <= self.date_to)
             # receivable = invoice_id.residual if invoice_id.type == 'out_invoice' and inv['out_range'] != 1 else 0
-            receivable = invoice_id.amount_total - (sum(l.credit for l in credit_move_ids) if invoice_id.type == 'out_invoice' and inv[
-                'out_range'] != 1 and credit_move_ids else 0)
+            receivable = (invoice_id.amount_total - sum(l.credit for l in credit_move_ids)) if invoice_id.type == 'out_invoice' and inv[
+                'out_range'] != 1 and credit_move_ids else 0
             # Hoa hồng
             if not commission_per:
                 commission = 0
