@@ -27,9 +27,9 @@
                         <field name="partner_ids" widget="many2many_tags" options="{'no_create': True, 'no_open': True}"
                                attrs="{'invisible': [('type', '!=', 'customer')]}"/>
                         <field name="product_ids" widget="many2many_tags" options="{'no_create': True, 'no_open': True}"
-                               attrs="{'invisible': [('type', '=', 'customer')]}"/>
+                               attrs="{'invisible': [('type', '=', 'customer')]}" invisible="1"/>
                         <field name="category_ids" widget="many2many_tags" options="{'no_create': True, 'no_open': True}"
-                               attrs="{'invisible': [('type', '=', 'customer')]}"/>
+                               attrs="{'invisible': [('type', '=', 'customer')]}" invisible="1"/>
                     </group>
                 </group>
                 <notebook>
