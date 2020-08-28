@@ -23,6 +23,14 @@ class TMGCommission(models.TransientModel):
     commission_revenue = fields.Float(compute='get_amount', string='Tổng doanh thu tính hoa hồng')
     gross_profit = fields.Float(compute='get_amount', string='Tổng lợi nhuận gộp')
     commission = fields.Float(compute='get_amount', string='Tổng hoa hồng')
+    collaborator = fields.Boolean('Cộng tác viên', compute='check_collaborator')
+
+    @api.depends('user_id')
+    def check_collaborator(self):
+        for record in self:
+            record.collaborator = False
+            if record.user_id.job_position == 'ctv':
+                record.collaborator = True
 
     @api.depends('line_ids')
     def get_amount(self):
@@ -262,7 +270,7 @@ class TMGCommission(models.TransientModel):
             # Lợi nhuận gộp
             gross_profit = net_revenue - total_cost
             # % Lọi nhuận gộp
-            gross_profit_per = gross_profit / total if total != 0 else 0
+            gross_profit_per = gross_profit / total * 100 if total != 0 else 0
             # Doanh thu thuần tích lũy
             net_revenue_accrued += net_revenue
             # % Chiết khấu
@@ -272,36 +280,46 @@ class TMGCommission(models.TransientModel):
                 discount = inv.get('amount_discount') / sum(l.quantity * l.price_unit for l in invoice_id.invoice_line_ids) * 100
             else:
                 discount = 0
-            # % Hoa hồng theo doanh thu
-            commission_revenue_per = 0
-            if total_net <= rate_lst[0][2]:
-                commission_revenue_per = rate_lst[0][0]
-            else:
-                if net_revenue_accrued <= 0:
-                    commission_revenue_per = 0
+            if not self.collaborator:
+                # % Hoa hồng theo doanh thu
+                commission_revenue_per = 0
+                if total_net <= rate_lst[0][2]:
+                    commission_revenue_per = rate_lst[0][0]
                 else:
-                    for rt in rate_lst:
-                        if rt == rate_lst[0]:
-                            continue
-                        if net_revenue_accrued < rt[2]:
-                            commission_revenue_per = rt[0]
-                            break
-                        commission_revenue_per = rate_lst[-1][0]
-            # % Hoa hồng được hưởng
-            commission_per = 0
-            for rt in discount_rate_lst:
-                if not discount:
-                    commission_per = commission_revenue_per
-                    break
-                if rt[1] < discount <= rt[2]:
-                    if rt == discount_rate_lst[0]:
+                    if net_revenue_accrued <= 0:
+                        commission_revenue_per = 0
+                    else:
+                        for rt in rate_lst:
+                            if rt == rate_lst[0]:
+                                continue
+                            if net_revenue_accrued < rt[2]:
+                                commission_revenue_per = rt[0]
+                                break
+                            commission_revenue_per = rate_lst[-1][0]
+                # % Hoa hồng được hưởng
+                commission_per = 0
+                for rt in discount_rate_lst:
+                    if not discount:
                         commission_per = commission_revenue_per
                         break
-                    else:
-                        commission_per = rt[0]
-                        break
-                if rt == discount_rate_lst[-1] and discount >= rt[1]:
-                    commission_per = 0
+                    if rt[1] < discount <= rt[2]:
+                        if rt == discount_rate_lst[0]:
+                            commission_per = commission_revenue_per
+                            break
+                        else:
+                            commission_per = rt[0]
+                            break
+                    if rt == discount_rate_lst[-1] and discount >= rt[1]:
+                        commission_per = 0
+            else:
+                # % Hoa hồng theo doanh thu
+                rate_id = self.env['ace.commission.config'].search([('type', '=', 'ctv')],
+                                                                   order='sequence desc, id desc', limit=1)
+                if not rate_id:
+                    raise UserError("Vui lòng cấu hình tỉ lệ chiết khấu cho CTV!")
+                commission_revenue_per = rate_id.rate
+                # % Hoa hồng được hưởng
+                commission_per = commission_revenue_per - discount if commission_revenue_per > discount else 0
             # Công nợ còn lại
             credit_move_ids = invoice_id.move_id.line_ids.mapped('matched_credit_ids').filtered(lambda r: r.credit_move_id.date <= self.date_to)
             # receivable = invoice_id.residual if invoice_id.type == 'out_invoice' and inv['out_range'] != 1 else 0
@@ -325,6 +343,35 @@ class TMGCommission(models.TransientModel):
                        profit_after_sale, profit_after_sale_per]
         if params:
             cr.execute(query, params)
+
+    @api.multi
+    def export_excel(self):
+        total = self.line_ids and sum(line.total or 0 for line in self.line_ids) or 0
+        total_discount = self.line_ids and sum(line.total_discount or 0 for line in self.line_ids) or 0
+        total_returned = self.line_ids and sum(line.total_returned or 0 for line in self.line_ids) or 0
+        net_revenue = self.line_ids and sum(line.net_revenue or 0 for line in self.line_ids) or 0
+        commission_revenue = self.line_ids and sum(line.commission_revenue or 0 for line in self.line_ids) or 0
+        total_cost = self.line_ids and sum(line.total_cost or 0 for line in self.line_ids) or 0
+        gross_profit = self.line_ids and sum(line.gross_profit or 0 for line in self.line_ids) or 0
+        gross_profit_per = gross_profit / (total or 1) * 100
+        net_revenue_accrued = self.line_ids and sum(line.net_revenue_accrued or 0 for line in self.line_ids) or 0
+        commission = self.line_ids and sum(line.commission or 0 for line in self.line_ids) or 0
+        profit_after_sale = self.line_ids and sum(line.profit_after_sale or 0 for line in self.line_ids) or 0
+        profit_after_sale_per = profit_after_sale / (total or 1) * 100
+        return self.env.ref('ace_tmg.tmg_commission_template_py3o').with_context(
+            total=total,
+            total_discount=total_discount,
+            total_returned=total_returned,
+            net_revenue=net_revenue,
+            commission_revenue=commission_revenue,
+            total_cost=total_cost,
+            gross_profit=gross_profit,
+            gross_profit_per=gross_profit_per,
+            net_revenue_accrued=net_revenue_accrued,
+            commission=commission,
+            profit_after_sale=profit_after_sale,
+            profit_after_sale_per=profit_after_sale_per,
+        ).report_action(self)
 
 
 class TMGCommissionLine(models.TransientModel):
