@@ -7,6 +7,7 @@
             <form>
                 <header>
                     <button name="get_report" string="Xem báo cáo" type="object" class="btn-primary"/>
+                    <button name="export_excel" string="Export" type="object"/>
                 </header>
                 <group>
                     <group>
@@ -23,9 +24,9 @@
                         <field name="total_management_cost"/>
                     </group>
                     <group>
-                        <field name="user_id" widget="selection" attrs="{'invisible': [('type', '!=', 'customer')]}"/>
+                        <field name="user_id" widget="selection" attrs="{'invisible': [('type', '=', 'product')]}"/>
                         <field name="partner_ids" widget="many2many_tags" options="{'no_create': True, 'no_open': True}"
-                               attrs="{'invisible': [('type', '!=', 'customer')]}"/>
+                               attrs="{'invisible': [('type', '=', 'product')]}"/>
                         <field name="product_ids" widget="many2many_tags" options="{'no_create': True, 'no_open': True}"
                                attrs="{'invisible': [('type', '=', 'customer')]}" invisible="1"/>
                         <field name="category_ids" widget="many2many_tags" options="{'no_create': True, 'no_open': True}"
@@ -37,16 +38,17 @@
                         <field name="line_ids" nolabel="1" readonly="1">
                             <tree>
                                 <field name="partner_id" attrs="{'column_invisible': [('parent.type', '!=', 'customer')]}"/>
-                                <field name="product_id" attrs="{'column_invisible': [('parent.type', '=', 'customer')]}"/>
+                                <field name="user_id" attrs="{'column_invisible': [('parent.type', '!=', 'salesperson')]}"/>
+                                <field name="product_id" attrs="{'column_invisible': [('parent.type', '!=', 'product')]}"/>
                                 <field name="qty" sum="Quantity"/>
-                                <field name="uom_id" attrs="{'column_invisible': [('parent.type', '=', 'customer')]}"/>
+                                <field name="uom_id" attrs="{'column_invisible': [('parent.type', '!=', 'product')]}"/>
                                 <field name="turnover" sum="Turnover"/>
                                 <field name="discount" sum="Discount"/>
                                 <field name="refund" sum="Refund"/>
                                 <field name="discount_rate" sum="Discount Rate"/>
                                 <field name="net_revenue" sum="Net Revenue"/>
                                 <field name="cost" sum="Cost"/>
-                                <field name="cost_rate" sum="Cost Rate" attrs="{'column_invisible': [('parent.type', '=', 'customer')]}"/>
+                                <field name="cost_rate" sum="Cost Rate" attrs="{'column_invisible': [('parent.type', '!=', 'product')]}"/>
                                 <field name="gross_profit" sum="Gross Profit"/>
                                 <field name="gross_profit_rate" sum="Gross Profit Rate"/>
                                 <field name="net_revenue_rate" sum="Net Revenue Rate"/>
@@ -59,7 +61,7 @@
                             </tree>
                         </field>
                     </page>
-                    <page string="Chi tiết theo nhóm sản phẩm" attrs="{'invisible': [('type', '=', 'customer')]}">
+                    <page string="Chi tiết theo nhóm sản phẩm" attrs="{'invisible': [('type', '!=', 'product')]}">
                         <field name="group_line_ids" nolabel="1" readonly="1">
                             <tree>
                                 <field name="category_id"/>

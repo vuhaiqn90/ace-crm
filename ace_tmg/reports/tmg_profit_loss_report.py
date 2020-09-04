@@ -16,7 +16,7 @@ class TMGProfitLossReport(models.TransientModel):
     partner_ids = fields.Many2many('res.partner', string='Khách hàng')
     product_ids = fields.Many2many('product.product', string='Sản phẩm')
     category_ids = fields.Many2many('product.category', string='Nhóm Sản phẩm')
-    type = fields.Selection([('customer', 'Khách hàng'), ('product', 'Sản phẩm')],
+    type = fields.Selection([('customer', 'Khách hàng'), ('product', 'Sản phẩm'), ('salesperson', 'Nhân viên kinh doanh')],
                             default='customer', string='Xem theo')
     total_selling_expense = fields.Float(string='Tổng chi phí bán hàng')
     total_management_cost = fields.Float(string='Tổng chi phí quản lý')
@@ -124,6 +124,111 @@ class TMGProfitLossReport(models.TransientModel):
                 profit_rate = profit_untaxed / item['turnover'] if item['turnover'] != 0 else 0
                 params += [self._uid, self._uid, datetime.now(), datetime.now(), self.id,
                            item['partner_id'], item['qty'], item['turnover'], item['discount'], item['refund'],
+                           item['discount_rate'] * 100, item['net_revenue'], item['cost'], item['gross_profit'],
+                           item['gross_profit_rate'] * 100, net_revenue_rate * 100, selling_expense, selling_expense_rate * 100,
+                           management_cost, management_cost_rate * 100, profit_untaxed, profit_rate * 100]
+            if params:
+                cr.execute(query, params)
+        elif self.type == 'salesperson':
+            user = partner = ''
+            if self.user_id:
+                user = """AND ai.user_id = {}""".format(self.user_id.id)
+            if self.partner_ids:
+                partner = len(self.partner_ids) > 1 and """AND ai.partner_id IN {}""".format(tuple(self.partner_ids.ids)) \
+                          or """AND ai.partner_id = {}""".format(self.partner_ids.id)
+            sql = """
+                SELECT ai.user_id,
+                       SUM(ail.quantity) AS qty,
+                       SUM(ai.amount_untaxed + ai.amount_discount) AS total,
+                       SUM(ai.amount_discount) AS discount
+                FROM account_invoice ai
+                    JOIN account_invoice_line ail ON ail.invoice_id = ai.id
+                WHERE ai.date_invoice BETWEEN '%s' AND '%s'
+                  AND ai.state IN ('open', 'in_payment', 'paid')
+                  AND ai.type = 'out_invoice' %s %s
+                GROUP BY ai.user_id
+            """ % (self.date_from, self.date_to, user, partner)
+            cr.execute(sql)
+            res = cr.dictfetchall()
+            query = """
+                INSERT INTO tmg_profit_loss_line
+                            (create_uid, write_uid, create_date, write_date, report_id, 
+                             user_id, qty, turnover, discount, refund, discount_rate, net_revenue, cost, 
+                             gross_profit, gross_profit_rate, net_revenue_rate, selling_expense, selling_expense_rate, 
+                             management_cost, management_cost_rate, profit_untaxed, profit_rate)
+                             VALUES 
+            """
+            data = []
+            for line in res:
+                qty = line['qty']
+                turnover = line['total']
+                discount = line['discount']
+                refund_sql = """
+                    SELECT ai.user_id,
+                           SUM(ai.amount_untaxed) AS net
+                    FROM account_invoice ai
+                    WHERE ai.date_invoice BETWEEN '%s' AND '%s'
+                      AND ai.state IN ('open', 'in_payment', 'paid')
+                      AND ai.type = 'out_refund'
+                      AND ai.user_id = %s %s
+                    GROUP BY ai.user_id
+                """ % (self.date_from, self.date_to, line['user_id'], partner)
+                cr.execute(refund_sql)
+                refund = cr.dictfetchone()
+                refund = refund['net'] if refund else 0
+                discount_rate = discount / turnover if turnover != 0 else 0
+                net_revenue = turnover - discount - refund
+                so_partner = ''
+                if self.partner_ids:
+                    so_partner = len(self.partner_ids) > 1 and """AND so.partner_id IN {}""".format(
+                        tuple(self.partner_ids.ids)) or """AND so.partner_id = {}""".format(self.partner_ids.id)
+                cost_sql = """
+                    SELECT SUM(aml.balance) AS total
+                    FROM account_move_line aml
+                        JOIN account_journal aj ON aj.id = aml.journal_id
+                        JOIN account_account aa ON aa.id = aml.account_id
+                        JOIN account_move am ON am.id = aml.move_id
+                        JOIN stock_move sm ON sm.id = am.stock_move_id
+                        JOIN sale_order_line sol ON sol.id = sm.sale_line_id
+                        JOIN sale_order so ON so.id = sol.order_id
+                    WHERE aj.code = 'STJ' 
+                        AND aa.code LIKE '%s' 
+                        AND so.user_id = %s 
+                        %s
+                        AND aml.date BETWEEN '%s' AND '%s'
+                """ % ('632%', line['user_id'], so_partner, self.date_from, self.date_to)
+                cr.execute(cost_sql)
+                cost = cr.fetchone()
+                cost = cost and cost[0] or 0
+                gross_profit = net_revenue - cost
+                gross_profit_rate = gross_profit / turnover if turnover != 0 else 0
+                data.append({
+                    'user_id': line['user_id'],
+                    'qty': qty,
+                    'turnover': turnover,
+                    'discount': discount,
+                    'refund': refund,
+                    'discount_rate': discount_rate,
+                    'net_revenue': net_revenue,
+                    'cost': cost,
+                    'gross_profit': gross_profit,
+                    'gross_profit_rate': gross_profit_rate,
+                })
+            total_net_revenue = sum(item['net_revenue'] for item in data)
+            params = []
+            for item in data:
+                query += """(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"""
+                if item != data[-1]:
+                    query += """, """
+                net_revenue_rate = item['net_revenue'] / total_net_revenue if total_net_revenue != 0 else 0
+                selling_expense = net_revenue_rate * self.total_selling_expense
+                selling_expense_rate = selling_expense / item['net_revenue'] if item['net_revenue'] != 0 else 0
+                management_cost = net_revenue_rate * self.total_management_cost
+                management_cost_rate = management_cost / item['net_revenue'] if item['net_revenue'] != 0 else 0
+                profit_untaxed = item['net_revenue'] - selling_expense - management_cost
+                profit_rate = profit_untaxed / item['turnover'] if item['turnover'] != 0 else 0
+                params += [self._uid, self._uid, datetime.now(), datetime.now(), self.id,
+                           item['user_id'], item['qty'], item['turnover'], item['discount'], item['refund'],
                            item['discount_rate'] * 100, item['net_revenue'], item['cost'], item['gross_profit'],
                            item['gross_profit_rate'] * 100, net_revenue_rate * 100, selling_expense, selling_expense_rate * 100,
                            management_cost, management_cost_rate * 100, profit_untaxed, profit_rate * 100]
@@ -294,12 +399,22 @@ class TMGProfitLossReport(models.TransientModel):
             if group_params:
                 cr.execute(group_query, group_params)
 
+    @api.multi
+    def export_excel(self):
+        if self.type == 'product':
+            return self.env.ref('ace_tmg.tmg_profit_loss_product_template_py3o').report_action(self)
+        if self.type == 'salesperson':
+            return self.env.ref('ace_tmg.tmg_profit_loss_user_template_py3o').report_action(self)
+        else:
+            return self.env.ref('ace_tmg.tmg_profit_loss_customer_template_py3o').report_action(self)
+
 
 class TMGProfitLossLine(models.TransientModel):
     _name = 'tmg.profit.loss.line'
 
     report_id = fields.Many2one('tmg.profit.loss.report')
     partner_id = fields.Many2one('res.partner', string='Khách hàng')
+    user_id = fields.Many2one('res.users', string='Nhân viên kinh doanh')
     product_id = fields.Many2one('product.product', string='Sản phẩm')
     uom_id = fields.Many2one('uom.uom', related='product_id.uom_id', string='ĐVT')
     qty = fields.Float('Số lượng')

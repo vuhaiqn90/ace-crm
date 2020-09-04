@@ -104,6 +104,45 @@
       <field name="binding_type">report</field>
     </record>
 
+    <record id="tmg_profit_loss_product_template_py3o" model="ir.actions.report">
+      <field name="name">Lãi lỗ theo sản phẩm</field>
+      <field name="type">ir.actions.report</field>
+      <field name="model">tmg.profit.loss.report</field>
+      <field name="report_name">tmg_profit_loss_product_template</field>
+      <field name="report_type">py3o</field>
+      <field name="py3o_filetype">ods</field>
+      <field name="module">ace_tmg</field>
+      <field name="py3o_template_fallback">reports/files/BAOCAOLAILOTHEOSP.ods</field>
+      <field name="binding_model_id" eval="False"/>
+      <field name="binding_type">report</field>
+    </record>
+
+    <record id="tmg_profit_loss_customer_template_py3o" model="ir.actions.report">
+      <field name="name">Lãi lỗ theo khách hàng</field>
+      <field name="type">ir.actions.report</field>
+      <field name="model">tmg.profit.loss.report</field>
+      <field name="report_name">tmg_profit_loss_customer_template</field>
+      <field name="report_type">py3o</field>
+      <field name="py3o_filetype">ods</field>
+      <field name="module">ace_tmg</field>
+      <field name="py3o_template_fallback">reports/files/BAOCAOLAILOTHEOKH.ods</field>
+      <field name="binding_model_id" eval="False"/>
+      <field name="binding_type">report</field>
+    </record>
+
+    <record id="tmg_profit_loss_user_template_py3o" model="ir.actions.report">
+      <field name="name">Lãi lỗ theo nhân viên</field>
+      <field name="type">ir.actions.report</field>
+      <field name="model">tmg.profit.loss.report</field>
+      <field name="report_name">tmg_profit_loss_user_template</field>
+      <field name="report_type">py3o</field>
+      <field name="py3o_filetype">ods</field>
+      <field name="module">ace_tmg</field>
+      <field name="py3o_template_fallback">reports/files/BAOCAOLAILOTHEONV.ods</field>
+      <field name="binding_model_id" eval="False"/>
+      <field name="binding_type">report</field>
+    </record>
+
     <report
         id="tmg_action_report_saleorder"
         string="Báo Giá / Đơn Hàng (TMG)"
