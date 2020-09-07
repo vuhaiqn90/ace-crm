@@ -39,7 +39,7 @@ class SaleOrder(models.Model):
             total = 0
             if orders:
                 sql = """
-                    SELECT so.partner_id, SUM(sol.price_total) AS total
+                    SELECT so.partner_id, COALESCE(SUM(sol.price_total), 0) AS total
                     FROM sale_order_line sol 
                         JOIN sale_order so ON so.id = sol.order_id
                         JOIN account_analytic_tag_sale_order_line_rel rel ON rel.sale_order_line_id = sol.id
