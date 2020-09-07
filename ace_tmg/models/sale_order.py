@@ -48,9 +48,9 @@ class SaleOrder(models.Model):
                     GROUP BY so.partner_id
                 """ % (orders,)
                 cr.execute(sql)
-                total = cr.dictfetchone()
-                if total:
-                    total = total['total']
+                res = cr.dictfetchone()
+                if res:
+                    total = res['total']
             available_limit = partner.alcohol_norms - total
             if total > partner.alcohol_norms:
                 msg = 'Your available alcohol norms' \
