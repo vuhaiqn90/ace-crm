@@ -34,19 +34,23 @@ class SaleOrder(models.Model):
                 ('date_order', '>=', date_from),
                 ('date_order', '<=', date_to),
             ])
-            orders = order_ids and len(order_ids) > 1 and "AND so.id IN {}".format(tuple(order_ids.ids)) or \
-                     "AND so.id = {}".format(order_ids[0].id)
-            sql = """
-                SELECT so.partner_id, SUM(sol.price_total) AS total
-                FROM sale_order_line sol 
-                    JOIN sale_order so ON so.id = sol.order_id
-                    JOIN account_analytic_tag_sale_order_line_rel rel ON rel.sale_order_line_id = sol.id
-                    JOIN account_analytic_tag aat ON aat.id = rel.account_analytic_tag_id AND aat.name = 'Rượu thử'
-                WHERE 1=1 %s
-                GROUP BY so.partner_id
-            """ % (orders,)
-            cr.execute(sql)
-            total = cr.dictfetchone()['total']
+            orders = order_ids and (len(order_ids) > 1 and "AND so.id IN {}".format(tuple(order_ids.ids)) or
+                     "AND so.id = {}".format(order_ids[0].id)) or ''
+            total = 0
+            if orders:
+                sql = """
+                    SELECT so.partner_id, SUM(sol.price_total) AS total
+                    FROM sale_order_line sol 
+                        JOIN sale_order so ON so.id = sol.order_id
+                        JOIN account_analytic_tag_sale_order_line_rel rel ON rel.sale_order_line_id = sol.id
+                        JOIN account_analytic_tag aat ON aat.id = rel.account_analytic_tag_id AND aat.name = 'Rượu thử'
+                    WHERE 1=1 %s
+                    GROUP BY so.partner_id
+                """ % (orders,)
+                cr.execute(sql)
+                total = cr.dictfetchone()
+                if total:
+                    total = total['total']
             available_limit = partner.alcohol_norms - total
             if total > partner.alcohol_norms:
                 msg = 'Your available alcohol norms' \
