@@ -53,7 +53,7 @@
                         <t t-if="o.partner_id.street2"><span t-esc="o.partner_id.street2" />,</t>
                         <t t-if="o.partner_id.city" ><span t-esc="o.partner_id.city" />,</t>
                         <t t-if="o.partner_id.state_id" t-esc="o.partner_id.state_id.name" /></t></p>
-                    <p style="margin-bottom: 0; padding-left: 15px">Lý do chi: <span t-field="o.communication"/></p>
+                    <p style="margin-bottom: 0; padding-left: 15px">Lý do chi: <span t-esc="'%s%s' % (o.communication and o.communication + ' - ' or '', o.notes)"/></p>
                     <p style="margin-bottom: 0; padding-left: 15px">Số tiền: <t t-esc="o.convert_type(o.amount)"/><span style="margin-left: 80px;">(Viết bằng chữ): <t t-esc="o.convert_vnd(o.amount)"/></span></p>
                     <p style="margin-bottom: 0; padding-left: 15px">Kèm theo: <span t-field="o.attached"/> <span style="display: inline-block; margin-left: 200px;">Chứng từ gốc: <span t-field="o.origin"/></span></p>
                 </div>
